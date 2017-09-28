@@ -13,6 +13,7 @@
     }
   ],
   "require": {
+    "illuminate/support": "~5.5"
   },
   "prefer-stable": true
 }
