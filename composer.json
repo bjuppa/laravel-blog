@@ -15,5 +15,15 @@
   "require": {
     "illuminate/support": "~5.5"
   },
+  "autoload": {
+    "psr-4": {
+      "Bjuppa\\LaravelBlog\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Bjuppa\\LaravelBlog\\Tests\\": "tests/"
+    }
+  },
   "prefer-stable": true
 }
