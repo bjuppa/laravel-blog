@@ -25,5 +25,14 @@
       "Bjuppa\\LaravelBlog\\Tests\\": "tests/"
     }
   },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Bjuppa\\LaravelBlog\\BlogServiceProvider"
+      ],
+      "aliases": {
+      }
+    }
+  },
   "prefer-stable": true
 }
