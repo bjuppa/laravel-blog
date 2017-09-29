@@ -15,6 +15,9 @@
   "require": {
     "illuminate/support": "~5.5"
   },
+  "require-dev": {
+    "orchestra/testbench": "~3.5"
+  },
   "autoload": {
     "psr-4": {
       "Bjuppa\\LaravelBlog\\": "src/"
