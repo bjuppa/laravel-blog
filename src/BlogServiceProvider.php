@@ -2,6 +2,7 @@
 
 namespace Bjuppa\LaravelBlog;
 
+use Bjuppa\LaravelBlog\Contracts\BlogRegistry as BlogRegistryContract;
 use Illuminate\Support\ServiceProvider;
 
 class BlogServiceProvider extends ServiceProvider
@@ -13,7 +14,7 @@ class BlogServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton(BlogRegistryContract::class, BlogRegistry::class);
     }
 
     /**
