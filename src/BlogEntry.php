@@ -3,8 +3,9 @@
 namespace Bjuppa\LaravelBlog;
 
 use Bjuppa\LaravelBlog\Contracts\BlogEntry as BlogEntryContract;
+use Illuminate\Database\Eloquent\Model;
 
-class BlogEntry implements BlogEntryContract
+class BlogEntry extends Model implements BlogEntryContract
 {
 
 }
