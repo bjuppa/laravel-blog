@@ -28,6 +28,7 @@ class BlogServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->registerMigrations();
+            //TODO: publish views
         }
     }
 
