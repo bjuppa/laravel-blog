@@ -26,6 +26,24 @@ class BlogServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        if ($this->app->runningInConsole()) {
+            $this->registerMigrations();
+        }
+    }
+
+    /**
+     * Register migration files.
+     *
+     * @return void
+     */
+    protected function registerMigrations()
+    {
+        if (true) { //TODO: only load migrations if any blog is set to use the default BlogEntry class
+            return $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+        }
+
+        $this->publishes([
+            __DIR__ . '/../database/migrations' => database_path('migrations'),
+        ], 'bjuppa-blog-migrations');
     }
 }
