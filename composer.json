@@ -5,6 +5,7 @@
     "laravel",
     "blog"
   ],
+  "homepage": "https://github.com/bjuppa/laravel-blog",
   "license": "MIT",
   "authors": [
     {
