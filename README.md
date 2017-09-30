@@ -29,7 +29,7 @@ PS: I don't yet have a blog where I can write about development (duh) so
 **stay tuned for the first release!**
 
 ## Package development & testing
-`vendor/bin/phpunit` from the project directory will run the default test suite.
+`composer test` from the project directory will run the default test suite.
 
 If you want your own local configuration for phpunit,
 copy the file `phpunit.xml.dist` to `phpunit.xml` and modify the latter to your needs.
