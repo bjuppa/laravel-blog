@@ -6,6 +6,8 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateBlogEntriesTable extends Migration
 {
+    //TODO: pull the table name from config() in the constructor
+
     /**
      * Run the migrations.
      *
