@@ -1,6 +1,6 @@
 <?php
 
-namespace Bjuppa\LaravelBlog;
+namespace Bjuppa\LaravelBlog\Eloquent;
 
 use Bjuppa\LaravelBlog\Contracts\BlogEntry as BlogEntryContract;
 use Illuminate\Database\Eloquent\Model as Eloquent;
