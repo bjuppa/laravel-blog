@@ -42,9 +42,7 @@ class BlogServiceProvider extends ServiceProvider
      */
     protected function configure()
     {
-        $this->mergeConfigFrom(
-            __DIR__ . '/../config/blog.php', 'blog'
-        );
+        $this->mergeConfigFrom(__DIR__ . '/../config/blog.php', 'blog');
     }
 
     /**
@@ -89,6 +87,6 @@ class BlogServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__ . '/../resources/views' => resource_path('views/vendor/blog'),
-        ]);
+        ], 'views');
     }
 }
