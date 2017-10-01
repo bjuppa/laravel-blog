@@ -28,7 +28,7 @@ class BlogServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->registerMigrations();
-            //TODO: publish views
+            $this->offerPublishing();
         }
     }
 
@@ -45,9 +45,23 @@ class BlogServiceProvider extends ServiceProvider
             // Perhaps we can add this as a closure to the BlogRegistry here and have it execute later at the time when the blogs' routes are published?
             return $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
         }
+    }
+
+    /**
+     * Setup the resource publishing groups.
+     *
+     * @return void
+     */
+    protected function offerPublishing()
+    {
+        $this->publishes([
+            __DIR__ . '/../config/blog.php' => config_path('blog.php'),
+        ], 'config');
 
         $this->publishes([
             __DIR__ . '/../database/migrations' => database_path('migrations'),
         ], 'migrations');
+
+        //TODO: publish views
     }
 }
