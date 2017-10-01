@@ -48,6 +48,6 @@ class BlogServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__ . '/../database/migrations' => database_path('migrations'),
-        ], 'bjuppa-blog-migrations');
+        ], 'migrations');
     }
 }
