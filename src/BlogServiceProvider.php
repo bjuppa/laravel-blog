@@ -27,6 +27,8 @@ class BlogServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->registerResources();
+
         if ($this->app->runningInConsole()) {
             $this->registerMigrations();
             $this->offerPublishing();
@@ -43,6 +45,16 @@ class BlogServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(
             __DIR__ . '/../config/blog.php', 'blog'
         );
+    }
+
+    /**
+     * Register the resources.
+     *
+     * @return void
+     */
+    protected function registerResources()
+    {
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'blog');
     }
 
     /**
@@ -75,6 +87,8 @@ class BlogServiceProvider extends ServiceProvider
             __DIR__ . '/../database/migrations' => database_path('migrations'),
         ], 'migrations');
 
-        //TODO: publish views
+        $this->publishes([
+            __DIR__ . '/../resources/views' => resource_path('views/vendor/blog'),
+        ]);
     }
 }
