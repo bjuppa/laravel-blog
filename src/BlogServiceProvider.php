@@ -15,6 +15,7 @@ class BlogServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->configure();
         $this->app->singleton(BlogRegistryContract::class, BlogRegistry::class);
         $this->app->bind(BlogContract::class, Blog::class);
     }
@@ -30,6 +31,18 @@ class BlogServiceProvider extends ServiceProvider
             $this->registerMigrations();
             $this->offerPublishing();
         }
+    }
+
+    /**
+     * Setup the configuration.
+     *
+     * @return void
+     */
+    protected function configure()
+    {
+        $this->mergeConfigFrom(
+            __DIR__ . '/../config/blog.php', 'blog'
+        );
     }
 
     /**
