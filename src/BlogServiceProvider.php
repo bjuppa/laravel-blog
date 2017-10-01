@@ -45,5 +45,9 @@ class BlogServiceProvider extends ServiceProvider
             // Perhaps we can add this as a closure to the BlogRegistry here and have it execute later at the time when the blogs' routes are published?
             return $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
         }
+
+        $this->publishes([
+            __DIR__ . '/../database/migrations' => database_path('migrations'),
+        ], 'migrations');
     }
 }
