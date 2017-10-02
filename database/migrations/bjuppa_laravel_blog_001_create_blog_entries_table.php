@@ -6,7 +6,19 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateBlogEntriesTable extends Migration
 {
-    //TODO: pull the table name from config() in the constructor
+    /**
+     * @var string name of the Eloquent blog entry model table
+     */
+    private $model_table_name;
+
+    /**
+     * CreateBlogEntriesTable constructor.
+     */
+    public function __construct()
+    {
+        $this->model_table_name = (new \Bjuppa\LaravelBlog\Eloquent\BlogEntry())->getTable();
+    }
+
 
     /**
      * Run the migrations.
@@ -15,7 +27,7 @@ class CreateBlogEntriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('blog_entries', function (Blueprint $table) {
+        Schema::create($this->model_table_name, function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
         });
@@ -28,6 +40,6 @@ class CreateBlogEntriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('blog_entries');
+        Schema::dropIfExists($this->model_table_name);
     }
 }
