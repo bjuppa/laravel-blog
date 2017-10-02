@@ -68,6 +68,8 @@ class BlogServiceProvider extends ServiceProvider
             // Perhaps we can add this as a closure to the BlogRegistry here and have it execute later at the time when the blogs' routes are published?
             //TODO: The loaded migrations takes precedence over published migrations - so published migrations are never run
             // Is there a way to not load an individual migration if it already exists in the app's migrations folder?
+            // Laravel Passport handles this using a static config on a class:
+            // https://github.com/laravel/passport/blob/44209f4119fefa65bf17c885881918eb95fd1131/src/PassportServiceProvider.php#L62
             $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
         }
     }
@@ -83,6 +85,7 @@ class BlogServiceProvider extends ServiceProvider
             __DIR__ . '/../config/blog.php' => config_path('blog.php'),
         ], 'config');
 
+        //TODO: perhaps we shouldn't publish the migrations at all?
         $this->publishes([
             __DIR__ . '/../database/migrations' => database_path('migrations'),
         ], 'migrations');
