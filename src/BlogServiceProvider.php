@@ -85,13 +85,13 @@ class BlogServiceProvider extends ServiceProvider
             __DIR__ . '/../config/blog.php' => config_path('blog.php'),
         ], 'config');
 
+        $this->publishes([
+            __DIR__ . '/../resources/views' => resource_path('views/vendor/blog'),
+        ], 'views');
+
         //TODO: perhaps we shouldn't publish the migrations at all?
         $this->publishes([
             __DIR__ . '/../database/migrations' => database_path('migrations'),
         ], 'migrations');
-
-        $this->publishes([
-            __DIR__ . '/../resources/views' => resource_path('views/vendor/blog'),
-        ], 'views');
     }
 }
