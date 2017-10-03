@@ -2,9 +2,9 @@
 
 namespace Bjuppa\LaravelBlog\Eloquent;
 
-use Bjuppa\LaravelBlog\Contracts\BlogEntryProvider as BlogEntryRepositoryContract;
+use Bjuppa\LaravelBlog\Contracts\BlogEntryProvider as BlogEntryProviderContract;
 
-class BlogEntryProvider implements BlogEntryRepositoryContract
+class BlogEntryProvider implements BlogEntryProviderContract
 {
 
 }
