@@ -2,11 +2,10 @@
 
 return [
     'blogs' => [
-        [
-            'id' => 'default',
+        'default' => [
             'public_path' => 'blog',
             'entry_provider' => \Bjuppa\LaravelBlog\Eloquent\BlogEntryProvider::class,
-        ]
+        ],
     ],
 
     /*
