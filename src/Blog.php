@@ -30,11 +30,13 @@ class Blog implements BlogContract
      * Blog constructor.
      *
      * @param string $id
+     * @param BlogEntryProvider $provider
      * @param iterable $configuration
      */
-    public function __construct(string $id, iterable $configuration = [])
+    public function __construct(string $id, BlogEntryProvider $provider, iterable $configuration = [])
     {
         $this->id = $id;
+        $this->withEntryProvider($provider);
         $this->configure($configuration);
     }
 
@@ -104,6 +106,8 @@ class Blog implements BlogContract
     public function withEntryProvider($provider): BlogContract
     {
         if (is_string($provider)) {
+            // It feels a bit weird to resolve from the container here,
+            // but it's for the convenience of config with strings
             $provider = app($provider);
         }
 

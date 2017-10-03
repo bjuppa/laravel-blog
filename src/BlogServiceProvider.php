@@ -3,7 +3,9 @@
 namespace Bjuppa\LaravelBlog;
 
 use Bjuppa\LaravelBlog\Contracts\Blog as BlogContract;
+use Bjuppa\LaravelBlog\Contracts\BlogEntryProvider as BlogEntryProviderContract;
 use Bjuppa\LaravelBlog\Contracts\BlogRegistry as BlogRegistryContract;
+use Bjuppa\LaravelBlog\Eloquent\BlogEntryProvider;
 use Illuminate\Support\ServiceProvider;
 
 class BlogServiceProvider extends ServiceProvider
@@ -16,8 +18,12 @@ class BlogServiceProvider extends ServiceProvider
     public function register()
     {
         $this->configure();
-        $this->app->singleton(BlogRegistryContract::class, BlogRegistry::class);
-        $this->app->bind(BlogContract::class, Blog::class);
+        $this->app->singleton(BlogRegistryContract::class,
+            config('blog.implementations.registry', BlogRegistry::class));
+        $this->app->bind(BlogContract::class,
+            config('blog.implementations.blog', Blog::class));
+        $this->app->bind(BlogEntryProviderContract::class,
+            config('blog.implementations.entry_provider', BlogEntryProvider::class));
     }
 
     /**

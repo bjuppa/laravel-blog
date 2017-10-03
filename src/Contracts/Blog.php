@@ -8,9 +8,10 @@ interface Blog
      * Blog constructor.
      *
      * @param string $id
+     * @param BlogEntryProvider $provider
      * @param iterable $configuration
      */
-    public function __construct(string $id, iterable $configuration = []);
+    public function __construct(string $id, BlogEntryProvider $provider, iterable $configuration = []);
 
     /**
      * Set configuration values on the blog
