@@ -16,10 +16,10 @@ interface BlogRegistry
     /**
      * Add a single blog and configure it
      *
-     * @param string $id
+     * @param string $blog_id
      * @param iterable $configuration
      * @return $this
      */
-    public function configureSingleBlog(string $id, iterable $configuration): BlogRegistry;
+    public function configureSingleBlog(string $blog_id, iterable $configuration): BlogRegistry;
 
 }

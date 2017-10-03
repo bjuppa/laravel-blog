@@ -23,12 +23,12 @@ class BlogServiceProvider extends ServiceProvider
     /**
      * Bootstrap any application services.
      *
-     * @param BlogRegistryContract $registry
+     * @param BlogRegistryContract $blog_registry
      * @return void
      */
-    public function boot(BlogRegistryContract $registry)
+    public function boot(BlogRegistryContract $blog_registry)
     {
-        $registry->configureMultipleBlogs(config('blog.blogs'));
+        $blog_registry->configureMultipleBlogs(config('blog.blogs'));
 
         $this->registerResources();
 

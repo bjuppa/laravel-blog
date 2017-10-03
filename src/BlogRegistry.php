@@ -2,6 +2,7 @@
 
 namespace Bjuppa\LaravelBlog;
 
+use Bjuppa\LaravelBlog\Contracts\Blog;
 use Bjuppa\LaravelBlog\Contracts\BlogRegistry as BlogRegistryContract;
 use Illuminate\Support\Collection;
 
@@ -30,7 +31,7 @@ class BlogRegistry implements BlogRegistryContract
     public function configureMultipleBlogs(iterable $configurations): BlogRegistryContract
     {
         foreach ($configurations as $id => $configuration) {
-            $this->configureSingleBlog($id, $configurations);
+            $this->configureSingleBlog($id, $configuration);
         }
 
         return $this;
@@ -39,15 +40,51 @@ class BlogRegistry implements BlogRegistryContract
     /**
      * Add a single blog and configure it
      *
-     * @param string $id
+     * @param string $blog_id
      * @param iterable $configuration
      * @return $this
      */
-    public function configureSingleBlog(string $id, iterable $configuration): BlogRegistryContract
+    public function configureSingleBlog(string $blog_id, iterable $configuration): BlogRegistryContract
     {
-        // TODO: create new Blog
-        // TODO: set configuration values on the new Blog
+        $this->getOrNew($blog_id)->configure($configuration);
 
         return $this;
+    }
+
+    /**
+     * Add a new blog if not existing
+     *
+     * @param string $blog_id
+     * @return Blog
+     */
+    protected function getOrNew(string $blog_id): Blog
+    {
+        if (!$this->has($blog_id)) {
+            $this->blogs->put($blog_id, app(Blog::class, ['id' => $blog_id]));
+        }
+
+        return $this->get($blog_id);
+    }
+
+    /**
+     * Get a blog from this repository
+     *
+     * @param string $blog_id
+     * @return Blog|null
+     */
+    public function get(string $blog_id): ?Blog
+    {
+        return $this->blogs->get($blog_id);
+    }
+
+    /**
+     * Check if a blog exists in this repository
+     *
+     * @param string $blog_id
+     * @return bool
+     */
+    public function has(string $blog_id): bool
+    {
+        return $this->blogs->has($blog_id);
     }
 }
