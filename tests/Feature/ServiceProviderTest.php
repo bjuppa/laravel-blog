@@ -22,7 +22,9 @@ class ServiceProviderTest extends IntegrationTest
 
     public function test_default_blog_is_configured()
     {
-        $this->assertEquals(config('blog.blogs.default.public_path'),
-            $this->app->make(BlogRegistryContract::class)->get('default')->getPublicPath());
+        $default_registered_blog = $this->app->make(BlogRegistryContract::class)->get('default');
+
+        $this->assertEquals(config('blog.blogs.default.public_path'), $default_registered_blog->getPublicPath());
+        $this->assertInstanceOf(config('blog.blogs.default.entry_provider'), $default_registered_blog->getEntryProvider());
     }
 }

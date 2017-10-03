@@ -2,7 +2,6 @@
 
 namespace Bjuppa\LaravelBlog\Contracts;
 
-
 interface Blog
 {
     /**
@@ -27,7 +26,7 @@ interface Blog
      * @param string $path
      * @return $this
      */
-    public function withPublicPath(string $path);
+    public function withPublicPath(string $path): Blog;
 
     /**
      * Get the path part of the url to the blog
@@ -42,4 +41,10 @@ interface Blog
      * @return string
      */
     public function getId(): string;
+
+    /**
+     * Get the blog's entry provider instance
+     * @return BlogEntryProvider
+     */
+    public function getEntryProvider(): BlogEntryProvider;
 }

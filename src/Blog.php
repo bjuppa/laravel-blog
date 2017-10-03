@@ -3,6 +3,8 @@
 namespace Bjuppa\LaravelBlog;
 
 use Bjuppa\LaravelBlog\Contracts\Blog as BlogContract;
+use Bjuppa\LaravelBlog\Contracts\BlogEntryProvider;
+use Bjuppa\LaravelBlog\Exceptions\InvalidConfiguration;
 
 class Blog implements BlogContract
 {
@@ -17,6 +19,12 @@ class Blog implements BlogContract
      * @var string
      */
     protected $public_path = 'blog';
+
+    /**
+     * Instance of a blog entry provider to pull blog entries from
+     * @var BlogEntryProvider
+     */
+    protected $entry_provider;
 
     /**
      * Blog constructor.
@@ -59,7 +67,7 @@ class Blog implements BlogContract
      * @param string $path
      * @return $this
      */
-    public function withPublicPath(string $path)
+    public function withPublicPath(string $path): BlogContract
     {
         $this->public_path = $path;
 
@@ -84,5 +92,34 @@ class Blog implements BlogContract
     public function getId(): string
     {
         return $this->id;
+    }
+
+    /**
+     * Set the entry provider instance
+     *
+     * @param string|BlogEntryProvider $provider
+     * @return $this
+     * @throws \Bjuppa\LaravelBlog\Exceptions\InvalidConfiguration
+     */
+    public function withEntryProvider($provider): BlogContract
+    {
+        if (is_string($provider)) {
+            $provider = app($provider);
+        }
+
+        InvalidConfiguration::throwIfInterfaceNotImplemented(BlogEntryProvider::class, $provider);
+
+        $this->entry_provider = $provider;
+
+        return $this;
+    }
+
+    /**
+     * Get the blog's entry provider instance
+     * @return BlogEntryProvider
+     */
+    public function getEntryProvider(): BlogEntryProvider
+    {
+        return $this->entry_provider;
     }
 }
