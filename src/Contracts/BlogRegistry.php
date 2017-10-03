@@ -20,6 +20,6 @@ interface BlogRegistry
      * @param iterable $configuration
      * @return $this
      */
-    public function configureSingleBlog(string $blog_id, iterable $configuration): BlogRegistry;
+    public function configureBlog(string $blog_id, iterable $configuration): BlogRegistry;
 
 }

@@ -31,7 +31,7 @@ class BlogRegistry implements BlogRegistryContract
     public function configureMultipleBlogs(iterable $configurations): BlogRegistryContract
     {
         foreach ($configurations as $id => $configuration) {
-            $this->configureSingleBlog($id, $configuration);
+            $this->configureBlog($id, $configuration);
         }
 
         return $this;
@@ -44,7 +44,7 @@ class BlogRegistry implements BlogRegistryContract
      * @param iterable $configuration
      * @return $this
      */
-    public function configureSingleBlog(string $blog_id, iterable $configuration): BlogRegistryContract
+    public function configureBlog(string $blog_id, iterable $configuration): BlogRegistryContract
     {
         $this->getOrNew($blog_id)->configure($configuration);
 
