@@ -29,11 +29,11 @@ class Blog implements BlogContract
     /**
      * Blog constructor.
      *
-     * @param string $id
      * @param BlogEntryProvider $provider
+     * @param string $id
      * @param iterable $configuration
      */
-    public function __construct(string $id, BlogEntryProvider $provider, iterable $configuration = [])
+    public function __construct(BlogEntryProvider $provider, string $id, iterable $configuration = [])
     {
         $this->id = $id;
         $this->withEntryProvider($provider);

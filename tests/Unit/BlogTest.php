@@ -10,14 +10,14 @@ class BlogTest extends UnitTest
 {
     public function test_entry_provider_can_be_set_as_string()
     {
-        $blog = new Blog('test', new BlogEntryProvider());
+        $blog = new Blog(new BlogEntryProvider(), 'test');
 
         $blog->withEntryProvider(BlogEntryProvider::class);
     }
 
     public function test_entry_provider_can_be_set_as_instance()
     {
-        $blog = new Blog('test', new BlogEntryProvider());
+        $blog = new Blog(new BlogEntryProvider(), 'test');
 
         $blog->withEntryProvider(new BlogEntryProvider());
     }
