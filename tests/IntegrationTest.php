@@ -2,6 +2,7 @@
 
 namespace Bjuppa\LaravelBlog\Tests;
 
+use Bjuppa\LaravelBlog\Database\Seeds\DefaultBlogEntrySeeder;
 use Orchestra\Testbench\TestCase;
 
 abstract class IntegrationTest extends TestCase
@@ -64,5 +65,14 @@ abstract class IntegrationTest extends TestCase
         $this->beforeApplicationDestroyed(function () {
             $this->artisan('migrate:rollback');
         });
+    }
+
+    /**
+     * Put the default blog entry into the database
+     */
+    protected function seedDefaultBlogEntry()
+    {
+        $options['--class'] = DefaultBlogEntrySeeder::class;
+        $this->artisan('db:seed', $options);
     }
 }

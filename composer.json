@@ -23,7 +23,8 @@
   },
   "autoload": {
     "psr-4": {
-      "Bjuppa\\LaravelBlog\\": "src/"
+      "Bjuppa\\LaravelBlog\\": "src/",
+      "Bjuppa\\LaravelBlog\\Database\\Seeds\\": "database/seeds/"
     }
   },
   "autoload-dev": {

@@ -10,8 +10,6 @@ use Bjuppa\LaravelBlog\Tests\IntegrationTest;
 
 class ServiceProviderTest extends IntegrationTest
 {
-    // TODO: clear out tests that are implicitly working through other tests
-
     public function test_blog_registry_contract_can_be_resolved()
     {
         $this->assertInstanceOf(BlogRegistry::class, $this->app->make(BlogRegistryContract::class));
