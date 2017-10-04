@@ -2,16 +2,18 @@
 
 namespace Bjuppa\LaravelBlog\Contracts;
 
+use Illuminate\Contracts\Container\Container;
+
 interface Blog
 {
     /**
      * Blog constructor.
      *
-     * @param BlogEntryProvider $provider
-     * @param string $id
+     * @param Container $app
+     * @param string $blog_id
      * @param iterable $configuration
      */
-    public function __construct(BlogEntryProvider $provider, string $id, iterable $configuration = []);
+    public function __construct(Container $app, string $blog_id, iterable $configuration = []);
 
     /**
      * Set configuration values on the blog

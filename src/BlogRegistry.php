@@ -69,7 +69,7 @@ class BlogRegistry implements BlogRegistryContract
     protected function getOrNew(string $blog_id): Blog
     {
         if (!$this->has($blog_id)) {
-            $this->blogs->put($blog_id, $this->app->make(Blog::class, ['id' => $blog_id]));
+            $this->blogs->put($blog_id, $this->app->make(Blog::class, ['blog_id' => $blog_id]));
         }
 
         return $this->get($blog_id);

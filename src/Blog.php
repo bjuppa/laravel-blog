@@ -5,6 +5,7 @@ namespace Bjuppa\LaravelBlog;
 use Bjuppa\LaravelBlog\Contracts\Blog as BlogContract;
 use Bjuppa\LaravelBlog\Contracts\BlogEntryProvider;
 use Bjuppa\LaravelBlog\Exceptions\InvalidConfiguration;
+use Illuminate\Contracts\Container\Container;
 
 class Blog implements BlogContract
 {
@@ -27,17 +28,31 @@ class Blog implements BlogContract
     protected $entry_provider;
 
     /**
+     * The service container for resolving class instances
+     * @var Container
+     */
+    protected $app;
+
+    /**
      * Blog constructor.
      *
-     * @param BlogEntryProvider $provider
-     * @param string $id
+     * @param Container $app
+     * @param string $blog_id
      * @param iterable $configuration
+     * @throws \Bjuppa\LaravelBlog\Exceptions\InvalidConfiguration
      */
-    public function __construct(BlogEntryProvider $provider, string $id, iterable $configuration = [])
+    public function __construct(Container $app, string $blog_id, iterable $configuration = [])
     {
-        $this->id = $id;
-        $this->withEntryProvider($provider);
+        $this->app = $app;
+        $this->id = $blog_id;
+
         $this->configure($configuration);
+
+        // Resolve a default entry provider
+        if (empty($this->entry_provider)) {
+            $this->withEntryProvider($this->app->make(BlogEntryProvider::class));
+        }
+
     }
 
     /**
@@ -106,9 +121,7 @@ class Blog implements BlogContract
     public function withEntryProvider($provider): BlogContract
     {
         if (is_string($provider)) {
-            // It feels a bit weird to resolve from the container here,
-            // but it's for the convenience of config with strings
-            $provider = app($provider);
+            $provider = $this->app->make($provider);
         }
 
         InvalidConfiguration::throwIfInterfaceNotImplemented(BlogEntryProvider::class, $provider);
