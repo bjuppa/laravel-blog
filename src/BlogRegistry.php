@@ -4,6 +4,7 @@ namespace Bjuppa\LaravelBlog;
 
 use Bjuppa\LaravelBlog\Contracts\Blog;
 use Bjuppa\LaravelBlog\Contracts\BlogRegistry as BlogRegistryContract;
+use Illuminate\Contracts\Container\Container;
 use Illuminate\Support\Collection;
 
 class BlogRegistry implements BlogRegistryContract
@@ -15,10 +16,18 @@ class BlogRegistry implements BlogRegistryContract
     protected $blogs;
 
     /**
-     * BlogRegistry constructor.
+     * The service container for resolving class instances
+     * @var Container
      */
-    public function __construct()
+    protected $app;
+
+    /**
+     * BlogRegistry constructor.
+     * @param Container $app
+     */
+    public function __construct(Container $app)
     {
+        $this->app = $app;
         $this->blogs = new Collection();
     }
 
@@ -60,7 +69,7 @@ class BlogRegistry implements BlogRegistryContract
     protected function getOrNew(string $blog_id): Blog
     {
         if (!$this->has($blog_id)) {
-            $this->blogs->put($blog_id, app(Blog::class, ['id' => $blog_id]));
+            $this->blogs->put($blog_id, $this->app->make(Blog::class, ['id' => $blog_id]));
         }
 
         return $this->get($blog_id);
