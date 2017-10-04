@@ -2,7 +2,6 @@
 
 namespace Bjuppa\LaravelBlog\Tests\Feature;
 
-use Bjuppa\LaravelBlog\Contracts\BlogEntry;
 use Bjuppa\LaravelBlog\Tests\IntegrationTest;
 
 class DatabaseTest extends IntegrationTest
