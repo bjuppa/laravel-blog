@@ -7,9 +7,17 @@ use Illuminate\Database\Migrations\Migration;
 class CreateBlogEntriesTable extends Migration
 {
     /**
-     * @var string name of the Eloquent blog entry model table
+     * Name of the Eloquent blog entry model table
+     * @var string
      */
-    private $model_table_name;
+    protected $model_table_name;
+
+    /**
+     * The default blog identifier for new entries
+     * @var string
+     */
+    protected $default_blog_id;
+
 
     /**
      * CreateBlogEntriesTable constructor.
@@ -17,6 +25,14 @@ class CreateBlogEntriesTable extends Migration
     public function __construct()
     {
         $this->model_table_name = (new \Bjuppa\LaravelBlog\Eloquent\BlogEntry())->getTable();
+
+        $this->default_blog_id = 'default';
+        // Take the first blog id from the config if available
+        $blogs = config('blog.blogs');
+        if (is_array($blogs)) {
+            reset($blogs);
+            $this->default_blog_id = key($blogs);
+        }
     }
 
 
@@ -29,7 +45,10 @@ class CreateBlogEntriesTable extends Migration
     {
         Schema::create($this->model_table_name, function (Blueprint $table) {
             $table->increments('id');
+            $table->string('blog')->default($this->default_blog_id);
             $table->timestamps();
+
+            $table->index('blog', 'blog');
         });
     }
 
