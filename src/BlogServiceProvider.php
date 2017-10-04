@@ -75,10 +75,6 @@ class BlogServiceProvider extends ServiceProvider
             //TODO: only load migrations if any blog is set to use the \Bjuppa\LaravelBlog\Eloquent\BlogEntry class
             // That may be tricky... when this service provider's boot method is run, we're not at a point yet where we know if any blog will use the default BlogEntry class...
             // Perhaps we can add this as a closure to the BlogRegistry here and have it execute later at the time when the blogs' routes are published?
-            //TODO: The loaded migrations takes precedence over published migrations - so published migrations are never run
-            // Is there a way to not load an individual migration if it already exists in the app's migrations folder?
-            // Laravel Passport handles this using a static config on a class:
-            // https://github.com/laravel/passport/blob/44209f4119fefa65bf17c885881918eb95fd1131/src/PassportServiceProvider.php#L62
             $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
         }
     }
@@ -97,10 +93,5 @@ class BlogServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../resources/views' => resource_path('views/vendor/blog'),
         ], 'views');
-
-        //TODO: perhaps we shouldn't publish the migrations at all?
-        $this->publishes([
-            __DIR__ . '/../database/migrations' => database_path('migrations'),
-        ], 'migrations');
     }
 }
