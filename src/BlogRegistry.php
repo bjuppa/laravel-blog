@@ -96,4 +96,13 @@ class BlogRegistry implements BlogRegistryContract
     {
         return $this->blogs->has($blog_id);
     }
+
+    /**
+     * Get the registered blogs
+     * @return Collection
+     */
+    public function all(): Collection
+    {
+        return $this->blogs;
+    }
 }

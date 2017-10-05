@@ -2,6 +2,7 @@
 
 namespace Bjuppa\LaravelBlog\Contracts;
 
+use Illuminate\Support\Collection;
 
 interface BlogRegistry
 {
@@ -22,4 +23,9 @@ interface BlogRegistry
      */
     public function configureBlog(string $blog_id, iterable $configuration): BlogRegistry;
 
+    /**
+     * Get the registered blogs
+     * @return Collection
+     */
+    public function all(): Collection;
 }

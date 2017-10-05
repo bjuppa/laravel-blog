@@ -36,6 +36,8 @@ class BlogServiceProvider extends ServiceProvider
     {
         $blog_registry->configureMultipleBlogs(config('blog.blogs'));
 
+        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
+
         $this->registerResources();
 
         if ($this->app->runningInConsole()) {
