@@ -28,12 +28,6 @@ class Blog implements BlogContract
     protected $entry_provider;
 
     /**
-     * The service container for resolving class instances
-     * @var Container
-     */
-    protected $app;
-
-    /**
      * Blog constructor.
      *
      * @param Container $app
@@ -41,16 +35,15 @@ class Blog implements BlogContract
      * @param iterable $configuration
      * @throws \Bjuppa\LaravelBlog\Exceptions\InvalidConfiguration
      */
-    public function __construct(Container $app, string $blog_id, iterable $configuration = [])
+    public function __construct(string $blog_id, iterable $configuration = [])
     {
-        $this->app = $app;
         $this->id = $blog_id;
 
         $this->configure($configuration);
 
         // Resolve a default entry provider
         if (empty($this->entry_provider)) {
-            $this->withEntryProvider($this->app->make(BlogEntryProvider::class));
+            $this->withEntryProvider(BlogEntryProvider::class);
         }
 
     }
@@ -121,7 +114,7 @@ class Blog implements BlogContract
     public function withEntryProvider($provider): BlogContract
     {
         if (is_string($provider)) {
-            $provider = $this->app->make($provider);
+            $provider = app()->make($provider);
         }
 
         InvalidConfiguration::throwIfInterfaceNotImplemented(BlogEntryProvider::class, $provider);

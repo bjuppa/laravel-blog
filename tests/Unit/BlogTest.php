@@ -16,7 +16,7 @@ class BlogTest extends UnitTest
     {
         $default_configuration = ['entry_provider' => BlogEntryProvider::class];
 
-        return new Blog(app(), $blog_id, array_merge($default_configuration, $configuration));
+        return new Blog($blog_id, array_merge($default_configuration, $configuration));
     }
 
     public function test_entry_provider_can_be_set_as_string()

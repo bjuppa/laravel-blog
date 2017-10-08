@@ -16,18 +16,11 @@ class BlogRegistry implements BlogRegistryContract
     protected $blogs;
 
     /**
-     * The service container for resolving class instances
-     * @var Container
-     */
-    protected $app;
-
-    /**
      * BlogRegistry constructor.
      * @param Container $app
      */
-    public function __construct(Container $app)
+    public function __construct()
     {
-        $this->app = $app;
         $this->blogs = new Collection();
     }
 
@@ -69,7 +62,7 @@ class BlogRegistry implements BlogRegistryContract
     protected function getOrNew(string $blog_id): Blog
     {
         if (!$this->has($blog_id)) {
-            $this->blogs->put($blog_id, $this->app->make(Blog::class, ['blog_id' => $blog_id]));
+            $this->blogs->put($blog_id, app()->make(Blog::class, ['blog_id' => $blog_id]));
         }
 
         return $this->get($blog_id);

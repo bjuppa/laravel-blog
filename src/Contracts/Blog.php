@@ -9,11 +9,10 @@ interface Blog
     /**
      * Blog constructor.
      *
-     * @param Container $app
      * @param string $blog_id
      * @param iterable $configuration
      */
-    public function __construct(Container $app, string $blog_id, iterable $configuration = []);
+    public function __construct(string $blog_id, iterable $configuration = []);
 
     /**
      * Set configuration values on the blog
