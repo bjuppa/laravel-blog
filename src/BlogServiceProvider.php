@@ -79,10 +79,10 @@ class BlogServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__ . '/../config/blog.php' => config_path('blog.php'),
-        ], 'config');
+        ], 'blog-config');
 
         $this->publishes([
             __DIR__ . '/../resources/views' => resource_path('views/vendor/blog'),
-        ], 'views');
+        ], 'blog-views');
     }
 }
