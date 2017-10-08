@@ -16,10 +16,14 @@ class BlogServiceProvider extends ServiceProvider
     public function register()
     {
         $this->configure();
+
         $this->app->singleton(BlogRegistryContract::class,
             config('blog.implementations.registry', BlogRegistry::class));
+
         $this->app->bind(BlogContract::class,
             config('blog.implementations.blog', Blog::class));
+        //TODO: when a Controller asks for a BlogContract, give it the current Blog
+
         $this->app->bind(BlogEntryProviderContract::class,
             config('blog.implementations.entry_provider', BlogEntryProvider::class));
     }
