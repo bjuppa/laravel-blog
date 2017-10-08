@@ -45,6 +45,13 @@ interface Blog
     public function getId(): string;
 
     /**
+     * Get the prefix for route names in this blog
+     *
+     * @return string
+     */
+    public function getRouteNamePrefix(): string;
+
+    /**
      * Get the blog's entry provider instance
      * @return BlogEntryProvider
      */

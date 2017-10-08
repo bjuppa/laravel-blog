@@ -132,4 +132,14 @@ class Blog implements BlogContract
     {
         return $this->entry_provider;
     }
+
+    /**
+     * Get the prefix for route names in this blog
+     *
+     * @return string
+     */
+    public function getRouteNamePrefix(): string
+    {
+        return 'blog.' . $this->getId() . '.';
+    }
 }
