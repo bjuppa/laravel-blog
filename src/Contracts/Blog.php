@@ -45,11 +45,12 @@ interface Blog
     public function getId(): string;
 
     /**
-     * Get the prefix for route names in this blog
+     * Prefix a route name for this blog
      *
+     * @param string $name If empty, only the prefix is returned
      * @return string
      */
-    public function getRouteNamePrefix(): string;
+    public function prefixRouteName(string $name = ''): string;
 
     /**
      * Get the blog's entry provider instance

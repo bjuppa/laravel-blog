@@ -7,10 +7,8 @@ Route::middleware('web')->namespace('Bjuppa\LaravelBlog\Http\Controllers')->grou
     $blog_registry = app()->make(BlogRegistry::class);
     $blog_registry->all()->each(function (Blog $blog) {
         Route::prefix($blog->getPublicPath())->group(function () use ($blog) {
-            Route::get('/', 'ListEntriesController@showIndex')->name($blog->getRouteNamePrefix());
-            Route::get('{slug}', 'ShowEntryController')->name($blog->getEntryRouteName());
+            Route::get('/', 'ListEntriesController@showIndex')->name($blog->prefixRouteName('index'));
+            Route::get('{slug}', 'ShowEntryController')->name($blog->prefixRouteName('entry'));
         });
     });
 });
-
-

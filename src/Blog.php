@@ -134,12 +134,13 @@ class Blog implements BlogContract
     }
 
     /**
-     * Get the prefix for route names in this blog
+     * Prefix a route name for this blog
      *
+     * @param string $name If empty, only the prefix is returned
      * @return string
      */
-    public function getRouteNamePrefix(): string
+    public function prefixRouteName(string $name = ''): string
     {
-        return 'blog.' . $this->getId() . '.';
+        return implode('.', ['blog', $this->getId(), $name]);
     }
 }
