@@ -12,8 +12,6 @@ class BlogServiceProvider extends ServiceProvider
 {
     /**
      * Register bindings in the container.
-     *
-     * @return void
      */
     public function register()
     {
@@ -30,7 +28,6 @@ class BlogServiceProvider extends ServiceProvider
      * Bootstrap any application services.
      *
      * @param BlogRegistryContract $blog_registry
-     * @return void
      */
     public function boot(BlogRegistryContract $blog_registry)
     {
@@ -48,8 +45,6 @@ class BlogServiceProvider extends ServiceProvider
 
     /**
      * Setup the configuration.
-     *
-     * @return void
      */
     protected function configure()
     {
@@ -58,8 +53,6 @@ class BlogServiceProvider extends ServiceProvider
 
     /**
      * Register the resources.
-     *
-     * @return void
      */
     protected function registerResources()
     {
@@ -68,8 +61,6 @@ class BlogServiceProvider extends ServiceProvider
 
     /**
      * Register migration files.
-     *
-     * @return void
      */
     protected function registerMigrations()
     {
@@ -83,8 +74,6 @@ class BlogServiceProvider extends ServiceProvider
 
     /**
      * Setup the resource publishing groups.
-     *
-     * @return void
      */
     protected function offerPublishing()
     {
