@@ -141,6 +141,6 @@ class Blog implements BlogContract
      */
     public function prefixRouteName(string $name = ''): string
     {
-        return implode('.', ['blog', $this->getId(), $name]);
+        return implode('.', [config('blog.route_name_prefix', 'blog'), $this->getId(), $name]);
     }
 }

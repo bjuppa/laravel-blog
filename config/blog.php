@@ -10,6 +10,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Prefix for named routes
+    |--------------------------------------------------------------------------
+    |
+    | Every blog is given named routes and the prefix for those names can be
+    | changed by this config.
+    |
+    */
+
+    'route_name_prefix' => 'blog',
+
+    /*
+    |--------------------------------------------------------------------------
     | Table name for Eloquent blog entries
     |--------------------------------------------------------------------------
     |
