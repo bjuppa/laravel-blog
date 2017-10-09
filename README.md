@@ -28,6 +28,14 @@ and hopefully provide something useful for other developers.
 PS: I don't yet have a blog where I can write about development (duh) so
 **stay tuned for the first release!**
 
+## Requirements
+You need at least **Laravel 5.5** and **PHP 7.1** to use this package.
+
+I decided to go for the latest released version at the time to have the freedom to play with
+some new stuff, like PHP's
+[`iterable` pseudo-type](http://php.net/manual/en/migration71.new-features.php#migration71.new-features.iterable-pseudo-type)
+and [nullable types](http://php.net/manual/en/migration71.new-features.php#migration71.new-features.nullable-types).
+
 ## Package development & testing
 `composer test` from the project directory will run the default test suite.
 
