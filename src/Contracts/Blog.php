@@ -2,8 +2,6 @@
 
 namespace Bjuppa\LaravelBlog\Contracts;
 
-use Illuminate\Contracts\Container\Container;
-
 interface Blog
 {
     /**
