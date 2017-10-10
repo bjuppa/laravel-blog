@@ -5,6 +5,7 @@ namespace Bjuppa\LaravelBlog;
 use Bjuppa\LaravelBlog\Contracts\Blog;
 use Bjuppa\LaravelBlog\Contracts\BlogRegistry as BlogRegistryContract;
 use Illuminate\Contracts\Container\Container;
+use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 
 class BlogRegistry implements BlogRegistryContract
@@ -92,10 +93,24 @@ class BlogRegistry implements BlogRegistryContract
 
     /**
      * Get the registered blogs
+     *
      * @return Collection
      */
     public function all(): Collection
     {
         return $this->blogs;
+    }
+
+    /**
+     * Get the best matching Blog for a Request instance
+     *
+     * @param Request $request
+     * @return Blog|null
+     */
+    public function getBlogMatchingRequest(Request $request): ?Blog
+    {
+        return $this->blogs->first(function (Blog $blog) use ($request) {
+            return $request->routeIs($blog->prefixRouteName() . '*');
+        });
     }
 }

@@ -6,6 +6,9 @@ use Bjuppa\LaravelBlog\Contracts\Blog as BlogContract;
 use Bjuppa\LaravelBlog\Contracts\BlogEntryProvider as BlogEntryProviderContract;
 use Bjuppa\LaravelBlog\Contracts\BlogRegistry as BlogRegistryContract;
 use Bjuppa\LaravelBlog\Eloquent\BlogEntryProvider;
+use Bjuppa\LaravelBlog\Http\Controllers\BaseBlogController;
+use Bjuppa\LaravelBlog\Http\Controllers\ListEntriesController;
+use Illuminate\Http\Request;
 use Illuminate\Support\ServiceProvider;
 
 class BlogServiceProvider extends ServiceProvider
@@ -17,13 +20,29 @@ class BlogServiceProvider extends ServiceProvider
     {
         $this->configure();
 
+        /**
+         * Resolve one global instance of the blog registry from the blog registry contract.
+         */
         $this->app->singleton(BlogRegistryContract::class,
             config('blog.implementations.registry', BlogRegistry::class));
 
+        /**
+         * Resolve fresh default blog instances from the blog contract...
+         */
         $this->app->bind(BlogContract::class,
             config('blog.implementations.blog', Blog::class));
-        //TODO: when a Controller asks for a BlogContract, give it the current Blog
 
+        /**
+         * ...but whenever a blog controller asks for an instance of the blog contract,
+         * resolve to the current blog for the route, instead of a fresh blog instance.
+         */
+        $this->app->when(ListEntriesController::class)->needs(BlogContract::class)->give(function () {
+            return $this->app->make(BlogRegistryContract::class)->getBlogMatchingRequest($this->app->make(Request::class));
+        });
+
+        /**
+         * Resolve fresh default entry providers from the provider contract.
+         */
         $this->app->bind(BlogEntryProviderContract::class,
             config('blog.implementations.entry_provider', BlogEntryProvider::class));
     }
@@ -37,7 +56,7 @@ class BlogServiceProvider extends ServiceProvider
     {
         $blog_registry->configureMultipleBlogs(config('blog.blogs'));
 
-        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
+        $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
 
         $this->registerResources();
 
