@@ -7,6 +7,6 @@ class ListEntriesController extends BaseBlogController
     public function showIndex()
     {
         //TODO: return a list view
-        return $this->blog;
+        return 'Blog index for '.$this->blog->getId();
     }
 }
