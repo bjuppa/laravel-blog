@@ -15,6 +15,7 @@ abstract class BaseBlogController extends BaseController
 
     /**
      * EntryListController constructor.
+     * @param Blog $blog
      */
     public function __construct(Blog $blog)
     {
