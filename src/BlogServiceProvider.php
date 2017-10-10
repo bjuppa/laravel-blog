@@ -6,9 +6,6 @@ use Bjuppa\LaravelBlog\Contracts\Blog as BlogContract;
 use Bjuppa\LaravelBlog\Contracts\BlogEntryProvider as BlogEntryProviderContract;
 use Bjuppa\LaravelBlog\Contracts\BlogRegistry as BlogRegistryContract;
 use Bjuppa\LaravelBlog\Eloquent\BlogEntryProvider;
-use Bjuppa\LaravelBlog\Http\Controllers\BaseBlogController;
-use Bjuppa\LaravelBlog\Http\Controllers\ListEntriesController;
-use Illuminate\Http\Request;
 use Illuminate\Support\ServiceProvider;
 
 class BlogServiceProvider extends ServiceProvider
@@ -31,14 +28,6 @@ class BlogServiceProvider extends ServiceProvider
          */
         $this->app->bind(BlogContract::class,
             config('blog.implementations.blog', Blog::class));
-
-        /**
-         * ...but whenever a blog controller asks for an instance of the blog contract,
-         * resolve to the current blog for the route, instead of a fresh blog instance.
-         */
-        $this->app->when(ListEntriesController::class)->needs(BlogContract::class)->give(function () {
-            return $this->app->make(BlogRegistryContract::class)->getBlogMatchingRequest($this->app->make(Request::class));
-        });
 
         /**
          * Resolve fresh default entry providers from the provider contract.
