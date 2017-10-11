@@ -10,12 +10,6 @@ use Illuminate\Routing\Controller as BaseController;
 abstract class BaseBlogController extends BaseController
 {
     /**
-     * The blog registry containing all the blogs for this app
-     * @var BlogRegistry
-     */
-    protected $registry;
-
-    /**
      * The current Blog instance of the route
      * @var Blog
      */
@@ -27,7 +21,6 @@ abstract class BaseBlogController extends BaseController
      */
     public function __construct(Request $request, BlogRegistry $registry)
     {
-        $this->registry = $registry;
         $this->blog = $registry->getBlogMatchingRequest($request);
     }
 }
