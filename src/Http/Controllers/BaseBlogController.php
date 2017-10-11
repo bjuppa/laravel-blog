@@ -18,8 +18,9 @@ abstract class BaseBlogController extends BaseController
     /**
      * EntryListController constructor.
      * @param BlogRegistry $registry
+     * @param Request $request
      */
-    public function __construct(Request $request, BlogRegistry $registry)
+    public function __construct(BlogRegistry $registry, Request $request)
     {
         $this->blog = $registry->getBlogMatchingRequest($request);
     }
