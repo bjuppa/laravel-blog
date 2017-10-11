@@ -4,6 +4,7 @@ namespace Bjuppa\LaravelBlog\Tests\Feature;
 
 use Bjuppa\LaravelBlog\Tests\IntegrationTest;
 use Bjuppa\LaravelBlog\Contracts\BlogRegistry as BlogRegistryContract;
+use Illuminate\Support\Facades\Route;
 
 class DefaultBlogTest extends IntegrationTest
 {
@@ -13,6 +14,12 @@ class DefaultBlogTest extends IntegrationTest
 
         $this->assertEquals(config('blog.blogs.default.public_path'), $default_registered_blog->getPublicPath());
         $this->assertInstanceOf(config('blog.blogs.default.entry_provider'), $default_registered_blog->getEntryProvider());
+    }
+
+    public function test_blog_has_named_routes()
+    {
+        $this->assertTrue(Route::has('blog.default.index'));
+        $this->assertTrue(Route::has('blog.default.entry'));
     }
 
     public function test_index_page()
