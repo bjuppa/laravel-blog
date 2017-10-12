@@ -6,6 +6,7 @@ use Bjuppa\LaravelBlog\Contracts\BlogRegistry;
 use Bjuppa\LaravelBlog\Contracts\Blog;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\View;
 
 abstract class BaseBlogController extends BaseController
 {
@@ -23,5 +24,7 @@ abstract class BaseBlogController extends BaseController
     public function __construct(BlogRegistry $registry, Request $request)
     {
         $this->blog = $registry->getBlogMatchingRequest($request);
+
+        View::share('blog', $this->blog);
     }
 }
