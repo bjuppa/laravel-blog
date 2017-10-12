@@ -4,6 +4,8 @@ namespace Bjuppa\LaravelBlog\Eloquent;
 
 use Bjuppa\LaravelBlog\Contracts\BlogEntry as BlogEntryContract;
 use Illuminate\Database\Eloquent\Model as Eloquent;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
 
 /**
  * @property string slug
@@ -11,6 +13,8 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
  */
 class BlogEntry extends Eloquent implements BlogEntryContract
 {
+    use HasSlug;
+
     /**
      * Get the table associated with the model.
      *
@@ -31,9 +35,21 @@ class BlogEntry extends Eloquent implements BlogEntryContract
      *
      * @return string
      */
-    public function getRouteKeyName()
+    public function getRouteKeyName(): string
     {
         return 'slug';
+    }
+
+    /**
+     * Get the options for generating the slug.
+     */
+    public function getSlugOptions(): SlugOptions
+    {
+        //TODO: allow slug to update until the blog post has been published
+        return SlugOptions::create()
+            ->generateSlugsFrom('headline')
+            ->saveSlugsTo($this->getRouteKeyName())
+            ->doNotGenerateSlugsOnUpdate();
     }
 
     /**
