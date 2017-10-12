@@ -2,9 +2,25 @@
 
 namespace Bjuppa\LaravelBlog\Contracts;
 
-// TODO: Methods could have the blog identifier (or perhaps a Blog object built in the service provider) as input parameter and use it to return different values if the model is used for several blogs.
+use Illuminate\Contracts\Support\Htmlable;
 
 interface BlogEntry
 {
+    /**
+     * Get the entry's unique slug for urls
+     * @return string
+     */
+    public function getSlug(): string;
 
+    /**
+     * Get the entry's headline
+     * @return string
+     */
+    public function getHeadline(): string;
+
+    /**
+     * Get the entry's full body text with markup
+     * @return Htmlable
+     */
+    //public function getBody(): Htmlable;
 }

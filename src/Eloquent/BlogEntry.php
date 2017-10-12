@@ -5,6 +5,10 @@ namespace Bjuppa\LaravelBlog\Eloquent;
 use Bjuppa\LaravelBlog\Contracts\BlogEntry as BlogEntryContract;
 use Illuminate\Database\Eloquent\Model as Eloquent;
 
+/**
+ * @property string slug
+ * @property string headline
+ */
 class BlogEntry extends Eloquent implements BlogEntryContract
 {
     /**
@@ -20,5 +24,33 @@ class BlogEntry extends Eloquent implements BlogEntryContract
         }
 
         return $this->table;
+    }
+
+    /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+    /**
+     * Get the entry's unique slug for urls
+     * @return string
+     */
+    public function getSlug(): string
+    {
+        return $this->slug;
+    }
+
+    /**
+     * Get the entry's headline
+     * @return string
+     */
+    public function getHeadline(): string
+    {
+        return $this->headline;
     }
 }

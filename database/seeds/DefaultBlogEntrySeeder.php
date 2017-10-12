@@ -13,6 +13,6 @@ class DefaultBlogEntrySeeder extends Seeder
      */
     public function run()
     {
-        \Bjuppa\LaravelBlog\Eloquent\BlogEntry::create();
+        \Bjuppa\LaravelBlog\Eloquent\BlogEntry::create(['headline' => 'The first post', 'slug'=>'the-first-post']);
     }
 }
