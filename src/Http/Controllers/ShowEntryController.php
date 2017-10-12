@@ -2,11 +2,21 @@
 
 namespace Bjuppa\LaravelBlog\Http\Controllers;
 
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+
 class ShowEntryController extends BaseBlogController
 {
+    /**
+     * Show a blog entry in a view
+     *
+     * @param $slug
+     * @return string
+     */
     public function __invoke($slug)
     {
-        //TODO: pull out the entry from the blog using slug
-        return $this->blog->getEntryProvider();
+        $entry = $this->blog->findEntry($slug);
+        throw_if(empty($entry), NotFoundHttpException::class);
+
+        return $entry->getHeadline();
     }
 }

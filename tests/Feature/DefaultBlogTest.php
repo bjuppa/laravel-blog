@@ -8,6 +8,13 @@ use Illuminate\Support\Facades\Route;
 
 class DefaultBlogTest extends IntegrationTest
 {
+    public function setUp()
+    {
+        parent::setUp();
+        $this->loadRegisteredMigrations();
+        $this->seedDefaultBlogEntry();
+    }
+
     public function test_blog_is_configured()
     {
         $default_registered_blog = $this->app->make(BlogRegistryContract::class)->get('default');
@@ -28,4 +35,12 @@ class DefaultBlogTest extends IntegrationTest
 
         $response->assertStatus(200);
     }
+
+    public function test_entry_page() {
+        $response = $this->get('blog/the-first-post');
+
+        $response->assertStatus(200);
+    }
+
+    //TODO: test a not found response on a blog post giving 404
 }

@@ -55,4 +55,11 @@ interface Blog
      * @return BlogEntryProvider
      */
     public function getEntryProvider(): BlogEntryProvider;
+
+    /**
+     * Get an entry instance from a slug
+     * @param string $slug
+     * @return BlogEntry|null
+     */
+    public function findEntry(string $slug): ?BlogEntry;
 }

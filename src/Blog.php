@@ -3,9 +3,9 @@
 namespace Bjuppa\LaravelBlog;
 
 use Bjuppa\LaravelBlog\Contracts\Blog as BlogContract;
+use Bjuppa\LaravelBlog\Contracts\BlogEntry;
 use Bjuppa\LaravelBlog\Contracts\BlogEntryProvider;
 use Bjuppa\LaravelBlog\Exceptions\InvalidConfiguration;
-use Illuminate\Contracts\Container\Container;
 
 class Blog implements BlogContract
 {
@@ -30,7 +30,6 @@ class Blog implements BlogContract
     /**
      * Blog constructor.
      *
-     * @param Container $app
      * @param string $blog_id
      * @param iterable $configuration
      * @throws \Bjuppa\LaravelBlog\Exceptions\InvalidConfiguration
@@ -114,7 +113,7 @@ class Blog implements BlogContract
     public function withEntryProvider($provider): BlogContract
     {
         if (is_string($provider)) {
-            $provider = app()->make($provider);
+            $provider = app()->make($provider, ['blog_id' => $this->getId()]);
         }
 
         InvalidConfiguration::throwIfInterfaceNotImplemented(BlogEntryProvider::class, $provider);
@@ -142,5 +141,15 @@ class Blog implements BlogContract
     public function prefixRouteName(string $name = ''): string
     {
         return implode('.', [config('blog.route_name_prefix', 'blog'), $this->getId(), $name]);
+    }
+
+    /**
+     * Get an entry instance from a slug
+     * @param string $slug
+     * @return BlogEntry|null
+     */
+    public function findEntry(string $slug): ?BlogEntry
+    {
+        return $this->getEntryProvider()->findBySlug($slug);
     }
 }
