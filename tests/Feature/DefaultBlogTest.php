@@ -42,5 +42,9 @@ class DefaultBlogTest extends IntegrationTest
         $response->assertStatus(200);
     }
 
-    //TODO: test a not found response on a blog post giving 404
+    public function test_entry_not_found() {
+        $response = $this->get('blog/non-existing-entry');
+
+        $response->assertStatus(404);
+    }
 }
