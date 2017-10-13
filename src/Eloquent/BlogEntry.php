@@ -48,7 +48,7 @@ class BlogEntry extends Eloquent implements BlogEntryContract
      */
     public function getSlugOptions(): SlugOptions
     {
-        //TODO: allow slug to update until the blog post has been published
+        //TODO: allow slug to be auto-updated up until the blog post has been published
         return SlugOptions::create()
             ->generateSlugsFrom('headline')
             ->saveSlugsTo($this->getRouteKeyName())
