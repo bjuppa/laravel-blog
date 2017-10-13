@@ -3,13 +3,16 @@
 namespace Bjuppa\LaravelBlog\Eloquent;
 
 use Bjuppa\LaravelBlog\Contracts\BlogEntry as BlogEntryContract;
+use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Model as Eloquent;
+use Illuminate\Support\HtmlString;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
 /**
  * @property string slug
  * @property string headline
+ * @property string body
  */
 class BlogEntry extends Eloquent implements BlogEntryContract
 {
@@ -76,7 +79,17 @@ class BlogEntry extends Eloquent implements BlogEntryContract
      * @param $blog_id
      * @return mixed
      */
-    public function scopeBlog($query, $blog_id) {
+    public function scopeBlog($query, $blog_id)
+    {
         return $query->where('blog', $blog_id);
+    }
+
+    /**
+     * Get the entry's full body text with markup
+     * @return Htmlable
+     */
+    public function getBody(): Htmlable
+    {
+        return new HtmlString($this->body);
     }
 }

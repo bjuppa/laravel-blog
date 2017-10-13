@@ -22,5 +22,5 @@ interface BlogEntry
      * Get the entry's full body text with markup
      * @return Htmlable
      */
-    //public function getBody(): Htmlable;
+    public function getBody(): Htmlable;
 }

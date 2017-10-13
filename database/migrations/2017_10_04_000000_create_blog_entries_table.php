@@ -48,6 +48,7 @@ class CreateBlogEntriesTable extends Migration
             $table->string('blog')->default($this->default_blog_id);
             $table->string('slug');
             $table->string('headline');
+            $table->text('body');
             $table->timestamps();
 
             $table->index('blog', 'blog');

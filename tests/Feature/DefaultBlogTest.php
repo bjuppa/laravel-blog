@@ -42,6 +42,7 @@ class DefaultBlogTest extends IntegrationTest
 
         $response->assertStatus(200);
         $response->assertSee('The first post');
+        $response->assertSee('of the first post');
     }
 
     public function test_entry_not_found() {
