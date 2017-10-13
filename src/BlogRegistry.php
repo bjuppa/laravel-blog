@@ -26,21 +26,6 @@ class BlogRegistry implements BlogRegistryContract
     }
 
     /**
-     * Add multiple blogs and configure them
-     *
-     * @param iterable $configurations
-     * @return $this
-     */
-    public function configureMultipleBlogs(iterable $configurations): BlogRegistryContract
-    {
-        foreach ($configurations as $id => $configuration) {
-            $this->configureBlog($id, $configuration);
-        }
-
-        return $this;
-    }
-
-    /**
      * Add a single blog and configure it
      *
      * @param string $blog_id
