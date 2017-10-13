@@ -30,6 +30,6 @@ class BlogTest extends UnitTest
     {
         $blog = self::createTestBlogInstance();
 
-        $blog->withEntryProvider(new BlogEntryProvider('default'));
+        $blog->withEntryProvider(new BlogEntryProvider('test'));
     }
 }

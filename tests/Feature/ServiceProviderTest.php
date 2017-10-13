@@ -17,6 +17,6 @@ class ServiceProviderTest extends IntegrationTest
 
     public function test_blog_contract_can_be_resolved()
     {
-        $this->assertInstanceOf(Blog::class, $this->app->make(BlogContract::class, ['blog_id' => 'default']));
+        $this->assertInstanceOf(Blog::class, $this->app->make(BlogContract::class, ['blog_id' => 'test']));
     }
 }
