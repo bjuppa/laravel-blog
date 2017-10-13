@@ -4,7 +4,9 @@ namespace Bjuppa\LaravelBlog\Eloquent;
 
 use Bjuppa\LaravelBlog\Contracts\BlogEntry;
 use Bjuppa\LaravelBlog\Contracts\BlogEntryProvider as BlogEntryProviderContract;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
 
 class BlogEntryProvider implements BlogEntryProviderContract
 {
@@ -26,12 +28,21 @@ class BlogEntryProvider implements BlogEntryProviderContract
     }
 
     /**
-     * Return an instance of the Eloquent model used
+     * Get an instance of the Eloquent model used
      * @return Model
      */
     protected function getBlogModel(): Model
     {
-        return new $this->model();
+        return new $this->model;
+    }
+
+    /**
+     * Get a prepared query builder for the blog
+     * @return Builder
+     */
+    protected function getBuilder(): Builder
+    {
+        return $this->getBlogModel()->blog($this->blog_id);
     }
 
     /**
@@ -41,6 +52,16 @@ class BlogEntryProvider implements BlogEntryProviderContract
      */
     public function findBySlug($slug): ?BlogEntry
     {
-        return $this->getBlogModel()::where(['blog' => $this->blog_id, 'slug' => $slug])->first();
+        return $this->getBuilder()->where('slug', $slug)->first();
+    }
+
+    /**
+     * Get the newest entries of the blog
+     * @param int $limit
+     * @return Collection
+     */
+    public function latest($limit = 5): Collection
+    {
+        return $this->getBuilder()->latest()->limit($limit)->get();
     }
 }

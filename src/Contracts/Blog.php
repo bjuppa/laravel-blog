@@ -2,6 +2,8 @@
 
 namespace Bjuppa\LaravelBlog\Contracts;
 
+use Illuminate\Support\Collection;
+
 interface Blog
 {
     /**
@@ -62,4 +64,24 @@ interface Blog
      * @return BlogEntry|null
      */
     public function findEntry(string $slug): ?BlogEntry;
+
+    /**
+     * Get the newest entries of the blog
+     * @param int|null $limit Desired number of entries unless you want the blog's default
+     * @return Collection
+     */
+    public function latestEntries(int $limit=null): Collection;
+
+    /**
+     * Get the number of default entries to show
+     * @return int
+     */
+    public function getLatestEntriesLimit(): int;
+
+    /**
+     * Set the number of default entries to show
+     * @param int $limit
+     * @return $this
+     */
+    public function withLatestEntriesLimit(int $limit): Blog;
 }

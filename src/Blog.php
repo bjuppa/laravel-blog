@@ -6,6 +6,7 @@ use Bjuppa\LaravelBlog\Contracts\Blog as BlogContract;
 use Bjuppa\LaravelBlog\Contracts\BlogEntry;
 use Bjuppa\LaravelBlog\Contracts\BlogEntryProvider;
 use Bjuppa\LaravelBlog\Exceptions\InvalidConfiguration;
+use Illuminate\Support\Collection;
 
 class Blog implements BlogContract
 {
@@ -20,6 +21,12 @@ class Blog implements BlogContract
      * @var string
      */
     protected $public_path = 'blog';
+
+    /**
+     * The number of entries to display in "latest" listings
+     * @var int
+     */
+    protected $latest_entries_limit = 5;
 
     /**
      * Instance of a blog entry provider to pull blog entries from
@@ -151,5 +158,36 @@ class Blog implements BlogContract
     public function findEntry(string $slug): ?BlogEntry
     {
         return $this->getEntryProvider()->findBySlug($slug);
+    }
+
+    /**
+     * Get the newest entries of the blog
+     * @param int|null $limit Desired number of entries unless you want the blog's default
+     * @return Collection
+     */
+    public function latestEntries(int $limit = null): Collection
+    {
+        return $this->getEntryProvider()->latest($limit ?? $this->getLatestEntriesLimit());
+    }
+
+    /**
+     * Get the number of default entries to show
+     * @return int
+     */
+    public function getLatestEntriesLimit(): int
+    {
+        return $this->latest_entries_limit;
+    }
+
+    /**
+     * Set the number of default entries to show
+     * @param int $limit
+     * @return BlogContract
+     */
+    public function withLatestEntriesLimit(int $limit): BlogContract
+    {
+        $this->latest_entries_limit = $limit;
+
+        return $this;
     }
 }

@@ -34,12 +34,14 @@ class DefaultBlogTest extends IntegrationTest
         $response = $this->get('blog');
 
         $response->assertStatus(200);
+        $response->assertSee('The first post');
     }
 
     public function test_entry_page() {
         $response = $this->get('blog/the-first-post');
 
         $response->assertStatus(200);
+        $response->assertSee('The first post');
     }
 
     public function test_entry_not_found() {
