@@ -17,6 +17,6 @@ class ShowEntryController extends BaseBlogController
         $entry = $this->blog->findEntry($slug);
         throw_if(empty($entry), NotFoundHttpException::class);
 
-        return $entry->getHeadline();
+        return view('blog::entry', ['entry' => $entry]);
     }
 }

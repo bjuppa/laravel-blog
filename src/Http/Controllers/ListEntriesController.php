@@ -6,7 +6,7 @@ class ListEntriesController extends BaseBlogController
 {
     public function showIndex()
     {
-        //TODO: return a list view
-        return 'Blog index for '.$this->blog->getId();
+        //TODO: retrieve a list of the latest entries from the blog
+        return view('blog::index', ['entries' => []]);
     }
 }
