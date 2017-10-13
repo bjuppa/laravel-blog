@@ -17,9 +17,11 @@ return [
     */
 
     'blogs' => [
+        // This configures one blog
         'main' => [
             'public_path' => 'blog',
         ],
+        // Add more blogs here...
     ],
 
     /*
