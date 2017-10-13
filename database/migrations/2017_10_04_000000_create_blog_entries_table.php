@@ -16,7 +16,7 @@ class CreateBlogEntriesTable extends Migration
      * The default blog identifier for new entries
      * @var string
      */
-    protected $default_blog_id;
+    protected $default_blog_id = 'default';
 
 
     /**
@@ -26,7 +26,6 @@ class CreateBlogEntriesTable extends Migration
     {
         $this->model_table_name = (new \Bjuppa\LaravelBlog\Eloquent\BlogEntry())->getTable();
 
-        $this->default_blog_id = 'default';
         // Take the first blog id from the config if available
         $blogs = config('blog.blogs');
         if (is_array($blogs)) {
