@@ -20,7 +20,7 @@ class Blog implements BlogContract
      * The path part of this blog's url
      * @var string
      */
-    protected $public_path = 'blog';
+    protected $public_path;
 
     /**
      * The number of entries to display in "latest" listings
@@ -44,6 +44,7 @@ class Blog implements BlogContract
     public function __construct(string $blog_id, iterable $configuration = [])
     {
         $this->id = $blog_id;
+        $this->withPublicPath('blog/' . $blog_id);
 
         $this->configure($configuration);
 
