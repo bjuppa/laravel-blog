@@ -22,6 +22,7 @@ class DefaultBlogTest extends IntegrationTest
 
         $this->assertEquals(config('blog.blogs.default.public_path'), $default_registered_blog->getPublicPath());
         $this->assertInstanceOf(BlogEntryProvider::class, $default_registered_blog->getEntryProvider());
+        $this->assertEquals(5, $default_registered_blog->getLatestEntriesLimit());
     }
 
     public function test_blog_has_named_routes()
