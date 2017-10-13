@@ -17,8 +17,7 @@ return [
     */
 
     'blogs' => [
-        //TODO: rename default blog to "main"
-        'default' => [
+        'main' => [
             'public_path' => 'blog',
         ],
     ],

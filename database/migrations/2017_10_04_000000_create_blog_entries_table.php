@@ -16,7 +16,7 @@ class CreateBlogEntriesTable extends Migration
      * The default blog identifier for new entries
      * @var string
      */
-    protected $default_blog_id = 'default';
+    protected $default_blog_id = 'main';
 
 
     /**

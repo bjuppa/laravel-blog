@@ -17,7 +17,7 @@ class DatabaseTest extends IntegrationTest
     {
         $entry = \Bjuppa\LaravelBlog\Eloquent\BlogEntry::first();
 
-        $this->assertEquals('default', $entry->blog);
+        $this->assertEquals('main', $entry->blog);
     }
 
 }
