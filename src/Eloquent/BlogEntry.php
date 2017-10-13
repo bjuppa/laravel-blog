@@ -69,4 +69,14 @@ class BlogEntry extends Eloquent implements BlogEntryContract
     {
         return $this->headline;
     }
+
+    /**
+     * Scope a query to entries for one specific blog
+     * @param $query
+     * @param $blog_id
+     * @return mixed
+     */
+    public function scopeBlog($query, $blog_id) {
+        return $query->where('blog', $blog_id);
+    }
 }
