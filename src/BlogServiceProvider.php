@@ -43,7 +43,9 @@ class BlogServiceProvider extends ServiceProvider
      */
     public function boot(BlogRegistryContract $blog_registry)
     {
-        $blog_registry->configureMultipleBlogs(config('blog.blogs'));
+        foreach ((array)config('blog.blogs') as $blog_id => $blog_config) {
+            $blog_registry->configureBlog($blog_id, array_merge(config('blog.blog_defaults', []), $blog_config));
+        }
 
         $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
 
