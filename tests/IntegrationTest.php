@@ -2,11 +2,19 @@
 
 namespace Bjuppa\LaravelBlog\Tests;
 
+use Bjuppa\LaravelBlog\Contracts\BlogEntryProvider as BlogEntryProviderContract;
 use Bjuppa\LaravelBlog\Database\Seeds\DefaultBlogEntrySeeder;
+use Bjuppa\LaravelBlog\Tests\Feature\Fakes\BlogEntryProvider as FakeBlogEntryProvider;
 use Orchestra\Testbench\TestCase;
 
 abstract class IntegrationTest extends TestCase
 {
+    /**
+     * Whether to use a fake entry provider instance
+     * @var bool
+     */
+    protected $fakeEntryProvider = false;
+
     /**
      * Setup the test case.
      *
@@ -53,6 +61,24 @@ abstract class IntegrationTest extends TestCase
             'database' => ':memory:',
             'prefix' => '',
         ]);
+
+        foreach ($this->extraConfigs() as $key => $value) {
+            $app['config']->set($key, $value);
+        }
+
+        if($this->fakeEntryProvider) {
+            $app->bind(BlogEntryProviderContract::class, FakeBlogEntryProvider::class);
+        }
+    }
+
+    /**
+     * Override this method to set configuration values in your test class
+     *
+     * @return array of config keys (in dot-notation) and values
+     */
+    protected function extraConfigs(): array
+    {
+        return [];
     }
 
     /**
