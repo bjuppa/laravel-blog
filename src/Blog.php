@@ -35,6 +35,12 @@ class Blog implements BlogContract
     protected $entry_provider;
 
     /**
+     * The domain where this blog resides
+     * @var string|null
+     */
+    protected $domain;
+
+    /**
      * Blog constructor.
      *
      * @param string $blog_id
@@ -133,6 +139,7 @@ class Blog implements BlogContract
 
     /**
      * Get the blog's entry provider instance
+     *
      * @return BlogEntryProvider
      */
     public function getEntryProvider(): BlogEntryProvider
@@ -153,6 +160,7 @@ class Blog implements BlogContract
 
     /**
      * Get an entry instance from a slug
+     *
      * @param string $slug
      * @return BlogEntry|null
      */
@@ -163,6 +171,7 @@ class Blog implements BlogContract
 
     /**
      * Get the newest entries of the blog
+     *
      * @param int|null $limit Desired number of entries unless you want the blog's default
      * @return Collection
      */
@@ -173,6 +182,7 @@ class Blog implements BlogContract
 
     /**
      * Get the number of default entries to show
+     *
      * @return int
      */
     public function getLatestEntriesLimit(): int
@@ -182,6 +192,7 @@ class Blog implements BlogContract
 
     /**
      * Set the number of default entries to show
+     *
      * @param int $limit
      * @return BlogContract
      */
@@ -190,5 +201,28 @@ class Blog implements BlogContract
         $this->latest_entries_limit = $limit;
 
         return $this;
+    }
+
+    /**
+     * Set a specific domain for this blog
+     *
+     * @param string $domain
+     * @return BlogContract
+     */
+    public function withDomain(string $domain): BlogContract
+    {
+        $this->domain = $domain;
+
+        return $this;
+    }
+
+    /**
+     * Get the domain for this blog
+     *
+     * @return string|null
+     */
+    public function getDomain(): ?string
+    {
+        return $this->domain;
     }
 }

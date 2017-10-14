@@ -54,12 +54,14 @@ interface Blog
 
     /**
      * Get the blog's entry provider instance
+     *
      * @return BlogEntryProvider
      */
     public function getEntryProvider(): BlogEntryProvider;
 
     /**
      * Get an entry instance from a slug
+     *
      * @param string $slug
      * @return BlogEntry|null
      */
@@ -67,6 +69,7 @@ interface Blog
 
     /**
      * Get the newest entries of the blog
+     *
      * @param int|null $limit Desired number of entries unless you want the blog's default
      * @return Collection
      */
@@ -74,14 +77,31 @@ interface Blog
 
     /**
      * Get the number of default entries to show
+     *
      * @return int
      */
     public function getLatestEntriesLimit(): int;
 
     /**
      * Set the number of default entries to show
+     *
      * @param int $limit
      * @return $this
      */
     public function withLatestEntriesLimit(int $limit): Blog;
+
+    /**
+     * Set a specific domain for this blog
+     *
+     * @param string $domain
+     * @return $this
+     */
+    public function withDomain(string $domain): Blog;
+
+    /**
+     * Get the domain for this blog
+     *
+     * @return string|null
+     */
+    public function getDomain(): ?string;
 }
