@@ -21,7 +21,7 @@ return [
         'main' => [
             'public_path' => 'blog',
         ],
-        // Add more blogs here...
+        // You can add more blogs here...
     ],
 
     /*
