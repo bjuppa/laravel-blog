@@ -8,7 +8,8 @@ Route::group(['middleware' => ['web'], 'namespace' => 'Bjuppa\LaravelBlog\Http\C
     BlogRegistry::all()->each(function (Blog $blog) {
         $group_attributes = array_filter([
             'domain' => $blog->getDomain(),
-            'prefix' => $blog->getPublicPath()
+            'prefix' => $blog->getPublicPath(),
+            'middleware' => $blog->getMiddleware(),
         ]);
         Route::group($group_attributes, function () use ($blog) {
             Route::get('/', 'ListEntriesController@showIndex')->name($blog->prefixRouteName('index'));

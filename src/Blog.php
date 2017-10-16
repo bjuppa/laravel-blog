@@ -40,6 +40,12 @@ class Blog implements BlogContract
     protected $domain;
 
     /**
+     * The middleware for the routes of this blog
+     * @var array|string|\Closure
+     */
+    protected $middleware;
+
+    /**
      * Blog constructor.
      *
      * @param string $blog_id
@@ -212,5 +218,26 @@ class Blog implements BlogContract
     public function getDomain(): ?string
     {
         return $this->domain;
+    }
+
+    /**
+     * Set middleware for the blog's routes
+     * @param array|string|\Closure $middleware
+     * @return BlogContract
+     */
+    public function withMiddleware($middleware): BlogContract
+    {
+        $this->middleware = $middleware;
+
+        return $this;
+    }
+
+    /**
+     * Get middleware to apply to the blog's routes
+     * @return array|string|\Closure
+     */
+    public function getMiddleware()
+    {
+        return $this->middleware;
     }
 }

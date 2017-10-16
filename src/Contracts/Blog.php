@@ -97,4 +97,17 @@ interface Blog
      * @return string|null
      */
     public function getDomain(): ?string;
+
+    /**
+     * Set middleware for the blog's routes
+     * @param array|string|\Closure $middleware
+     * @return $this
+     */
+    public function withMiddleware($middleware): Blog;
+
+    /**
+     * Get middleware to apply to the blog's routes
+     * @return array|string|\Closure
+     */
+    public function getMiddleware();
 }
