@@ -43,7 +43,10 @@ abstract class IntegrationTest extends TestCase
      */
     protected function getPackageProviders($app)
     {
-        return ['Bjuppa\LaravelBlog\BlogServiceProvider'];
+        return [
+            'Bjuppa\LaravelBlog\BlogServiceProvider',
+            'GrahamCampbell\Markdown\MarkdownServiceProvider',
+        ];
     }
 
     /**
@@ -66,7 +69,7 @@ abstract class IntegrationTest extends TestCase
             $app['config']->set($key, $value);
         }
 
-        if($this->fakeEntryProvider) {
+        if ($this->fakeEntryProvider) {
             $app->bind(BlogEntryProviderContract::class, FakeBlogEntryProvider::class);
         }
     }
