@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
 use Illuminate\Support\HtmlString;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
+use GrahamCampbell\Markdown\Facades\Markdown;
 
 /**
  * @property string slug
@@ -90,6 +91,6 @@ class BlogEntry extends Eloquent implements BlogEntryContract
      */
     public function getBody(): Htmlable
     {
-        return new HtmlString($this->body);
+        return new HtmlString(Markdown::convertToHtml($this->body));
     }
 }
