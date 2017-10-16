@@ -77,9 +77,8 @@ class BlogServiceProvider extends ServiceProvider
     protected function registerMigrations()
     {
         if (true) {
-            //TODO: only load migrations if any blog is set to use the \Bjuppa\LaravelBlog\Eloquent\BlogEntry class
-            // That may be tricky... when this service provider's boot method is run, we're not at a point yet where we know if any blog will use the default BlogEntry class...
-            // Perhaps we can run this in the app's "booted" event, after all service providers have finished?
+            // TODO: have each entry provider implement a method returning path to migrations,
+            // then collect them all within a callback to the app's "booted" event, to run after all service providers have finished
             $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
         }
     }
@@ -105,8 +104,11 @@ class BlogServiceProvider extends ServiceProvider
     protected function configureBlogs(BlogRegistryContract $blog_registry): void
     {
         foreach ((array)config('blog.blogs') as $blog_id => $blog_config) {
-            $blog_registry->add($this->app->make(BlogContract::class, ['blog_id' => $blog_id])
-                ->configure(array_merge(config('blog.blog_defaults', []), $blog_config)));
+            $blog_registry->add($this->app->make(BlogContract::class,
+                [
+                    'blog_id' => $blog_id,
+                    'configuration' => array_merge(config('blog.blog_defaults', []), $blog_config),
+                ]));
         }
     }
 }

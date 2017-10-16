@@ -16,15 +16,6 @@ interface Blog
     public function __construct(string $blog_id, BlogEntryProvider $provider, iterable $configuration = []);
 
     /**
-     * Set configuration values on the blog
-     *
-     * @param iterable $configuration
-     * @return $this
-     */
-    public function configure(iterable $configuration): Blog;
-    //TODO: remove configure from interface and use the configuration parameter to constructor instead (in service provider)
-
-    /**
      * Set the path part of the url to the blog
      *
      * @param string $path
