@@ -44,21 +44,16 @@ class Blog implements BlogContract
      * Blog constructor.
      *
      * @param string $blog_id
+     * @param BlogEntryProvider $provider
      * @param iterable $configuration
-     * @throws \Bjuppa\LaravelBlog\Exceptions\InvalidConfiguration
      */
-    public function __construct(string $blog_id, iterable $configuration = [])
+    public function __construct(string $blog_id, BlogEntryProvider $provider, iterable $configuration = [])
     {
         $this->id = $blog_id;
         $this->withPublicPath('blog/' . $blog_id);
+        $this->withEntryProvider($provider);
 
         $this->configure($configuration);
-
-        // Resolve a default entry provider
-        if (empty($this->entry_provider)) {
-            $this->withEntryProvider(BlogEntryProvider::class);
-        }
-
     }
 
     /**
@@ -77,7 +72,7 @@ class Blog implements BlogContract
                     $this->$method_name($config_value);
                 }
             } catch (\Exception $e) {
-                // Do nothing
+                trigger_error("Configuration problem for Blog '".$this->getId()."', config key '${config_name}': ".$e->getMessage(), E_USER_WARNING);
             }
         }
 
@@ -120,18 +115,12 @@ class Blog implements BlogContract
     /**
      * Set the entry provider instance
      *
-     * @param string|BlogEntryProvider $provider
+     * @param BlogEntryProvider $provider
      * @return $this
-     * @throws \Bjuppa\LaravelBlog\Exceptions\InvalidConfiguration
      */
-    public function withEntryProvider($provider): BlogContract
+    public function withEntryProvider(BlogEntryProvider $provider): BlogContract
     {
-        if (is_string($provider)) {
-            $provider = app()->make($provider, ['blog_id' => $this->getId()]);
-        }
-
-        InvalidConfiguration::throwIfInterfaceNotImplemented(BlogEntryProvider::class, $provider);
-
+        $provider->withBlogId($this->getId());
         $this->entry_provider = $provider;
 
         return $this;

@@ -26,35 +26,6 @@ class BlogRegistry implements BlogRegistryContract
     }
 
     /**
-     * Add a single blog and configure it
-     *
-     * @param string $blog_id
-     * @param iterable $configuration
-     * @return $this
-     */
-    public function configureBlog(string $blog_id, iterable $configuration): BlogRegistryContract
-    {
-        $this->getOrNew($blog_id)->configure($configuration);
-
-        return $this;
-    }
-
-    /**
-     * Add a new blog if not existing
-     *
-     * @param string $blog_id
-     * @return Blog
-     */
-    protected function getOrNew(string $blog_id): Blog
-    {
-        if (!$this->has($blog_id)) {
-            $this->blogs->put($blog_id, app()->make(Blog::class, ['blog_id' => $blog_id]));
-        }
-
-        return $this->get($blog_id);
-    }
-
-    /**
      * Get a blog from this repository
      *
      * @param string $blog_id
@@ -97,5 +68,17 @@ class BlogRegistry implements BlogRegistryContract
         return $this->blogs->first(function (Blog $blog) use ($request) {
             return $request->routeIs($blog->prefixRouteName() . '*');
         });
+    }
+
+    /**
+     * Register a blog
+     * @param Blog $blog
+     * @return $this
+     */
+    public function add(Blog $blog): BlogRegistryContract
+    {
+        $this->blogs->put($blog->getId(), $blog);
+
+        return $this;
     }
 }

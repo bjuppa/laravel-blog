@@ -11,8 +11,9 @@ interface Blog
      *
      * @param string $blog_id
      * @param iterable $configuration
+     * @param BlogEntryProvider $provider
      */
-    public function __construct(string $blog_id, iterable $configuration = []);
+    public function __construct(string $blog_id, BlogEntryProvider $provider, iterable $configuration = []);
 
     /**
      * Set configuration values on the blog
@@ -21,6 +22,7 @@ interface Blog
      * @return $this
      */
     public function configure(iterable $configuration): Blog;
+    //TODO: remove configure from interface and use the configuration parameter to constructor instead (in service provider)
 
     /**
      * Set the path part of the url to the blog
@@ -73,7 +75,7 @@ interface Blog
      * @param int|null $limit Desired number of entries unless you want the blog's default
      * @return Collection
      */
-    public function latestEntries(int $limit=null): Collection;
+    public function latestEntries(int $limit = null): Collection;
 
     /**
      * Get the number of default entries to show

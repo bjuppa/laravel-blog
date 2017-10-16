@@ -3,20 +3,11 @@
 namespace Bjuppa\LaravelBlog\Tests\Feature\Fakes;
 
 use Bjuppa\LaravelBlog\Contracts\BlogEntry;
+use Bjuppa\LaravelBlog\Contracts\BlogEntryProvider as BlogEntryProviderContract;
 use Illuminate\Support\Collection;
 
-class BlogEntryProvider implements \Bjuppa\LaravelBlog\Contracts\BlogEntryProvider
+class BlogEntryProvider implements BlogEntryProviderContract
 {
-
-    /**
-     * BlogEntryProvider constructor.
-     * @param string $blog_id
-     */
-    public function __construct(string $blog_id)
-    {
-
-    }
-
     /**
      * Get a blog entry from a slug
      * @param $slug
@@ -35,5 +26,15 @@ class BlogEntryProvider implements \Bjuppa\LaravelBlog\Contracts\BlogEntryProvid
     public function latest($limit = 5): Collection
     {
         return new Collection();
+    }
+
+    /**
+     * Set the id of the blog to use
+     * @param string $blog_id
+     * @return BlogEntryProviderContract
+     */
+    public function withBlogId(string $blog_id): BlogEntryProviderContract
+    {
+        return $this;
     }
 }

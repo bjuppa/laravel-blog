@@ -8,13 +8,11 @@ use Illuminate\Support\Collection;
 interface BlogRegistry
 {
     /**
-     * Add a single blog and configure it
-     *
-     * @param string $blog_id
-     * @param iterable $configuration
+     * Register a blog
+     * @param Blog $blog
      * @return $this
      */
-    public function configureBlog(string $blog_id, iterable $configuration): BlogRegistry;
+    public function add(Blog $blog): BlogRegistry;
 
     /**
      * Get the registered blogs

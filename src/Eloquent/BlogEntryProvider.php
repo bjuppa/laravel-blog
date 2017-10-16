@@ -19,12 +19,15 @@ class BlogEntryProvider implements BlogEntryProviderContract
     protected $blog_id;
 
     /**
-     * BlogEntryProvider constructor.
+     * Set the id of the blog to use
      * @param string $blog_id
+     * @return $this
      */
-    public function __construct(string $blog_id)
+    public function withBlogId(string $blog_id): BlogEntryProviderContract
     {
         $this->blog_id = $blog_id;
+
+        return $this;
     }
 
     /**

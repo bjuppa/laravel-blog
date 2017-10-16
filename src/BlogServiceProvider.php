@@ -43,9 +43,7 @@ class BlogServiceProvider extends ServiceProvider
      */
     public function boot(BlogRegistryContract $blog_registry)
     {
-        foreach ((array)config('blog.blogs') as $blog_id => $blog_config) {
-            $blog_registry->configureBlog($blog_id, array_merge(config('blog.blog_defaults', []), $blog_config));
-        }
+        $this->configureBlogs($blog_registry);
 
         $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
 
@@ -98,5 +96,17 @@ class BlogServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../resources/views' => resource_path('views/vendor/blog'),
         ], 'blog-views');
+    }
+
+    /**
+     * Configure blogs in the blog registry
+     * @param BlogRegistryContract $blog_registry
+     */
+    protected function configureBlogs(BlogRegistryContract $blog_registry): void
+    {
+        foreach ((array)config('blog.blogs') as $blog_id => $blog_config) {
+            $blog_registry->add($this->app->make(BlogContract::class, ['blog_id' => $blog_id])
+                ->configure(array_merge(config('blog.blog_defaults', []), $blog_config)));
+        }
     }
 }

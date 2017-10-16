@@ -7,10 +7,11 @@ use Illuminate\Support\Collection;
 interface BlogEntryProvider
 {
     /**
-     * BlogEntryProvider constructor.
+     * Set the id of the blog to use
      * @param string $blog_id
+     * @return $this
      */
-    public function __construct(string $blog_id);
+    public function withBlogId(string $blog_id): BlogEntryProvider;
 
     /**
      * Get a blog entry from a slug
