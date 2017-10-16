@@ -5,7 +5,6 @@ namespace Bjuppa\LaravelBlog;
 use Bjuppa\LaravelBlog\Contracts\Blog as BlogContract;
 use Bjuppa\LaravelBlog\Contracts\BlogEntry;
 use Bjuppa\LaravelBlog\Contracts\BlogEntryProvider;
-use Bjuppa\LaravelBlog\Exceptions\InvalidConfiguration;
 use Illuminate\Support\Collection;
 
 class Blog implements BlogContract
