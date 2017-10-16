@@ -4,14 +4,9 @@ namespace Bjuppa\LaravelBlog\Tests\Feature;
 
 use Bjuppa\LaravelBlog\Tests\IntegrationTest;
 
-class DomainTest extends IntegrationTest
+class BlogDomainConfigurationTest extends IntegrationTest
 {
     protected $fakeEntryProvider = true;
-
-    protected function getEnvironmentSetUp($app)
-    {
-        parent::getEnvironmentSetUp($app);
-    }
 
     protected function extraConfigs(): array
     {
