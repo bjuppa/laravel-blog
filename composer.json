@@ -19,11 +19,16 @@
     "illuminate/database": "~5.5",
     "illuminate/routing": "~5.5",
     "illuminate/http": "~5.5",
-    "spatie/laravel-sluggable": "^2.1",
-    "graham-campbell/markdown": "^8.0"
+    "spatie/laravel-sluggable": "^2.1"
   },
   "require-dev": {
-    "orchestra/testbench": "~3.5"
+    "orchestra/testbench": "~3.5",
+    "erusev/parsedown": "^1.6",
+    "graham-campbell/markdown": "^8.0"
+  },
+  "suggest": {
+    "graham-campbell/markdown": "Enables use of markdown in blog posts (install only one of the suggested markdown packages)",
+    "erusev/parsedown": "Enables use of markdown in blog posts (install only one of the suggested markdown packages)"
   },
   "autoload": {
     "psr-4": {

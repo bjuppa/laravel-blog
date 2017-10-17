@@ -27,15 +27,12 @@ class MarkdownString implements Htmlable
      */
     protected static function parse($markdown): string
     {
-        if(class_exists('\GrahamCampbell\Markdown\Facades\Markdown')) {
-            //TODO: check for existence of either GrahamCampbell\Markdown\Facades\Markdown or \Markdown
-            // This package should suggest installing either of those two packages
-
-            return \GrahamCampbell\Markdown\Facades\Markdown::convertToHtml($markdown);
+        if (class_exists('\GrahamCampbell\Markdown\Facades\Markdown') and app()->has('markdown')) {
+            return app()->make('markdown')->convertToHtml($markdown);
         }
 
-        if(class_exists('\Markdown')) {
-            //TODO: parse using \Markdown
+        if (class_exists('\Parsedown')) {
+            return \Parsedown::instance()->text($markdown);
         }
 
         // No parser found, returning the original string

@@ -5,8 +5,12 @@ namespace Bjuppa\LaravelBlog\Tests\Feature;
 use Bjuppa\LaravelBlog\Eloquent\BlogEntry;
 use Bjuppa\LaravelBlog\Tests\IntegrationTest;
 
-class BlogEntryTest extends IntegrationTest
+class ParsedownBlogEntryTest extends IntegrationTest
 {
+    /**
+     * By not loading the GrahamCampbell\Markdown service provider we should fallback to use the Parsedown parser
+     */
+
     public function test_body_markdown_is_parsed()
     {
         $entry = new BlogEntry();

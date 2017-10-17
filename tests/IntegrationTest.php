@@ -45,7 +45,6 @@ abstract class IntegrationTest extends TestCase
     {
         return [
             'Bjuppa\LaravelBlog\BlogServiceProvider',
-            'GrahamCampbell\Markdown\MarkdownServiceProvider',
         ];
     }
 
