@@ -3,7 +3,7 @@
 namespace Bjuppa\LaravelBlog\Eloquent;
 
 use Bjuppa\LaravelBlog\Contracts\BlogEntry as BlogEntryContract;
-use Bjuppa\LaravelBlog\Support\MarkdownParser;
+use Bjuppa\LaravelBlog\Support\MarkdownString;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Model as Eloquent;
 use Spatie\Sluggable\HasSlug;
@@ -90,6 +90,6 @@ class BlogEntry extends Eloquent implements BlogEntryContract
      */
     public function getBody(): Htmlable
     {
-        return MarkdownParser::parseToHtmlable($this->body);
+        return new MarkdownString($this->body);
     }
 }
