@@ -3,12 +3,11 @@
 namespace Bjuppa\LaravelBlog\Eloquent;
 
 use Bjuppa\LaravelBlog\Contracts\BlogEntry as BlogEntryContract;
+use Bjuppa\LaravelBlog\Support\MarkdownParser;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Model as Eloquent;
-use Illuminate\Support\HtmlString;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
-use GrahamCampbell\Markdown\Facades\Markdown;
 
 /**
  * @property string slug
@@ -91,6 +90,6 @@ class BlogEntry extends Eloquent implements BlogEntryContract
      */
     public function getBody(): Htmlable
     {
-        return new HtmlString(Markdown::convertToHtml($this->body));
+        return MarkdownParser::parseToHtmlable($this->body);
     }
 }
