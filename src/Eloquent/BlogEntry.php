@@ -4,6 +4,7 @@ namespace Bjuppa\LaravelBlog\Eloquent;
 
 use Bjuppa\LaravelBlog\Contracts\BlogEntry as BlogEntryContract;
 use Bjuppa\LaravelBlog\Support\MarkdownString;
+use Carbon\Carbon;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Model as Eloquent;
 use Spatie\Sluggable\HasSlug;
@@ -13,6 +14,7 @@ use Spatie\Sluggable\SlugOptions;
  * @property string slug
  * @property string title
  * @property string content
+ * @property Carbon updated_at
  */
 class BlogEntry extends Eloquent implements BlogEntryContract
 {
@@ -91,5 +93,14 @@ class BlogEntry extends Eloquent implements BlogEntryContract
     public function getContent(): Htmlable
     {
         return new MarkdownString($this->content);
+    }
+
+    /**
+     * Get the timestamp for last update to entry
+     * @return Carbon
+     */
+    public function getUpdatedAt(): Carbon
+    {
+        return $this->updated_at;
     }
 }

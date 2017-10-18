@@ -2,6 +2,7 @@
 
 namespace Bjuppa\LaravelBlog\Contracts;
 
+use Carbon\Carbon;
 use Illuminate\Contracts\Support\Htmlable;
 
 interface BlogEntry
@@ -23,4 +24,10 @@ interface BlogEntry
      * @return Htmlable
      */
     public function getContent(): Htmlable;
+
+    /**
+     * Get the timestamp for last update to entry
+     * @return Carbon
+     */
+    public function getUpdatedAt(): Carbon;
 }
