@@ -20,7 +20,7 @@
       </p>
     </footer>
     <div>
-      {{ $entry->getBody() }}
+      {{ $entry->getContent() }}
     </div>
   </article>
 @endsection

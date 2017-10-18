@@ -12,7 +12,7 @@ use Spatie\Sluggable\SlugOptions;
 /**
  * @property string slug
  * @property string title
- * @property string body
+ * @property string content
  */
 class BlogEntry extends Eloquent implements BlogEntryContract
 {
@@ -88,8 +88,8 @@ class BlogEntry extends Eloquent implements BlogEntryContract
      * Get the entry's full body text with markup
      * @return Htmlable
      */
-    public function getBody(): Htmlable
+    public function getContent(): Htmlable
     {
-        return new MarkdownString($this->body);
+        return new MarkdownString($this->content);
     }
 }
