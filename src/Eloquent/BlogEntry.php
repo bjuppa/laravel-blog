@@ -68,7 +68,7 @@ class BlogEntry extends Eloquent implements BlogEntryContract
      * Get the entry's headline
      * @return string
      */
-    public function getHeadline(): string
+    public function getTitle(): string
     {
         return $this->headline;
     }

@@ -10,7 +10,7 @@
   <article>
     <header>
       {{-- TODO: display main image --}}
-      <h1>{{ $entry->getHeadline() }}</h1>
+      <h1>{{ $entry->getTitle() }}</h1>
     </header>
     <footer>
       <p>

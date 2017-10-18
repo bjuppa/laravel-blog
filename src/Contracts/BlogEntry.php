@@ -16,7 +16,7 @@ interface BlogEntry
      * Get the entry's headline
      * @return string
      */
-    public function getHeadline(): string;
+    public function getTitle(): string;
 
     /**
      * Get the entry's full body text with markup
