@@ -15,6 +15,7 @@ use Spatie\Sluggable\SlugOptions;
  * @property string title
  * @property string content
  * @property Carbon updated_at
+ * @property Carbon created_at
  */
 class BlogEntry extends Eloquent implements BlogEntryContract
 {
@@ -101,6 +102,15 @@ class BlogEntry extends Eloquent implements BlogEntryContract
      */
     public function getUpdatedAt(): Carbon
     {
-        return $this->updated_at;
+        return $this->updated_at->max($this->getPublishedAt())->copy();
+    }
+
+    /**
+     * Get the timestamp of the original publication of the entry
+     * @return Carbon
+     */
+    public function getPublishedAt(): Carbon
+    {
+        return $this->created_at->copy();
     }
 }

@@ -30,4 +30,10 @@ interface BlogEntry
      * @return Carbon
      */
     public function getUpdatedAt(): Carbon;
+
+    /**
+     * Get the timestamp of the original publication of the entry
+     * @return Carbon
+     */
+    public function getPublishedAt(): Carbon;
 }
