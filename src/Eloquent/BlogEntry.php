@@ -11,7 +11,7 @@ use Spatie\Sluggable\SlugOptions;
 
 /**
  * @property string slug
- * @property string headline
+ * @property string title
  * @property string body
  */
 class BlogEntry extends Eloquent implements BlogEntryContract
@@ -50,7 +50,7 @@ class BlogEntry extends Eloquent implements BlogEntryContract
     {
         //TODO: allow slug to be auto-updated up until the blog post has been published
         return SlugOptions::create()
-            ->generateSlugsFrom('headline')
+            ->generateSlugsFrom('title')
             ->saveSlugsTo($this->getRouteKeyName())
             ->doNotGenerateSlugsOnUpdate();
     }
@@ -70,7 +70,7 @@ class BlogEntry extends Eloquent implements BlogEntryContract
      */
     public function getTitle(): string
     {
-        return $this->headline;
+        return $this->title;
     }
 
     /**
