@@ -29,11 +29,11 @@ interface BlogEntry
      * Get the timestamp for last update to entry
      * @return Carbon
      */
-    public function getUpdatedAt(): Carbon;
+    public function getUpdated(): Carbon;
 
     /**
      * Get the timestamp of the original publication of the entry
      * @return Carbon
      */
-    public function getPublishedAt(): Carbon;
+    public function getPublished(): Carbon;
 }

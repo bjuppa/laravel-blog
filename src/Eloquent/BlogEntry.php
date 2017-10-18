@@ -100,16 +100,16 @@ class BlogEntry extends Eloquent implements BlogEntryContract
      * Get the timestamp for last update to entry
      * @return Carbon
      */
-    public function getUpdatedAt(): Carbon
+    public function getUpdated(): Carbon
     {
-        return $this->updated_at->max($this->getPublishedAt())->copy();
+        return $this->updated_at->max($this->getPublished())->copy();
     }
 
     /**
      * Get the timestamp of the original publication of the entry
      * @return Carbon
      */
-    public function getPublishedAt(): Carbon
+    public function getPublished(): Carbon
     {
         return $this->created_at->copy();
     }
