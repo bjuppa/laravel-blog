@@ -26,7 +26,7 @@ class CreateBlogEntriesTable extends Migration
     {
         $this->model_table_name = (new \Bjuppa\LaravelBlog\Eloquent\BlogEntry())->getTable();
 
-        // Take the first blog id from the config if available
+        // Taking the first blog id from the config if available
         $blogs = config('blog.blogs');
         if (is_array($blogs)) {
             reset($blogs);
