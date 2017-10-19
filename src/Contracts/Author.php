@@ -9,4 +9,6 @@ interface Author
     public function getEmail(): ?string;
 
     public function getUrl(): ?string;
+
+    public function getHref(): ?string;
 }

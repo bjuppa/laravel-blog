@@ -4,6 +4,7 @@ namespace Bjuppa\LaravelBlog\Contracts;
 
 use Carbon\Carbon;
 use Illuminate\Contracts\Support\Htmlable;
+use Illuminate\Support\Collection;
 
 interface BlogEntry
 {
@@ -36,4 +37,11 @@ interface BlogEntry
      * @return Carbon
      */
     public function getPublished(): Carbon;
+
+    /**
+     * The entry's authors
+     * An empty collection indicates the entry should be considered written by the blog's default author
+     * @return Collection
+     */
+    public function getAuthors(): Collection;
 }

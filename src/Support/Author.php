@@ -31,9 +31,9 @@ class Author implements AuthorContract
 
         if (is_iterable($author_data)) {
             foreach ($author_data as $key => $value) {
-                if (in_array($key, ['url', 'uri', 'link'], true) or starts_with($value, ['http://','https://'])) {
+                if (in_array($key, ['url', 'uri', 'link'], true) or starts_with($value, ['http://', 'https://'])) {
                     $this->url = $value;
-                } elseif (in_array($key, ['email', 'mail'], true) or strpos($value,'@')) {
+                } elseif (in_array($key, ['email', 'mail'], true) or strpos($value, '@')) {
                     $this->email = $value;
                 } else {
                     $name_parts = explode(' ', $this->name);
@@ -64,5 +64,16 @@ class Author implements AuthorContract
     public function getUrl(): ?string
     {
         return $this->url;
+    }
+
+    public function getHref(): ?string
+    {
+        if ($this->getUrl()) {
+            return $this->getUrl();
+        }
+        if ($this->getEmail()) {
+            return 'mailto:' . $this->getEmail();
+        }
+        return null;
     }
 }

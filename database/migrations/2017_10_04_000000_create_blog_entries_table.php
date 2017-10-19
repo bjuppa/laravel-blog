@@ -47,6 +47,9 @@ class CreateBlogEntriesTable extends Migration
             $table->string('blog')->default($this->default_blog_id);
             $table->string('slug');
             $table->string('title');
+            $table->string('author_name')->nullable();
+            $table->string('author_email')->nullable();
+            $table->string('author_url')->nullable();
             $table->text('content');
             $table->timestamps();
 

@@ -3,10 +3,12 @@
 namespace Bjuppa\LaravelBlog\Eloquent;
 
 use Bjuppa\LaravelBlog\Contracts\BlogEntry as BlogEntryContract;
+use Bjuppa\LaravelBlog\Support\Author;
 use Bjuppa\LaravelBlog\Support\MarkdownString;
 use Carbon\Carbon;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Model as Eloquent;
+use Illuminate\Support\Collection;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
@@ -16,6 +18,9 @@ use Spatie\Sluggable\SlugOptions;
  * @property string content
  * @property Carbon updated_at
  * @property Carbon created_at
+ * @property string author_name
+ * @property string author_email
+ * @property string author_url
  */
 class BlogEntry extends Eloquent implements BlogEntryContract
 {
@@ -112,5 +117,23 @@ class BlogEntry extends Eloquent implements BlogEntryContract
     public function getPublished(): Carbon
     {
         return $this->created_at->copy();
+    }
+
+    /**
+     * The entry's authors
+     * An empty collection indicates the entry should be considered written by the blog's default author
+     * @return Collection
+     */
+    public function getAuthors(): Collection
+    {
+        $authors = collect();
+        if ($this->author_name) {
+            $authors->add(new Author([
+                'name' => $this->author_name,
+                'email' => $this->author_email,
+                'url' => $this->author_url,
+            ]));
+        }
+        return $authors;
     }
 }

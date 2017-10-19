@@ -14,8 +14,7 @@
     </header>
     <footer>
       <p>
-      {{-- TODO: display author name without <address> if no link --}}
-      <address>{{-- TODO: display author link (mailto or url) --}}</address>
+      @include('blog::entry.authors', ['authors' => $entry->getAuthors()])
       <time datetime="{{-- TODO: print publish datetime --}}">{{-- TODO: display publish time for humans --}}</time>
       </p>
     </footer>
