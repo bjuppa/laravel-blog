@@ -12,8 +12,9 @@ class Author implements AuthorContract
     protected $url;
 
     /**
-     * Create author from
-     * @param string|iterable $author_data
+     * Create author from a string, array or other representation.
+     * Attempts to interpret data as name, email and url.
+     * @param string|iterable|array|AuthorContract $author_data
      */
     public function __construct($author_data)
     {
