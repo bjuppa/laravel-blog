@@ -15,7 +15,7 @@
     <footer>
       <p>
       @include('blog::entry.authors', ['authors' => $entry->getAuthors()])
-      <time datetime="{{-- TODO: print publish datetime --}}">{{-- TODO: display publish time for humans --}}</time>
+      <time datetime="{{ $entry->getPublished()->toAtomString() }}">{{ $entry->getPublished()->diffForHumans() }}</time>
       </p>
     </footer>
     <div>
