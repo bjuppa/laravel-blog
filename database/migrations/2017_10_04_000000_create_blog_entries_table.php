@@ -52,6 +52,7 @@ class CreateBlogEntriesTable extends Migration
             $table->string('author_url')->nullable();
             $table->text('image')->nullable();
             $table->text('content');
+            $table->text('summary')->nullable();
             $table->timestamps();
 
             $table->index('blog', 'blog');

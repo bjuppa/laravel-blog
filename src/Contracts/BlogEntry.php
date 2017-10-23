@@ -50,4 +50,10 @@ interface BlogEntry
      * @return Htmlable|null
      */
     public function getImage(): ?Htmlable;
+
+    /**
+     * Get the entry's summary with markup
+     * @return Htmlable
+     */
+    public function getSummary(): Htmlable;
 }

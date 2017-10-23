@@ -5,6 +5,7 @@ namespace Bjuppa\LaravelBlog\Eloquent;
 use Bjuppa\LaravelBlog\Contracts\BlogEntry as BlogEntryContract;
 use Bjuppa\LaravelBlog\Support\Author;
 use Bjuppa\LaravelBlog\Support\MarkdownString;
+use Bjuppa\LaravelBlog\Support\ParagraphExtractor;
 use Carbon\Carbon;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Model as Eloquent;
@@ -23,6 +24,7 @@ use Spatie\Sluggable\SlugOptions;
  * @property string author_email
  * @property string author_url
  * @property string image
+ * @property string summary
  */
 class BlogEntry extends Eloquent implements BlogEntryContract
 {
@@ -153,6 +155,25 @@ class BlogEntry extends Eloquent implements BlogEntryContract
             return new HtmlString('<p><img src="' . e($this->image) . '"></p>');
         }
 
-        return new MarkdownString($this->image, true);
+        return new MarkdownString($this->image);
+    }
+
+    /**
+     * Get the entry's summary with markup
+     * @return Htmlable
+     */
+    public function getSummary(): Htmlable
+    {
+        if (!empty(trim($this->summary))) {
+            return new MarkdownString($this->summary);
+        }
+
+        $paragraphs = ParagraphExtractor::explodeParagraphs($this->getContent());
+        // Take at least one paragraph, but not more than half of the paragraphs
+        $paragraphs = $paragraphs->take(max(1, floor($paragraphs->count() / 2)));
+        //TODO: take paragraphs up to a number of characters after stripping html tags
+        //TODO: truncate the last paragraph with ellipsis
+
+        return new HtmlString($paragraphs->implode("\n"));
     }
 }

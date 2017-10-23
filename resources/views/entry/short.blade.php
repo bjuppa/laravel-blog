@@ -4,6 +4,6 @@
  */
 ?>
 <article>
-<h2>{{ $entry->getTitle() }}</h2>
-  {{-- TODO: display a suitable part of the post intro --}}
+  <h2>{{ $entry->getTitle() }}</h2>
+  {{ $entry->getSummary() }}
 </article>
