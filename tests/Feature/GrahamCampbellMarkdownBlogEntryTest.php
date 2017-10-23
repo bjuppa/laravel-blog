@@ -41,6 +41,5 @@ class GrahamCampbellMarkdownBlogEntryTest extends IntegrationTest
 
         $this->assertContains('alt="Alt text"', $html_string);
         $this->assertContains('title="Optional title"', $html_string);
-        $this->assertNotContains('<p>', $html_string);
     }
 }

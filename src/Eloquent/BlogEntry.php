@@ -150,7 +150,7 @@ class BlogEntry extends Eloquent implements BlogEntryContract
         }
 
         if (starts_with($this->image, ['http://', 'https://', '//'])) {
-            return new HtmlString('<img src="' . e($this->image) . '"');
+            return new HtmlString('<p><img src="' . e($this->image) . '"></p>');
         }
 
         return new MarkdownString($this->image, true);
