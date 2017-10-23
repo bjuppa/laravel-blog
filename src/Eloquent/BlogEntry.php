@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Model as Eloquent;
 use Illuminate\Support\Collection;
+use Illuminate\Support\HtmlString;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
@@ -21,6 +22,7 @@ use Spatie\Sluggable\SlugOptions;
  * @property string author_name
  * @property string author_email
  * @property string author_url
+ * @property string image
  */
 class BlogEntry extends Eloquent implements BlogEntryContract
 {
@@ -135,5 +137,22 @@ class BlogEntry extends Eloquent implements BlogEntryContract
             ]));
         }
         return $authors;
+    }
+
+    /**
+     * The entry's main image (if applicable), tagged in html
+     * @return Htmlable|null
+     */
+    public function getImage(): ?Htmlable
+    {
+        if (empty($this->image)) {
+            return null;
+        }
+
+        if (starts_with($this->image, ['http://', 'https://', '//'])) {
+            return new HtmlString('<img src="' . e($this->image) . '"');
+        }
+
+        return new MarkdownString($this->image, true);
     }
 }

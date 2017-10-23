@@ -44,4 +44,10 @@ interface BlogEntry
      * @return Collection
      */
     public function getAuthors(): Collection;
+
+    /**
+     * The entry's main image (if applicable), tagged in html
+     * @return Htmlable|null
+     */
+    public function getImage(): ?Htmlable;
 }

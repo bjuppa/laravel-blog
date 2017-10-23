@@ -4,6 +4,8 @@
  */
 ?>
 <header>
-  {{-- TODO: display main image --}}
+  @if($entry->getImage())
+    {{ $entry->getImage() }}
+  @endif
   <h1>{{ $entry->getTitle() }}</h1>
 </header>
