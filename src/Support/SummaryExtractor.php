@@ -6,7 +6,7 @@ namespace Bjuppa\LaravelBlog\Support;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Support\Collection;
 
-class ParagraphExtractor
+class SummaryExtractor
 {
     public static function explodeParagraphs($html): Collection
     {

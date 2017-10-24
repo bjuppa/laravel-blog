@@ -5,7 +5,7 @@ namespace Bjuppa\LaravelBlog\Eloquent;
 use Bjuppa\LaravelBlog\Contracts\BlogEntry as BlogEntryContract;
 use Bjuppa\LaravelBlog\Support\Author;
 use Bjuppa\LaravelBlog\Support\MarkdownString;
-use Bjuppa\LaravelBlog\Support\ParagraphExtractor;
+use Bjuppa\LaravelBlog\Support\SummaryExtractor;
 use Carbon\Carbon;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Model as Eloquent;
@@ -168,7 +168,7 @@ class BlogEntry extends Eloquent implements BlogEntryContract
             return new MarkdownString($this->summary);
         }
 
-        $paragraphs = ParagraphExtractor::explodeParagraphs($this->getContent());
+        $paragraphs = SummaryExtractor::explodeParagraphs($this->getContent());
         // Take at least one paragraph, but not more than half of the paragraphs
         $paragraphs = $paragraphs->take(max(1, floor($paragraphs->count() / 2)));
         //TODO: take paragraphs up to a number of characters after stripping html tags
