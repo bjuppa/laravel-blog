@@ -8,7 +8,12 @@ use Illuminate\Support\Collection;
 
 class SummaryExtractor
 {
-    public static function explodeParagraphs($html): Collection
+    /**
+     * Split html string into chunks of one paragraph tag each
+     * @param $html
+     * @return Collection
+     */
+    public static function splitParagraphs($html): Collection
     {
         if($html instanceof Htmlable) {
             $html = $html->toHtml();

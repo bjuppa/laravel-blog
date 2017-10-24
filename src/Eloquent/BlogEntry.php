@@ -168,7 +168,7 @@ class BlogEntry extends Eloquent implements BlogEntryContract
             return new MarkdownString($this->summary);
         }
 
-        $paragraphs = SummaryExtractor::explodeParagraphs($this->getContent());
+        $paragraphs = SummaryExtractor::splitParagraphs($this->getContent());
         // Take at least one paragraph, but not more than half of the paragraphs
         $paragraphs = $paragraphs->take(max(1, floor($paragraphs->count() / 2)));
         //TODO: take paragraphs up to a number of characters after stripping html tags

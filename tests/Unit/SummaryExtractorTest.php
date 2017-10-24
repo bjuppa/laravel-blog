@@ -10,7 +10,7 @@ class SummaryExtractorTest extends UnitTest
     public function test_splitting_paragraphs()
     {
         $html_string = "<p>1</p><p a='b'>2</p> <p>3</p>\n<p>4</p>";
-        $ps = SummaryExtractor::explodeParagraphs($html_string);
+        $ps = SummaryExtractor::splitParagraphs($html_string);
 
         $this->assertCount(4, $ps);
         $this->assertEquals("<p>1</p>", $ps->get(0));
