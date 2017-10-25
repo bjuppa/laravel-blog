@@ -18,4 +18,6 @@ class SummaryExtractorTest extends UnitTest
         $this->assertEquals("<p>3</p>", $ps->get(2));
         $this->assertEquals("<p>4</p>", $ps->get(3));
     }
+
+    //TODO: test splitting <p>1</p><div><p>A</p><p>B</p></div><p>2</p> and make sure it doesn't split the nested paragraphs
 }
