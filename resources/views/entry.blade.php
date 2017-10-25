@@ -1,10 +1,8 @@
 @extends('blog::layouts.blog')
 
-<?php
-/**
- * @var $entry \Bjuppa\LaravelBlog\Contracts\BlogEntry
- */
-?>
+@push('meta')
+  @include('blog::feed.meta_link')
+@endpush
 
 @section('blog')
   @include('blog::entry.full')
