@@ -56,4 +56,10 @@ interface BlogEntry
      * @return Htmlable
      */
     public function getSummary(): Htmlable;
+
+    /**
+     * Get a unique id for this blog entry within the blog
+     * @return string
+     */
+    public function getId(): string;
 }

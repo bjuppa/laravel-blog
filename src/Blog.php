@@ -5,6 +5,7 @@ namespace Bjuppa\LaravelBlog;
 use Bjuppa\LaravelBlog\Contracts\Blog as BlogContract;
 use Bjuppa\LaravelBlog\Contracts\BlogEntry;
 use Bjuppa\LaravelBlog\Contracts\BlogEntryProvider;
+use Carbon\Carbon;
 use Illuminate\Support\Collection;
 
 class Blog implements BlogContract
@@ -77,7 +78,8 @@ class Blog implements BlogContract
                     $this->$method_name($config_value);
                 }
             } catch (\Exception $e) {
-                trigger_error("Configuration problem for Blog '".$this->getId()."', config key '${config_name}': ".$e->getMessage(), E_USER_WARNING);
+                trigger_error("Configuration problem for Blog '" . $this->getId() . "', config key '${config_name}': " . $e->getMessage(),
+                    E_USER_WARNING);
             }
         }
 
@@ -239,5 +241,52 @@ class Blog implements BlogContract
     public function getMiddleware()
     {
         return $this->middleware;
+    }
+
+    /**
+     * Get the full public url to a single entry within this blog
+     * @param BlogEntry $entry
+     * @return string
+     */
+    public function urlToEntry(BlogEntry $entry): string
+    {
+        return route($this->prefixRouteName('entry'), $entry->getSlug());
+    }
+
+    /**
+     * Get the title of the blog
+     * @return string
+     */
+    public function getTitle(): string
+    {
+        //TODO: add a real title to blog config
+        return $this->getId();
+    }
+
+    /**
+     * Get the last updated timestamp for the entire blog
+     * @return Carbon
+     */
+    public function getUpdated(): Carbon
+    {
+        return $this->getEntryProvider()->getUpdated();
+    }
+
+    /**
+     * Get the full public url to the blog's index page
+     * @return string
+     */
+    public function urlToIndex(): string
+    {
+        return route($this->prefixRouteName('index'));
+    }
+
+    /**
+     * Get the full public url to the blog's atom feed
+     * @return string
+     */
+    public function urlToFeed(): string
+    {
+        return route($this->prefixRouteName('feed'));
     }
 }

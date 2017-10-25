@@ -29,6 +29,7 @@ class DefaultBlogTest extends IntegrationTest
     {
         $this->assertTrue(Route::has('blog.main.index'));
         $this->assertTrue(Route::has('blog.main.entry'));
+        $this->assertTrue(Route::has('blog.main.feed'));
     }
 
     public function test_index_page()
@@ -52,5 +53,13 @@ class DefaultBlogTest extends IntegrationTest
         $response = $this->get('blog/non-existing-entry');
 
         $response->assertStatus(404);
+    }
+
+    public function test_feed() {
+        $response = $this->get('blog/feed');
+
+        $response->assertStatus(200);
+        $response->assertSee('The first post');
+        $response->assertSee('the main content...');
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Bjuppa\LaravelBlog\Contracts;
 
+use Carbon\Carbon;
 use Illuminate\Support\Collection;
 
 interface BlogEntryProvider
@@ -26,4 +27,10 @@ interface BlogEntryProvider
      * @return Collection
      */
     public function latest($limit = 5): Collection;
+
+    /**
+     * Get the last updated timestamp for the entire blog
+     * @return Carbon
+     */
+    public function getUpdated(): Carbon;
 }

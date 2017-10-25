@@ -4,6 +4,7 @@ namespace Bjuppa\LaravelBlog\Tests\Feature\Fakes;
 
 use Bjuppa\LaravelBlog\Contracts\BlogEntry;
 use Bjuppa\LaravelBlog\Contracts\BlogEntryProvider as BlogEntryProviderContract;
+use Carbon\Carbon;
 use Illuminate\Support\Collection;
 
 class BlogEntryProvider implements BlogEntryProviderContract
@@ -36,5 +37,14 @@ class BlogEntryProvider implements BlogEntryProviderContract
     public function withBlogId(string $blog_id): BlogEntryProviderContract
     {
         return $this;
+    }
+
+    /**
+     * Get the last updated timestamp for the entire blog
+     * @return Carbon
+     */
+    public function getUpdated(): Carbon
+    {
+        return now();
     }
 }

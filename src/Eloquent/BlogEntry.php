@@ -174,4 +174,13 @@ class BlogEntry extends Eloquent implements BlogEntryContract
 
         return new HtmlString($paragraphs->implode("\n"));
     }
+
+    /**
+     * Get a unique id for this blog entry within the blog
+     * @return string
+     */
+    public function getId(): string
+    {
+        return $this->getKey();
+    }
 }

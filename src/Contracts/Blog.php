@@ -2,6 +2,7 @@
 
 namespace Bjuppa\LaravelBlog\Contracts;
 
+use Carbon\Carbon;
 use Illuminate\Support\Collection;
 
 interface Blog
@@ -110,4 +111,35 @@ interface Blog
      * @return array|string|\Closure
      */
     public function getMiddleware();
+
+    /**
+     * Get the full public url to the blog's index page
+     * @return string
+     */
+    public function urlToIndex(): string;
+
+    /**
+     * Get the full public url to the blog's atom feed
+     * @return string
+     */
+    public function urlToFeed(): string;
+
+    /**
+     * Get the full public url to a single entry within this blog
+     * @param BlogEntry $entry
+     * @return string
+     */
+    public function urlToEntry(BlogEntry $entry): string;
+
+    /**
+     * Get the title of the blog
+     * @return string
+     */
+    public function getTitle(): string;
+
+    /**
+     * Get the last updated timestamp for the entire blog
+     * @return Carbon
+     */
+    public function getUpdated(): Carbon;
 }
