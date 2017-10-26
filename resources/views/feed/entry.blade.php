@@ -12,5 +12,6 @@
   <summary type="html">
     <![CDATA[{{ $entry->getSummary() }}]]>
   </summary>
+  <published>{{ $entry->getPublished()->toAtomString() }}</published>
   <updated>{{ $entry->getUpdated()->toAtomString() }}</updated>
 </entry>
