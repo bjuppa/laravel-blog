@@ -4,10 +4,7 @@
  */
 ?>
 <article>
-  {{-- TODO: use @includeFirst() here for special header display per blog and entry --}}
-  @include('blog::entry.partials.header')
-  {{-- TODO: use @includeFirst() here for special footer display per blog and entry --}}
-  @include('blog::entry.partials.footer')
-  {{-- TODO: use @includeFirst() here for special content display per blog and entry --}}
-  @include('blog::entry.partials.content')
+  @includeFirst(['blog::entry.partials.header-'.$blog->getId().'-'.$entry->getId(), 'blog::entry.partials.header-'.$blog->getId(), 'blog::entry.partials.header'])
+  @includeFirst(['blog::entry.partials.footer-'.$blog->getId().'-'.$entry->getId(), 'blog::entry.partials.footer-'.$blog->getId(), 'blog::entry.partials.footer'])
+  @includeFirst(['blog::entry.partials.content-'.$blog->getId().'-'.$entry->getId(), 'blog::entry.partials.content-'.$blog->getId(), 'blog::entry.partials.content'])
 </article>
