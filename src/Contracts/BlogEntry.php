@@ -39,6 +39,12 @@ interface BlogEntry
     public function getPublished(): Carbon;
 
     /**
+     * Check if the entry is published
+     * @return bool
+     */
+    public function isPublic(): bool;
+
+    /**
      * The entry's authors
      * An empty collection indicates the entry should be considered written by the blog's default author
      * @return Collection

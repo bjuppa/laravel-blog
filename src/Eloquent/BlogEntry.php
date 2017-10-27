@@ -80,11 +80,15 @@ class BlogEntry extends Eloquent implements BlogEntryContract
      */
     public function getSlugOptions(): SlugOptions
     {
-        //TODO: allow slug to be auto-updated up until the blog post has been published
-        return SlugOptions::create()
+        $options = SlugOptions::create()
             ->generateSlugsFrom('title')
-            ->saveSlugsTo($this->getRouteKeyName())
-            ->doNotGenerateSlugsOnUpdate();
+            ->saveSlugsTo($this->getRouteKeyName());
+
+        if ($this->isPublic()) {
+            $options->doNotGenerateSlugsOnUpdate();
+        }
+
+        return $options;
     }
 
     /**
@@ -202,5 +206,14 @@ class BlogEntry extends Eloquent implements BlogEntryContract
     public function getId(): string
     {
         return $this->getKey();
+    }
+
+    /**
+     * Check if the entry is public
+     * @return bool
+     */
+    public function isPublic(): bool
+    {
+        return $this->publish_after and $this->publish_after->isPast();
     }
 }
