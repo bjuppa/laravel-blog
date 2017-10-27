@@ -5,5 +5,5 @@
 @endpush
 
 @section('blog')
-  @include('blog::entry.full')
+  @includeFirst(['blog::entry.full-'.$blog->getId().'-'.$entry->getId(), 'blog::entry.full-'.$blog->getId(), 'blog::entry.full'])
 @endsection
