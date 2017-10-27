@@ -16,7 +16,7 @@ interface BlogEntryProvider
 
     /**
      * Get a blog entry from a slug
-     * @param $slug
+     * @param string $slug
      * @return BlogEntry|null
      */
     public function findBySlug($slug): ?BlogEntry;
