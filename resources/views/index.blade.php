@@ -1,10 +1,19 @@
 @extends('blog::layouts.blog')
 
+<?php
+/**
+ * @var $entries \Illuminate\Support\Collection
+ */
+?>
+
 @push('meta')
   @include('blog::feed.meta_link')
 @endpush
 
 @section('blog')
-  {{-- TODO: wrap the short entries in a list of links --}}
-  @each('blog::entry.short', $entries, 'entry')
+  @if($entries->count())
+    <ul>
+      @each('blog::entry.list_item', $entries, 'entry')
+    </ul>
+  @endif
 @endsection
