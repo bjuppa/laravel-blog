@@ -13,6 +13,10 @@ class DefaultBlogEntrySeeder extends Seeder
      */
     public function run()
     {
-        \Bjuppa\LaravelBlog\Eloquent\BlogEntry::create(['title' => 'The first post', 'content' => 'This is the main content of the first post']);
+        \Bjuppa\LaravelBlog\Eloquent\BlogEntry::create([
+            'title' => 'The first post',
+            'content' => 'This is the main content of the first post',
+            'publish_after' => now(),
+        ]);
     }
 }

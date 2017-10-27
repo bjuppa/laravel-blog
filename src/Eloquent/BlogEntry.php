@@ -20,6 +20,7 @@ use Spatie\Sluggable\SlugOptions;
  * @property string content
  * @property Carbon updated_at
  * @property Carbon created_at
+ * @property Carbon publish_after
  * @property string author_name
  * @property string author_email
  * @property string author_url
@@ -29,6 +30,25 @@ use Spatie\Sluggable\SlugOptions;
 class BlogEntry extends Eloquent implements BlogEntryContract
 {
     use HasSlug;
+
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = ['publish_after'];
+
+    /**
+     * The "booting" method of the model.
+     *
+     * @return void
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope(new PublishedScope());
+    }
 
     /**
      * Get the table associated with the model.
@@ -120,7 +140,7 @@ class BlogEntry extends Eloquent implements BlogEntryContract
      */
     public function getPublished(): Carbon
     {
-        return $this->created_at->copy();
+        return ($this->publish_after ?: $this->created_at)->copy();
     }
 
     /**

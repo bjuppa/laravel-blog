@@ -45,6 +45,7 @@ class CreateBlogEntriesTable extends Migration
         Schema::create($this->model_table_name, function (Blueprint $table) {
             $table->increments('id');
             $table->string('blog')->default($this->default_blog_id);
+            $table->timestamp('publish_after')->nullable();
             $table->string('slug');
             $table->string('title');
             $table->string('author_name')->nullable();
