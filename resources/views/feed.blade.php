@@ -10,7 +10,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title><![CDATA[{{ $blog->getTitle() }}]]></title>
   <link rel="alternate" type="text/html" href="{{ $blog->urlToIndex() }}" />
-  {{-- TODO: add authors to blog --}}
+  @each('blog::feed.author', $blog->getAuthors(), 'author')
   <link rel="self" href="{{ $blog->urlToFeed() }}" />
   <updated>{{ $blog->getUpdated()->toAtomString() }}</updated>
   <id>{{ url($blog->getId()) }}</id>
