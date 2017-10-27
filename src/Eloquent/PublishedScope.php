@@ -23,6 +23,8 @@ class PublishedScope implements Scope
         $builder->latest('publish_after');
     }
 
-    //TODO: add withUnpublished() like in \Illuminate\Database\Eloquent\SoftDeletingScope
-    //TODO: add onlyUnpublished() like in \Illuminate\Database\Eloquent\SoftDeletingScope
+    //TODO: add withUnpublished() removing this global scope like in \Illuminate\Database\Eloquent\SoftDeletingScope
+    //TODO: add onlyUnpublished() showing all apart from those that are published like in \Illuminate\Database\Eloquent\SoftDeletingScope
+    //TODO: add onlyScheduledForPublishing() listing only those that have a publish time set
+    //TODO: add onlyDrafts() listing only those that have no publish time set at all
 }
