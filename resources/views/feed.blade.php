@@ -8,7 +8,7 @@
  */
 ?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>{{ $blog->getTitle() }}</title>
+  <title><![CDATA[{{ $blog->getTitle() }}]]></title>
   <link rel="alternate" type="text/html" href="{{ $blog->urlToIndex() }}" />
   {{-- TODO: add authors to blog --}}
   <link rel="self" href="{{ $blog->urlToFeed() }}" />
