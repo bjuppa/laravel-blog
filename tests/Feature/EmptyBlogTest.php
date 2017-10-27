@@ -15,4 +15,10 @@ class EmptyBlogTest extends IntegrationTest
         $response->assertStatus(200);
     }
 
+    public function test_feed()
+    {
+        $response = $this->get('blog/feed');
+
+        $response->assertStatus(200);
+    }
 }
