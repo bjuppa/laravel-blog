@@ -17,14 +17,6 @@ interface Blog
     public function __construct(string $blog_id, BlogEntryProvider $provider, iterable $configuration = []);
 
     /**
-     * Set the path part of the url to the blog
-     *
-     * @param string $path
-     * @return $this
-     */
-    public function withPublicPath(string $path): Blog;
-
-    /**
      * Get the path part of the url to the blog
      *
      * @return string
@@ -77,34 +69,12 @@ interface Blog
     public function getLatestEntriesLimit(): int;
 
     /**
-     * Set the number of default entries to show
-     *
-     * @param int $limit
-     * @return $this
-     */
-    public function withLatestEntriesLimit(int $limit): Blog;
-
-    /**
-     * Set a specific domain for this blog
-     *
-     * @param string $domain
-     * @return $this
-     */
-    public function withDomain(string $domain): Blog;
-
-    /**
-     * Get the domain for this blog
+     * Get the domain for this blog.
+     * Return null to accept any domain.
      *
      * @return string|null
      */
     public function getDomain(): ?string;
-
-    /**
-     * Set middleware for the blog's routes
-     * @param array|string|\Closure $middleware
-     * @return $this
-     */
-    public function withMiddleware($middleware): Blog;
 
     /**
      * Get middleware to apply to the blog's routes
