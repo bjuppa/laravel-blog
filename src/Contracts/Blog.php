@@ -142,4 +142,11 @@ interface Blog
      * @return Carbon
      */
     public function getUpdated(): Carbon;
+
+    /**
+     * The blog's authors
+     * (should not be empty)
+     * @return Collection
+     */
+    public function getAuthors(): Collection;
 }

@@ -5,6 +5,7 @@ namespace Bjuppa\LaravelBlog;
 use Bjuppa\LaravelBlog\Contracts\Blog as BlogContract;
 use Bjuppa\LaravelBlog\Contracts\BlogEntry;
 use Bjuppa\LaravelBlog\Contracts\BlogEntryProvider;
+use Bjuppa\LaravelBlog\Support\Author;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
 
@@ -21,6 +22,12 @@ class Blog implements BlogContract
      * @var string
      */
     protected $public_path;
+
+    /**
+     * Author data (may contain name, email, and url)
+     * @var string|array
+     */
+    protected $author_data;
 
     /**
      * The number of entries to display in "latest" listings
@@ -288,5 +295,30 @@ class Blog implements BlogContract
     public function urlToFeed(): string
     {
         return route($this->prefixRouteName('feed'));
+    }
+
+    /**
+     * The blog's authors
+     * (should not be empty)
+     * @return Collection
+     */
+    public function getAuthors(): Collection
+    {
+        $authors = collect();
+        $authors->push(new Author($this->author_data ?: $this->getTitle()));
+
+        return $authors;
+    }
+
+    /**
+     * Set default author data on the blog
+     * @param string|array $author_data
+     * @return BlogContract
+     */
+    public function withAuthor($author_data): BlogContract
+    {
+        $this->author_data = $author_data;
+
+        return $this;
     }
 }

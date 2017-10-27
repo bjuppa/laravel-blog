@@ -156,7 +156,7 @@ class BlogEntry extends Eloquent implements BlogEntryContract
     {
         $authors = collect();
         if ($this->author_name) {
-            $authors->add(new Author([
+            $authors->push(new Author([
                 'name' => $this->author_name,
                 'email' => $this->author_email,
                 'url' => $this->author_url,
