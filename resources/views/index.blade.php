@@ -8,14 +8,14 @@
 ?>
 
 @push('meta')
-  @include('blog::feed.meta_link')
+  @include('blog::feed.metaLink')
 @endpush
 
 @section('blog')
   <h1>{{ $blog->getTitle() }}</h1>
   @if($entries->count())
     <ul>
-      @each('blog::entry.list_item', $entries, 'entry')
+      @each('blog::entry.listItem', $entries, 'entry')
     </ul>
   @endif
 @endsection

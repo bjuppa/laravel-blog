@@ -1,7 +1,7 @@
 @extends('blog::layouts.blog')
 
 @push('meta')
-  @include('blog::feed.meta_link')
+  @include('blog::feed.metaLink')
 @endpush
 
 @section('blog')
