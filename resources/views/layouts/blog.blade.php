@@ -1,7 +1,7 @@
 @extends('blog::layouts.html')
 
 @section('body')
-  <div class="blog">
+  <main class="blog">
     @yield('blog')
-  </div>
+  </main>
 @endsection
