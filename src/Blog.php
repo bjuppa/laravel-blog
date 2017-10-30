@@ -54,6 +54,12 @@ class Blog implements BlogContract
     protected $middleware;
 
     /**
+     * Title of the blog
+     * @var string
+     */
+    protected $title;
+
+    /**
      * Blog constructor.
      *
      * @param string $blog_id
@@ -266,8 +272,19 @@ class Blog implements BlogContract
      */
     public function getTitle(): string
     {
-        //TODO: add a real title to blog config
-        return $this->getId();
+        return $this->title ?? $this->getId();
+    }
+
+    /**
+     * Set the title for the blog
+     * @param string $title
+     * @return $this
+     */
+    public function withTitle(string $title): BlogContract
+    {
+        $this->title = $title;
+
+        return $this;
     }
 
     /**

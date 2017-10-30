@@ -37,6 +37,7 @@ class DefaultBlogTest extends IntegrationTest
         $response = $this->get('blog');
 
         $response->assertStatus(200);
+        $response->assertSee('Main Blog');
         $response->assertSee('The first post');
         $response->assertSee('the main content...');
         $response->assertSee('type="application/atom+xml"');
@@ -61,6 +62,7 @@ class DefaultBlogTest extends IntegrationTest
         $response = $this->get('blog/feed');
 
         $response->assertStatus(200);
+        $response->assertSee('Main Blog');
         $response->assertSee('The first post');
         $response->assertSee('the main content...');
         $response->assertSee('<author>');

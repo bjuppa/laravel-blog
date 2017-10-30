@@ -20,6 +20,7 @@ return [
         // This configures one blog
         'main' => [
             'public_path' => 'blog',
+            'title' => 'Main Blog',
         ],
         // You can add more blogs here...
     ],
