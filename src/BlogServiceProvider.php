@@ -61,6 +61,7 @@ class BlogServiceProvider extends ServiceProvider
     protected function configure()
     {
         $this->mergeConfigFrom(__DIR__ . '/../config/blog.php', 'blog');
+        $this->mergeConfigFrom(__DIR__ . '/../config/blog-eloquent.php', 'blog-eloquent');
     }
 
     /**
@@ -101,6 +102,10 @@ class BlogServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../config/blog.php' => config_path('blog.php'),
         ], 'blog-config');
+
+        $this->publishes([
+            __DIR__ . '/../config/blog-eloquent.php' => config_path('blog-eloquent.php'),
+        ], 'blog-eloquent-config');
 
         $this->publishes([
             __DIR__ . '/../resources/views' => resource_path('views/vendor/blog'),
