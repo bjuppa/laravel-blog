@@ -77,4 +77,13 @@ class BlogEntryProvider implements BlogEntryProviderContract
     {
         return $this->getBuilder()->latest('updated_at')->first()->updated_at;
     }
+
+    /**
+     * If the entry provider has Laravel database migrations for its models, return the path to migrations.
+     * @return string|null
+     */
+    public function getDatabaseMigrationsPath(): ?string
+    {
+        return __DIR__ . '/../../database/migrations/';
+    }
 }

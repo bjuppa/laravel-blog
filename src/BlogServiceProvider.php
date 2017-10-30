@@ -72,15 +72,25 @@ class BlogServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register migration files.
+     * Register migration files for each active EntryProvider.
      */
     protected function registerMigrations()
     {
-        if (true) {
-            // TODO: have each entry provider implement a method returning path to migrations,
-            // then collect them all within a callback to the app's "booted" event, to run after all service providers have finished
-            $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
-        }
+        // Register the migrations at the app's booted event to have all service providers finish first
+        $this->app->booted(function ($app) {
+            /**
+             * @var $registry \Bjuppa\LaravelBlog\Contracts\BlogRegistry
+             */
+            $registry = $app->make(\Bjuppa\LaravelBlog\Contracts\BlogRegistry::class);
+
+            $paths = $registry->all()->map(function (\Bjuppa\LaravelBlog\Contracts\Blog $blog) {
+                return $blog->getEntryProvider()->getDatabaseMigrationsPath();
+            })->filter()->map(function (string $path) {
+                return realpath($path);
+            })->unique();
+
+            $this->loadMigrationsFrom($paths->all());
+        });
     }
 
     /**
