@@ -37,11 +37,12 @@ class DefaultBlogTest extends IntegrationTest
         $response = $this->get('blog');
 
         $response->assertStatus(200);
-        $response->assertSee('Main Blog');
+        $response->assertSee('<h1>Main Blog</h1>');
         $response->assertSee('The first post');
         $response->assertSee('the main content...');
         $response->assertSee('type="application/atom+xml"');
         $response->assertSee('app.css');
+        $response->assertSee('<title>Main Blog</title>');
     }
 
     public function test_entry_page() {

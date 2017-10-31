@@ -21,6 +21,7 @@ return [
         'main' => [
             'public_path' => 'blog',
             'title' => 'Main Blog',
+            //'page-title' => '',
             //'description' => '',
         ],
         // You can add more blogs here...

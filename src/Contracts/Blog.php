@@ -108,6 +108,12 @@ interface Blog
     public function getTitle(): string;
 
     /**
+     * Get the html head page title of the blog
+     * @return string
+     */
+    public function getPageTitle(): string;
+
+    /**
      * Get the last updated timestamp for the entire blog
      * @return Carbon
      */

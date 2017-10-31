@@ -72,6 +72,12 @@ class Blog implements BlogContract
     protected $description;
 
     /**
+     * Meta-title for html page head for this blog
+     * @var string|null
+     */
+    protected $page_title;
+
+    /**
      * Blog constructor.
      *
      * @param string $blog_id
@@ -392,5 +398,26 @@ class Blog implements BlogContract
     public function getMetaDescription(): ?string
     {
         return $this->description;
+    }
+
+    /**
+     * Set the html head title for the blog
+     * @param string $title
+     * @return $this
+     */
+    public function withPageTitle(string $title): BlogContract
+    {
+        $this->page_title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get the html head page title of the blog
+     * @return string
+     */
+    public function getPageTitle(): string
+    {
+        return $this->page_title ?? $this->getTitle();
     }
 }

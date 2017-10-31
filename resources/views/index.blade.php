@@ -14,6 +14,8 @@
   @endif
 @endpush
 
+@section('title', $blog->getPageTitle());
+
 @section('blog')
   <h1>{{ $blog->getTitle() }}</h1>
   @if($entries->count())
