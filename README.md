@@ -63,6 +63,12 @@ and [nullable types](http://php.net/manual/en/migration71.new-features.php#migra
     ```bash
     php artisan migrate
     ```
+    
+5. If you want to create a default blog entry in the database you can run the seeder:
+
+    ```bash
+    php artisan db:seed --class="Bjuppa\LaravelBlog\Database\Seeds\DefaultBlogEntrySeeder"
+    ``` 
 
 ## Package development & testing
 `composer test` from the project directory will run the default test suite.
