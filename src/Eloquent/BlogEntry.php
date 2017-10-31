@@ -226,4 +226,13 @@ class BlogEntry extends Eloquent implements BlogEntryContract
     {
         return $this->description;
     }
+
+    /**
+     * Get the html head title for this entry
+     * @return string
+     */
+    public function getPageTitle(): string
+    {
+        return $this->page_title ?? $this->getTitle();
+    }
 }

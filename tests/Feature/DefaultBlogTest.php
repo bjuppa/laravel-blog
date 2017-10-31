@@ -49,10 +49,11 @@ class DefaultBlogTest extends IntegrationTest
         $response = $this->get('blog/the-first-post');
 
         $response->assertStatus(200);
-        $response->assertSee('The first post');
+        $response->assertSee('<h1>The first post</h1>');
         $response->assertSee('of the first post');
         $response->assertSee('type="application/atom+xml"');
         $response->assertSee('app.css');
+        $response->assertSee('<title>The first post</title>');
     }
 
     public function test_entry_not_found() {

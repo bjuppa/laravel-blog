@@ -64,6 +64,12 @@ interface BlogEntry
     public function getSummary(): Htmlable;
 
     /**
+     * Get the html head title for this entry
+     * @return string
+     */
+    public function getPageTitle(): string;
+
+    /**
      * Get the meta-description for this entry
      * @return string|null
      */

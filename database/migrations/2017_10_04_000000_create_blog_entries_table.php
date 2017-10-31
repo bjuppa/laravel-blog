@@ -54,6 +54,7 @@ class CreateBlogEntriesTable extends Migration
             $table->text('image')->nullable();
             $table->text('content');
             $table->text('summary')->nullable();
+            $table->string('page_title')->nullable();
             $table->string('description')->nullable();
             $table->timestamps();
 
