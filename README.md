@@ -36,6 +36,34 @@ some new stuff, like PHP's
 [`iterable` pseudo-type](http://php.net/manual/en/migration71.new-features.php#migration71.new-features.iterable-pseudo-type)
 and [nullable types](http://php.net/manual/en/migration71.new-features.php#migration71.new-features.nullable-types).
 
+## Usage
+
+1. Require the package:
+    
+    ```bash
+    composer require bjuppa/laravel-blog
+    ```
+
+    The package will automatically register itself.
+
+2. Publish the configuration file:
+    
+    ```bash
+    php artisan vendor:publish --provider="Bjuppa\LaravelBlog\BlogServiceProvider" --tag="blog-config"
+    ```
+
+3. Edit the published configuration file `config/blog.php` to setup your desired blogs and their options.
+
+    Configurations may be changed later and more blogs can be added etc.
+    Just remember that permalinks and generated entry id's should ideally be kept constant
+    after a blog has been published to avoid broken feeds and links for your audience. 
+
+4. Run migrations to automatically set up any tables needed to use the configured blog entry providers:
+    
+    ```bash
+    php artisan migrate
+    ```
+
 ## Package development & testing
 `composer test` from the project directory will run the default test suite.
 
