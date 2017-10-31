@@ -43,6 +43,7 @@ class BlogEntry extends Eloquent implements BlogEntryContract
      * The "booting" method of the model.
      *
      * @return void
+     * @throws \InvalidArgumentException
      */
     protected static function boot()
     {
