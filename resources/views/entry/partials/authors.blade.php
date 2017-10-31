@@ -8,7 +8,7 @@
   @foreach($authors as $author)
     <li>
       @if($author->getHref())
-        <address><a href="{{ $author->getHref() }}">{{ $author->getName() }}</a></address>
+        <address><a href="{{ $author->getHref() }}" rel="author">{{ $author->getName() }}</a></address>
       @else
         {{ $author->getName() }}
       @endif
