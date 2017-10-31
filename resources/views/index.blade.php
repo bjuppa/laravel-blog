@@ -7,14 +7,14 @@
  */
 ?>
 
+@section('title', $blog->getPageTitle());
+
 @push('meta')
   @include('blog::feed.metaLink')
   @if($blog->getMetaDescription())
     <meta name="description" content="{{ $blog->getMetaDescription() }}">
   @endif
 @endpush
-
-@section('title', $blog->getPageTitle());
 
 @section('blog')
   <h1>{{ $blog->getTitle() }}</h1>
