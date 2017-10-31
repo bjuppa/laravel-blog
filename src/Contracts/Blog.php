@@ -130,5 +130,5 @@ interface Blog
      * Get the meta-description for this blog
      * @return string|null
      */
-    public function getDescription(): ?string;
+    public function getMetaDescription(): ?string;
 }

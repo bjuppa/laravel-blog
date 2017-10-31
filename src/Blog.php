@@ -389,7 +389,7 @@ class Blog implements BlogContract
      * Get the meta-description for this blog
      * @return string|null
      */
-    public function getDescription(): ?string
+    public function getMetaDescription(): ?string
     {
         return $this->description;
     }
