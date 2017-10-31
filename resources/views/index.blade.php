@@ -9,6 +9,9 @@
 
 @push('meta')
   @include('blog::feed.metaLink')
+  @if($blog->getDescription())
+    <meta name="description" content="{{ $blog->getDescription() }}">
+  @endif
 @endpush
 
 @section('blog')

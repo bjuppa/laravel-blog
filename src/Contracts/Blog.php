@@ -125,4 +125,10 @@ interface Blog
      * @return Collection
      */
     public function getStylesheets(): Collection;
+
+    /**
+     * Get the meta-description for this blog
+     * @return string|null
+     */
+    public function getDescription(): ?string;
 }

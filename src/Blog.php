@@ -66,6 +66,12 @@ class Blog implements BlogContract
     protected $stylesheets;
 
     /**
+     * Meta-description for this blog
+     * @var string
+     */
+    protected $description;
+
+    /**
      * Blog constructor.
      *
      * @param string $blog_id
@@ -347,7 +353,7 @@ class Blog implements BlogContract
 
     /**
      * Set stylesheets to use with this blog
-     * @param $styles
+     * @param string|array $styles relative or absolute urls
      * @return BlogContract
      */
     public function withStylesheets($styles): BlogContract
@@ -363,6 +369,28 @@ class Blog implements BlogContract
      */
     public function getStylesheets(): Collection
     {
+        //TODO: make stylesheets return as absolute urls using url(), or perhaps mix()?
         return collect($this->stylesheets);
+    }
+
+    /**
+     * Set the meta-description for the blog
+     * @param string $description
+     * @return $this
+     */
+    public function withDescription(string $description): BlogContract
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get the meta-description for this blog
+     * @return string|null
+     */
+    public function getDescription(): ?string
+    {
+        return $this->description;
     }
 }
