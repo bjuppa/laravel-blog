@@ -45,7 +45,7 @@ class BlogEntry extends Eloquent implements BlogEntryContract
      * @return void
      * @throws \InvalidArgumentException
      */
-    protected static function boot()
+    protected static function boot(): void
     {
         parent::boot();
 
@@ -57,7 +57,7 @@ class BlogEntry extends Eloquent implements BlogEntryContract
      *
      * @return string
      */
-    public function getTable()
+    public function getTable(): string
     {
         if (!isset($this->table)) {
             return config('blog-eloquent.entries_table', 'blog_entries');
