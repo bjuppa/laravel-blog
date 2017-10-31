@@ -64,6 +64,12 @@ interface BlogEntry
     public function getSummary(): Htmlable;
 
     /**
+     * Get the meta-description for this entry
+     * @return string|null
+     */
+    public function getMetaDescription(): ?string;
+
+    /**
      * Get a unique id for this blog entry within the blog
      * @return string
      */

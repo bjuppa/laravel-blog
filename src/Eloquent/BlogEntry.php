@@ -26,6 +26,7 @@ use Spatie\Sluggable\SlugOptions;
  * @property string author_url
  * @property string image
  * @property string summary
+ * @property string description
  */
 class BlogEntry extends Eloquent implements BlogEntryContract
 {
@@ -214,5 +215,14 @@ class BlogEntry extends Eloquent implements BlogEntryContract
     public function isPublic(): bool
     {
         return $this->publish_after and $this->publish_after->isPast();
+    }
+
+    /**
+     * Get the meta-description for this entry
+     * @return string|null
+     */
+    public function getMetaDescription(): ?string
+    {
+        return $this->description;
     }
 }
