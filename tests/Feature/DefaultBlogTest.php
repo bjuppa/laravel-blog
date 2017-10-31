@@ -41,6 +41,7 @@ class DefaultBlogTest extends IntegrationTest
         $response->assertSee('The first post');
         $response->assertSee('the main content...');
         $response->assertSee('type="application/atom+xml"');
+        $response->assertSee('app.css');
     }
 
     public function test_entry_page() {
@@ -50,6 +51,7 @@ class DefaultBlogTest extends IntegrationTest
         $response->assertSee('The first post');
         $response->assertSee('of the first post');
         $response->assertSee('type="application/atom+xml"');
+        $response->assertSee('app.css');
     }
 
     public function test_entry_not_found() {

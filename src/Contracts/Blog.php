@@ -119,4 +119,10 @@ interface Blog
      * @return Collection
      */
     public function getAuthors(): Collection;
+
+    /**
+     * Get the stylesheets used for this blog
+     * @return Collection
+     */
+    public function getStylesheets(): Collection;
 }

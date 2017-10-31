@@ -60,6 +60,12 @@ class Blog implements BlogContract
     protected $title;
 
     /**
+     * Stylesheets used for this blog
+     * @var Collection
+     */
+    protected $stylesheets;
+
+    /**
      * Blog constructor.
      *
      * @param string $blog_id
@@ -337,5 +343,26 @@ class Blog implements BlogContract
         $this->author_data = $author_data;
 
         return $this;
+    }
+
+    /**
+     * Set stylesheets to use with this blog
+     * @param $styles
+     * @return BlogContract
+     */
+    public function withStylesheets($styles): BlogContract
+    {
+        $this->stylesheets = $this->getStylesheets()->merge($styles);
+
+        return $this;
+    }
+
+    /**
+     * Get the stylesheets used for this blog
+     * @return Collection
+     */
+    public function getStylesheets(): Collection
+    {
+        return collect($this->stylesheets);
     }
 }
