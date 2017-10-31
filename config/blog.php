@@ -21,6 +21,11 @@ return [
         'main' => [
             'public_path' => 'blog',
             'title' => 'Main Blog',
+            'author' => [
+                'name' => 'Author name',
+                //'email' => 'author@email.com',
+                //'url' => 'http://author-website.com/about',
+            ],
             //'page-title' => '',
             //'description' => '',
         ],
