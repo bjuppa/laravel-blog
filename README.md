@@ -56,7 +56,13 @@ and [nullable types](http://php.net/manual/en/migration71.new-features.php#migra
 
     Configurations may be changed later and more blogs can be added etc.
     Just remember that permalinks and generated entry id's should ideally be kept constant
-    after a blog has been published to avoid broken feeds and links for your audience. 
+    after a blog has been published to avoid broken feeds and links for your audience.
+    
+    While setting up, you can check which routes and paths are generated using:
+    
+    ```bash
+    php artisan route:list
+    ```
 
 4. Run migrations to automatically set up any tables needed to use the configured blog entry providers:
     
