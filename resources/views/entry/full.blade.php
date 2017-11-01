@@ -8,5 +8,5 @@
   @includeFirst(['blog::entry.partials.footer-'.$blog->getId().'-'.$entry->getId(), 'blog::entry.partials.footer-'.$blog->getId(), 'blog::entry.partials.footer'])
   @includeFirst(['blog::entry.partials.content-'.$blog->getId().'-'.$entry->getId(), 'blog::entry.partials.content-'.$blog->getId(), 'blog::entry.partials.content'])
   {{-- TODO: add nav here with links to next and previous entries --}}
-  {{-- TODO: add aside here with links to latest entries & optional ads --}}
+  @includeFirst(['blog::entry.partials.aside-'.$blog->getId().'-'.$entry->getId(), 'blog::entry.partials.aside-'.$blog->getId(), 'blog::entry.partials.aside'])
 </article>
