@@ -4,14 +4,9 @@
  * @var $author \Bjuppa\LaravelBlog\Contracts\Author
  */
 ?>
+{{-- TODO: set title="authors" on the list --}}
 <ul>
   @foreach($authors as $author)
-    <li>
-      @if($author->getHref())
-        <address><a href="{{ $author->getHref() }}" rel="author">{{ $author->getName() }}</a></address>
-      @else
-        {{ $author->getName() }}
-      @endif
-    </li>
+    @include('blog::author.listItem')
   @endforeach
 </ul>
