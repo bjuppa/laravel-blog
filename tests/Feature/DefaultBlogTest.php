@@ -37,7 +37,7 @@ class DefaultBlogTest extends IntegrationTest
         $response = $this->get('blog');
 
         $response->assertStatus(200);
-        $response->assertSee('<h1>Main Blog</h1>');
+        $response->assertSee('>Main Blog</h1>');
         $response->assertSee('The first post');
         $response->assertSee('the main content...');
         $response->assertSee('type="application/atom+xml"');
@@ -49,7 +49,7 @@ class DefaultBlogTest extends IntegrationTest
         $response = $this->get('blog/the-first-post');
 
         $response->assertStatus(200);
-        $response->assertSee('<h1>The first post</h1>');
+        $response->assertSee('>The first post</h1>');
         $response->assertSee('of the first post');
         $response->assertSee('type="application/atom+xml"');
         $response->assertSee('app.css');
@@ -69,6 +69,6 @@ class DefaultBlogTest extends IntegrationTest
         $response->assertSee('Main Blog');
         $response->assertSee('The first post');
         $response->assertSee('the main content...');
-        $response->assertSee('<author>');
+        $response->assertSee('</author>');
     }
 }
