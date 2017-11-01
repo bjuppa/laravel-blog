@@ -18,9 +18,7 @@
 
 @section('blog')
   <h1>{{ $blog->getTitle() }}</h1>
-  @if($blog->getMetaDescription())
-    <p>{{ $blog->getMetaDescription() }}</p>
-  @endif
+  @includeFirst(['blog::blog.intro-'.$blog->getId(), 'blog::blog.intro'])
   @if($entries->count())
     {{-- TODO: set title="Latest entries" to the entry list --}}
     <ul>
