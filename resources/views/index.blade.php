@@ -7,7 +7,7 @@
  */
 ?>
 
-@section('title', $blog->getPageTitle());
+@section('title', $blog->getPageTitle())
 
 @push('meta')
   @include('blog::feed.metaLink')
