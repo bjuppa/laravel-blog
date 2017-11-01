@@ -3,7 +3,7 @@
  * @var $entry \Bjuppa\LaravelBlog\Contracts\BlogEntry
  */
 ?>
-<header>
+<header class="blog-entry-header">
   {{-- TODO: wrap this in a blade section blogEntryHeader --}}
   @if($entry->getImage())
     {{ $entry->getImage() }}

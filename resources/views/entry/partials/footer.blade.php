@@ -4,7 +4,7 @@
  * @var $blog \Bjuppa\LaravelBlog\Contracts\Blog
  */
 ?>
-<footer>
+<footer class="blog-entry-footer">
   {{-- TODO: wrap this in a blade section blogEntryFooter --}}
   <p>
     <time datetime="{{ $entry->getPublished()->toAtomString() }}">{{ $entry->getPublished()->diffForHumans() }}</time>
