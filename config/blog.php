@@ -29,7 +29,7 @@ return [
             //'page-title' => "Your title for the blog's index page",
             //'entry-page-title-suffix' => ' - Main Blog',
             //'description' => "A meta-description for the blog's index page (~160 characters)",
-            //TODO: add all with-functions on the Blog implementation to default config
+            //'domain' => 'blog.website.com',
         ],
         // You can add more blogs here...
     ],
@@ -49,6 +49,8 @@ return [
 
     'blog_defaults' => [
         'stylesheets' => ['css/app.css'],
+        //latest-entries-limit => 5,
+        //'middleware' => [],
     ],
 
     /*
