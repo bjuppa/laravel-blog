@@ -58,7 +58,8 @@ class CreateBlogEntriesTable extends Migration
             $table->string('description')->nullable();
             $table->timestamps();
 
-            $table->index('blog', 'blog');
+            $table->unique(['slug', 'blog'], 'slug');
+            $table->index(['publish_after', 'blog', 'slug'], 'public');
         });
     }
 
