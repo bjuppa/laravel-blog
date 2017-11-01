@@ -4,7 +4,7 @@
  * @var $author \Bjuppa\LaravelBlog\Contracts\Author
  */
 ?>
-{{-- TODO: set title="authors" on the list --}}
+{{-- TODO: set title="Authors" on the list --}}
 <ul>
   @foreach($authors as $author)
     @include('blog::author.listItem')
