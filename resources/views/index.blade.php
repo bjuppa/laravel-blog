@@ -20,7 +20,7 @@
   @includeFirst(['blog::blog.header-'.$blog->getId(), 'blog::blog.header'])
   @if($entries->count())
     {{-- TODO: set title="Latest entries" to the entry list --}}
-    <ul>
+    <ul class="blog-entry-list">
       @each('blog::entry.listItem', $entries, 'entry')
     </ul>
   @endif
