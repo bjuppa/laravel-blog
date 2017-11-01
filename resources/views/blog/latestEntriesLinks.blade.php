@@ -5,7 +5,7 @@
  */
 ?>
 {{-- TODO: add title="Latest entries" to the link list --}}
-<ul class="blog-entry-list">
+<ul class="blog-latest-entries-links">
   @foreach($blog->latestEntries() as $entry)
     <li>
       <a href="{{ $blog->urlToEntry($entry) }}">{{ $entry->getTitle() }}</a>
