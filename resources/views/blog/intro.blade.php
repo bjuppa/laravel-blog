@@ -1,3 +1,3 @@
 @if($blog->getMetaDescription())
-  <p>{{ $blog->getMetaDescription() }}</p>
+  <p class="blog-description">{{ $blog->getMetaDescription() }}</p>
 @endif
