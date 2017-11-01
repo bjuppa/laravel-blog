@@ -114,6 +114,12 @@ interface Blog
     public function getPageTitle(): string;
 
     /**
+     * Get string to append after html page title on entry pages
+     * @return string
+     */
+    public function getEntryPageTitleSuffix(): string;
+
+    /**
      * Get the last updated timestamp for the entire blog
      * @return Carbon
      */

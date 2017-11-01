@@ -78,6 +78,12 @@ class Blog implements BlogContract
     protected $page_title;
 
     /**
+     * Append this string to entries' page titles
+     * @var string|null
+     */
+    protected $entry_page_title_suffix;
+
+    /**
      * Blog constructor.
      *
      * @param string $blog_id
@@ -413,11 +419,34 @@ class Blog implements BlogContract
     }
 
     /**
+     * Set the title suffix for blog entries
+     * @param string $title
+     * @return $this
+     */
+    public function withEntryPageTitleSuffix(string $title): BlogContract
+    {
+        $this->entry_page_title_suffix = $title;
+
+        return $this;
+    }
+
+    /**
      * Get the html head page title of the blog
      * @return string
      */
     public function getPageTitle(): string
     {
         return $this->page_title ?? $this->getTitle();
+    }
+
+    /**
+     * Get string to append after html page title on entry pages
+     * @return string
+     */
+    public function getEntryPageTitleSuffix(): string
+    {
+        return is_null($this->entry_page_title_suffix)
+            ? ' - ' . $this->getPageTitle()
+            : $this->entry_page_title_suffix;
     }
 }

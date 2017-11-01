@@ -229,10 +229,11 @@ class BlogEntry extends Eloquent implements BlogEntryContract
 
     /**
      * Get the html head title for this entry
+     * @param string $suffix to append after the title
      * @return string
      */
-    public function getPageTitle(): string
+    public function getPageTitle(string $suffix = ''): string
     {
-        return $this->page_title ?? $this->getTitle();
+        return str_finish($this->page_title ?? $this->getTitle(), $suffix);
     }
 }

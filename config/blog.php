@@ -26,8 +26,10 @@ return [
                 //'email' => 'author@email.com',
                 //'url' => 'http://author-website.com/about',
             ],
-            //'page-title' => '',
-            //'description' => '',
+            //'page-title' => "Your title for the blog's index page",
+            //'entry-page-title-suffix' => ' - Main Blog',
+            //'description' => "A meta-description for the blog's index page (~160 characters)",
+            //TODO: add all with-functions on the Blog implementation to default config
         ],
         // You can add more blogs here...
     ],

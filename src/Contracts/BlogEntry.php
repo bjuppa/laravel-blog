@@ -65,9 +65,10 @@ interface BlogEntry
 
     /**
      * Get the html head title for this entry
+     * @param string $suffix to append after the title
      * @return string
      */
-    public function getPageTitle(): string;
+    public function getPageTitle(string $suffix = ''): string;
 
     /**
      * Get the meta-description for this entry

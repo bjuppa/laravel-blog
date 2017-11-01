@@ -53,7 +53,7 @@ class DefaultBlogTest extends IntegrationTest
         $response->assertSee('of the first post');
         $response->assertSee('type="application/atom+xml"');
         $response->assertSee('app.css');
-        $response->assertSee('<title>The first post</title>');
+        $response->assertSee('<title>The first post - Main Blog</title>');
     }
 
     public function test_entry_not_found() {

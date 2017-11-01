@@ -14,6 +14,11 @@ class BlogEntryTitleTest extends IntegrationTest
         $this->seedDefaultBlogEntry();
     }
 
+    protected function extraConfigs(): array
+    {
+        return ['blog.blogs.main.entry-page-title-suffix' => ' - The Blog'];
+    }
+
     public function test_title()
     {
         $entry = BlogEntry::first();
@@ -22,6 +27,6 @@ class BlogEntryTitleTest extends IntegrationTest
 
         $response = $this->get('blog/the-first-post');
 
-        $response->assertSee('<title>Page title</title>');
+        $response->assertSee('<title>Page title - The Blog</title>');
     }
 }
