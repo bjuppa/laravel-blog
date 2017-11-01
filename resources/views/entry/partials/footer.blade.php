@@ -5,6 +5,7 @@
  */
 ?>
 <footer>
+  {{-- TODO: wrap this in a blade section blogEntryFooter --}}
   <p>
     <time datetime="{{ $entry->getPublished()->toAtomString() }}">{{ $entry->getPublished()->diffForHumans() }}</time>
     <a href="{{ $blog->urlToIndex() }}" rel="index">{{ $blog->getTitle() }}</a>

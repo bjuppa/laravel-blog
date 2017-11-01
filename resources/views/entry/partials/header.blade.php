@@ -4,6 +4,7 @@
  */
 ?>
 <header>
+  {{-- TODO: wrap this in a blade section blogEntryHeader --}}
   @if($entry->getImage())
     {{ $entry->getImage() }}
   @endif
