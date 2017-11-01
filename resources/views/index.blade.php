@@ -18,7 +18,11 @@
 
 @section('blog')
   <h1>{{ $blog->getTitle() }}</h1>
+  @if($blog->getMetaDescription())
+    <p>{{ $blog->getMetaDescription() }}</p>
+  @endif
   @if($entries->count())
+    {{-- TODO: set title="Latest entries" to the entry list --}}
     <ul>
       @each('blog::entry.listItem', $entries, 'entry')
     </ul>
