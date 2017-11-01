@@ -5,7 +5,7 @@
  */
 ?>
 {{-- TODO: set title="Authors" on the list --}}
-<ul class="blog-author-list">
+<ul class="blog-author-list list-inline">
   @foreach($authors as $author)
     @include('blog::author.listItem')
   @endforeach

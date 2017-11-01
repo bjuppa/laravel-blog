@@ -7,7 +7,7 @@
 ?>
 
 @section('body')
-  <main class="blog">
+  <main class="blog container">
     @yield('blog')
   </main>
 @endsection
