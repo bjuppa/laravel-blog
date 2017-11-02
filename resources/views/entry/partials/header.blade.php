@@ -8,5 +8,5 @@
   @if($entry->getImage())
     {{ $entry->getImage() }}
   @endif
-  <h1>{{ $entry->getTitle() }}</h1>
+  <h1 class="blog-entry-title">{{ $entry->getTitle() }}</h1>
 </header>

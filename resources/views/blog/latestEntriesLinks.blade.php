@@ -8,7 +8,7 @@
 <ul class="blog-latest-entries-links list-unstyled">
   @foreach($blog->latestEntries() as $entry)
     <li>
-      <a href="{{ $blog->urlToEntry($entry) }}">{{ $entry->getTitle() }}</a>
+      <a href="{{ $blog->urlToEntry($entry) }}" class="blog-entry-link">{{ $entry->getTitle() }}</a>
     </li>
   @endforeach
 </ul>
