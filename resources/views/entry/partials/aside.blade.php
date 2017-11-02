@@ -1,4 +1,6 @@
 <aside class="blog-related-content">
-  @include('blog::blog.latestEntriesLinks')
-  {{-- TODO: include optional ads in the aside --}}
+  @section('blogEntryAside')
+    @include('blog::blog.latestEntriesLinks')
+    {{-- TODO: include optional ads in the aside --}}
+  @endsection
 </aside>
