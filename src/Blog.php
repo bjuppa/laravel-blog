@@ -371,11 +371,7 @@ class Blog implements BlogContract
     public function withStylesheets($styles): BlogContract
     {
         $urls = collect($styles)->map(function ($style) {
-            try {
-                return mix($style);
-            } catch (\Exception $e) {
-                return url($style);
-            }
+            return url($style);
         });
 
         $this->stylesheet_urls = $this->stylesheetUrls()->merge($urls);

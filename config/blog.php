@@ -48,6 +48,9 @@ return [
     */
 
     'blog_defaults' => [
+        /*
+         * Stylesheets may be run through mix() here in the config
+         */
         'stylesheets' => ['css/app.css'],
         //latest-entries-limit => 5,
         //'middleware' => [],
