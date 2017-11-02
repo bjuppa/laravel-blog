@@ -381,8 +381,10 @@ class Blog implements BlogContract
      */
     public function getStylesheets(): Collection
     {
-        //TODO: make stylesheets return as absolute urls using url(), or perhaps mix()?
-        return collect($this->stylesheets);
+        return collect($this->stylesheets)->map(function($stylesheet) {
+            //TODO: attempt to run mix() on the stylesheet before falling back to url
+            return url($stylesheet);
+        });
     }
 
     /**
