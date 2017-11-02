@@ -136,7 +136,7 @@ interface Blog
      * Get the stylesheets used for this blog
      * @return Collection
      */
-    public function getStylesheets(): Collection;
+    public function stylesheetUrls(): Collection;
 
     /**
      * Get the meta-description for this blog

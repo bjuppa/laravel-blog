@@ -13,7 +13,7 @@
 @endsection
 
 @push('styles')
-  @foreach($blog->getStylesheets() as $stylesheet)
+  @foreach($blog->stylesheetUrls() as $stylesheet)
     <link href="{{ url($stylesheet) }}" rel="stylesheet" type="text/css">
   @endforeach
 @endpush

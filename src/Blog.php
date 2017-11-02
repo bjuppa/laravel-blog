@@ -63,7 +63,7 @@ class Blog implements BlogContract
      * Stylesheets used for this blog
      * @var Collection
      */
-    protected $stylesheets;
+    protected $stylesheet_urls;
 
     /**
      * Meta-description for this blog
@@ -370,7 +370,12 @@ class Blog implements BlogContract
      */
     public function withStylesheets($styles): BlogContract
     {
-        $this->stylesheets = $this->getStylesheets()->merge($styles);
+        $urls = collect($styles)->map(function ($style) {
+            //TODO: attempt to run mix() on the stylesheet before falling back to url
+            return url($style);
+        });
+
+        $this->stylesheet_urls = $this->stylesheetUrls()->merge($urls);
 
         return $this;
     }
@@ -379,12 +384,9 @@ class Blog implements BlogContract
      * Get the stylesheets used for this blog
      * @return Collection
      */
-    public function getStylesheets(): Collection
+    public function stylesheetUrls(): Collection
     {
-        return collect($this->stylesheets)->map(function($stylesheet) {
-            //TODO: attempt to run mix() on the stylesheet before falling back to url
-            return url($stylesheet);
-        });
+        return collect($this->stylesheet_urls);
     }
 
     /**
