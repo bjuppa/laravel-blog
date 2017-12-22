@@ -1,6 +1,6 @@
 {
   "name": "bjuppa/laravel-blog",
-  "description": "Flexible blog functionality for your Laravel project",
+  "description": "Add blog functionality to your Laravel project",
   "keywords": [
     "laravel",
     "blog"
