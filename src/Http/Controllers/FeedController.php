@@ -7,7 +7,7 @@ class FeedController extends BaseBlogController
     /**
      * Atom feed for a blog
      *
-     * @return string
+     * @return \Illuminate\View\View
      */
     public function __invoke()
     {

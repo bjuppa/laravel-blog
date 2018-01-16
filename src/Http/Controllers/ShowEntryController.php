@@ -12,7 +12,9 @@ class ShowEntryController extends BaseBlogController
      * Show a blog entry in a view
      *
      * @param string $slug
-     * @return string
+     * @return \Illuminate\View\View
+     * @throws NotFoundHttpException
+     * @throws \Throwable
      */
     public function __invoke($slug)
     {
