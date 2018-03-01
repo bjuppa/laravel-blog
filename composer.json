@@ -23,7 +23,7 @@
   },
   "require-dev": {
     "orchestra/testbench": "~3.5",
-    "erusev/parsedown": "^1.6",
+    "erusev/parsedown": "^1.7",
     "graham-campbell/markdown": "^8.0"
   },
   "suggest": {
