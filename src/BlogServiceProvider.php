@@ -5,6 +5,7 @@ namespace Bjuppa\LaravelBlog;
 use Bjuppa\LaravelBlog\Contracts\Blog as BlogContract;
 use Bjuppa\LaravelBlog\Contracts\BlogEntryProvider as BlogEntryProviderContract;
 use Bjuppa\LaravelBlog\Contracts\BlogRegistry as BlogRegistryContract;
+use Bjuppa\LaravelBlog\Contracts\ProvidesDatabaseMigrationsPath;
 use Bjuppa\LaravelBlog\Eloquent\BlogEntryProvider;
 use Illuminate\Support\ServiceProvider;
 
@@ -84,10 +85,10 @@ class BlogServiceProvider extends ServiceProvider
              */
             $registry = $app->make(\Bjuppa\LaravelBlog\Contracts\BlogRegistry::class);
 
-            $paths = $registry->all()->map(function (\Bjuppa\LaravelBlog\Contracts\Blog $blog) {
-                return $blog->getEntryProvider()->getDatabaseMigrationsPath();
-            })->filter()->map(function (string $path) {
-                return realpath($path);
+            $paths = $registry->all()->filter(function (BlogContract $blog) {
+                return $blog->getEntryProvider() instanceof ProvidesDatabaseMigrationsPath;
+            })->map(function (BlogContract $blog) {
+                return realpath($blog->getEntryProvider()->getDatabaseMigrationsPath());
             })->unique();
 
             $this->loadMigrationsFrom($paths->all());

@@ -33,10 +33,4 @@ interface BlogEntryProvider
      * @return Carbon
      */
     public function getUpdated(): Carbon;
-
-    /**
-     * If the entry provider has Laravel database migrations for its models, return the path to migrations.
-     * @return string|null
-     */
-    public function getDatabaseMigrationsPath(): ?string;
 }

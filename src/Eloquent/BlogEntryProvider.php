@@ -4,12 +4,13 @@ namespace Bjuppa\LaravelBlog\Eloquent;
 
 use Bjuppa\LaravelBlog\Contracts\BlogEntry;
 use Bjuppa\LaravelBlog\Contracts\BlogEntryProvider as BlogEntryProviderContract;
+use Bjuppa\LaravelBlog\Contracts\ProvidesDatabaseMigrationsPath;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 
-class BlogEntryProvider implements BlogEntryProviderContract
+class BlogEntryProvider implements BlogEntryProviderContract, ProvidesDatabaseMigrationsPath
 {
     protected $model = \Bjuppa\LaravelBlog\Eloquent\BlogEntry::class;
 
@@ -79,10 +80,10 @@ class BlogEntryProvider implements BlogEntryProviderContract
     }
 
     /**
-     * If the entry provider has Laravel database migrations for its models, return the path to migrations.
-     * @return string|null
+     * Return the path to database migrations for models.
+     * @return string
      */
-    public function getDatabaseMigrationsPath(): ?string
+    public function getDatabaseMigrationsPath(): string
     {
         return __DIR__ . '/../../database/migrations/';
     }
