@@ -58,7 +58,8 @@ and [nullable types](http://php.net/manual/en/migration71.new-features.php#migra
     Just remember that permalinks and generated entry id's should ideally be kept constant
     after a blog has been published to avoid broken feeds and links for your audience.
     
-    While setting up, you can check which routes and paths are generated using:
+    The service provider handles registration of routes to all configured blogs.
+    You can check which routes and paths are generated using:
     
     ```bash
     php artisan route:list
