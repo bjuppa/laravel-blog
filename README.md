@@ -55,7 +55,7 @@ and [nullable types](http://php.net/manual/en/migration71.new-features.php#migra
 3. Edit the published configuration file `config/blog.php` to setup your desired blogs and their options.
 
     Configurations may be changed later and more blogs can be added etc.
-    Just remember that permalinks and generated entry id's should ideally be kept constant
+    Just remember that permalinks and generated entry IDs should ideally be kept constant
     after a blog has been published to avoid broken feeds and links for your audience.
     
     The service provider handles registration of routes to all configured blogs.
