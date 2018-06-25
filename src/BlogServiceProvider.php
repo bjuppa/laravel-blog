@@ -70,7 +70,11 @@ class BlogServiceProvider extends ServiceProvider
      */
     protected function registerResources()
     {
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'blog');
+        if(empty(config('blog.view_namespace'))) {
+            config(['blog.view_namespace' => 'blog']);
+        }
+
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', config('blog.view_namespace'));
     }
 
     /**

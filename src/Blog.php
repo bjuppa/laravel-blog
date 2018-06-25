@@ -461,7 +461,7 @@ class Blog implements BlogContract
      */
     public function bladeView($name): string
     {
-        return 'blog::' . $name;
+        return config('blog.view_namespace') . '::' . $name;
     }
 
     /**
