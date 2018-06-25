@@ -6,6 +6,6 @@
 ?>
 <li>
   <a href="{{ $blog->urlToEntry($entry) }}" class="blog-entry-link">
-    @includeFirst($entry->bladeViews('short', $blog))
+    @includeFirst($blog->bladeViews('entry.short', $entry))
   </a>
 </li>

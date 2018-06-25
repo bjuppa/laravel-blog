@@ -454,17 +454,19 @@ class Blog implements BlogContract
     }
 
     /**
-     * Get an array of views in descending priority order
+     * Get an array of fully qualified views in descending priority order
      * Suitable for Blade directive @includeFirst()
      * @param string $name
+     * @param BlogEntry|null $entry
      * @return array
      */
-    public function bladeViews($name): array
+    public function bladeViews($name, BlogEntry $entry = null): array
     {
-        $base = 'blog::blog.' . $name;
-        return [
-            $base . '-' . $this->getId(),
-            $base
-        ];
+        $views = ['blog::' . $name];
+        array_unshift($views, $views[0] . '-' . $this->getId());
+        if($entry) {
+            array_unshift($views, $views[1] . '-' . $entry->getId());
+        }
+        return $views;
     }
 }

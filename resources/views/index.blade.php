@@ -17,7 +17,7 @@
 @endpush
 
 @section('blog')
-  @includeFirst($blog->bladeViews('header'))
+  @includeFirst($blog->bladeViews('blog.header'))
   @if($entries->count())
     {{-- TODO: set title="Latest entries" to the entry list --}}
     <ul class="blog-entry-list list-unstyled">

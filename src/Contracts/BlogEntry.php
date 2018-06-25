@@ -81,13 +81,4 @@ interface BlogEntry
      * @return string
      */
     public function getId(): string;
-
-    /**
-     * Get an array of views in descending priority order
-     * Suitable for Blade directive @includeFirst()
-     * @param string $name
-     * @param Blog $blog
-     * @return array
-     */
-    public function bladeViews($name, Blog $blog = null): array;
 }

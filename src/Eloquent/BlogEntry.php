@@ -3,7 +3,6 @@
 namespace Bjuppa\LaravelBlog\Eloquent;
 
 use Bjuppa\LaravelBlog\Contracts\BlogEntry as BlogEntryContract;
-use Bjuppa\LaravelBlog\Contracts\Blog;
 use Bjuppa\LaravelBlog\Support\Author;
 use Bjuppa\LaravelBlog\Support\MarkdownString;
 use Bjuppa\LaravelBlog\Support\SummaryExtractor;
@@ -236,27 +235,5 @@ class BlogEntry extends Eloquent implements BlogEntryContract
     public function getPageTitle(string $suffix = ''): string
     {
         return str_finish($this->page_title ?? $this->getTitle(), $suffix);
-    }
-
-    /**
-     * Get an array of views in descending priority order
-     * Suitable for Blade directive @includeFirst()
-     * @param string $name
-     * @param Blog $blog
-     * @return array
-     */
-    public function bladeViews($name, Blog $blog = null): array
-    {
-        $base = 'blog::entry.' . $name;
-        $views = [
-            $base . '-' . $this->getId(),
-            $base
-        ];
-
-        if($blog) {
-            array_unshift($views, $base . '-' . $blog->getId() . '-' . $this->getId());
-        }
-
-        return $views;
     }
 }
