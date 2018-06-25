@@ -113,7 +113,7 @@ class BlogServiceProvider extends ServiceProvider
         ], 'blog-eloquent-config');
 
         $this->publishes([
-            __DIR__ . '/../resources/views' => resource_path('views/vendor/blog'),
+            __DIR__ . '/../resources/views' => resource_path('views/vendor/' . config('blog.view_namespace')),
         ], 'blog-views');
     }
 
