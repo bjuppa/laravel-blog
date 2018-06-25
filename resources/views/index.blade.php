@@ -1,11 +1,10 @@
-@extends('blog::layouts.blog')
-
 <?php
 /**
  * @var $blog \Bjuppa\LaravelBlog\Contracts\Blog
  * @var $entries \Illuminate\Support\Collection
  */
 ?>
+@extends($blog->bladeView('layouts.blog'))
 
 @section('title', $blog->getPageTitle())
 
@@ -21,7 +20,7 @@
   @if($entries->count())
     {{-- TODO: set title="Latest entries" to the entry list --}}
     <ul class="blog-entry-list list-unstyled">
-      @each('blog::entry.listItem', $entries, 'entry')
+      @each($blog->bladeView('entry.listItem'), $entries, 'entry')
     </ul>
   @endif
 @endsection

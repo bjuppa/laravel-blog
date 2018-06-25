@@ -1,11 +1,10 @@
-@extends('blog::layouts.blog')
-
 <?php
 /**
  * @var $blog \Bjuppa\LaravelBlog\Contracts\Blog
  * @var $entry \Bjuppa\LaravelBlog\Contracts\BlogEntry
  */
 ?>
+@extends($blog->bladeView('layouts.blog'))
 
 @section('title', $entry->getPageTitle($blog->getEntryPageTitleSuffix()))
 

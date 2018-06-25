@@ -454,6 +454,17 @@ class Blog implements BlogContract
     }
 
     /**
+     * Get a fully qualified view name
+     * Suitable for Blade directives @extends(), @include() or @each()
+     * @param string $name
+     * @return string
+     */
+    public function bladeView($name): string
+    {
+        return 'blog::' . $name;
+    }
+
+    /**
      * Get an array of fully qualified views in descending priority order
      * Suitable for Blade directive @includeFirst()
      * @param string $name
@@ -462,7 +473,7 @@ class Blog implements BlogContract
      */
     public function bladeViews($name, BlogEntry $entry = null): array
     {
-        $views = ['blog::' . $name];
+        $views = [$this->bladeView($name)];
         array_unshift($views, $views[0] . '-' . $this->getId());
         if($entry) {
             array_unshift($views, $views[1] . '-' . $entry->getId());
