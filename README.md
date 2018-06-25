@@ -82,3 +82,5 @@ and [nullable types](http://php.net/manual/en/migration71.new-features.php#migra
 
 If you want your own local configuration for phpunit,
 copy the file `phpunit.xml.dist` to `phpunit.xml` and modify the latter to your needs.
+
+`composer update --prefer-lowest` can be used before running tests for testing backwards compatibility.
