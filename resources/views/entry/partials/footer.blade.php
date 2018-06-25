@@ -12,7 +12,7 @@
       in
       <a href="{{ $blog->urlToIndex() }}" rel="index">{{ $blog->getTitle() }}</a>
       by
-      @includeFirst(['blog::entry.partials.authors-'.$blog->getId().'-'.$entry->getId(), 'blog::entry.partials.authors-'.$blog->getId(), 'blog::entry.partials.authors'], ['authors' => $entry->getAuthors()->isEmpty() ? $blog->getAuthors() : $entry->getAuthors()])
+      @includeFirst($entry->bladeViews('partials.authors', $blog), ['authors' => $entry->getAuthors()->isEmpty() ? $blog->getAuthors() : $entry->getAuthors()])
     </p>
   @show
 </footer>

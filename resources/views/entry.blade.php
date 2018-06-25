@@ -17,5 +17,5 @@
 @endpush
 
 @section('blog')
-  @includeFirst(['blog::entry.full-'.$blog->getId().'-'.$entry->getId(), 'blog::entry.full-'.$blog->getId(), 'blog::entry.full'])
+  @includeFirst($entry->bladeViews('full', $blog))
 @endsection
