@@ -64,6 +64,7 @@ class BlogServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__ . '/../config/blog.php', 'blog');
         $this->mergeConfigFrom(__DIR__ . '/../config/blog-eloquent.php', 'blog-eloquent');
 
+        // Ensure default config values are set for those that are used in two or more places
         if(empty(config('blog.view_namespace'))) {
             config(['blog.view_namespace' => 'blog']);
         }
