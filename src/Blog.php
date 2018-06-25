@@ -462,6 +462,9 @@ class Blog implements BlogContract
     public function bladeViews($name): array
     {
         $base = 'blog::blog.' . $name;
-        return [$base . '-' . $this->getId(), $base];
+        return [
+            $base . '-' . $this->getId(),
+            $base
+        ];
     }
 }
