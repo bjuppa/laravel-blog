@@ -23,11 +23,6 @@ class ShowEntryController extends BaseBlogController
          * @var $entry BlogEntry
          */
 
-        return View::first([
-            'blog::entry-' . $this->blog->getId() . '-' . $entry->getId(),
-            'blog::entry-' . $this->blog->getId(),
-            'blog::entry',
-        ])
-            ->with('entry', $entry);
+        return View::first($this->blog->bladeViews('entry', $entry))->with('entry', $entry);
     }
 }

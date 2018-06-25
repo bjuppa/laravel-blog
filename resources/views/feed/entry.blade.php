@@ -8,7 +8,7 @@
   <title><![CDATA[{{ $entry->getTitle() }}]]></title>
   <link rel="alternate" href="{{ $blog->urlToEntry($entry) }}"/>
   <id>{{ url($blog->getId(), $entry->getId()) }}</id>
-  @each('blog::feed.author', $entry->getAuthors(), 'author')
+  @each($blog->bladeView('feed.author'), $entry->getAuthors(), 'author')
   <summary type="html">
     <![CDATA[{{ $entry->getSummary() }}]]>
   </summary>

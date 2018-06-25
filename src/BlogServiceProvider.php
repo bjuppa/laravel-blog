@@ -63,6 +63,11 @@ class BlogServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__ . '/../config/blog.php', 'blog');
         $this->mergeConfigFrom(__DIR__ . '/../config/blog-eloquent.php', 'blog-eloquent');
+
+        // Ensure default config values are set for those that are used in two or more places
+        if(empty(config('blog.view_namespace'))) {
+            config(['blog.view_namespace' => 'blog']);
+        }
     }
 
     /**
@@ -70,7 +75,7 @@ class BlogServiceProvider extends ServiceProvider
      */
     protected function registerResources()
     {
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'blog');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', config('blog.view_namespace'));
     }
 
     /**
@@ -109,7 +114,7 @@ class BlogServiceProvider extends ServiceProvider
         ], 'blog-eloquent-config');
 
         $this->publishes([
-            __DIR__ . '/../resources/views' => resource_path('views/vendor/blog'),
+            __DIR__ . '/../resources/views' => resource_path('views/vendor/' . config('blog.view_namespace')),
         ], 'blog-views');
     }
 
