@@ -452,4 +452,16 @@ class Blog implements BlogContract
             ? ' - ' . $this->getPageTitle()
             : $this->entry_page_title_suffix;
     }
+
+    /**
+     * Get an array of views in descending priority order
+     * Suitable for Blade directive @includeFirst()
+     * @param string $name
+     * @return array
+     */
+    public function bladeViews($name): array
+    {
+        $base = 'blog::blog.' . $name;
+        return [$base . '-' . $this->getId(), $base];
+    }
 }

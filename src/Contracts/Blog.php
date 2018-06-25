@@ -143,4 +143,12 @@ interface Blog
      * @return string|null
      */
     public function getMetaDescription(): ?string;
+
+    /**
+     * Get an array of views in descending priority order
+     * Suitable for Blade directive @includeFirst()
+     * @param string $name
+     * @return array
+     */
+    public function bladeViews($name): array;
 }
