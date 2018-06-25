@@ -1,10 +1,9 @@
-@extends('blog::layouts.html')
-
 <?php
 /**
  * @var $blog \Bjuppa\LaravelBlog\Contracts\Blog
  */
 ?>
+@extends($blog->bladeView('layouts.html'))
 
 @section('body')
   <main class="blog container">

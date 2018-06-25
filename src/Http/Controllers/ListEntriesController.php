@@ -8,10 +8,6 @@ class ListEntriesController extends BaseBlogController
 {
     public function showIndex()
     {
-        return View::first([
-            'blog::index-' . $this->blog->getId(),
-            'blog::index',
-        ])
-            ->with('entries', $this->blog->latestEntries());
+        return View::first($this->blog->bladeViews('index'))->with('entries', $this->blog->latestEntries());
     }
 }

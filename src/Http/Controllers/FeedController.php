@@ -2,6 +2,8 @@
 
 namespace Bjuppa\LaravelBlog\Http\Controllers;
 
+use Illuminate\Support\Facades\View;
+
 class FeedController extends BaseBlogController
 {
     /**
@@ -11,6 +13,6 @@ class FeedController extends BaseBlogController
      */
     public function __invoke()
     {
-        return view('blog::feed', ['entries' => $this->blog->latestEntries()]);
+        return View::first($this->blog->bladeViews('feed'), ['entries' => $this->blog->latestEntries()]);
     }
 }
