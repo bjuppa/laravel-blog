@@ -10,7 +10,7 @@
 @section('title', $blog->getPageTitle())
 
 @push('meta')
-  @include('blog::feed.metaLink')
+  @includeFirst($blog->bladeViews('feed.metaLink'))
   @if($blog->getMetaDescription())
     <meta name="description" content="{{ $blog->getMetaDescription() }}">
   @endif
