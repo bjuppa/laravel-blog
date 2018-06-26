@@ -3,18 +3,17 @@
 namespace Bjuppa\LaravelBlog;
 
 use Bjuppa\LaravelBlog\Contracts\Blog as BlogContract;
-use Bjuppa\LaravelBlog\Contracts\BlogEntry;
 use Bjuppa\LaravelBlog\Contracts\BlogEntryProvider;
 use Bjuppa\LaravelBlog\Support\Author;
 use Bjuppa\LaravelBlog\Support\ProvidesBladeViews;
-use Bjuppa\LaravelBlog\Support\PrefixesRouteNames;
+use Bjuppa\LaravelBlog\Support\HandlesRoutes;
 use Bjuppa\LaravelBlog\Support\QueriesEntryProvider;
 use Illuminate\Support\Collection;
 
 class Blog implements BlogContract
 {
     use ProvidesBladeViews;
-    use PrefixesRouteNames;
+    use HandlesRoutes;
     use QueriesEntryProvider;
 
     /**
@@ -254,16 +253,6 @@ class Blog implements BlogContract
     }
 
     /**
-     * Get the full public url to a single entry within this blog
-     * @param BlogEntry $entry
-     * @return string
-     */
-    public function urlToEntry(BlogEntry $entry): string
-    {
-        return route($this->prefixRouteName('entry'), $entry->getSlug());
-    }
-
-    /**
      * Get the title of the blog
      * @return string
      */
@@ -282,24 +271,6 @@ class Blog implements BlogContract
         $this->title = $title;
 
         return $this;
-    }
-
-    /**
-     * Get the full public url to the blog's index page
-     * @return string
-     */
-    public function urlToIndex(): string
-    {
-        return route($this->prefixRouteName('index'));
-    }
-
-    /**
-     * Get the full public url to the blog's atom feed
-     * @return string
-     */
-    public function urlToFeed(): string
-    {
-        return route($this->prefixRouteName('feed'));
     }
 
     /**
