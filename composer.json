@@ -14,18 +14,20 @@
     }
   ],
   "require": {
-    "php": ">=7.1.0",
-    "illuminate/support": "~5.5",
-    "illuminate/database": "~5.5",
-    "illuminate/routing": "~5.5",
-    "illuminate/http": "~5.5",
-    "illuminate/view": "~5.5.16|~5.6",
+    "php": "^7.1.0",
+    "illuminate/view": "~5.5.16|5.6.*",
+    "illuminate/support": "5.5.*|5.6.*",
+    "illuminate/database": "5.5.*|5.6.*",
+    "illuminate/routing": "5.5.*|5.6.*",
+    "illuminate/http": "5.5.*|5.6.*",
     "spatie/laravel-sluggable": "^2.1"
   },
   "require-dev": {
     "orchestra/testbench": "~3.5",
+    "phpunit/phpunit": ">6.5",
+    "laravel/framework": "~5.5.5|5.6.*",
     "erusev/parsedown": "^1.7",
-    "graham-campbell/markdown": "^8.0"
+    "graham-campbell/markdown": "^10.0"
   },
   "suggest": {
     "graham-campbell/markdown": "Enables use of markdown in blog posts (install only one of the suggested markdown packages)",
