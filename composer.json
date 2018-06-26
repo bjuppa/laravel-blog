@@ -44,7 +44,11 @@
     }
   },
   "scripts": {
-    "test": "vendor/bin/phpunit"
+    "test": [
+      "@clearCompiledViews",
+      "vendor/bin/phpunit"
+    ],
+    "clearCompiledViews": "rm -f vendor/orchestra/testbench-core/laravel/storage/framework/views/*"
   },
   "extra": {
     "laravel": {
