@@ -7,12 +7,13 @@ use Bjuppa\LaravelBlog\Contracts\BlogEntry;
 use Bjuppa\LaravelBlog\Contracts\BlogEntryProvider;
 use Bjuppa\LaravelBlog\Support\Author;
 use Bjuppa\LaravelBlog\Support\ProvidesBladeViews;
+use Bjuppa\LaravelBlog\Support\PrefixesRouteNames;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
 
 class Blog implements BlogContract
 {
-    use ProvidesBladeViews;
+    use ProvidesBladeViews, PrefixesRouteNames;
 
     /**
      * Blog identifier
@@ -181,17 +182,6 @@ class Blog implements BlogContract
     public function getEntryProvider(): BlogEntryProvider
     {
         return $this->entry_provider;
-    }
-
-    /**
-     * Prefix a route name for this blog
-     *
-     * @param string $name If empty, only the prefix is returned
-     * @return string
-     */
-    public function prefixRouteName(string $name = ''): string
-    {
-        return implode('.', [config('blog.route_name_prefix', 'blog'), $this->getId(), $name]);
     }
 
     /**
