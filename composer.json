@@ -24,7 +24,8 @@
   },
   "require-dev": {
     "orchestra/testbench": "~3.5",
-    "phpunit/phpunit": ">6.5",
+    "laravel/framework": "~5.5.16|5.6.*",
+    "phpunit/phpunit": "~6.5|~7.2",
     "erusev/parsedown": "^1.7",
     "graham-campbell/markdown": "^10.0"
   },
