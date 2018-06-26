@@ -29,7 +29,7 @@ PS: I don't yet have a blog where I can write about development (duh) so
 **stay tuned for the first release!**
 
 ## Requirements
-You need at least **Laravel 5.5** and **PHP 7.1** to use this package.
+You need at least **Laravel 5.5.16** and **PHP 7.1** to use this package.
 
 I decided to go for the latest released version at the time to have the freedom to play with
 some new stuff, like PHP's
