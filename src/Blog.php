@@ -6,11 +6,14 @@ use Bjuppa\LaravelBlog\Contracts\Blog as BlogContract;
 use Bjuppa\LaravelBlog\Contracts\BlogEntry;
 use Bjuppa\LaravelBlog\Contracts\BlogEntryProvider;
 use Bjuppa\LaravelBlog\Support\Author;
+use Bjuppa\LaravelBlog\Support\ProvidesBladeViews;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
 
 class Blog implements BlogContract
 {
+    use ProvidesBladeViews;
+
     /**
      * Blog identifier
      * @var string
@@ -451,33 +454,5 @@ class Blog implements BlogContract
         return is_null($this->entry_page_title_suffix)
             ? ' - ' . $this->getPageTitle()
             : $this->entry_page_title_suffix;
-    }
-
-    /**
-     * Get a fully qualified view name
-     * Suitable for Blade directives @extends(), @include() or @each()
-     * @param string $name
-     * @return string
-     */
-    public function bladeView($name): string
-    {
-        return config('blog.view_namespace') . '::' . $name;
-    }
-
-    /**
-     * Get an array of fully qualified views in descending priority order
-     * Suitable for Blade directive @includeFirst()
-     * @param string $name
-     * @param BlogEntry|null $entry
-     * @return array
-     */
-    public function bladeViews($name, BlogEntry $entry = null): array
-    {
-        $views = [$this->bladeView($name)];
-        array_unshift($views, $views[0] . '-' . $this->getId());
-        if($entry) {
-            array_unshift($views, $views[1] . '-' . $entry->getId());
-        }
-        return $views;
     }
 }
