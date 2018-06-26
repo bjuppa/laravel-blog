@@ -3,14 +3,19 @@
 namespace Bjuppa\LaravelBlog;
 
 use Bjuppa\LaravelBlog\Contracts\Blog as BlogContract;
-use Bjuppa\LaravelBlog\Contracts\BlogEntry;
 use Bjuppa\LaravelBlog\Contracts\BlogEntryProvider;
 use Bjuppa\LaravelBlog\Support\Author;
-use Carbon\Carbon;
+use Bjuppa\LaravelBlog\Support\ProvidesBladeViews;
+use Bjuppa\LaravelBlog\Support\HandlesRoutes;
+use Bjuppa\LaravelBlog\Support\QueriesEntryProvider;
 use Illuminate\Support\Collection;
 
 class Blog implements BlogContract
 {
+    use ProvidesBladeViews;
+    use HandlesRoutes;
+    use QueriesEntryProvider;
+
     /**
      * Blog identifier
      * @var string
@@ -181,39 +186,6 @@ class Blog implements BlogContract
     }
 
     /**
-     * Prefix a route name for this blog
-     *
-     * @param string $name If empty, only the prefix is returned
-     * @return string
-     */
-    public function prefixRouteName(string $name = ''): string
-    {
-        return implode('.', [config('blog.route_name_prefix', 'blog'), $this->getId(), $name]);
-    }
-
-    /**
-     * Get an entry instance from a slug
-     *
-     * @param string $slug
-     * @return BlogEntry|null
-     */
-    public function findEntry(string $slug): ?BlogEntry
-    {
-        return $this->getEntryProvider()->findBySlug($slug);
-    }
-
-    /**
-     * Get the newest entries of the blog
-     *
-     * @param int|null $limit Desired number of entries unless you want the blog's default
-     * @return Collection
-     */
-    public function latestEntries(int $limit = null): Collection
-    {
-        return $this->getEntryProvider()->latest($limit ?? $this->getLatestEntriesLimit());
-    }
-
-    /**
      * Get the number of default entries to show
      *
      * @return int
@@ -281,16 +253,6 @@ class Blog implements BlogContract
     }
 
     /**
-     * Get the full public url to a single entry within this blog
-     * @param BlogEntry $entry
-     * @return string
-     */
-    public function urlToEntry(BlogEntry $entry): string
-    {
-        return route($this->prefixRouteName('entry'), $entry->getSlug());
-    }
-
-    /**
      * Get the title of the blog
      * @return string
      */
@@ -309,33 +271,6 @@ class Blog implements BlogContract
         $this->title = $title;
 
         return $this;
-    }
-
-    /**
-     * Get the last updated timestamp for the entire blog
-     * @return Carbon
-     */
-    public function getUpdated(): Carbon
-    {
-        return $this->getEntryProvider()->getUpdated();
-    }
-
-    /**
-     * Get the full public url to the blog's index page
-     * @return string
-     */
-    public function urlToIndex(): string
-    {
-        return route($this->prefixRouteName('index'));
-    }
-
-    /**
-     * Get the full public url to the blog's atom feed
-     * @return string
-     */
-    public function urlToFeed(): string
-    {
-        return route($this->prefixRouteName('feed'));
     }
 
     /**
@@ -451,33 +386,5 @@ class Blog implements BlogContract
         return is_null($this->entry_page_title_suffix)
             ? ' - ' . $this->getPageTitle()
             : $this->entry_page_title_suffix;
-    }
-
-    /**
-     * Get a fully qualified view name
-     * Suitable for Blade directives @extends(), @include() or @each()
-     * @param string $name
-     * @return string
-     */
-    public function bladeView($name): string
-    {
-        return config('blog.view_namespace') . '::' . $name;
-    }
-
-    /**
-     * Get an array of fully qualified views in descending priority order
-     * Suitable for Blade directive @includeFirst()
-     * @param string $name
-     * @param BlogEntry|null $entry
-     * @return array
-     */
-    public function bladeViews($name, BlogEntry $entry = null): array
-    {
-        $views = [$this->bladeView($name)];
-        array_unshift($views, $views[0] . '-' . $this->getId());
-        if($entry) {
-            array_unshift($views, $views[1] . '-' . $entry->getId());
-        }
-        return $views;
     }
 }
