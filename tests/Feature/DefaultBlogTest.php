@@ -56,6 +56,7 @@ class DefaultBlogTest extends IntegrationTest
         $response->assertSee('app.css');
         $response->assertSee('<title>The first post - Main Blog</title>');
         $response->assertSee('title="Latest entries"');
+        $response->assertSee('title="Authors"');
     }
 
     public function test_entry_not_found() {
