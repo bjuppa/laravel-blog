@@ -43,6 +43,7 @@ class DefaultBlogTest extends IntegrationTest
         $response->assertSee('type="application/atom+xml"');
         $response->assertSee('app.css');
         $response->assertSee('<title>Main Blog</title>');
+        $response->assertSee('title="Latest entries"');
     }
 
     public function test_entry_page() {
