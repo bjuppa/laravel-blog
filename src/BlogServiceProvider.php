@@ -68,6 +68,9 @@ class BlogServiceProvider extends ServiceProvider
         if(empty(config('blog.view_namespace'))) {
             config(['blog.view_namespace' => 'blog']);
         }
+        if(empty(config('blog.trans_namespace'))) {
+            config(['blog.trans_namespace' => 'blog']);
+        }
     }
 
     /**
@@ -76,6 +79,7 @@ class BlogServiceProvider extends ServiceProvider
     protected function registerResources()
     {
         $this->loadViewsFrom(__DIR__ . '/../resources/views', config('blog.view_namespace'));
+        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', config('blog.trans_namespace'));
     }
 
     /**
@@ -116,6 +120,10 @@ class BlogServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../resources/views' => resource_path('views/vendor/' . config('blog.view_namespace')),
         ], 'blog-views');
+
+        $this->publishes([
+            __DIR__.'/../resources/lang' => resource_path('lang/vendor/' . config('blog.trans_namespace')),
+        ], 'blog-translations');
     }
 
     /**
