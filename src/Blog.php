@@ -5,7 +5,7 @@ namespace Bjuppa\LaravelBlog;
 use Bjuppa\LaravelBlog\Contracts\Blog as BlogContract;
 use Bjuppa\LaravelBlog\Contracts\BlogEntryProvider;
 use Bjuppa\LaravelBlog\Support\Author;
-use Bjuppa\LaravelBlog\Support\ProvidesBladeViews;
+use Bjuppa\LaravelBlog\Support\ProvidesBladeViewNames;
 use Bjuppa\LaravelBlog\Support\ProvidesTranslationKeys;
 use Bjuppa\LaravelBlog\Support\HandlesRoutes;
 use Bjuppa\LaravelBlog\Support\QueriesEntryProvider;
@@ -13,7 +13,7 @@ use Illuminate\Support\Collection;
 
 class Blog implements BlogContract
 {
-    use ProvidesBladeViews;
+    use ProvidesBladeViewNames;
     use ProvidesTranslationKeys;
     use HandlesRoutes;
     use QueriesEntryProvider;
