@@ -21,6 +21,8 @@ class SocialSharingTest extends IntegrationTest
         $response->assertSee('<ul title="Links for sharing this page">');
     }
 
+    // Source of link formats: https://github.com/bradvin/social-share-urls
+
     public function test_facebook_link()
     {
         $response = $this->get('blog/the-first-post');
@@ -55,5 +57,14 @@ class SocialSharingTest extends IntegrationTest
         $response->assertSee('<li class="share-on-google+">');
         $response->assertSee('<a href="https://plus.google.com/share?url=http%3A%2F%2Flocalhost%2Fblog%2Fthe-first-post" target="_blank" rel="noopener">');
         $response->assertSee('><span class="share-link-prefix">Share this page on </span><span class="share-link-service">Google+</span></a>');
+    }
+
+    public function test_pinterest_link()
+    {
+        $response = $this->get('blog/the-first-post');
+
+        $response->assertSee('<li class="share-on-pinterest">');
+        $response->assertSee('<a href="http://pinterest.com/pin/create/link/?url=http%3A%2F%2Flocalhost%2Fblog%2Fthe-first-post" target="_blank" rel="noopener">');
+        $response->assertSee('><span class="share-link-prefix">Share this page on </span><span class="share-link-service">Pinterest</span></a>');
     }
 }
