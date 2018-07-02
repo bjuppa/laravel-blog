@@ -5,8 +5,9 @@ namespace Bjuppa\LaravelBlog\Contracts;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use Bjuppa\LaravelBlog\Contracts\ProvidesBladeViewNames;
+use Bjuppa\LaravelBlog\Contracts\ProvidesTranslationKeys;
 
-interface Blog extends ProvidesBladeViewNames
+interface Blog extends ProvidesBladeViewNames, ProvidesTranslationKeys
 {
     /**
      * Blog constructor.
