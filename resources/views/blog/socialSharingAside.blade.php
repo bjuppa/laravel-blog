@@ -11,6 +11,7 @@
     @includeFirst($blog->bladeViews('blog.partials.socialSharingListItem'), ['service_name' => 'Google+', 'href' => 'https://plus.google.com/share?' . http_build_query(['url' => $share_url ])])
     @includeFirst($blog->bladeViews('blog.partials.socialSharingListItem'), ['service_name' => 'Pinterest', 'href' => 'http://pinterest.com/pin/create/link/?' . http_build_query(['url' => $share_url ])])
     @includeFirst($blog->bladeViews('blog.partials.socialSharingListItem'), ['service_name' => 'Tumblr', 'href' => 'https://www.tumblr.com/widgets/share/tool?' . http_build_query(['canonicalUrl' => $share_url ])])
+    @includeFirst($blog->bladeViews('blog.partials.socialSharingListItem'), ['service_name' => 'Reddit', 'href' => 'https://reddit.com/submit?' . http_build_query(['url' => $share_url ])])
   </ul>
 @show
 </aside>
