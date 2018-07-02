@@ -6,7 +6,8 @@ use Bjuppa\LaravelBlog\Contracts\BlogEntry;
 use Illuminate\Support\Collection;
 use Carbon\Carbon;
 
-trait QueriesEntryProvider {
+trait QueriesEntryProvider
+{
     /**
      * Get an entry instance from a slug
      *

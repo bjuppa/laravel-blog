@@ -4,7 +4,8 @@ namespace Bjuppa\LaravelBlog\Support;
 
 use Bjuppa\LaravelBlog\Contracts\BlogEntry;
 
-trait HandlesRoutes {
+trait HandlesRoutes
+{
     /**
      * Prefix a route name for this blog
      *

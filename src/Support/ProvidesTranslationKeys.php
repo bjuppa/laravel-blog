@@ -2,7 +2,8 @@
 
 namespace Bjuppa\LaravelBlog\Support;
 
-trait ProvidesTranslationKeys {
+trait ProvidesTranslationKeys
+{
     /**
      * Get a fully qualified translation key
      * Suitable for Laravel's translation functions __(), trans() or trans_choice()

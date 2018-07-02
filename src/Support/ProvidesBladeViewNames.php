@@ -4,7 +4,8 @@ namespace Bjuppa\LaravelBlog\Support;
 
 use Bjuppa\LaravelBlog\Contracts\BlogEntry;
 
-trait ProvidesBladeViewNames {
+trait ProvidesBladeViewNames
+{
     /**
      * Get a fully qualified view name
      * Suitable for Blade directives @extends(), @include() or @each()
