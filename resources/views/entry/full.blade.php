@@ -7,7 +7,7 @@
   @includeFirst($blog->bladeViews('entry.partials.header', $entry))
   @includeFirst($blog->bladeViews('entry.partials.footer', $entry))
   @includeFirst($blog->bladeViews('entry.partials.content', $entry))
-  {{-- TODO: add entry social sharing here, in aside --}}
+  @includeFirst($blog->bladeViews('blog.socialSharingAside', $entry))
   {{-- TODO: add nav here with links to next and previous entries --}}
   {{-- TODO: add entry comments here - nested <article> tags --}}
   @includeFirst($blog->bladeViews('entry.partials.aside', $entry))
