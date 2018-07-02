@@ -38,4 +38,13 @@ class SocialSharingTest extends IntegrationTest
         $response->assertSee('<a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Flocalhost%2Fblog%2Fthe-first-post" target="_blank" rel="noopener">');
         $response->assertSee('><span class="share-link-prefix">Share this page on </span><span class="share-link-service">Twitter</span></a>');
     }
+
+    public function test_linkedin_link()
+    {
+        $response = $this->get('blog/the-first-post');
+
+        $response->assertSee('<li class="share-on-linked-in">');
+        $response->assertSee('<a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Flocalhost%2Fblog%2Fthe-first-post" target="_blank" rel="noopener">');
+        $response->assertSee('><span class="share-link-prefix">Share this page on </span><span class="share-link-service">LinkedIn</span></a>');
+    }
 }
