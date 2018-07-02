@@ -46,7 +46,7 @@ class SocialSharingTest extends IntegrationTest
         $response = $this->get('blog/the-first-post');
 
         $response->assertSee('<li class="share-on-linked-in">');
-        $response->assertSee('<a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Flocalhost%2Fblog%2Fthe-first-post" target="_blank" rel="noopener">');
+        $response->assertSee('<a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Flocalhost%2Fblog%2Fthe-first-post&amp;title=The+first+post+-+Main+Blog" target="_blank" rel="noopener">');
         $response->assertSee('><span class="share-link-prefix">Share this page on </span><span class="share-link-service">LinkedIn</span></a>');
     }
 
@@ -73,7 +73,7 @@ class SocialSharingTest extends IntegrationTest
         $response = $this->get('blog/the-first-post');
 
         $response->assertSee('<li class="share-on-tumblr">');
-        $response->assertSee('<a href="https://www.tumblr.com/widgets/share/tool?canonicalUrl=http%3A%2F%2Flocalhost%2Fblog%2Fthe-first-post" target="_blank" rel="noopener">');
+        $response->assertSee('<a href="https://www.tumblr.com/widgets/share/tool?canonicalUrl=http%3A%2F%2Flocalhost%2Fblog%2Fthe-first-post&amp;title=The+first+post+-+Main+Blog" target="_blank" rel="noopener">');
         $response->assertSee('><span class="share-link-prefix">Share this page on </span><span class="share-link-service">Tumblr</span></a>');
     }
 
@@ -82,7 +82,7 @@ class SocialSharingTest extends IntegrationTest
         $response = $this->get('blog/the-first-post');
 
         $response->assertSee('<li class="share-on-reddit">');
-        $response->assertSee('<a href="https://reddit.com/submit?url=http%3A%2F%2Flocalhost%2Fblog%2Fthe-first-post" target="_blank" rel="noopener">');
+        $response->assertSee('<a href="https://reddit.com/submit?url=http%3A%2F%2Flocalhost%2Fblog%2Fthe-first-post&amp;title=The+first+post+-+Main+Blog" target="_blank" rel="noopener">');
         $response->assertSee('><span class="share-link-prefix">Share this page on </span><span class="share-link-service">Reddit</span></a>');
     }
 
