@@ -14,6 +14,13 @@ class SocialSharingTest extends IntegrationTest
         $this->seedDefaultBlogEntry();
     }
 
+    public function test_sharing_section() {
+        $response = $this->get('blog/the-first-post');
+
+        $response->assertSee('<h2>Share this page</h2>');
+        $response->assertSee('<ul title="Links for sharing this page">');
+    }
+
     public function test_facebook_link()
     {
         $response = $this->get('blog/the-first-post');
