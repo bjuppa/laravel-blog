@@ -50,4 +50,12 @@ class BlogEntryImageTest extends IntegrationTest
         $response->assertSee('alt="Alt text"');
         $response->assertSee('title="Optional title"');
     }
+
+    public function test_css_image_url() {
+        $this->setEntryImage($this->example_image_url);
+
+        $response = $this->get('blog');
+
+        $response->assertSee('style="--blog-entry-image: url(' .$this->example_image_url . ')"');
+    }
 }

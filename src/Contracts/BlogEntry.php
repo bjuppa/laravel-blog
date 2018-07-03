@@ -58,6 +58,12 @@ interface BlogEntry
     public function getImage(): ?Htmlable;
 
     /**
+     * Url for the entry's main image (if applicable)
+     * @return string|null
+     */
+    public function getImageUrl(): ?string;
+
+    /**
      * Get the entry's summary with markup
      * @return Htmlable
      */

@@ -184,6 +184,19 @@ class BlogEntry extends Eloquent implements BlogEntryContract
     }
 
     /**
+     * Url for the entry's main image (if applicable)
+     * @return string|null
+     */
+    public function getImageUrl(): ?string
+    {
+        if (starts_with($this->image, ['http://', 'https://', '//'])) {
+            return $this->image;
+        }
+
+        return null;
+    }
+
+    /**
      * Get the entry's summary with markup
      * @return Htmlable
      */

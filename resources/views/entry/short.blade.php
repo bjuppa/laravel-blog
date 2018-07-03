@@ -3,7 +3,7 @@
  * @var $entry \Bjuppa\LaravelBlog\Contracts\BlogEntry
  */
 ?>
-<article class="blog-entry-short">
+<article class="blog-entry-short" @includeWhen($entry->getImageUrl(), $blog->bladeView('entry.partials.imageStyle'))>
   <header class="blog-entry-header">
     <h2 class="blog-entry-title">{{ $entry->getTitle() }}</h2>
   </header>
