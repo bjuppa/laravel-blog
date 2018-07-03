@@ -76,4 +76,14 @@ class BlogEntryImageTest extends IntegrationTest
 
         $response->assertSee('style="--blog-entry-image: url(' . $this->example_image_url . ')"');
     }
+
+    public function test_image_meta_data()
+    {
+        $this->setEntryImage($this->example_image_url);
+
+        $response = $this->get('blog/the-first-post');
+
+        $response->assertSee('<meta property="og:image" content="'. $this->example_image_url . '">');
+        $response->assertSee('<meta name="twitter:image" content="'. $this->example_image_url . '">');
+    }
 }
