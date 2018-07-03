@@ -15,7 +15,6 @@
   @endif
   <meta name="twitter:card" content="summary">
   <meta property="og:title" content="{{ $blog->getTitle() }}">
-  <meta name="twitter:title" content="{{ $blog->getTitle() }}">
 @endpush
 
 @section('blog')

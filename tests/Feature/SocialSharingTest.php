@@ -20,7 +20,6 @@ class SocialSharingTest extends IntegrationTest
 
         $response->assertSee('<meta name="twitter:card" content="summary">');
         $response->assertSee('<meta property="og:title" content="Main Blog">');
-        $response->assertSee('<meta name="twitter:title" content="Main Blog">');
     }
 
     public function test_meta_tags_on_entry()
@@ -30,7 +29,6 @@ class SocialSharingTest extends IntegrationTest
         $response->assertSee('<meta name="twitter:card" content="summary">');
         $response->assertSee('<meta property="og:type" content="article">');
         $response->assertSee('<meta property="og:title" content="The first post">');
-        $response->assertSee('<meta name="twitter:title" content="The first post">');
     }
 
     public function test_sharing_section()

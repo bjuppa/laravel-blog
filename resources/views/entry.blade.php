@@ -14,11 +14,9 @@
     <meta name="description" content="{{ $entry->getMetaDescription() }}">
   @endif
   <meta property="og:title" content="{{ $entry->getTitle() }}">
-  <meta name="twitter:title" content="{{ $entry->getTitle() }}">
   <meta property="og:type" content="article">
   @if($entry->getImageUrl())
     <meta property="og:image" content="{{ $entry->getImageUrl() }}">
-    <meta name="twitter:image" content="{{ $entry->getImageUrl() }}">
   @else
     <meta name="twitter:card" content="summary">
   @endif
