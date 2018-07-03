@@ -16,6 +16,7 @@
   <meta property="og:title" content="{{ $entry->getTitle() }}">
   <meta property="og:type" content="article">
   @if($entry->getImageUrl())
+    <meta name="twitter:card" content="summary_large_image">
     <meta property="og:image" content="{{ $entry->getImageUrl() }}">
   @else
     <meta name="twitter:card" content="summary">
