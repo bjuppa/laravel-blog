@@ -63,6 +63,7 @@ class BlogServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__ . '/../config/blog.php', 'blog');
         $this->mergeConfigFrom(__DIR__ . '/../config/blog-eloquent.php', 'blog-eloquent');
+        $this->mergeConfigFrom(__DIR__ . '/../config/blog-sharing.php', 'blog-sharing');
 
         // Ensure default config values are set for those that are used in two or more places
         if(empty(config('blog.view_namespace'))) {
@@ -116,6 +117,10 @@ class BlogServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../config/blog-eloquent.php' => config_path('blog-eloquent.php'),
         ], 'blog-eloquent-config');
+
+        $this->publishes([
+            __DIR__ . '/../config/blog-sharing.php' => config_path('blog-sharing.php'),
+        ], 'blog-sharing-config');
 
         $this->publishes([
             __DIR__ . '/../resources/views' => resource_path('views/vendor/' . config('blog.view_namespace')),
