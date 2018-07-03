@@ -14,7 +14,15 @@ class SocialSharingTest extends IntegrationTest
         $this->seedDefaultBlogEntry();
     }
 
-    public function test_sharing_section() {
+    public function test_meta_tags_on_blog()
+    {
+        $response = $this->get('blog');
+
+        $response->assertSee('<meta property="og:title" content="Main Blog">');
+    }
+
+    public function test_sharing_section()
+    {
         $response = $this->get('blog/the-first-post');
 
         $response->assertSee('<h2>Share this page</h2>');

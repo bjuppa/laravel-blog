@@ -13,6 +13,7 @@
   @if($blog->getMetaDescription())
     <meta name="description" content="{{ $blog->getMetaDescription() }}">
   @endif
+  <meta property="og:title" content="{{ $blog->getTitle() }}">
 @endpush
 
 @section('blog')
