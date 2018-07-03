@@ -43,7 +43,7 @@ class BlogEntryImageTest extends IntegrationTest
 
     public function test_image_markdown()
     {
-        $this->setEntryImage('![Alt text]('.$this->example_image_url.' "Optional title")');
+        $this->setEntryImage('![Alt text](' . $this->example_image_url . ' "Optional title")');
 
         $response = $this->get('blog/the-first-post');
 
@@ -56,6 +56,24 @@ class BlogEntryImageTest extends IntegrationTest
 
         $response = $this->get('blog');
 
-        $response->assertSee('style="--blog-entry-image: url(' .$this->example_image_url . ')"');
+        $response->assertSee('style="--blog-entry-image: url(' . $this->example_image_url . ')"');
+    }
+
+    public function test_css_image_markdown()
+    {
+        $this->setEntryImage('![Alt text]('. $this->example_image_url . ' "Optional title")');
+
+        $response = $this->get('blog');
+
+        $response->assertSee('style="--blog-entry-image: url(' . $this->example_image_url . ')"');
+    }
+
+    public function test_css_image_html()
+    {
+        $this->setEntryImage('<img alt="Alt text" src="'. $this->example_image_url . '">');
+
+        $response = $this->get('blog');
+
+        $response->assertSee('style="--blog-entry-image: url(' . $this->example_image_url . ')"');
     }
 }
