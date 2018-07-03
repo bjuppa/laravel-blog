@@ -38,7 +38,7 @@ class BlogEntryImageTest extends IntegrationTest
 
         $response = $this->get('blog/the-first-post');
 
-        $response->assertSee('src="' . $this->example_image_url . '"');
+        $response->assertSee('src="' . $this->example_image_url . '" alt=""');
     }
 
     public function test_image_markdown()
