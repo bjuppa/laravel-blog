@@ -13,6 +13,9 @@
   @if($entry->getMetaDescription())
     <meta name="description" content="{{ $entry->getMetaDescription() }}">
   @endif
+  <meta property="og:title" content="{{ $entry->getTitle() }}">
+  <meta property="og:type" content="article">
+  <meta name="twitter:title" content="{{ $entry->getTitle() }}">
 @endpush
 
 @section('blog')

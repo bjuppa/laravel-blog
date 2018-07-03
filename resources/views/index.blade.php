@@ -14,6 +14,7 @@
     <meta name="description" content="{{ $blog->getMetaDescription() }}">
   @endif
   <meta property="og:title" content="{{ $blog->getTitle() }}">
+  <meta name="twitter:title" content="{{ $blog->getTitle() }}">
 @endpush
 
 @section('blog')
