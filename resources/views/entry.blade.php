@@ -23,6 +23,10 @@
   @endif
 @endpush
 
+@push('head')
+  <link rel="canonical" href="{{ $blog->urlToEntry($entry) }}" />
+@endpush
+
 @section('blog')
   @includeFirst($blog->bladeViews('entry.full', $entry))
 @endsection

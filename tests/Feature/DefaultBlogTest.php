@@ -44,6 +44,7 @@ class DefaultBlogTest extends IntegrationTest
         $response->assertSee('app.css');
         $response->assertSee('<title>Main Blog</title>');
         $response->assertSee('title="Latest entries"');
+        $response->assertSee('<link rel="canonical" href="' . route('blog.main.index') . '"');
     }
 
     public function test_entry_page() {
@@ -57,6 +58,7 @@ class DefaultBlogTest extends IntegrationTest
         $response->assertSee('<title>The first post - Main Blog</title>');
         $response->assertSee('title="Latest entries"');
         $response->assertSee('title="Authors"');
+        $response->assertSee('<link rel="canonical" href="' . route('blog.main.entry', 'the-first-post') . '"');
     }
 
     public function test_entry_not_found() {

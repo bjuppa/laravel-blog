@@ -17,6 +17,10 @@
   <meta property="og:title" content="{{ $blog->getTitle() }}">
 @endpush
 
+@push('head')
+  <link rel="canonical" href="{{ $blog->urlToIndex() }}" />
+@endpush
+
 @section('blog')
   @includeFirst($blog->bladeViews('blog.header'))
   @if($entries->count())
