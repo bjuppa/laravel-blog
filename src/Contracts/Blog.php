@@ -145,4 +145,10 @@ interface Blog extends ProvidesBladeViewNames, ProvidesTranslationKeys
      * @return string|null
      */
     public function getMetaDescription(): ?string;
+
+    /**
+     * Get any custom meta-tag attributes for this blog
+     * @return Collection
+     */
+    public function getMetaTags(): Collection;
 }

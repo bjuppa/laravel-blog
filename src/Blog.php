@@ -91,6 +91,12 @@ class Blog implements BlogContract
     protected $entry_page_title_suffix;
 
     /**
+     * Array of array of attribute-value pairs for meta tags
+     * @var array
+     */
+    protected $meta_tags = [];
+
+    /**
      * Blog constructor.
      *
      * @param string $blog_id
@@ -344,6 +350,27 @@ class Blog implements BlogContract
     public function getMetaDescription(): ?string
     {
         return $this->description;
+    }
+
+    /**
+     * Set custom meta-tag attributes for the blog
+     * @param array $meta_tags
+     * @return $this
+     */
+    public function withMetaTags(array $meta_tags): BlogContract
+    {
+        $this->meta_tags += $meta_tags;
+
+        return $this;
+    }
+
+    /**
+     * Get any custom meta-tag attributes for this blog
+     * @return Collection
+     */
+    public function getMetaTags(): Collection
+    {
+        return collect($this->meta_tags);
     }
 
     /**
