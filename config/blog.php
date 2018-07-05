@@ -29,6 +29,9 @@ return [
             //'page-title' => "Your title for the blog's index page",
             //'entry-page-title-suffix' => ' - Main Blog',
             //'description' => "A meta-description for the blog's index page (~160 characters)",
+            'meta_tags' => [
+                //['property' => 'og:title', 'content' => 'Custom opengraph title'],
+            ],
             //'domain' => 'blog.website.com',
         ],
         // You can add more blogs here...
