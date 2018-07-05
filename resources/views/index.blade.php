@@ -10,6 +10,11 @@
 
 @push('meta')
   @includeFirst($blog->bladeViews('feed.metaLink'))
+  @foreach($blog->getMetaTags() as $meta_tag_attributes)
+    <meta {!! collect($meta_tag_attributes)->map(function($item, $key) {
+      return $key . '="' . htmlspecialchars($item) . '"';
+    })->implode(' ') !!}>
+  @endforeach
   @if($blog->getMetaDescription())
     <meta name="description" content="{{ $blog->getMetaDescription() }}">
   @endif
