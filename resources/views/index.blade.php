@@ -1,4 +1,5 @@
 <?php
+use Bjuppa\MetaTagBag\MetaTagBag;
 /**
  * @var $blog \Bjuppa\LaravelBlog\Contracts\Blog
  * @var $entries \Illuminate\Support\Collection
@@ -9,17 +10,17 @@
 @section('title', $blog->getPageTitle())
 
 @push('meta')
+  {{
+    MetaTagBag::make(
+      ["name" => "twitter:card", "content" => "summary"],
+      ["property" => "og:title", "content" => $blog->getTitle()]
+    )
+    ->merge($blog->getMetaTags())
+  }}
   @includeFirst($blog->bladeViews('feed.metaLink'))
-  @foreach($blog->getMetaTags() as $meta_tag_attributes)
-    <meta {!! collect($meta_tag_attributes)->map(function($item, $key) {
-      return $key . '="' . htmlspecialchars($item) . '"';
-    })->implode(' ') !!}>
-  @endforeach
   @if($blog->getMetaDescription())
     <meta name="description" content="{{ $blog->getMetaDescription() }}">
   @endif
-  <meta name="twitter:card" content="summary">
-  <meta property="og:title" content="{{ $blog->getTitle() }}">
 @endpush
 
 @push('head')
