@@ -1,30 +1,16 @@
 <?php
-use Bjuppa\MetaTagBag\MetaTagBag;
 /**
  * @var $blog \Bjuppa\LaravelBlog\Contracts\Blog
  * @var $entries \Illuminate\Support\Collection
  */
 ?>
-@extends($blog->bladeView('layouts.blog'))
+@extends($blog->bladeView('layouts.blog'), ['metaTags' => $blog])
 
 @section('title', $blog->getPageTitle())
 
-@push('meta')
-  {{
-    MetaTagBag::make(
-      ["name" => "twitter:card", "content" => "summary"],
-      ["property" => "og:title", "content" => $blog->getTitle()]
-    )
-    ->merge($blog->getMetaTags())
-  }}
-  @includeFirst($blog->bladeViews('feed.metaLink'))
-  @if($blog->getMetaDescription())
-    <meta name="description" content="{{ $blog->getMetaDescription() }}">
-  @endif
-@endpush
-
 @push('head')
   <link rel="canonical" href="{{ $blog->urlToIndex() }}" />
+  @includeFirst($blog->bladeViews('feed.metaLink'))
 @endpush
 
 @section('blog')

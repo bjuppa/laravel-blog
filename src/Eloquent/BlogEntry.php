@@ -6,6 +6,7 @@ use Bjuppa\LaravelBlog\Contracts\BlogEntry as BlogEntryContract;
 use Bjuppa\LaravelBlog\Support\Author;
 use Bjuppa\LaravelBlog\Support\MarkdownString;
 use Bjuppa\LaravelBlog\Support\SummaryExtractor;
+use Bjuppa\MetaTagBag\MetaTagBag;
 use Carbon\Carbon;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Model as Eloquent;
@@ -195,7 +196,7 @@ class BlogEntry extends Eloquent implements BlogEntryContract
 
         // Match quotes or opening parenthesis with matching end
         // Within that, capture http:// or https:// or just // and all following non-space characters into subpattern 3
-        if(preg_match('/((\'|")|\()((https?:)?\/\/\S+).*(?(2)\2|\))/s', $this->image , $matches)) {
+        if (preg_match('/((\'|")|\()((https?:)?\/\/\S+).*(?(2)\2|\))/s', $this->image, $matches)) {
             return $matches[3];
         }
 
@@ -241,6 +242,7 @@ class BlogEntry extends Eloquent implements BlogEntryContract
      * Get the meta-description for this entry
      * @return string|null
      */
+    //TODO: remove getMetadescription() from entry
     public function getMetaDescription(): ?string
     {
         return $this->description;
@@ -254,5 +256,17 @@ class BlogEntry extends Eloquent implements BlogEntryContract
     public function getPageTitle(string $suffix = ''): string
     {
         return str_finish($this->page_title ?? $this->getTitle(), $suffix);
+    }
+
+    /**
+     * Get any custom meta-tag attributes for this entry
+     * @return MetaTagBag
+     */
+    public function getMetaTagBag(): MetaTagBag
+    {
+        return MetaTagBag::make(
+            ['property' => 'og:title', 'content' => $this->getTitle()],
+            ['property' => 'og:type', 'content' => 'article']
+        )->merge($this->meta_tags);
     }
 }

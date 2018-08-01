@@ -5,10 +5,11 @@ namespace Bjuppa\LaravelBlog;
 use Bjuppa\LaravelBlog\Contracts\Blog as BlogContract;
 use Bjuppa\LaravelBlog\Contracts\BlogEntryProvider;
 use Bjuppa\LaravelBlog\Support\Author;
+use Bjuppa\LaravelBlog\Support\HandlesRoutes;
 use Bjuppa\LaravelBlog\Support\ProvidesBladeViewNames;
 use Bjuppa\LaravelBlog\Support\ProvidesTranslationKeys;
-use Bjuppa\LaravelBlog\Support\HandlesRoutes;
 use Bjuppa\LaravelBlog\Support\QueriesEntryProvider;
+use Bjuppa\MetaTagBag\MetaTagBag;
 use Illuminate\Support\Collection;
 
 class Blog implements BlogContract
@@ -76,7 +77,7 @@ class Blog implements BlogContract
      * Meta-description for this blog
      * @var string
      */
-    protected $description;
+    protected $description; //TODO: remove meta description
 
     /**
      * Meta-title for html page head for this blog
@@ -336,6 +337,7 @@ class Blog implements BlogContract
      * @param string $description
      * @return $this
      */
+    //TODO: remove withDescription() from Blog
     public function withDescription(string $description): BlogContract
     {
         $this->description = $description;
@@ -347,6 +349,7 @@ class Blog implements BlogContract
      * Get the meta-description for this blog
      * @return string|null
      */
+    // TODO: remove getMetaDescription() from blog
     public function getMetaDescription(): ?string
     {
         return $this->description;
@@ -366,11 +369,14 @@ class Blog implements BlogContract
 
     /**
      * Get any custom meta-tag attributes for this blog
-     * @return Collection
+     * @return MetaTagBag
      */
-    public function getMetaTags(): Collection
+    public function getMetaTagBag(): MetaTagBag
     {
-        return collect($this->meta_tags);
+        return MetaTagBag::make(
+            ['name' => 'twitter:card', 'content' => 'summary'],
+            ['property' => 'og:title', 'content' => $this->getTitle()]
+        )->merge($this->meta_tags);
     }
 
     /**
@@ -413,7 +419,7 @@ class Blog implements BlogContract
     public function getEntryPageTitleSuffix(): string
     {
         return is_null($this->entry_page_title_suffix)
-            ? ' - ' . $this->getPageTitle()
-            : $this->entry_page_title_suffix;
+        ? ' - ' . $this->getPageTitle()
+        : $this->entry_page_title_suffix;
     }
 }

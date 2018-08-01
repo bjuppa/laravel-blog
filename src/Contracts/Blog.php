@@ -6,8 +6,9 @@ use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use Bjuppa\LaravelBlog\Contracts\ProvidesBladeViewNames;
 use Bjuppa\LaravelBlog\Contracts\ProvidesTranslationKeys;
+use Bjuppa\MetaTagBag\Contracts\MetaTagProvider;
 
-interface Blog extends ProvidesBladeViewNames, ProvidesTranslationKeys
+interface Blog extends ProvidesBladeViewNames, ProvidesTranslationKeys, MetaTagProvider
 {
     /**
      * Blog constructor.
@@ -145,10 +146,4 @@ interface Blog extends ProvidesBladeViewNames, ProvidesTranslationKeys
      * @return string|null
      */
     public function getMetaDescription(): ?string;
-
-    /**
-     * Get any custom meta-tag attributes for this blog
-     * @return Collection
-     */
-    public function getMetaTags(): Collection;
 }

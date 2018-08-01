@@ -84,6 +84,7 @@ class BlogEntryImageTest extends IntegrationTest
         $response = $this->get('blog/the-first-post');
 
         $response->assertSee('<meta name="twitter:card" content="summary_large_image">');
+        // TODO: check for twitter image instead of og:image
         $response->assertSee('<meta property="og:image" content="'. $this->example_image_url . '">');
     }
 }
