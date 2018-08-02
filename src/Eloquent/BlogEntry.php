@@ -242,10 +242,9 @@ class BlogEntry extends Eloquent implements BlogEntryContract
      * Get the meta-description for this entry
      * @return string|null
      */
-    //TODO: remove getMetadescription() from entry
     public function getMetaDescription(): ?string
     {
-        return $this->description;
+        return trim($this->description);
     }
 
     /**
@@ -266,7 +265,24 @@ class BlogEntry extends Eloquent implements BlogEntryContract
     {
         return MetaTagBag::make(
             ['property' => 'og:title', 'content' => $this->getTitle()],
-            ['property' => 'og:type', 'content' => 'article']
-        )->merge($this->meta_tags);
+            ['property' => 'og:type', 'content' => 'article'],
+            ['name' => 'twitter:card', 'content' => 'summary']
+        )
+            ->pipe(function ($bag) {
+                if ($this->getMetaDescription()) {
+                    $bag->merge(['name' => 'description', 'content' => $this->getMetaDescription()]);
+                }
+
+                if ($this->getImageUrl()) {
+                    $bag->merge(
+                        ['name' => 'twitter:card', 'content' => 'summary_large_image'],
+                        ['property' => 'og:image', 'content' => $this->getImageUrl()]
+                    );
+
+                }
+
+                return $bag;
+            })
+            ->merge($this->meta_tags);
     }
 }
