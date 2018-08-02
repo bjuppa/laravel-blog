@@ -74,12 +74,6 @@ class Blog implements BlogContract
     protected $stylesheet_urls;
 
     /**
-     * Meta-description for this blog
-     * @var string
-     */
-    protected $description; //TODO: remove meta description
-
-    /**
      * Meta-title for html page head for this blog
      * @var string|null
      */
@@ -333,26 +327,14 @@ class Blog implements BlogContract
     }
 
     /**
-     * Set the meta-description for the blog
-     * @param string $description
-     * @return $this
-     */
-    //TODO: remove withDescription() from Blog
-    public function withDescription(string $description): BlogContract
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get the meta-description for this blog
+     * Get an intro description for this blog
      * @return string|null
      */
-    // TODO: remove getMetaDescription() from blog
-    public function getMetaDescription(): ?string
+    public function getDescription(): ?string
     {
-        return $this->description;
+        return collect($this->getMetaTagBag()->match(['name' => 'description']))->map(function ($tag) {
+            return collect($tag)->get('content');
+        })->filter()->last();
     }
 
     /**

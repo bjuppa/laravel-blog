@@ -1,4 +1,3 @@
-{{-- TODO: pull meta description from the meta tag bag --}}
-@if($blog->getMetaDescription())
-  <p class="blog-description">{{ $blog->getMetaDescription() }}</p>
+@if($blog->getDescription())
+  <p class="blog-description">{{ $blog->getDescription() }}</p>
 @endif

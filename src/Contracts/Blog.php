@@ -142,8 +142,8 @@ interface Blog extends ProvidesBladeViewNames, ProvidesTranslationKeys, MetaTagP
     public function stylesheetUrls(): Collection;
 
     /**
-     * Get the meta-description for this blog
+     * Get an intro description for this blog
      * @return string|null
      */
-    public function getMetaDescription(): ?string;
+    public function getDescription(): ?string;
 }
