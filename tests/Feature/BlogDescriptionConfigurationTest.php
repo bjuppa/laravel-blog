@@ -10,7 +10,7 @@ class BlogDescriptionConfigurationTest extends IntegrationTest
 
     protected function extraConfigs(): array
     {
-        return ['blog.blogs.main.meta_tags' => [['name' => 'description', 'content' => 'This is a test blog.']]];
+        return ['blog.blogs.main.index_meta_tags' => [['name' => 'description', 'content' => 'This is a test blog.']]];
     }
 
     public function test_index_page_has_meta_description()

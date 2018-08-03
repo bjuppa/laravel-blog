@@ -15,7 +15,7 @@ class CustomMetaTagsTest extends IntegrationTest
 
     protected function extraConfigs(): array
     {
-        return ['blog.blogs.main.meta_tags' => [
+        return ['blog.blogs.main.index_meta_tags' => [
             ['property' => 'og:title', 'content' => 'Custom opengraph title'],
         ]];
     }

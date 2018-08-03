@@ -89,7 +89,7 @@ class Blog implements BlogContract
      * Array of array of attribute-value pairs for meta tags
      * @var array
      */
-    protected $meta_tags = [];
+    protected $index_meta_tags = [];
 
     /**
      * Blog constructor.
@@ -336,13 +336,25 @@ class Blog implements BlogContract
     }
 
     /**
-     * Set custom meta-tag attributes for the blog
+     * Set custom meta-tag attributes for the blog's index page
      * @param array $meta_tags
      * @return $this
      */
-    public function withMetaTags(array $meta_tags): BlogContract
+    public function withIndexMetaTags(array $meta_tags): BlogContract
     {
-        $this->meta_tags += $meta_tags;
+        $this->index_meta_tags += $meta_tags;
+
+        return $this;
+    }
+
+    /**
+     * Set custom meta-tag attributes for the blog's index page
+     * @param array $meta_tags
+     * @return $this
+     */
+    public function withEntryMetaTags(array $meta_tags): BlogContract
+    {
+        $this->entry_meta_tags += $meta_tags;
 
         return $this;
     }
@@ -356,7 +368,7 @@ class Blog implements BlogContract
         return MetaTagBag::make(
             ['name' => 'twitter:card', 'content' => 'summary'],
             ['property' => 'og:title', 'content' => $this->getTitle()]
-        )->merge($this->meta_tags);
+        )->merge($this->index_meta_tags);
     }
 
     /**
