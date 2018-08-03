@@ -7,3 +7,4 @@ Thumbs.db
 phpunit.xml
 /.idea
 build
+.phpunit.result.cache
