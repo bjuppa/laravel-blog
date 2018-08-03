@@ -5,8 +5,9 @@ namespace Bjuppa\LaravelBlog\Contracts;
 use Carbon\Carbon;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Support\Collection;
+use Bjuppa\MetaTagBag\Contracts\MetaTagProvider;
 
-interface BlogEntry
+interface BlogEntry extends MetaTagProvider
 {
     /**
      * Get the entry's unique slug for urls

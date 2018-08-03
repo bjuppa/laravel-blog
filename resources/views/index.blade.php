@@ -4,21 +4,13 @@
  * @var $entries \Illuminate\Support\Collection
  */
 ?>
-@extends($blog->bladeView('layouts.blog'))
+@extends($blog->bladeView('layouts.blog'), ['metaTags' => $blog])
 
 @section('title', $blog->getPageTitle())
 
-@push('meta')
-  @includeFirst($blog->bladeViews('feed.metaLink'))
-  @if($blog->getMetaDescription())
-    <meta name="description" content="{{ $blog->getMetaDescription() }}">
-  @endif
-  <meta name="twitter:card" content="summary">
-  <meta property="og:title" content="{{ $blog->getTitle() }}">
-@endpush
-
 @push('head')
   <link rel="canonical" href="{{ $blog->urlToIndex() }}" />
+  @includeFirst($blog->bladeViews('feed.metaLink'))
 @endpush
 
 @section('blog')

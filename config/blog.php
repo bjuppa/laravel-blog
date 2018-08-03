@@ -28,7 +28,14 @@ return [
             ],
             //'page-title' => "Your title for the blog's index page",
             //'entry-page-title-suffix' => ' - Main Blog',
-            //'description' => "A meta-description for the blog's index page (~160 characters)",
+            'index_meta_tags' => [
+                //['name' => 'description', 'content' => "A meta-description for the blog's index page (~160 characters)"],
+                //['property' => 'og:title', 'content' => 'Custom opengraph title'],
+            ],
+            'default_meta_tags' => [
+                ['name' => 'twitter:card', 'content' => 'summary'],
+                //['property' => 'fb:app_id', 'content' => 'FACEBOOK APP ID SPECIFIC TO THIS BLOG'],
+            ],
             //'domain' => 'blog.website.com',
         ],
         // You can add more blogs here...
@@ -54,6 +61,22 @@ return [
         'stylesheets' => ['css/app.css'],
         //latest-entries-limit => 5,
         //'middleware' => [],
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Meta tags for all blog pages
+    |--------------------------------------------------------------------------
+    |
+    | If you want some meta tags to appear by default on every public blog page
+    | they can be added here.
+    |
+    */
+
+    'default_meta_tags' => [
+        ['http-equiv' => 'X-UA-Compatible', 'content' => 'IE=edge'],
+        ['name' => 'viewport', 'content' => 'width=device-width, initial-scale=1'],
+        //['property' => 'fb:app_id', 'content' => env('FACEBOOK_APP_ID')],
     ],
 
     /*

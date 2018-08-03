@@ -2,9 +2,9 @@
 
 namespace Bjuppa\LaravelBlog\Tests\Feature;
 
+use Bjuppa\LaravelBlog\Contracts\BlogRegistry as BlogRegistryContract;
 use Bjuppa\LaravelBlog\Eloquent\BlogEntryProvider;
 use Bjuppa\LaravelBlog\Tests\IntegrationTest;
-use Bjuppa\LaravelBlog\Contracts\BlogRegistry as BlogRegistryContract;
 use Illuminate\Support\Facades\Route;
 
 class DefaultBlogTest extends IntegrationTest
@@ -45,9 +45,13 @@ class DefaultBlogTest extends IntegrationTest
         $response->assertSee('<title>Main Blog</title>');
         $response->assertSee('title="Latest entries"');
         $response->assertSee('<link rel="canonical" href="' . route('blog.main.index') . '"');
+        $response->assertSee('<meta http-equiv="X-UA-Compatible"');
+        $response->assertSee('<meta name="viewport"');
+        $response->assertSee('<meta name="twitter:card" content="summary">');
     }
 
-    public function test_entry_page() {
+    public function test_entry_page()
+    {
         $response = $this->get('blog/the-first-post');
 
         $response->assertStatus(200);
@@ -59,15 +63,20 @@ class DefaultBlogTest extends IntegrationTest
         $response->assertSee('title="Latest entries"');
         $response->assertSee('title="Authors"');
         $response->assertSee('<link rel="canonical" href="' . route('blog.main.entry', 'the-first-post') . '"');
+        $response->assertSee('<meta http-equiv="X-UA-Compatible"');
+        $response->assertSee('<meta name="viewport"');
+        $response->assertSee('<meta name="twitter:card" content="summary">');
     }
 
-    public function test_entry_not_found() {
+    public function test_entry_not_found()
+    {
         $response = $this->get('blog/non-existing-entry');
 
         $response->assertStatus(404);
     }
 
-    public function test_feed() {
+    public function test_feed()
+    {
         $response = $this->get('blog/feed');
 
         $response->assertStatus(200);

@@ -5,10 +5,11 @@ namespace Bjuppa\LaravelBlog;
 use Bjuppa\LaravelBlog\Contracts\Blog as BlogContract;
 use Bjuppa\LaravelBlog\Contracts\BlogEntryProvider;
 use Bjuppa\LaravelBlog\Support\Author;
+use Bjuppa\LaravelBlog\Support\HandlesRoutes;
 use Bjuppa\LaravelBlog\Support\ProvidesBladeViewNames;
 use Bjuppa\LaravelBlog\Support\ProvidesTranslationKeys;
-use Bjuppa\LaravelBlog\Support\HandlesRoutes;
 use Bjuppa\LaravelBlog\Support\QueriesEntryProvider;
+use Bjuppa\MetaTagBag\MetaTagBag;
 use Illuminate\Support\Collection;
 
 class Blog implements BlogContract
@@ -73,12 +74,6 @@ class Blog implements BlogContract
     protected $stylesheet_urls;
 
     /**
-     * Meta-description for this blog
-     * @var string
-     */
-    protected $description;
-
-    /**
      * Meta-title for html page head for this blog
      * @var string|null
      */
@@ -89,6 +84,18 @@ class Blog implements BlogContract
      * @var string|null
      */
     protected $entry_page_title_suffix;
+
+    /**
+     * Array of array of attribute-value pairs for meta tags
+     * @var array
+     */
+    protected $index_meta_tags = [];
+
+    /**
+     * Array of array of attribute-value pairs for meta tags
+     * @var array
+     */
+    protected $default_meta_tags = [];
 
     /**
      * Blog constructor.
@@ -326,24 +333,56 @@ class Blog implements BlogContract
     }
 
     /**
-     * Set the meta-description for the blog
-     * @param string $description
+     * Get an intro description for this blog
+     * @return string|null
+     */
+    public function getDescription(): ?string
+    {
+        return trim($this->getMetaTagBag()->content(['name' => 'description'])) ?: null;
+    }
+
+    /**
+     * Set custom meta-tag attributes for the blog's index page
+     * @param array $meta_tags
      * @return $this
      */
-    public function withDescription(string $description): BlogContract
+    public function withIndexMetaTags(array $meta_tags): BlogContract
     {
-        $this->description = $description;
+        $this->index_meta_tags += $meta_tags;
 
         return $this;
     }
 
     /**
-     * Get the meta-description for this blog
-     * @return string|null
+     * Get any custom meta-tag attributes for this blog
+     * @return MetaTagBag
      */
-    public function getMetaDescription(): ?string
+    public function getMetaTagBag(): MetaTagBag
     {
-        return $this->description;
+        return $this->getDefaultMetaTags()
+            ->merge(['property' => 'og:title', 'content' => $this->getTitle()])
+            ->merge($this->index_meta_tags);
+    }
+
+    /**
+     * Set custom meta-tag attributes for the blog's index page
+     * @param array $meta_tags
+     * @return $this
+     */
+    public function withDefaultMetaTags(array $meta_tags): BlogContract
+    {
+        $this->default_meta_tags += $meta_tags;
+
+        return $this;
+    }
+
+    /**
+     * Get default meta tags for any page under this blog
+     * @return MetaTagBag
+     */
+    public function getDefaultMetaTags(): MetaTagBag
+    {
+        return MetaTagBag::make($this->default_meta_tags);
     }
 
     /**
@@ -386,7 +425,7 @@ class Blog implements BlogContract
     public function getEntryPageTitleSuffix(): string
     {
         return is_null($this->entry_page_title_suffix)
-            ? ' - ' . $this->getPageTitle()
-            : $this->entry_page_title_suffix;
+        ? ' - ' . $this->getPageTitle()
+        : $this->entry_page_title_suffix;
     }
 }

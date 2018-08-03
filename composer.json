@@ -20,7 +20,8 @@
     "illuminate/database": "5.5.*|5.6.*",
     "illuminate/routing": "5.5.*|5.6.*",
     "illuminate/http": "5.5.*|5.6.*",
-    "spatie/laravel-sluggable": "^2.1"
+    "spatie/laravel-sluggable": "^2.1",
+    "bjuppa/metatagbag": "^0.3.1"
   },
   "require-dev": {
     "orchestra/testbench": "~3.5",
@@ -54,8 +55,7 @@
       "providers": [
         "Bjuppa\\LaravelBlog\\BlogServiceProvider"
       ],
-      "aliases": {
-      }
+      "aliases": {}
     }
   }
 }

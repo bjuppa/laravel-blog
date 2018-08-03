@@ -2,12 +2,14 @@
 
 namespace Bjuppa\LaravelBlog\Contracts;
 
-use Carbon\Carbon;
-use Illuminate\Support\Collection;
 use Bjuppa\LaravelBlog\Contracts\ProvidesBladeViewNames;
 use Bjuppa\LaravelBlog\Contracts\ProvidesTranslationKeys;
+use Bjuppa\MetaTagBag\Contracts\MetaTagProvider;
+use Bjuppa\MetaTagBag\MetaTagBag;
+use Carbon\Carbon;
+use Illuminate\Support\Collection;
 
-interface Blog extends ProvidesBladeViewNames, ProvidesTranslationKeys
+interface Blog extends ProvidesBladeViewNames, ProvidesTranslationKeys, MetaTagProvider
 {
     /**
      * Blog constructor.
@@ -141,8 +143,14 @@ interface Blog extends ProvidesBladeViewNames, ProvidesTranslationKeys
     public function stylesheetUrls(): Collection;
 
     /**
-     * Get the meta-description for this blog
+     * Get an intro description for this blog
      * @return string|null
      */
-    public function getMetaDescription(): ?string;
+    public function getDescription(): ?string;
+
+    /**
+     * Get default meta tags for any page under this blog
+     * @return MetaTagBag
+     */
+    public function getDefaultMetaTags(): MetaTagBag;
 }

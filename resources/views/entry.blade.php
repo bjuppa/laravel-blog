@@ -4,27 +4,13 @@
  * @var $entry \Bjuppa\LaravelBlog\Contracts\BlogEntry
  */
 ?>
-@extends($blog->bladeView('layouts.blog'))
+@extends($blog->bladeView('layouts.blog'), ['metaTags' => $blog->getDefaultMetaTags()->merge($entry)])
 
 @section('title', $entry->getPageTitle($blog->getEntryPageTitleSuffix()))
 
-@push('meta')
-  @includeFirst($blog->bladeViews('feed.metaLink'))
-  @if($entry->getMetaDescription())
-    <meta name="description" content="{{ $entry->getMetaDescription() }}">
-  @endif
-  <meta property="og:title" content="{{ $entry->getTitle() }}">
-  <meta property="og:type" content="article">
-  @if($entry->getImageUrl())
-    <meta name="twitter:card" content="summary_large_image">
-    <meta property="og:image" content="{{ $entry->getImageUrl() }}">
-  @else
-    <meta name="twitter:card" content="summary">
-  @endif
-@endpush
-
 @push('head')
   <link rel="canonical" href="{{ $blog->urlToEntry($entry) }}" />
+  @includeFirst($blog->bladeViews('feed.metaLink'))
 @endpush
 
 @section('blog')

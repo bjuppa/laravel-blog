@@ -2,7 +2,6 @@
 
 namespace Bjuppa\LaravelBlog\Tests\Feature;
 
-use Bjuppa\LaravelBlog\Eloquent\BlogEntry;
 use Bjuppa\LaravelBlog\Tests\IntegrationTest;
 
 class SocialSharingTest extends IntegrationTest
@@ -18,7 +17,6 @@ class SocialSharingTest extends IntegrationTest
     {
         $response = $this->get('blog');
 
-        $response->assertSee('<meta name="twitter:card" content="summary">');
         $response->assertSee('<meta property="og:title" content="Main Blog">');
     }
 
@@ -26,7 +24,6 @@ class SocialSharingTest extends IntegrationTest
     {
         $response = $this->get('blog/the-first-post');
 
-        $response->assertSee('<meta name="twitter:card" content="summary">');
         $response->assertSee('<meta property="og:type" content="article">');
         $response->assertSee('<meta property="og:title" content="The first post">');
     }
