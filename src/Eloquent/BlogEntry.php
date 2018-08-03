@@ -276,7 +276,7 @@ class BlogEntry extends Eloquent implements BlogEntryContract
                 if ($this->getImageUrl()) {
                     $bag->merge(
                         ['name' => 'twitter:card', 'content' => 'summary_large_image'],
-                        ['property' => 'og:image', 'content' => $this->getImageUrl()]
+                        ['name' => 'twitter:image', 'content' => $this->getImageUrl()]
                     );
 
                 }
