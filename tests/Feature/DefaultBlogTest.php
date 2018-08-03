@@ -2,9 +2,9 @@
 
 namespace Bjuppa\LaravelBlog\Tests\Feature;
 
+use Bjuppa\LaravelBlog\Contracts\BlogRegistry as BlogRegistryContract;
 use Bjuppa\LaravelBlog\Eloquent\BlogEntryProvider;
 use Bjuppa\LaravelBlog\Tests\IntegrationTest;
-use Bjuppa\LaravelBlog\Contracts\BlogRegistry as BlogRegistryContract;
 use Illuminate\Support\Facades\Route;
 
 class DefaultBlogTest extends IntegrationTest
@@ -50,7 +50,8 @@ class DefaultBlogTest extends IntegrationTest
         $response->assertSee('<meta name="twitter:card" content="summary">');
     }
 
-    public function test_entry_page() {
+    public function test_entry_page()
+    {
         $response = $this->get('blog/the-first-post');
 
         $response->assertStatus(200);
@@ -67,13 +68,15 @@ class DefaultBlogTest extends IntegrationTest
         $response->assertSee('<meta name="twitter:card" content="summary">');
     }
 
-    public function test_entry_not_found() {
+    public function test_entry_not_found()
+    {
         $response = $this->get('blog/non-existing-entry');
 
         $response->assertStatus(404);
     }
 
-    public function test_feed() {
+    public function test_feed()
+    {
         $response = $this->get('blog/feed');
 
         $response->assertStatus(200);

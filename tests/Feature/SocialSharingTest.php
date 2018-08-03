@@ -2,7 +2,6 @@
 
 namespace Bjuppa\LaravelBlog\Tests\Feature;
 
-use Bjuppa\LaravelBlog\Eloquent\BlogEntry;
 use Bjuppa\LaravelBlog\Tests\IntegrationTest;
 
 class SocialSharingTest extends IntegrationTest
