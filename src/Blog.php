@@ -332,9 +332,7 @@ class Blog implements BlogContract
      */
     public function getDescription(): ?string
     {
-        return collect($this->getMetaTagBag()->match(['name' => 'description']))->map(function ($tag) {
-            return collect($tag)->get('content');
-        })->filter()->last();
+        return $this->getMetaTagBag()->content(['name' => 'description']);
     }
 
     /**
