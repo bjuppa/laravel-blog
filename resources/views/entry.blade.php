@@ -4,7 +4,7 @@
  * @var $entry \Bjuppa\LaravelBlog\Contracts\BlogEntry
  */
 ?>
-@extends($blog->bladeView('layouts.blog'), ['metaTags' => $entry])
+@extends($blog->bladeView('layouts.blog'), ['metaTags' => $blog->getDefaultMetaTags()->merge($entry)])
 
 @section('title', $entry->getPageTitle($blog->getEntryPageTitleSuffix()))
 

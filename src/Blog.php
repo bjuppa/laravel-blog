@@ -92,6 +92,12 @@ class Blog implements BlogContract
     protected $index_meta_tags = [];
 
     /**
+     * Array of array of attribute-value pairs for meta tags
+     * @var array
+     */
+    protected $default_meta_tags = [];
+
+    /**
      * Blog constructor.
      *
      * @param string $blog_id
@@ -348,27 +354,35 @@ class Blog implements BlogContract
     }
 
     /**
-     * Set custom meta-tag attributes for the blog's index page
-     * @param array $meta_tags
-     * @return $this
-     */
-    public function withEntryMetaTags(array $meta_tags): BlogContract
-    {
-        $this->entry_meta_tags += $meta_tags;
-
-        return $this;
-    }
-
-    /**
      * Get any custom meta-tag attributes for this blog
      * @return MetaTagBag
      */
     public function getMetaTagBag(): MetaTagBag
     {
-        return MetaTagBag::make(
-            ['name' => 'twitter:card', 'content' => 'summary'],
-            ['property' => 'og:title', 'content' => $this->getTitle()]
-        )->merge($this->index_meta_tags);
+        return $this->getDefaultMetaTags()
+            ->merge(['property' => 'og:title', 'content' => $this->getTitle()])
+            ->merge($this->index_meta_tags);
+    }
+
+    /**
+     * Set custom meta-tag attributes for the blog's index page
+     * @param array $meta_tags
+     * @return $this
+     */
+    public function withDefaultMetaTags(array $meta_tags): BlogContract
+    {
+        $this->default_meta_tags += $meta_tags;
+
+        return $this;
+    }
+
+    /**
+     * Get default meta tags for any page under this blog
+     * @return MetaTagBag
+     */
+    public function getDefaultMetaTags(): MetaTagBag
+    {
+        return MetaTagBag::make($this->default_meta_tags);
     }
 
     /**

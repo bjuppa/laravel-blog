@@ -32,6 +32,10 @@ return [
                 //['name' => 'description', 'content' => "A meta-description for the blog's index page (~160 characters)"],
                 //['property' => 'og:title', 'content' => 'Custom opengraph title'],
             ],
+            'default_meta_tags' => [
+                ['name' => 'twitter:card', 'content' => 'summary'],
+                //['property' => 'fb:app_id', 'content' => 'FACEBOOK APP ID SPECIFIC TO THIS BLOG'],
+            ],
             //'domain' => 'blog.website.com',
         ],
         // You can add more blogs here...

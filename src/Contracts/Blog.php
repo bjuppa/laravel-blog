@@ -2,11 +2,12 @@
 
 namespace Bjuppa\LaravelBlog\Contracts;
 
-use Carbon\Carbon;
-use Illuminate\Support\Collection;
 use Bjuppa\LaravelBlog\Contracts\ProvidesBladeViewNames;
 use Bjuppa\LaravelBlog\Contracts\ProvidesTranslationKeys;
 use Bjuppa\MetaTagBag\Contracts\MetaTagProvider;
+use Bjuppa\MetaTagBag\MetaTagBag;
+use Carbon\Carbon;
+use Illuminate\Support\Collection;
 
 interface Blog extends ProvidesBladeViewNames, ProvidesTranslationKeys, MetaTagProvider
 {
@@ -146,4 +147,10 @@ interface Blog extends ProvidesBladeViewNames, ProvidesTranslationKeys, MetaTagP
      * @return string|null
      */
     public function getDescription(): ?string;
+
+    /**
+     * Get default meta tags for any page under this blog
+     * @return MetaTagBag
+     */
+    public function getDefaultMetaTags(): MetaTagBag;
 }
