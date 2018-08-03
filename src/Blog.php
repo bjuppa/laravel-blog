@@ -332,7 +332,7 @@ class Blog implements BlogContract
      */
     public function getDescription(): ?string
     {
-        return $this->getMetaTagBag()->content(['name' => 'description']);
+        return trim($this->getMetaTagBag()->content(['name' => 'description'])) ?: null;
     }
 
     /**
