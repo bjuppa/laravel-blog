@@ -45,6 +45,8 @@ class DefaultBlogTest extends IntegrationTest
         $response->assertSee('<title>Main Blog</title>');
         $response->assertSee('title="Latest entries"');
         $response->assertSee('<link rel="canonical" href="' . route('blog.main.index') . '"');
+        $response->assertSee('<meta http-equiv="X-UA-Compatible"');
+        $response->assertSee('<meta name="viewport"');
     }
 
     public function test_entry_page() {
@@ -59,6 +61,8 @@ class DefaultBlogTest extends IntegrationTest
         $response->assertSee('title="Latest entries"');
         $response->assertSee('title="Authors"');
         $response->assertSee('<link rel="canonical" href="' . route('blog.main.entry', 'the-first-post') . '"');
+        $response->assertSee('<meta http-equiv="X-UA-Compatible"');
+        $response->assertSee('<meta name="viewport"');
     }
 
     public function test_entry_not_found() {

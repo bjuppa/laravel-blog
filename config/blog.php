@@ -61,6 +61,22 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Meta tags for all blog pages
+    |--------------------------------------------------------------------------
+    |
+    | If you want some meta tags to appear by default on every public blog page
+    | they can be added here.
+    |
+    */
+
+    'default_meta_tags' => [
+        ['http-equiv' => 'X-UA-Compatible', 'content' => 'IE=edge'],
+        ['name' => 'viewport', 'content' => 'width=device-width, initial-scale=1'],
+        //['property' => 'fb:app_id', 'content' => env('FACEBOOK_APP_ID')],
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
     | Prefix for named routes
     |--------------------------------------------------------------------------
     |
