@@ -265,7 +265,9 @@ class BlogEntry extends Eloquent implements BlogEntryContract
     {
         return MetaTagBag::make(
             ['property' => 'og:title', 'content' => $this->getTitle()],
-            ['property' => 'og:type', 'content' => 'article']
+            ['property' => 'og:type', 'content' => 'article'],
+            ['property' => 'article:published_time', 'content' => $this->getPublished()->toIso8601String()],
+            ['property' => 'article:modified_time', 'content' => $this->getUpdated()->toIso8601String()]
         )
             ->pipe(function ($bag) {
                 if ($this->getMetaDescription()) {

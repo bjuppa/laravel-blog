@@ -29,6 +29,8 @@ class SocialSharingTest extends IntegrationTest
         $response->assertSee('<meta property="og:type" content="article">');
         $response->assertSee('<meta property="og:title" content="The first post">');
         $response->assertSee('<meta name="twitter:card" content="summary">');
+        $response->assertSee('<meta property="article:published_time" content="');
+        $response->assertSee('<meta property="article:modified_time" content="');
     }
 
     public function test_sharing_section()
