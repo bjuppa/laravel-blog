@@ -47,7 +47,6 @@ class DefaultBlogTest extends IntegrationTest
         $response->assertSee('<link rel="canonical" href="' . route('blog.main.index') . '"');
         $response->assertSee('<meta http-equiv="X-UA-Compatible"');
         $response->assertSee('<meta name="viewport"');
-        $response->assertSee('<meta name="twitter:card" content="summary">');
     }
 
     public function test_entry_page()
@@ -65,7 +64,6 @@ class DefaultBlogTest extends IntegrationTest
         $response->assertSee('<link rel="canonical" href="' . route('blog.main.entry', 'the-first-post') . '"');
         $response->assertSee('<meta http-equiv="X-UA-Compatible"');
         $response->assertSee('<meta name="viewport"');
-        $response->assertSee('<meta name="twitter:card" content="summary">');
     }
 
     public function test_entry_not_found()
