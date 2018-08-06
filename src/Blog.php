@@ -382,7 +382,10 @@ class Blog implements BlogContract
      */
     public function getDefaultMetaTags(): MetaTagBag
     {
-        return MetaTagBag::make($this->default_meta_tags);
+        return MetaTagBag::make(
+            ['name' => 'twitter:card', 'content' => 'summary']
+        )
+            ->merge($this->default_meta_tags);
     }
 
     /**
