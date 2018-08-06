@@ -17,6 +17,7 @@ class SocialSharingTest extends IntegrationTest
     {
         $response = $this->get('blog');
 
+        $response->assertSee('<meta property="og:type" content="blog">');
         $response->assertSee('<meta property="og:title" content="Main Blog">');
         $response->assertSee('<meta name="twitter:card" content="summary">');
     }

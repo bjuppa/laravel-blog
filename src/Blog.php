@@ -360,7 +360,10 @@ class Blog implements BlogContract
     public function getMetaTagBag(): MetaTagBag
     {
         return $this->getDefaultMetaTags()
-            ->merge(['property' => 'og:title', 'content' => $this->getTitle()])
+            ->merge(
+                ['property' => 'og:title', 'content' => $this->getTitle()],
+                ['property' => 'og:type', 'content' => 'blog']
+            )
             ->merge($this->index_meta_tags);
     }
 
