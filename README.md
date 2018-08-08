@@ -1,9 +1,11 @@
 # laravel-blog
+
 This package will become a flexible blogging solution that you can add to your Laravel app.
 
 **This package does not yet have a stable release** - Please don't use it in production!
 
 ## Background
+
 When looking for ways to add a simple blog to an existing Laravel app I found
 [many packages](https://packagist.org/?q=laravel%20blog)
 and some complete Laravel apps, but none of them did what I expected:
@@ -16,21 +18,22 @@ some half a year before I ran into the same need.
 This package is my attempt at getting myself a couple of blogs without resorting to WordPress
 and hopefully provide something useful for other developers.
 
-### My needs are:
+### My needs are
+
 - One ore more blogs must be configurable within the same Laravel app
 - Simple configuration after package install (ideally just running migrations if only one standard blog)
-- Publish [Atom feeds](https://en.wikipedia.org/wiki/Atom_(standard)) 
+- Publish [Atom feeds](https://en.wikipedia.org/wiki/Atom_(standard))
 - Provide a default Eloquent model for posts, but make it user replaceable per blog
 - Configurable urls to avoid clashes with existing app routes
 - Flexible and replaceable default views
 - Named routes for easy linking from the rest of the Laravel app
 - Optional admin panel, so you can write or use your own admin pages if you already have one
 
-
 PS: I don't yet have a blog where I can write about development (duh) so
 **stay tuned for the first release!**
 
 ## Requirements
+
 You need at least **Laravel 5.5.5** and **PHP 7.1** to use this package.
 
 I decided to go for the latest released version at the time to have the freedom to play with
@@ -41,7 +44,7 @@ and [nullable types](http://php.net/manual/en/migration71.new-features.php#migra
 ## Usage
 
 1. Require the package:
-    
+
     ```bash
     composer require bjuppa/laravel-blog
     ```
@@ -49,7 +52,7 @@ and [nullable types](http://php.net/manual/en/migration71.new-features.php#migra
     The package will automatically register itself.
 
 2. Publish the configuration file:
-    
+
     ```bash
     php artisan vendor:publish --provider="Bjuppa\LaravelBlog\BlogServiceProvider" --tag="blog-config"
     ```
@@ -59,20 +62,20 @@ and [nullable types](http://php.net/manual/en/migration71.new-features.php#migra
     Configurations may be changed later and more blogs can be added etc.
     Just remember that permalinks and generated entry IDs should ideally be kept constant
     after a blog has been published to avoid broken feeds and links for your audience.
-    
+
     The service provider handles registration of routes to all configured blogs.
     You can check which routes and paths are generated using:
-    
+
     ```bash
     php artisan route:list
     ```
 
 4. Run migrations to automatically set up any tables needed to use the configured blog entry providers:
-    
+
     ```bash
     php artisan migrate
     ```
-    
+
 5. If you want to create a default blog entry in the database you can run the seeder:
 
     ```bash
