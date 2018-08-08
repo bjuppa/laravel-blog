@@ -1,6 +1,8 @@
 # laravel-blog
 This package will become a flexible blogging solution that you can add to your Laravel app.
 
+**This package does not yet have a stable release** - Please don't use it in production!
+
 ## Background
 When looking for ways to add a simple blog to an existing Laravel app I found
 [many packages](https://packagist.org/?q=laravel%20blog)
