@@ -1,4 +1,5 @@
-## Package development & testing
+# Package development & testing
+
 Run `composer test` from the project directory to start the default test suite.
 
 Logs created during test runs can be found in `vendor/orchestra/testbench-core/laravel/storage/logs/`
