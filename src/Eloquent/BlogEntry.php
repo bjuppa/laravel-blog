@@ -41,6 +41,15 @@ class BlogEntry extends Eloquent implements BlogEntryContract
     protected $dates = ['publish_after'];
 
     /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'meta_tags' => 'array',
+    ];
+
+    /**
      * The "booting" method of the model.
      *
      * @return void
