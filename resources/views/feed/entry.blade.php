@@ -13,6 +13,11 @@
     <![CDATA[{{ $entry->getSummary() }}]]>
     <![CDATA[@include($blog->bladeView('feed.summaryFooter'))]]>
   </summary>
+  @if($blog->displayFullEntryInFeed($entry))
+  <content type="html">
+    <![CDATA[{{ $entry->getContent() }}]]>
+  </content>
+  @endif
   <published>{{ $entry->getPublished()->toAtomString() }}</published>
   <updated>{{ $entry->getUpdated()->toAtomString() }}</updated>
 </entry>

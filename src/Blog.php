@@ -3,6 +3,7 @@
 namespace Bjuppa\LaravelBlog;
 
 use Bjuppa\LaravelBlog\Contracts\Blog as BlogContract;
+use Bjuppa\LaravelBlog\Contracts\BlogEntry;
 use Bjuppa\LaravelBlog\Contracts\BlogEntryProvider;
 use Bjuppa\LaravelBlog\Support\Author;
 use Bjuppa\LaravelBlog\Support\HandlesRoutes;
@@ -96,6 +97,12 @@ class Blog implements BlogContract
      * @var array
      */
     protected $default_meta_tags = [];
+
+    /**
+     * Default config for showing full entries in feed
+     * @var bool
+     */
+    protected $full_entries_in_feed = false;
 
     /**
      * Blog constructor.
@@ -433,5 +440,27 @@ class Blog implements BlogContract
         return is_null($this->entry_page_title_suffix)
         ? ' - ' . $this->getPageTitle()
         : $this->entry_page_title_suffix;
+    }
+
+    /**
+     * Set if entry contents should be displayed in feed by default
+     * @param string $title
+     * @return $this
+     */
+    public function withFullEntriesInFeed(bool $config): BlogContract
+    {
+        $this->full_entries_in_feed = $config;
+
+        return $this;
+    }
+
+    /**
+     * Check if complete entry contents should be made available in feed
+     * @param BlogEntry $entry
+     * @return bool
+     */
+    public function displayFullEntryInFeed(BlogEntry $entry): bool
+    {
+        return $this->full_entries_in_feed;
     }
 }

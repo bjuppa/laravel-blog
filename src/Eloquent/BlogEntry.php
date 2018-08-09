@@ -295,4 +295,13 @@ class BlogEntry extends Eloquent implements BlogEntryContract
             })
             ->merge($this->meta_tags);
     }
+
+    /**
+     * Check if complete entry contents should be made available in feed
+     * @param bool $default
+     * @return bool
+     */
+    public function displayFullEntryInFeed(bool $default = false): bool {
+        return $default;
+    }
 }

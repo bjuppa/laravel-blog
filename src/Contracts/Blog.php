@@ -153,4 +153,11 @@ interface Blog extends ProvidesBladeViewNames, ProvidesTranslationKeys, MetaTagP
      * @return MetaTagBag
      */
     public function getDefaultMetaTags(): MetaTagBag;
+
+    /**
+     * Check if complete entry contents should be made available in feed
+     * @param BlogEntry $entry
+     * @return bool
+     */
+    public function displayFullEntryInFeed(BlogEntry $entry): bool;
 }

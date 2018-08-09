@@ -88,4 +88,11 @@ interface BlogEntry extends MetaTagProvider
      * @return string
      */
     public function getId(): string;
+
+    /**
+     * Check if complete entry contents should be made available in feed
+     * @param bool $default
+     * @return bool
+     */
+    public function displayFullEntryInFeed(bool $default = false): bool;
 }
