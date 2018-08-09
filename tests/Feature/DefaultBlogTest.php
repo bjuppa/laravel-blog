@@ -82,5 +82,6 @@ class DefaultBlogTest extends IntegrationTest
         $response->assertSee('The first post');
         $response->assertSee('the main content...');
         $response->assertSee('</author>');
+        $response->assertSee('>Read more...');
     }
 }

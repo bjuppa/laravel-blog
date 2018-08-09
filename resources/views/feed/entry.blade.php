@@ -11,6 +11,7 @@
   @each($blog->bladeView('feed.author'), $entry->getAuthors(), 'author')
   <summary type="html">
     <![CDATA[{{ $entry->getSummary() }}]]>
+    <![CDATA[@include($blog->bladeView('feed.summaryFooter'))]]>
   </summary>
   <published>{{ $entry->getPublished()->toAtomString() }}</published>
   <updated>{{ $entry->getUpdated()->toAtomString() }}</updated>
