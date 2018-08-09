@@ -7,7 +7,7 @@
  * @var $blog \Bjuppa\LaravelBlog\Contracts\Blog
  */
 ?>
-<feed xmlns="http://www.w3.org/2005/Atom">
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{{ app()->getLocale() }}">
   <title><![CDATA[{{ $blog->getTitle() }}]]></title>
   <link rel="alternate" type="text/html" href="{{ $blog->urlToIndex() }}" />
   @each($blog->bladeView('feed.author'), $blog->getAuthors(), 'author')
