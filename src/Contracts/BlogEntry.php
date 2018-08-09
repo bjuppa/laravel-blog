@@ -2,10 +2,10 @@
 
 namespace Bjuppa\LaravelBlog\Contracts;
 
+use Bjuppa\MetaTagBag\Contracts\MetaTagProvider;
 use Carbon\Carbon;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Support\Collection;
-use Bjuppa\MetaTagBag\Contracts\MetaTagProvider;
 
 interface BlogEntry extends MetaTagProvider
 {
@@ -94,5 +94,5 @@ interface BlogEntry extends MetaTagProvider
      * @param bool $default
      * @return bool
      */
-    public function displayFullEntryInFeed(bool $default = false): bool;
+    public function displayFullContentInFeed(bool $default = false): bool;
 }

@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateBlogEntriesTable extends Migration
 {
@@ -18,7 +18,6 @@ class CreateBlogEntriesTable extends Migration
      */
     protected $default_blog_id = 'main';
 
-
     /**
      * CreateBlogEntriesTable constructor.
      */
@@ -33,7 +32,6 @@ class CreateBlogEntriesTable extends Migration
             $this->default_blog_id = key($blogs);
         }
     }
-
 
     /**
      * Run the migrations.
@@ -57,6 +55,7 @@ class CreateBlogEntriesTable extends Migration
             $table->string('page_title')->nullable();
             $table->string('description')->nullable();
             $table->json('meta_tags')->nullable()->default('[{}]');
+            $table->boolean('display_full_content_in_feed')->nullable();
             $table->timestamps();
 
             $table->unique(['slug', 'blog'], 'slug');

@@ -28,6 +28,7 @@ use Spatie\Sluggable\SlugOptions;
  * @property string image
  * @property string summary
  * @property string description
+ * @property bool display_full_content_in_feed
  */
 class BlogEntry extends Eloquent implements BlogEntryContract
 {
@@ -301,7 +302,8 @@ class BlogEntry extends Eloquent implements BlogEntryContract
      * @param bool $default
      * @return bool
      */
-    public function displayFullEntryInFeed(bool $default = false): bool {
-        return $default;
+    public function displayFullContentInFeed(bool $default = false): bool
+    {
+        return $this->display_full_content_in_feed ?? $default;
     }
 }

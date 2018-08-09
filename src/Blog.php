@@ -461,6 +461,6 @@ class Blog implements BlogContract
      */
     public function displayFullEntryInFeed(BlogEntry $entry): bool
     {
-        return $this->full_entries_in_feed;
+        return $entry->displayFullContentInFeed($this->full_entries_in_feed);
     }
 }
