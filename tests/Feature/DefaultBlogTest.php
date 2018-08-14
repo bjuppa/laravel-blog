@@ -64,6 +64,8 @@ class DefaultBlogTest extends IntegrationTest
         $response->assertSee('<link rel="canonical" href="' . route('blog.main.entry', 'the-first-post') . '"');
         $response->assertSee('<meta http-equiv="X-UA-Compatible"');
         $response->assertSee('<meta name="viewport"');
+        $response->assertDontSee('rel="next"');
+        $response->assertDontSee('rel="prev"');
     }
 
     public function test_entry_not_found()

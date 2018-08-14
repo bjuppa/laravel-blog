@@ -133,6 +133,29 @@ class BlogEntry extends Eloquent implements BlogEntryContract
     }
 
     /**
+     * Scope a query to entries published after another entry
+     * @param $query
+     * @param BlogEntry $entry
+     * @return mixed
+     */
+    public function scopePublishedAfter($query, BlogEntry $entry)
+    {
+        //TODO: move sorting to separate scope
+        return $query->where('publish_after', '>=', $entry->getPublished())->where($this->getKeyName(), '>', $entry->getKey())->oldest('publish_after')->orderBy($this->getKeyName());
+    }
+
+    /**
+     * Scope a query to entries published before another entry
+     * @param $query
+     * @param BlogEntry $entry
+     * @return mixed
+     */
+    public function scopePublishedBefore($query, BlogEntry $entry)
+    {
+        return $query->where('publish_after', '<=', $entry->getPublished())->where($this->getKeyName(), '<', $entry->getKey());
+    }
+
+    /**
      * Get the entry's full body text with markup
      * @return Htmlable
      */

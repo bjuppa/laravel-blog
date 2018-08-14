@@ -3,8 +3,8 @@
 namespace Bjuppa\LaravelBlog\Support;
 
 use Bjuppa\LaravelBlog\Contracts\BlogEntry;
-use Illuminate\Support\Collection;
 use Carbon\Carbon;
+use Illuminate\Support\Collection;
 
 trait QueriesEntryProvider
 {
@@ -28,6 +28,26 @@ trait QueriesEntryProvider
     public function latestEntries(int $limit = null): Collection
     {
         return $this->getEntryProvider()->latest($limit ?? $this->getLatestEntriesLimit());
+    }
+
+    /**
+     * Get the next entry within this blog
+     * @param BlogEntry|null $entry
+     * @return BlogEntry|null
+     */
+    public function nextEntry(BlogEntry $entry): ?BlogEntry
+    {
+        return $this->getEntryProvider()->nextEntry($entry);
+    }
+
+    /**
+     * Get the previous entry within this blog
+     * @param BlogEntry|null $entry
+     * @return BlogEntry|null
+     */
+    public function previousEntry(BlogEntry $entry): ?BlogEntry
+    {
+        return $this->getEntryProvider()->previousEntry($entry);
     }
 
     /**

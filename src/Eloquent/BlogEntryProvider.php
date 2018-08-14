@@ -61,6 +61,24 @@ class BlogEntryProvider implements BlogEntryProviderContract, ProvidesDatabaseMi
     }
 
     /**
+     * Get the next entry within this blog
+     * @param BlogEntry|null $entry
+     * @return BlogEntry|null
+     */
+    public function nextEntry(BlogEntry $entry): ?BlogEntry {
+        return $this->getBuilder()->publishedAfter($entry)->first();
+    }
+
+    /**
+     * Get the previous entry within this blog
+     * @param BlogEntry|null $entry
+     * @return BlogEntry|null
+     */
+    public function previousEntry(BlogEntry $entry): ?BlogEntry {
+        return $this->getBuilder()->publishedBefore($entry)->first();
+    }
+
+    /**
      * Get the newest entries of the blog
      * @param int $limit
      * @return Collection

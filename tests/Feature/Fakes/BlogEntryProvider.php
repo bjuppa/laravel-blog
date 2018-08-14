@@ -20,6 +20,24 @@ class BlogEntryProvider implements BlogEntryProviderContract
     }
 
     /**
+     * Get the next entry within this blog
+     * @param BlogEntry|null $entry
+     * @return BlogEntry|null
+     */
+    public function nextEntry(BlogEntry $entry): ?BlogEntry {
+        return null;
+    }
+
+    /**
+     * Get the previous entry within this blog
+     * @param BlogEntry|null $entry
+     * @return BlogEntry|null
+     */
+    public function previousEntry(BlogEntry $entry): ?BlogEntry {
+        return null;
+    }
+
+    /**
      * Get the newest entries of the blog
      * @param int $limit
      * @return Collection

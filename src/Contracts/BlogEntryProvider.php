@@ -22,6 +22,20 @@ interface BlogEntryProvider
     public function findBySlug($slug): ?BlogEntry;
 
     /**
+     * Get the next entry within this blog
+     * @param BlogEntry|null $entry
+     * @return BlogEntry|null
+     */
+    public function nextEntry(BlogEntry $entry): ?BlogEntry;
+
+    /**
+     * Get the previous entry within this blog
+     * @param BlogEntry|null $entry
+     * @return BlogEntry|null
+     */
+    public function previousEntry(BlogEntry $entry): ?BlogEntry;
+
+    /**
      * Get the newest entries of the blog
      * @param int $limit
      * @return Collection

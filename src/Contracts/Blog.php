@@ -58,6 +58,20 @@ interface Blog extends ProvidesBladeViewNames, ProvidesTranslationKeys, MetaTagP
     public function findEntry(string $slug): ?BlogEntry;
 
     /**
+     * Get the next entry within this blog
+     * @param BlogEntry|null $entry
+     * @return BlogEntry|null
+     */
+    public function nextEntry(BlogEntry $entry): ?BlogEntry;
+
+    /**
+     * Get the previous entry within this blog
+     * @param BlogEntry|null $entry
+     * @return BlogEntry|null
+     */
+    public function previousEntry(BlogEntry $entry): ?BlogEntry;
+
+    /**
      * Get the newest entries of the blog
      *
      * @param int|null $limit Desired number of entries unless you want the blog's default
