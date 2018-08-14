@@ -2,7 +2,8 @@
 
 namespace Bjuppa\LaravelBlog\Eloquent;
 
-use Bjuppa\LaravelBlog\Contracts\EloquentBlogEntry as BlogEntryContract;
+use Bjuppa\LaravelBlog\Contracts\BlogEntry as BlogEntryContract;
+use Bjuppa\LaravelBlog\Contracts\EloquentBlogEntry as EloquentBlogEntryContract;
 use Bjuppa\LaravelBlog\Support\Author;
 use Bjuppa\LaravelBlog\Support\MarkdownString;
 use Bjuppa\LaravelBlog\Support\SummaryExtractor;
@@ -30,7 +31,7 @@ use Spatie\Sluggable\SlugOptions;
  * @property string description
  * @property bool display_full_content_in_feed
  */
-class BlogEntry extends Eloquent implements BlogEntryContract
+class BlogEntry extends Eloquent implements EloquentBlogEntryContract
 {
     use HasSlug;
 
@@ -166,21 +167,23 @@ class BlogEntry extends Eloquent implements BlogEntryContract
     /**
      * Scope a query to entries published after another entry
      * @param $query
-     * @param BlogEntry $entry
+     * @param BlogEntryContract $entry
      * @return mixed
      */
-    public function scopePublishedAfter($query, BlogEntry $entry)
+    public function scopePublishedAfter($query, BlogEntryContract $entry)
     {
+        //TODO: check if $entry is an eloquent model of the same type as this before comparing by keys
+        //TODO: only compare keys if published_after equals
         return $query->where('publish_after', '>=', $entry->getPublished())->where($this->getKeyName(), '>', $entry->getKey())->oldestPublication();
     }
 
     /**
      * Scope a query to entries published before another entry
      * @param $query
-     * @param BlogEntry $entry
+     * @param BlogEntryContract $entry
      * @return mixed
      */
-    public function scopePublishedBefore($query, BlogEntry $entry)
+    public function scopePublishedBefore($query, BlogEntryContract $entry)
     {
         return $query->where('publish_after', '<=', $entry->getPublished())->where($this->getKeyName(), '<', $entry->getKey())->latestPublication();
     }
