@@ -20,7 +20,7 @@ class PublishedScope implements Scope
     {
         $builder->whereNotNull('publish_after'); // Comparing the fresh timestamp to null always returns null in MySQL, so this not null rule is here just to be overly obvious
         $builder->where('publish_after', '<=', $model->freshTimestamp());
-        $builder->latest('publish_after')->orderByDesc($model->getKeyName()); //TODO: move ordering to own scope on the model
+        $builder->latestPublication();
     }
 
     //TODO: add withUnpublished() removing this global scope to list all like in \Illuminate\Database\Eloquent\SoftDeletingScope

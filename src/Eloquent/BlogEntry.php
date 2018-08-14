@@ -133,6 +133,26 @@ class BlogEntry extends Eloquent implements BlogEntryContract
     }
 
     /**
+     * Order query results with oldest publication first
+     * @param $query
+     * @return mixed
+     */
+    public function scopeOldestPublication($query)
+    {
+        return $query->oldest('publish_after')->orderBy($this->getKeyName());
+    }
+
+    /**
+     * Order query results with latest publication first
+     * @param $query
+     * @return mixed
+     */
+    public function scopeLatestPublication($query)
+    {
+        return $query->latest('publish_after')->orderByDesc($this->getKeyName());
+    }
+
+    /**
      * Scope a query to entries published after another entry
      * @param $query
      * @param BlogEntry $entry
@@ -140,8 +160,7 @@ class BlogEntry extends Eloquent implements BlogEntryContract
      */
     public function scopePublishedAfter($query, BlogEntry $entry)
     {
-        //TODO: move sorting to separate scope
-        return $query->where('publish_after', '>=', $entry->getPublished())->where($this->getKeyName(), '>', $entry->getKey())->oldest('publish_after')->orderBy($this->getKeyName());
+        return $query->where('publish_after', '>=', $entry->getPublished())->where($this->getKeyName(), '>', $entry->getKey())->oldestPublication();
     }
 
     /**
@@ -152,7 +171,7 @@ class BlogEntry extends Eloquent implements BlogEntryContract
      */
     public function scopePublishedBefore($query, BlogEntry $entry)
     {
-        return $query->where('publish_after', '<=', $entry->getPublished())->where($this->getKeyName(), '<', $entry->getKey());
+        return $query->where('publish_after', '<=', $entry->getPublished())->where($this->getKeyName(), '<', $entry->getKey())->latestPublication();
     }
 
     /**
@@ -170,7 +189,7 @@ class BlogEntry extends Eloquent implements BlogEntryContract
      */
     public function getUpdated(): Carbon
     {
-        return $this->updated_at->max($this->getPublished())->copy();
+        return (new Carbon($this->updated_at))->max($this->getPublished())->copy();
     }
 
     /**
@@ -179,7 +198,7 @@ class BlogEntry extends Eloquent implements BlogEntryContract
      */
     public function getPublished(): Carbon
     {
-        return ($this->publish_after ?: $this->created_at)->copy();
+        return new Carbon($this->publish_after ?: $this->created_at);
     }
 
     /**
