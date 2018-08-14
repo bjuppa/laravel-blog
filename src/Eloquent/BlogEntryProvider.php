@@ -35,6 +35,7 @@ class BlogEntryProvider implements BlogEntryProviderContract, ProvidesDatabaseMi
     /**
      * Get an instance of the Eloquent model used
      * @return Model
+     * TODO: Have getBlogModel() return instance of EloquentBlogEntry contract
      */
     protected function getBlogModel(): Model
     {
@@ -57,7 +58,7 @@ class BlogEntryProvider implements BlogEntryProviderContract, ProvidesDatabaseMi
      */
     public function findBySlug($slug): ?BlogEntry
     {
-        return $this->getBuilder()->where('slug', $slug)->first();
+        return $this->getBuilder()->slug($slug)->first();
     }
 
     /**
@@ -65,7 +66,8 @@ class BlogEntryProvider implements BlogEntryProviderContract, ProvidesDatabaseMi
      * @param BlogEntry|null $entry
      * @return BlogEntry|null
      */
-    public function nextEntry(BlogEntry $entry): ?BlogEntry {
+    public function nextEntry(BlogEntry $entry): ?BlogEntry
+    {
         return $this->getBuilder()->publishedAfter($entry)->first();
     }
 
@@ -74,7 +76,8 @@ class BlogEntryProvider implements BlogEntryProviderContract, ProvidesDatabaseMi
      * @param BlogEntry|null $entry
      * @return BlogEntry|null
      */
-    public function previousEntry(BlogEntry $entry): ?BlogEntry {
+    public function previousEntry(BlogEntry $entry): ?BlogEntry
+    {
         return $this->getBuilder()->publishedBefore($entry)->first();
     }
 

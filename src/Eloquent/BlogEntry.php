@@ -2,7 +2,7 @@
 
 namespace Bjuppa\LaravelBlog\Eloquent;
 
-use Bjuppa\LaravelBlog\Contracts\BlogEntry as BlogEntryContract;
+use Bjuppa\LaravelBlog\Contracts\EloquentBlogEntry as BlogEntryContract;
 use Bjuppa\LaravelBlog\Support\Author;
 use Bjuppa\LaravelBlog\Support\MarkdownString;
 use Bjuppa\LaravelBlog\Support\SummaryExtractor;
@@ -130,6 +130,17 @@ class BlogEntry extends Eloquent implements BlogEntryContract
     public function scopeBlog($query, $blog_id)
     {
         return $query->where('blog', $blog_id);
+    }
+
+    /**
+     * Scope a query to entries matching slug
+     * @param $query
+     * @param string $slug
+     * @return mixed
+     */
+    public function scopeSlug($query, $slug)
+    {
+        return $query->where('slug', $slug);
     }
 
     /**
