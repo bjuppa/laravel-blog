@@ -4,21 +4,29 @@ namespace Bjuppa\LaravelBlog\Eloquent;
 
 use Bjuppa\LaravelBlog\Contracts\BlogEntry;
 use Bjuppa\LaravelBlog\Contracts\BlogEntryProvider as BlogEntryProviderContract;
+use Bjuppa\LaravelBlog\Contracts\EloquentBlogEntry;
 use Bjuppa\LaravelBlog\Contracts\ProvidesDatabaseMigrationsPath;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 
 class BlogEntryProvider implements BlogEntryProviderContract, ProvidesDatabaseMigrationsPath
 {
-    protected $model = \Bjuppa\LaravelBlog\Eloquent\BlogEntry::class;
+    /**
+     * @var EloquentBlogEntry
+     */
+    protected $model;
 
     /**
      * Blog id for the current blog
      * @var string
      */
     protected $blog_id;
+
+    public function __construct(EloquentBlogEntry $model)
+    {
+        $this->model = $model;
+    }
 
     /**
      * Set the id of the blog to use
@@ -34,12 +42,11 @@ class BlogEntryProvider implements BlogEntryProviderContract, ProvidesDatabaseMi
 
     /**
      * Get an instance of the Eloquent model used
-     * @return Model
-     * TODO: Have getBlogModel() return instance of EloquentBlogEntry contract
+     * @return EloquentBlogEntry
      */
-    protected function getBlogModel(): Model
+    protected function getBlogModel(): EloquentBlogEntry
     {
-        return new $this->model;
+        return $this->model;
     }
 
     /**

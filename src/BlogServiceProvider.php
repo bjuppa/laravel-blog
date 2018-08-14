@@ -5,7 +5,9 @@ namespace Bjuppa\LaravelBlog;
 use Bjuppa\LaravelBlog\Contracts\Blog as BlogContract;
 use Bjuppa\LaravelBlog\Contracts\BlogEntryProvider as BlogEntryProviderContract;
 use Bjuppa\LaravelBlog\Contracts\BlogRegistry as BlogRegistryContract;
+use Bjuppa\LaravelBlog\Contracts\EloquentBlogEntry as EloquentBlogEntryContract;
 use Bjuppa\LaravelBlog\Contracts\ProvidesDatabaseMigrationsPath;
+use Bjuppa\LaravelBlog\Eloquent\BlogEntry as EloquentBlogEntry;
 use Bjuppa\LaravelBlog\Eloquent\BlogEntryProvider;
 use Illuminate\Support\ServiceProvider;
 
@@ -35,6 +37,12 @@ class BlogServiceProvider extends ServiceProvider
          */
         $this->app->bind(BlogEntryProviderContract::class,
             config('blog.implementations.entry_provider', BlogEntryProvider::class));
+
+        /**
+         * Resolve default eloquent entry instances from the contract.
+         */
+        $this->app->bind(EloquentBlogEntryContract::class,
+            config('blog-eloquent.implementations.entry', EloquentBlogEntry::class));
     }
 
     /**
@@ -66,10 +74,10 @@ class BlogServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__ . '/../config/blog-sharing.php', 'blog-sharing');
 
         // Ensure default config values are set for those that are used in two or more places
-        if(empty(config('blog.view_namespace'))) {
+        if (empty(config('blog.view_namespace'))) {
             config(['blog.view_namespace' => 'blog']);
         }
-        if(empty(config('blog.trans_namespace'))) {
+        if (empty(config('blog.trans_namespace'))) {
             config(['blog.trans_namespace' => 'blog']);
         }
     }
@@ -80,7 +88,7 @@ class BlogServiceProvider extends ServiceProvider
     protected function registerResources()
     {
         $this->loadViewsFrom(__DIR__ . '/../resources/views', config('blog.view_namespace'));
-        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', config('blog.trans_namespace'));
+        $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', config('blog.trans_namespace'));
     }
 
     /**
@@ -127,7 +135,7 @@ class BlogServiceProvider extends ServiceProvider
         ], 'blog-views');
 
         $this->publishes([
-            __DIR__.'/../resources/lang' => resource_path('lang/vendor/' . config('blog.trans_namespace')),
+            __DIR__ . '/../resources/lang' => resource_path('lang/vendor/' . config('blog.trans_namespace')),
         ], 'blog-translations');
     }
 
@@ -137,7 +145,7 @@ class BlogServiceProvider extends ServiceProvider
      */
     protected function configureBlogs(BlogRegistryContract $blog_registry): void
     {
-        foreach ((array)config('blog.blogs') as $blog_id => $blog_config) {
+        foreach ((array) config('blog.blogs') as $blog_id => $blog_config) {
             $blog_registry->add($this->app->make(BlogContract::class,
                 [
                     'blog_id' => $blog_id,
