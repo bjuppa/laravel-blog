@@ -97,7 +97,7 @@ class BlogEntryProvider implements BlogEntryProviderContract, ProvidesDatabaseMi
      */
     public function getUpdated(): Carbon
     {
-        return new Carbon($this->getBuilder()->max('updated_at'));
+        return new Carbon($this->getBuilder()->max($this->getBlogModel()::CREATED_AT));
     }
 
     /**
