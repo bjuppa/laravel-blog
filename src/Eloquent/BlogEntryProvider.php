@@ -67,7 +67,7 @@ class BlogEntryProvider implements BlogEntryProviderContract, ProvidesDatabaseMi
      */
     public function latest($limit = 5): Collection
     {
-        return $this->getBuilder()->latest()->limit($limit)->get();
+        return $this->getBuilder()->limit($limit)->get();
     }
 
     /**
