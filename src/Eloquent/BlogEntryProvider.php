@@ -4,13 +4,12 @@ namespace Bjuppa\LaravelBlog\Eloquent;
 
 use Bjuppa\LaravelBlog\Contracts\BlogEntry;
 use Bjuppa\LaravelBlog\Contracts\BlogEntryProvider as BlogEntryProviderContract;
-use Bjuppa\LaravelBlog\Contracts\ProvidesDatabaseMigrationsPath;
 use Bjuppa\LaravelBlog\Eloquent\AbstractBlogEntry as EloquentBlogEntry;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 
-class BlogEntryProvider implements BlogEntryProviderContract, ProvidesDatabaseMigrationsPath
+class BlogEntryProvider implements BlogEntryProviderContract
 {
     /**
      * @var EloquentBlogEntry
@@ -44,7 +43,7 @@ class BlogEntryProvider implements BlogEntryProviderContract, ProvidesDatabaseMi
      * Get an instance of the Eloquent model used
      * @return EloquentBlogEntry
      */
-    protected function getBlogModel(): EloquentBlogEntry
+    public function getBlogEntryModel(): EloquentBlogEntry
     {
         return $this->model;
     }
@@ -55,7 +54,7 @@ class BlogEntryProvider implements BlogEntryProviderContract, ProvidesDatabaseMi
      */
     protected function getBuilder(): Builder
     {
-        return $this->getBlogModel()->blog($this->blog_id);
+        return $this->getBlogEntryModel()->blog($this->blog_id);
     }
 
     /**
@@ -105,16 +104,6 @@ class BlogEntryProvider implements BlogEntryProviderContract, ProvidesDatabaseMi
     public function getUpdated(): Carbon
     {
         //TODO: pull out the max of the largest of publish_after and updated_at
-        return new Carbon($this->getBuilder()->max($this->getBlogModel()::CREATED_AT));
-    }
-
-    /**
-     * Return the path to database migrations for models.
-     * @return string
-     */
-    public function getDatabaseMigrationsPath(): string
-    {
-        // TODO: Ask the model for migrations directory, or move the whole check back into the service provider
-        return __DIR__ . '/../../database/migrations/';
+        return new Carbon($this->getBuilder()->max($this->getBlogEntryModel()::CREATED_AT));
     }
 }

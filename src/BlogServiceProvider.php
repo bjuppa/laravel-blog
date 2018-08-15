@@ -5,10 +5,9 @@ namespace Bjuppa\LaravelBlog;
 use Bjuppa\LaravelBlog\Contracts\Blog as BlogContract;
 use Bjuppa\LaravelBlog\Contracts\BlogEntryProvider as BlogEntryProviderContract;
 use Bjuppa\LaravelBlog\Contracts\BlogRegistry as BlogRegistryContract;
-use Bjuppa\LaravelBlog\Contracts\ProvidesDatabaseMigrationsPath;
 use Bjuppa\LaravelBlog\Eloquent\AbstractBlogEntry as AbstractEloquentBlogEntry;
 use Bjuppa\LaravelBlog\Eloquent\BlogEntry as EloquentBlogEntry;
-use Bjuppa\LaravelBlog\Eloquent\BlogEntryProvider;
+use Bjuppa\LaravelBlog\Eloquent\BlogEntryProvider as EloquentBlogEntryProvider;
 use Illuminate\Support\ServiceProvider;
 
 class BlogServiceProvider extends ServiceProvider
@@ -36,7 +35,7 @@ class BlogServiceProvider extends ServiceProvider
          * Resolve fresh default entry providers from the provider contract.
          */
         $this->app->bind(BlogEntryProviderContract::class,
-            config('blog.implementations.entry_provider', BlogEntryProvider::class));
+            config('blog.implementations.entry_provider', EloquentBlogEntryProvider::class));
 
         /**
          * Resolve default eloquent entry instances from the abstract model.
@@ -103,13 +102,15 @@ class BlogServiceProvider extends ServiceProvider
              */
             $registry = $app->make(\Bjuppa\LaravelBlog\Contracts\BlogRegistry::class);
 
-            $paths = $registry->all()->filter(function (BlogContract $blog) {
-                return $blog->getEntryProvider() instanceof ProvidesDatabaseMigrationsPath;
-            })->map(function (BlogContract $blog) {
-                return realpath($blog->getEntryProvider()->getDatabaseMigrationsPath());
-            })->unique();
-
-            $this->loadMigrationsFrom($paths->all());
+            if ($registry->all()
+                ->map->getEntryProvider()
+                ->whereInstanceOf(EloquentBlogEntryProvider::class)
+                ->map->getBlogEntryModel()
+                ->whereInstanceOf(EloquentBlogEntry::class)
+                ->isNotEmpty()
+            ) {
+                $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+            }
         });
     }
 
