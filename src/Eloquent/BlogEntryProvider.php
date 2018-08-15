@@ -4,8 +4,8 @@ namespace Bjuppa\LaravelBlog\Eloquent;
 
 use Bjuppa\LaravelBlog\Contracts\BlogEntry;
 use Bjuppa\LaravelBlog\Contracts\BlogEntryProvider as BlogEntryProviderContract;
-use Bjuppa\LaravelBlog\Contracts\EloquentBlogEntry;
 use Bjuppa\LaravelBlog\Contracts\ProvidesDatabaseMigrationsPath;
+use Bjuppa\LaravelBlog\Eloquent\AbstractBlogEntry as EloquentBlogEntry;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;

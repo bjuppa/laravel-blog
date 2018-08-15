@@ -5,8 +5,8 @@ namespace Bjuppa\LaravelBlog;
 use Bjuppa\LaravelBlog\Contracts\Blog as BlogContract;
 use Bjuppa\LaravelBlog\Contracts\BlogEntryProvider as BlogEntryProviderContract;
 use Bjuppa\LaravelBlog\Contracts\BlogRegistry as BlogRegistryContract;
-use Bjuppa\LaravelBlog\Contracts\EloquentBlogEntry as EloquentBlogEntryContract;
 use Bjuppa\LaravelBlog\Contracts\ProvidesDatabaseMigrationsPath;
+use Bjuppa\LaravelBlog\Eloquent\AbstractBlogEntry as AbstractEloquentBlogEntry;
 use Bjuppa\LaravelBlog\Eloquent\BlogEntry as EloquentBlogEntry;
 use Bjuppa\LaravelBlog\Eloquent\BlogEntryProvider;
 use Illuminate\Support\ServiceProvider;
@@ -39,9 +39,9 @@ class BlogServiceProvider extends ServiceProvider
             config('blog.implementations.entry_provider', BlogEntryProvider::class));
 
         /**
-         * Resolve default eloquent entry instances from the contract.
+         * Resolve default eloquent entry instances from the abstract model.
          */
-        $this->app->bind(EloquentBlogEntryContract::class,
+        $this->app->bind(AbstractEloquentBlogEntry::class,
             config('blog-eloquent.implementations.entry', EloquentBlogEntry::class));
     }
 
