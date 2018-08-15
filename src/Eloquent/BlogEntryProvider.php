@@ -104,6 +104,7 @@ class BlogEntryProvider implements BlogEntryProviderContract, ProvidesDatabaseMi
      */
     public function getUpdated(): Carbon
     {
+        //TODO: pull out the max of the largest of publish_after and updated_at
         return new Carbon($this->getBuilder()->max($this->getBlogModel()::CREATED_AT));
     }
 
@@ -113,6 +114,7 @@ class BlogEntryProvider implements BlogEntryProviderContract, ProvidesDatabaseMi
      */
     public function getDatabaseMigrationsPath(): string
     {
+        // TODO: Ask the model for migrations directory, or move the whole check back into the service provider
         return __DIR__ . '/../../database/migrations/';
     }
 }
