@@ -18,8 +18,8 @@ class PublishedScope implements Scope
      */
     public function apply(Builder $builder, Model $model)
     {
-        $builder->whereNotNull('publish_after'); // Comparing the fresh timestamp to null always returns null in MySQL, so this not null rule is here just to be overly obvious
-        $builder->where('publish_after', '<=', $model->freshTimestamp());
+        $builder->whereNotNull($model::PUBLISH_AFTER); // Comparing the fresh timestamp to null always returns null in MySQL, so this not null rule is here just to be overly obvious
+        $builder->where($model::PUBLISH_AFTER, '<=', $model->freshTimestamp());
         $builder->latestPublication();
     }
 
