@@ -103,7 +103,7 @@ class BlogEntryProvider implements BlogEntryProviderContract
      */
     public function getUpdated(): Carbon
     {
-        //TODO: pull out the max of the largest of publish_after and updated_at
-        return new Carbon($this->getBuilder()->max($this->getBlogEntryModel()::CREATED_AT));
+        return Carbon::parse($this->getBuilder()->max($this->getBlogEntryModel()::PUBLISH_AFTER))
+            ->max($this->getBuilder()->max($this->getBlogEntryModel()::UPDATED_AT));
     }
 }
