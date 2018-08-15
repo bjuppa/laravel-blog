@@ -3,6 +3,7 @@
 namespace Bjuppa\LaravelBlog\Eloquent;
 
 use Bjuppa\LaravelBlog\Contracts\BlogEntry as BlogEntryContract;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model as Eloquent;
 
 abstract class AbstractBlogEntry extends Eloquent implements BlogEntryContract
@@ -28,7 +29,61 @@ abstract class AbstractBlogEntry extends Eloquent implements BlogEntryContract
      */
     const BLOG = 'blog';
 
-    //TODO: make these abstract methods and move implementations back to BlogEntry or into traits
+    /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName(): string
+    {
+        return static::SLUG;
+    }
+
+    /**
+     * Get the entry's unique slug for urls
+     * @return string
+     */
+    public function getSlug(): string
+    {
+        return $this->getAttribute($this->getRouteKeyName());
+    }
+
+    /**
+     * Get the timestamp for last update to entry
+     * @return Carbon
+     */
+    public function getUpdated(): Carbon
+    {
+        return (new Carbon($this->getAttribute(static::UPDATED_AT)))->max($this->getPublished())->copy();
+    }
+
+    /**
+     * Get the timestamp of the original publication of the entry
+     * @return Carbon
+     */
+    public function getPublished(): Carbon
+    {
+        return new Carbon($this->getAttribute(static::PUBLISH_AFTER) ?: $this->getAttribute(static::CREATED_AT));
+    }
+
+    /**
+     * Get a unique id for this blog entry within the blog
+     * @return string
+     */
+    public function getId(): string
+    {
+        return $this->getKey();
+    }
+
+    /**
+     * Check if the entry is public
+     * @return bool
+     */
+    public function isPublic(): bool
+    {
+        return $this->getAttribute(static::PUBLISH_AFTER) and (new Carbon($this->getAttribute(static::PUBLISH_AFTER)))->isPast();
+    }
+
     /**
      * Scope a query to entries for one specific blog
      * @param $query
@@ -81,6 +136,7 @@ abstract class AbstractBlogEntry extends Eloquent implements BlogEntryContract
     {
         //TODO: check if $entry is an eloquent model of the same type as this before comparing by keys
         //TODO: only compare keys if published_after equals
+        //TODO: allow parameter to be a Carbon instance too
         return $query->where(static::PUBLISH_AFTER, '>=', $entry->getPublished())->where($this->getKeyName(), '>', $entry->getKey())->oldestPublication();
     }
 

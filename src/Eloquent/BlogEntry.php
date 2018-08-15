@@ -76,16 +76,6 @@ class BlogEntry extends AbstractBlogEntry
     }
 
     /**
-     * Get the route key for the model.
-     *
-     * @return string
-     */
-    public function getRouteKeyName(): string
-    {
-        return static::SLUG;
-    }
-
-    /**
      * Get the options for generating the slug.
      */
     public function getSlugOptions(): SlugOptions
@@ -99,15 +89,6 @@ class BlogEntry extends AbstractBlogEntry
         }
 
         return $options;
-    }
-
-    /**
-     * Get the entry's unique slug for urls
-     * @return string
-     */
-    public function getSlug(): string
-    {
-        return $this->getAttribute($this->getRouteKeyName());
     }
 
     /**
@@ -126,24 +107,6 @@ class BlogEntry extends AbstractBlogEntry
     public function getContent(): Htmlable
     {
         return new MarkdownString($this->content);
-    }
-
-    /**
-     * Get the timestamp for last update to entry
-     * @return Carbon
-     */
-    public function getUpdated(): Carbon
-    {
-        return (new Carbon($this->getAttribute(static::UPDATED_AT)))->max($this->getPublished())->copy();
-    }
-
-    /**
-     * Get the timestamp of the original publication of the entry
-     * @return Carbon
-     */
-    public function getPublished(): Carbon
-    {
-        return new Carbon($this->getAttribute(static::PUBLISH_AFTER) ?: $this->getAttribute(static::CREATED_AT));
     }
 
     /**
@@ -215,24 +178,6 @@ class BlogEntry extends AbstractBlogEntry
         $paragraphs->push(SummaryExtractor::truncateParagraph($paragraphs->pop()));
 
         return new HtmlString($paragraphs->implode("\n"));
-    }
-
-    /**
-     * Get a unique id for this blog entry within the blog
-     * @return string
-     */
-    public function getId(): string
-    {
-        return $this->getKey();
-    }
-
-    /**
-     * Check if the entry is public
-     * @return bool
-     */
-    public function isPublic(): bool
-    {
-        return $this->getAttribute(static::PUBLISH_AFTER) and (new Carbon($this->getAttribute(static::PUBLISH_AFTER)))->isPast();
     }
 
     /**
