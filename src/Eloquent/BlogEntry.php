@@ -82,7 +82,7 @@ class BlogEntry extends AbstractBlogEntry
      */
     public function getRouteKeyName(): string
     {
-        return 'slug';
+        return static::SLUG;
     }
 
     /**
@@ -107,7 +107,7 @@ class BlogEntry extends AbstractBlogEntry
      */
     public function getSlug(): string
     {
-        return $this->slug;
+        return $this->getAttribute($this->getRouteKeyName());
     }
 
     /**
@@ -134,7 +134,7 @@ class BlogEntry extends AbstractBlogEntry
      */
     public function getUpdated(): Carbon
     {
-        return (new Carbon($this->updated_at))->max($this->getPublished())->copy();
+        return (new Carbon($this->getAttribute(static::UPDATED_AT)))->max($this->getPublished())->copy();
     }
 
     /**
@@ -143,7 +143,7 @@ class BlogEntry extends AbstractBlogEntry
      */
     public function getPublished(): Carbon
     {
-        return new Carbon($this->publish_after ?: $this->created_at);
+        return new Carbon($this->getAttribute(static::PUBLISH_AFTER) ?: $this->getAttribute(static::CREATED_AT));
     }
 
     /**
@@ -232,7 +232,7 @@ class BlogEntry extends AbstractBlogEntry
      */
     public function isPublic(): bool
     {
-        return $this->publish_after and $this->publish_after->isPast();
+        return $this->getAttribute(static::PUBLISH_AFTER) and (new Carbon($this->getAttribute(static::PUBLISH_AFTER)))->isPast();
     }
 
     /**
