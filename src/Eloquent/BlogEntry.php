@@ -76,6 +76,20 @@ class BlogEntry extends AbstractBlogEntry
     }
 
     /**
+     * Get the current connection name for the model.
+     *
+     * @return string
+     */
+    public function getConnectionName()
+    {
+        if (!isset($this->connection)) {
+            return config('blog-eloquent.entries_connection', null);
+        }
+
+        return $this->connection;
+    }
+
+    /**
      * Get the options for generating the slug.
      */
     public function getSlugOptions(): SlugOptions

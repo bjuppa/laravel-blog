@@ -23,8 +23,9 @@ class CreateBlogEntriesTable extends Migration
      */
     public function __construct()
     {
-        $this->model_table_name = (new \Bjuppa\LaravelBlog\Eloquent\BlogEntry())->getTable();
-        //TODO: pull the connection from the model
+        $model = app(\Bjuppa\LaravelBlog\Eloquent\AbstractBlogEntry::class);
+        $this->model_table_name = $model->getTable();
+        $this->connection = $model->getConnectionName();
 
         // Taking the first blog id from the config if available
         $blogs = config('blog.blogs');
