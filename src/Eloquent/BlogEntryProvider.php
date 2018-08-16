@@ -24,7 +24,19 @@ class BlogEntryProvider implements BlogEntryProviderContract
 
     public function __construct(EloquentBlogEntry $model)
     {
+        $this->withEntryModel($model);
+    }
+
+    /**
+     * Set the entry model for the blog
+     * @param string $blog_id
+     * @return $this
+     */
+    public function withEntryModel(EloquentBlogEntry $model): BlogEntryProviderContract
+    {
         $this->model = $model;
+
+        return $this;
     }
 
     /**
