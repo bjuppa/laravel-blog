@@ -54,7 +54,7 @@ abstract class AbstractBlogEntry extends Eloquent implements BlogEntryContract
      */
     public function getUpdated(): Carbon
     {
-        return Carbon::parse($this->getAttribute(static::UPDATED_AT))->max($this->getPublished())->copy();
+        return Carbon::parse($this->getAttributeFromArray(static::UPDATED_AT))->max($this->getPublished())->copy();
     }
 
     /**
@@ -63,7 +63,7 @@ abstract class AbstractBlogEntry extends Eloquent implements BlogEntryContract
      */
     public function getPublished(): Carbon
     {
-        return Carbon::parse($this->getAttribute(static::PUBLISH_AFTER) ?: $this->getAttribute(static::CREATED_AT));
+        return Carbon::parse($this->getAttributeFromArray(static::PUBLISH_AFTER) ?: $this->getAttributeFromArray(static::CREATED_AT));
     }
 
     /**
@@ -81,8 +81,7 @@ abstract class AbstractBlogEntry extends Eloquent implements BlogEntryContract
      */
     public function isPublic(): bool
     {
-        //TODO: check if the raw attribute exists, it may be an "empty" Carbon instance
-        return $this->getAttribute(static::PUBLISH_AFTER) and Carbon::parse($this->getAttribute(static::PUBLISH_AFTER))->isPast();
+        return $this->getAttributeFromArray(static::PUBLISH_AFTER) and Carbon::parse($this->getAttributeFromArray(static::PUBLISH_AFTER))->isPast();
     }
 
     /**
