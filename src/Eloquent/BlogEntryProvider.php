@@ -74,7 +74,7 @@ class BlogEntryProvider implements BlogEntryProviderContract
      */
     public function nextEntry(BlogEntry $entry): ?BlogEntry
     {
-        return $this->getBuilder()->publishedAfter($entry)->first();
+        return $this->getBuilder()->publishedAfterEntry($entry)->first();
     }
 
     /**
@@ -84,7 +84,7 @@ class BlogEntryProvider implements BlogEntryProviderContract
      */
     public function previousEntry(BlogEntry $entry): ?BlogEntry
     {
-        return $this->getBuilder()->publishedBefore($entry)->first();
+        return $this->getBuilder()->publishedBeforeEntry($entry)->first();
     }
 
     /**

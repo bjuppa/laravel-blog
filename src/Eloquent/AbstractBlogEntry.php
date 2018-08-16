@@ -132,12 +132,9 @@ abstract class AbstractBlogEntry extends Eloquent implements BlogEntryContract
      * @param AbstractBlogEntry $entry
      * @return mixed
      */
-    public function scopePublishedAfter($query, AbstractBlogEntry $entry)
+    public function scopePublishedAfterEntry($query, AbstractBlogEntry $entry)
     {
-        //TODO: check if $entry is an eloquent model of the same type as this before comparing by keys
-        //TODO: only compare keys if published_after equals
-        //TODO: allow parameter to be a Carbon instance too
-        return $query->where(static::PUBLISH_AFTER, '>=', $entry->getPublished())->where($this->getKeyName(), '>', $entry->getKey())->oldestPublication();
+        return $query->publishedRelativeEntry($entry, '>')->oldestPublication();
     }
 
     /**
@@ -146,8 +143,25 @@ abstract class AbstractBlogEntry extends Eloquent implements BlogEntryContract
      * @param AbstractBlogEntry $entry
      * @return mixed
      */
-    public function scopePublishedBefore($query, AbstractBlogEntry $entry)
+    public function scopePublishedBeforeEntry($query, AbstractBlogEntry $entry)
     {
-        return $query->where(static::PUBLISH_AFTER, '<=', $entry->getPublished())->where($this->getKeyName(), '<', $entry->getKey())->latestPublication();
+        return $query->publishedRelativeEntry($entry, '<')->latestPublication();
+    }
+
+    /**
+     * Scope a query to entries published before or after another entry
+     * @param $query
+     * @param AbstractBlogEntry $entry
+     * @return mixed
+     */
+    public function scopePublishedRelativeEntry($query, AbstractBlogEntry $entry, string $operator = '>')
+    {
+        return $query->where(function ($query) use ($entry, $operator) {
+            $query->where(static::PUBLISH_AFTER, $operator, $entry->getPublished())
+                ->orWhere(function ($query) use ($entry, $operator) {
+                    $query->where(static::PUBLISH_AFTER, '=', $entry->getPublished())
+                        ->where($this->getKeyName(), $operator, $entry->getKey());
+                });
+        });
     }
 }
