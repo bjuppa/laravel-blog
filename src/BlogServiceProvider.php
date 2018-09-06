@@ -138,6 +138,10 @@ class BlogServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../resources/lang' => resource_path('lang/vendor/' . config('blog.trans_namespace')),
         ], 'blog-translations');
+
+        $this->publishes([
+            __DIR__ . '/../dist/blog.css' => public_path('css/blog.css'),
+        ], 'blog-styling');
     }
 
     /**

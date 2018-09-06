@@ -4,7 +4,8 @@ composer.phar
 composer.lock
 .DS_Store
 Thumbs.db
-phpunit.xml
+/phpunit.xml
 /.idea
-build
+/build
 .phpunit.result.cache
+/dist/mix-manifest.json

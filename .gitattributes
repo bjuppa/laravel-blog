@@ -5,4 +5,8 @@
 .gitignore export-ignore
 
 .editorconfig export-ignore
-phpunit.xml.dist export-ignore
+/phpunit.xml.dist export-ignore
+
+/package.json export-ignore
+/package-lock.json export-ignore
+/webpack.mix.js export-ignore
