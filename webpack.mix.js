@@ -11,7 +11,11 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.sass('resources/sass/blog.scss', 'resources/css');
+mix.sass('resources/sass/blog.scss', 'dist')
+  .setPublicPath('dist')
+  .options({
+    processCssUrls: false
+  });
 
 // Full API
 // mix.js(src, output);
