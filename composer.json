@@ -28,7 +28,8 @@
     "laravel/framework": ">=5.6.25",
     "phpunit/phpunit": ">6.5",
     "erusev/parsedown": "^1.7",
-    "graham-campbell/markdown": "^10.0"
+    "graham-campbell/markdown": "^10.0",
+    "mockery/mockery": "^1.0"
   },
   "suggest": {
     "graham-campbell/markdown": "Enables use of markdown in blog posts (install only one of the suggested markdown packages)",
