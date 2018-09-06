@@ -56,7 +56,7 @@ class CreateBlogEntriesTable extends Migration
             $table->text('summary')->nullable();
             $table->string('page_title')->nullable();
             $table->string('description')->nullable();
-            $table->json('meta_tags')->nullable()->default('[{}]');
+            $table->json('meta_tags')->nullable();
             $table->boolean('display_full_content_in_feed')->nullable();
             $table->timestamps();
 
