@@ -15,16 +15,16 @@
   ],
   "require": {
     "php": "^7.1.0",
-    "illuminate/view": "~5.5.5|5.6.*",
+    "illuminate/view": "5.6.*",
     "illuminate/support": "~5.6.8",
-    "illuminate/database": "5.5.*|5.6.*",
-    "illuminate/routing": "5.5.*|5.6.*",
-    "illuminate/http": "5.5.*|5.6.*",
+    "illuminate/database": "5.6.*",
+    "illuminate/routing": "5.6.*",
+    "illuminate/http": "5.6.*",
     "spatie/laravel-sluggable": "^2.1",
     "bjuppa/metatagbag": "^1.0"
   },
   "require-dev": {
-    "orchestra/testbench": "~3.5",
+    "orchestra/testbench": "~3.6",
     "laravel/framework": ">=5.6.25",
     "phpunit/phpunit": ">6.5",
     "erusev/parsedown": "^1.7",
