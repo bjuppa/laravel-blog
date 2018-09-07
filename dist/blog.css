@@ -178,7 +178,7 @@ h1 {
 
 /* %text-small */
 
-small {
+small,.blog-social-sharing h2 {
   font-size: 0.83333333em;
   line-height: 0;
 }
@@ -203,14 +203,14 @@ h6 {
 
 /* %text-inherit */
 
-*,.blog-social-sharing h2 {
+* {
   font-size: inherit;
   line-height: inherit;
 }
 
 /* %text-inline */
 
-a,code,label,map,small,span,time,var,::before,::after {
+a,code,label,map,small,span,time,var,::before,::after,.blog-social-sharing h2 {
   display: inline;
   line-height: 0;
   vertical-align: baseline;
