@@ -81,3 +81,11 @@ and [nullable types](http://php.net/manual/en/migration71.new-features.php#migra
     ```bash
     php artisan db:seed --class="Bjuppa\LaravelBlog\Database\Seeds\DefaultBlogEntrySeeder"
     ```
+
+6. If you want to use the included styling, first publish the CSS to your public directory:
+
+    ```bash
+    php artisan vendor:publish --provider="Bjuppa\LaravelBlog\BlogServiceProvider" --tag="blog-styling"
+    ```
+
+    ...then edit `config/blog.php` and add `'css/blog.css'` to the `stylesheets` config.
