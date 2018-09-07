@@ -4,7 +4,7 @@
  * @var $author \Bjuppa\LaravelBlog\Contracts\Author
  */
 ?>
-<ul class="blog-author-list list-inline" aria-label="{{ __($blog->transKey('titles.authors')) }}">
+<ul class="blog-author-list" aria-label="{{ __($blog->transKey('titles.authors')) }}">
   @foreach($authors as $author)
     @includeFirst($blog->bladeViews('author.listItem'))
   @endforeach
