@@ -21,3 +21,7 @@ Assets are built using standalone [Laravel Mix](https://laravel-mix.com/docs/ins
 Install dependencies using `npm install` and then `npm run dev` or `npm run watch` will build assets
 into the `/dist` directory.
 Before `git push` of built assets, do `npn run production` to generate minified assets.
+
+## Release new version
+
+Releases are handled through [the GitHub releases interface](https://github.com/bjuppa/laravel-blog/releases).
