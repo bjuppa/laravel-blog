@@ -2,8 +2,6 @@
 @import "~kingdom-css/src/modules/spacing";
 @import "~kingdom-css/src/modules/lists";
 
-@import "~kingdom-css/src/utilities/layout/screenreaders";
-
 .blog {
   max-width: 100%;
   width: 100ch;
@@ -41,6 +39,6 @@
   }
 
   .share-link-prefix {
-    @extend .sr-only;
+    @extend .sr-only !optional;
   }
 }
