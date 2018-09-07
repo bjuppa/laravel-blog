@@ -7,6 +7,20 @@ $colors: (primary: #2A7F62) !default;
 
 @import "~kingdom-css/src/modules/lists";
 
+.blog-entry-list {
+  @include list-unstyled();
+}
+
+.blog-latest-entries-links {
+  @include list-unstyled();
+}
+
 .blog-author-list {
   @include list-comma-separated();
+}
+
+.blog-social-sharing {
+  ul {
+    @include list-inline();
+  }
 }

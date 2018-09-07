@@ -23,7 +23,7 @@
     });
   ?>
   <h2>{{ trans($blog->transKey('sharing.section_heading')) }}</h2>
-  <ul class="list-unstyled" aria-label="{{ trans($blog->transKey('sharing.link_list_title')) }}">
+  <ul aria-label="{{ trans($blog->transKey('sharing.link_list_title')) }}">
     @foreach($sharing_services as $sharing_service)
       @includeFirst($blog->bladeViews('blog.partials.socialSharingListItem'), $sharing_service)
     @endforeach
