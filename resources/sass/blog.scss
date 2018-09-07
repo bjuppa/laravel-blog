@@ -8,6 +8,12 @@ $colors: (primary: #2A7F62) !default;
 
 @import "~kingdom-css/src/modules/lists";
 
+.blog {
+  p {
+    @include width-readable();
+  }
+}
+
 .blog-entry-list {
   @include list-unstyled();
 }

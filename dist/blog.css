@@ -1516,6 +1516,12 @@ li + *,h1 + *,h2 + *,h3 + *,h4 + *,h5 + *,h6 + *,a,code,label,map,small,span,tim
   border: 0;
 }
 
+.blog p {
+  max-width: 100%;
+  width: 75ch;
+  min-width: auto;
+}
+
 .blog-entry-list {
   padding-left: 0;
   padding-right: 0;
