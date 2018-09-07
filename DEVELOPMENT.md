@@ -22,6 +22,15 @@ Install dependencies using `npm install` and then `npm run dev` or `npm run watc
 into the `/dist` directory.
 Before `git push` of built assets, do `npn run production` to generate minified assets.
 
+### Publish assets
+
+If you're editing and building assets within a repo in the vendor folder of a real Laravel app,
+running this command will publish the updated styles:
+
+```bash
+`php artisan vendor:publish --provider="Bjuppa\LaravelBlog\BlogServiceProvider" --tag="blog-styling" --force`
+```
+
 ## Release new version
 
 Releases are handled through [the GitHub releases interface](https://github.com/bjuppa/laravel-blog/releases).
