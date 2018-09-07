@@ -1,6 +1,8 @@
-@import "~kingdom-css/src/utilities/layout/screenreaders";
-
+@import "~kingdom-css/src/modules/sizing";
+@import "~kingdom-css/src/modules/spacing";
 @import "~kingdom-css/src/modules/lists";
+
+@import "~kingdom-css/src/utilities/layout/screenreaders";
 
 .blog {
   max-width: 100%;
@@ -30,6 +32,10 @@
 }
 
 .blog-social-sharing {
+  h2 {
+    @extend %text-inherit;
+  }
+
   ul {
     @include list-inline();
   }

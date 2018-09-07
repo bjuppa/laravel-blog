@@ -203,7 +203,7 @@ h6 {
 
 /* %text-inherit */
 
-* {
+*,.blog-social-sharing h2 {
   font-size: inherit;
   line-height: inherit;
 }
