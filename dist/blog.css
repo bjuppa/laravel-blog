@@ -1518,7 +1518,7 @@ li + *,h1 + *,h2 + *,h3 + *,h4 + *,h5 + *,h6 + *,a,code,label,map,small,span,tim
 
 .blog {
   max-width: 100%;
-  width: 100ch;
+  width: 120ch;
   min-width: auto;
   margin-left: auto;
   margin-right: auto;
