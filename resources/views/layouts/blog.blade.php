@@ -6,7 +6,7 @@
 @extends($blog->bladeView('layouts.html'))
 
 @section('body')
-  <main class="blog container">
+  <main class="blog">
     @yield('blog')
   </main>
 @endsection

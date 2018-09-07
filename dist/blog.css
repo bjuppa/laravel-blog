@@ -1516,6 +1516,22 @@ li + *,h1 + *,h2 + *,h3 + *,h4 + *,h5 + *,h6 + *,a,code,label,map,small,span,tim
   border: 0;
 }
 
+.blog {
+  max-width: 100%;
+  width: 100ch;
+  min-width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 1.6875rem;
+  padding-top: calc(1 * var(--spacing-base, 1.6875rem));
+  padding-bottom: 1.6875rem;
+  padding-bottom: calc(1 * var(--spacing-base, 1.6875rem));
+  padding-left: 1.6875rem;
+  padding-left: calc(1 * var(--spacing-base, 1.6875rem));
+  padding-right: 1.6875rem;
+  padding-right: calc(1 * var(--spacing-base, 1.6875rem));
+}
+
 .blog p {
   max-width: 100%;
   width: 75ch;

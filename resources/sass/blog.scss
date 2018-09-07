@@ -9,6 +9,15 @@ $colors: (primary: #2A7F62) !default;
 @import "~kingdom-css/src/modules/lists";
 
 .blog {
+  max-width: 100%;
+  width: 100ch;
+  min-width: auto;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  @include padding-relative();
+
   p {
     @include width-readable();
   }
