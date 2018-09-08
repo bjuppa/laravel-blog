@@ -1554,26 +1554,23 @@ li + *,h1 + *,h2 + *,h3 + *,h4 + *,h5 + *,h6 + *,code,label,map,small,span,time,
   padding-left: 0;
   padding-right: 0;
   list-style: none;
+}
+
+.blog-author-list,.blog-author-list * {
   display: inline;
   line-height: 0;
   vertical-align: baseline;
 }
 
-.blog-author-list > * {
-  display: inline;
-  line-height: 0;
-  vertical-align: baseline;
-}
-
-.blog-author-list > *::after {
+.blog-author-list > ::after {
   content: ', ';
 }
 
-.blog-author-list > *:nth-last-child(2)::after {
+.blog-author-list > :nth-last-child(2)::after {
   content: ' & ';
 }
 
-.blog-author-list > *:last-child::after {
+.blog-author-list > :last-child::after {
   content: '';
 }
 
