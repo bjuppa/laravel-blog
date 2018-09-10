@@ -1,6 +1,6 @@
 @section('entryAsideAds')
   <div>
-    <small>ADVERTISMENTS</small>
+    <small>ADVERTISEMENTS</small>
     <div>
       This blog is powered by
       <a href="https://packagist.org/packages/bjuppa/laravel-blog" target="_blank" rel="noopener"><code>bjuppa/laravel-blog</code></a>
