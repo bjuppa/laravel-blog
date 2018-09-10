@@ -23,6 +23,16 @@
   > * + * {
     @extend %mt-1 !optional;
   }
+
+  .blog-entry-link {
+    text-decoration: none;
+  }
+}
+
+.blog-entry-short {
+  > * {
+    @extend %mt-0 !optional;
+  }
 }
 
 .blog-latest-entries-links {
