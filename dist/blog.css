@@ -618,7 +618,7 @@ p + * {
 
 /* %mt-0 */
 
-li + *,h1 + *,h2 + *,h3 + *,h4 + *,h5 + *,h6 + *,code,label,map,small,span,time,var,a,map *,.blog-entry-short > * {
+li + *,h1 + *,h2 + *,h3 + *,h4 + *,h5 + *,h6 + *,code,label,map,small,span,time,var,a,map *,.blog-entry-short > *,.blog-related-content section header + * {
   /* Reset vertical spacing */
   margin-top: 0;
 }
@@ -1539,7 +1539,7 @@ li + *,h1 + *,h2 + *,h3 + *,h4 + *,h5 + *,h6 + *,code,label,map,small,span,time,
   --color-gray-100-text: #0b0c0c;
 }
 
-.blog-entry-short .blog-entry-footer,.blog-entry-publication-info,.blog-entry-nav small,.blog-social-sharing h2 {
+.blog-entry-short .blog-entry-footer,.blog-entry-publication-info,.blog-entry-nav small,.blog-social-sharing h2,.blog-related-content section header {
   color: #4b4e4d;
   color: var(--color-gray-700, #4b4e4d);
 }

@@ -101,3 +101,14 @@
     @extend .sr-only !optional;
   }
 }
+
+.blog-related-content {
+  section {
+    header {
+      @extend %unimposing;
+      + * {
+        @extend %mt-0 !optional;
+      }
+    }
+  }
+}
