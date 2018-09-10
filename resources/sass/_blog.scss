@@ -59,6 +59,10 @@
   @include list-unstyled();
 }
 
+.blog-entry-publication-info {
+  @extend %unimposing;
+}
+
 .blog-author-list {
   @include list-comma-separated();
 }
