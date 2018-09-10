@@ -1560,6 +1560,10 @@ li + *,h1 + *,h2 + *,h3 + *,h4 + *,h5 + *,h6 + *,code,label,map,small,span,time,
   color: var(--color-visited, #7b0686);
 }
 
+.blog-entry-short .blog-entry-footer {
+  opacity: .8;
+}
+
 .blog-latest-entries-links {
   padding-left: 0;
   padding-right: 0;

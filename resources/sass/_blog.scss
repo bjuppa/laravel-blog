@@ -44,6 +44,10 @@
   > * {
     @extend %mt-0 !optional;
   }
+
+  .blog-entry-footer {
+    opacity: .8;
+  }
 }
 
 .blog-latest-entries-links {

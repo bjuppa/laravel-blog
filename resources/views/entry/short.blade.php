@@ -11,6 +11,6 @@
     {{ $entry->getSummary() }}
   </div>
   <footer class="blog-entry-footer">
-    <time datetime="{{ $entry->getPublished()->toAtomString() }}" lang="en">{{ $entry->getPublished()->diffForHumans() }}</time>
+    <small><time datetime="{{ $entry->getPublished()->toAtomString() }}" lang="en">{{ $entry->getPublished()->diffForHumans() }}</time></small>
   </footer>
 </article>
