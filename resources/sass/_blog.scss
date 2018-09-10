@@ -19,6 +19,10 @@
 
 .blog-entry-list {
   @include list-unstyled();
+
+  > * + * {
+    @extend %mt-1 !optional;
+  }
 }
 
 .blog-latest-entries-links {

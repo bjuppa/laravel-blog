@@ -625,7 +625,7 @@ li + *,h1 + *,h2 + *,h3 + *,h4 + *,h5 + *,h6 + *,code,label,map,small,span,time,
 
 /* %mt-1 */
 
-* + * {
+* + *,.blog-entry-list > * + * {
   /* Default vertical spacing */
   margin-top: 1.6875rem;
   margin-top: calc(1 * var(--spacing-base, 1.6875rem));
