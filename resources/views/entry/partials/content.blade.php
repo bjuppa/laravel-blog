@@ -3,10 +3,8 @@
  * @var $entry \Bjuppa\LaravelBlog\Contracts\BlogEntry
  */
 ?>
-<div class="blog-entry-content">
-  <hr class="blog-content-start">
+<hr class="blog-content-start">
 
-  {{ $entry->getContent() }}
+{{ $entry->getContent() }}
 
-  <hr class="blog-content-end">
-</div>
+<hr class="blog-content-end">
