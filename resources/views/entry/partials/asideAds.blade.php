@@ -1,7 +1,7 @@
 @section('entryAsideAds')
   <section>
     <header>
-      <small>ADVERTISEMENTS</small>
+      <small>{{ __($blog->transKey('titles.ads')) }}</small>
     </header>
     <div>
       This blog is powered by
