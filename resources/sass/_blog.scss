@@ -58,6 +58,21 @@
   @include list-comma-separated();
 }
 
+.blog-entry-nav {
+  [rel] {
+    text-decoration: none;
+    color: inherit;
+
+    &:link > :last-child {
+        @include apply-color(link);
+        text-decoration: underline;
+    }
+    &:visited > :last-child {
+      @include apply-color(visited);
+    }
+  }
+}
+
 .blog-social-sharing {
   h2 {
     @extend %text-small;

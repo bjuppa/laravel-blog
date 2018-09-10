@@ -22,7 +22,7 @@ html {
   box-sizing: inherit;
 }
 
-address,article,aside,div,footer,h1,h2,h3,h4,h5,h6,header,hr,main,nav,p,section,ul {
+address,article,aside,div,footer,h1,h2,h3,h4,h5,h6,header,hr,main,nav,ol,p,section,ul {
   display: block;
   border: 0 solid;
   border-color: currentColor;
@@ -103,7 +103,7 @@ html [type="button"],[type="reset"],[type="submit"],::-webkit-file-upload-button
   color: var(--color-visited, #7b0686);
 }
 
-ul {
+ol,ul {
   padding-left: 1.6875rem;
   padding-left: calc(1 * var(--spacing-base, 1.6875rem));
 }
@@ -1592,6 +1592,22 @@ li + *,h1 + *,h2 + *,h3 + *,h4 + *,h5 + *,h6 + *,code,label,map,small,span,time,
 
 .blog-author-list > :last-child::after {
   content: '';
+}
+
+.blog-entry-nav [rel] {
+  text-decoration: none;
+  color: inherit;
+}
+
+.blog-entry-nav [rel]:link > :last-child {
+  color: #1b0686;
+  color: var(--color-link, #1b0686);
+  text-decoration: underline;
+}
+
+.blog-entry-nav [rel]:visited > :last-child {
+  color: #7b0686;
+  color: var(--color-visited, #7b0686);
 }
 
 .blog-social-sharing ul {
