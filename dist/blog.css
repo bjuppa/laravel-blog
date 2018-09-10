@@ -1516,6 +1516,10 @@ li + *,h1 + *,h2 + *,h3 + *,h4 + *,h5 + *,h6 + *,code,label,map,small,span,time,
   border: 0;
 }
 
+.blog-entry-short .blog-entry-footer,.blog-entry-nav small {
+  opacity: .8;
+}
+
 .blog {
   max-width: 100%;
   width: 120ch;
@@ -1558,10 +1562,6 @@ li + *,h1 + *,h2 + *,h3 + *,h4 + *,h5 + *,h6 + *,code,label,map,small,span,time,
 :visited .blog-entry-title {
   color: #7b0686;
   color: var(--color-visited, #7b0686);
-}
-
-.blog-entry-short .blog-entry-footer {
-  opacity: .8;
 }
 
 .blog-latest-entries-links {

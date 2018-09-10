@@ -2,6 +2,10 @@
 @import "~kingdom-css/src/modules/spacing";
 @import "~kingdom-css/src/modules/lists";
 
+%unimposing {
+  opacity: .8;
+}
+
 .blog {
   max-width: 100%;
   width: $readable-line-length-min + $readable-line-length-max;
@@ -35,6 +39,7 @@
     @include apply-color(link);
     text-decoration: underline;
   }
+
   :visited & {
     @include apply-color(visited);
   }
@@ -46,7 +51,7 @@
   }
 
   .blog-entry-footer {
-    opacity: .8;
+    @extend %unimposing;
   }
 }
 
@@ -67,9 +72,14 @@
         @include apply-color(link);
         text-decoration: underline;
     }
+
     &:visited > :last-child {
       @include apply-color(visited);
     }
+  }
+
+  small {
+    @extend %unimposing;
   }
 }
 
