@@ -11,13 +11,13 @@ $previousEntry = $blog->previousEntry($entry);
   @section('blogEntryNav')
     @if($nextEntry)
       <a href="{{ $blog->urlToEntry($nextEntry) }}" rel="next" class="blog-entry-link">
-        <span>{{ __($blog->transKey('titles.next')) }}<span>:</span></span>
+        <small>{{ __($blog->transKey('titles.next')) }}<span>:</span></small>
         <span>{{ $nextEntry->getTitle() }}</span>
       </a>
     @endif
     @if($previousEntry)
       <a href="{{ $blog->urlToEntry($previousEntry) }}" rel="prev" class="blog-entry-link">
-        <span>{{ __($blog->transKey('titles.previous')) }}<span>:</span></span>
+        <small>{{ __($blog->transKey('titles.previous')) }}<span>:</span></small>
         <span>{{ $previousEntry->getTitle() }}</span>
       </a>
     @endif
