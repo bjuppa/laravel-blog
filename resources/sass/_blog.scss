@@ -110,5 +110,10 @@
         @extend %mt-0 !optional;
       }
     }
+
+    > div {
+      @extend %border !optional;
+      @include space-inside();
+    }
   }
 }

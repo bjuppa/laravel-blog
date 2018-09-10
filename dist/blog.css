@@ -1501,6 +1501,27 @@ li + *,h1 + *,h2 + *,h3 + *,h4 + *,h5 + *,h6 + *,code,label,map,small,span,time,
 
 /* %border */
 
+.blog-related-content section > div {
+  border-top-width: 1px;
+  --border-top-width: 1px;
+  border-top-width: var(--border-top-width);
+  border-bottom-width: 1px;
+  --border-bottom-width: 1px;
+  border-bottom-width: var(--border-bottom-width);
+  border-left-width: 1px;
+  --border-left-width: 1px;
+  border-left-width: var(--border-left-width);
+  border-right-width: 1px;
+  --border-right-width: 1px;
+  border-right-width: var(--border-right-width);
+  vertical-align: bottom;
+  position: relative;
+  top: -1px;
+  top: calc(0px - var(--border-top-width));
+  margin-bottom: -2px;
+  margin-bottom: calc(0px - var(--border-top-width, 0px) - var(--border-bottom-width, 0px));
+}
+
 /* %border-0 */
 
 /* Kingdom CSS Level 2 - Sizing and Spacing */
@@ -1655,4 +1676,11 @@ li + *,h1 + *,h2 + *,h3 + *,h4 + *,h5 + *,h6 + *,code,label,map,small,span,time,
   display: inline-block;
   line-height: inherit;
   vertical-align: bottom;
+}
+
+.blog-related-content section > div {
+  padding-left: 0.421875rem;
+  padding-left: calc(0.25 * var(--spacing-base, 1.6875rem));
+  padding-right: 0.421875rem;
+  padding-right: calc(0.25 * var(--spacing-base, 1.6875rem));
 }
