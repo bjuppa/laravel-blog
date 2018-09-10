@@ -210,7 +210,7 @@ h6 {
 
 /* %text-inline */
 
-code,label,map,small,span,time,var,p a,::before,::after,.blog-social-sharing h2 {
+br,code,label,map,small,span,time,var,p a,::before,::after,.blog-social-sharing h2 {
   display: inline;
   line-height: 0;
   vertical-align: baseline;
@@ -618,7 +618,7 @@ p + * {
 
 /* %mt-0 */
 
-li + *,h1 + *,h2 + *,h3 + *,h4 + *,h5 + *,h6 + *,code,label,map,small,span,time,var,a,map *,.blog-entry-short > *,.blog-related-content section header + * {
+li + *,h1 + *,h2 + *,h3 + *,h4 + *,h5 + *,h6 + *,br,code,label,map,small,span,time,var,a,map *,.blog-entry-short > *,.blog-related-content section header + * {
   /* Reset vertical spacing */
   margin-top: 0;
 }
@@ -1683,4 +1683,7 @@ li + *,h1 + *,h2 + *,h3 + *,h4 + *,h5 + *,h6 + *,code,label,map,small,span,time,
   padding-left: calc(0.25 * var(--spacing-base, 1.6875rem));
   padding-right: 0.421875rem;
   padding-right: calc(0.25 * var(--spacing-base, 1.6875rem));
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
 }

@@ -114,6 +114,7 @@
     > div {
       @extend %border !optional;
       @include space-inside();
+      max-width: max-content;
     }
   }
 }
