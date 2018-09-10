@@ -1546,6 +1546,18 @@ li + *,h1 + *,h2 + *,h3 + *,h4 + *,h5 + *,h6 + *,code,label,map,small,span,time,
 
 .blog-entry-list .blog-entry-link {
   text-decoration: none;
+  color: inherit;
+}
+
+:link .blog-entry-title {
+  color: #1b0686;
+  color: var(--color-link, #1b0686);
+  text-decoration: underline;
+}
+
+:visited .blog-entry-title {
+  color: #7b0686;
+  color: var(--color-visited, #7b0686);
 }
 
 .blog-latest-entries-links {

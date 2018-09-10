@@ -26,6 +26,17 @@
 
   .blog-entry-link {
     text-decoration: none;
+    color: inherit;
+  }
+}
+
+.blog-entry-title {
+  :link & {
+    @include apply-color(link);
+    text-decoration: underline;
+  }
+  :visited & {
+    @include apply-color(visited);
   }
 }
 
