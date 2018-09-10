@@ -86,6 +86,7 @@
 .blog-social-sharing {
   h2 {
     @extend %text-small;
+    @extend %unimposing;
   }
 
   ul {

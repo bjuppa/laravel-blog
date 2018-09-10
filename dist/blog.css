@@ -1516,7 +1516,7 @@ li + *,h1 + *,h2 + *,h3 + *,h4 + *,h5 + *,h6 + *,code,label,map,small,span,time,
   border: 0;
 }
 
-.blog-entry-short .blog-entry-footer,.blog-entry-nav small {
+.blog-entry-short .blog-entry-footer,.blog-entry-nav small,.blog-social-sharing h2 {
   opacity: .8;
 }
 
