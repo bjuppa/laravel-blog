@@ -106,9 +106,6 @@
   section {
     header {
       @extend %unimposing;
-      + * {
-        @extend %mt-0 !optional;
-      }
     }
 
     > div {

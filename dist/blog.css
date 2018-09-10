@@ -618,7 +618,7 @@ p + * {
 
 /* %mt-0 */
 
-li + *,h1 + *,h2 + *,h3 + *,h4 + *,h5 + *,h6 + *,br,code,label,map,small,span,time,var,a,map *,.blog-entry-short > *,.blog-related-content section header + * {
+li + *,h1 + *,h2 + *,h3 + *,h4 + *,h5 + *,h6 + *,br,code,label,map,small,span,time,var,a,map *,.blog-entry-short > * {
   /* Reset vertical spacing */
   margin-top: 0;
 }
