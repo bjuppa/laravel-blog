@@ -3,7 +3,7 @@
 @import "~kingdom-css/src/modules/lists";
 
 %unimposing {
-  opacity: .8;
+  @extend .color-gray-700 !optional;
 }
 
 .blog {

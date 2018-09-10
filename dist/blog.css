@@ -1505,6 +1505,45 @@ li + *,h1 + *,h2 + *,h3 + *,h4 + *,h5 + *,h6 + *,code,label,map,small,span,time,
 
 /* Kingdom CSS Level 2 - Sizing and Spacing */
 
+:root {
+  --color-primary: #2A7F62;
+  --color-primary-text: #eaf2ef;
+  --color-body: #fdfdfe;
+  --color-body-text: #0d0c0d;
+  --color-link: #1b0686;
+  --color-visited: #7b0686;
+  --color-border: currentColor;
+  --color-caution: #a33c29;
+  --color-caution-text: #f4edeb;
+  --color-disabled: rgba(230, 229, 230, 0.75);
+  --color-disabled-text: #807e81;
+  --color-shadow: rgba(14, 0, 26, 0.1);
+  --color-shadow-text: currentColor;
+  --color-gray-900: #191a1a;
+  --color-gray-900-text: #e8e8e8;
+  --color-gray-800: #323433;
+  --color-gray-800-text: #eaebeb;
+  --color-gray-700: #4b4e4d;
+  --color-gray-700-text: #ededed;
+  --color-gray-600: #646867;
+  --color-gray-600-text: #f0f0f0;
+  --color-gray-500: #7d8280;
+  --color-gray-500-text: #f2f2f2;
+  --color-gray-400: #979b9a;
+  --color-gray-400-text: #080808;
+  --color-gray-300: #b1b4b3;
+  --color-gray-300-text: #090909;
+  --color-gray-200: #cbcdcc;
+  --color-gray-200-text: #0a0a0a;
+  --color-gray-100: #e5e6e6;
+  --color-gray-100-text: #0b0c0c;
+}
+
+.blog-entry-short .blog-entry-footer,.blog-entry-publication-info,.blog-entry-nav small,.blog-social-sharing h2 {
+  color: #4b4e4d;
+  color: var(--color-gray-700, #4b4e4d);
+}
+
 .blog-social-sharing .share-link-prefix {
   position: absolute;
   width: 1px;
@@ -1514,10 +1553,6 @@ li + *,h1 + *,h2 + *,h3 + *,h4 + *,h5 + *,h6 + *,code,label,map,small,span,time,
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
-}
-
-.blog-entry-short .blog-entry-footer,.blog-entry-publication-info,.blog-entry-nav small,.blog-social-sharing h2 {
-  opacity: .8;
 }
 
 .blog {
