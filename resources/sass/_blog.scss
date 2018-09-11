@@ -16,15 +16,15 @@
   margin-left: auto;
   margin-right: auto;
 
-  @include padding-relative();
+  @include padding-relative;
 
   p {
-    @include width-readable();
+    @include width-readable;
   }
 }
 
 .blog-entry-list {
-  @include list-unstyled();
+  @include list-unstyled;
 
   > * + * {
     @extend %mt-1 !optional;
@@ -58,7 +58,7 @@
 }
 
 .blog-latest-entries-links {
-  @include list-unstyled();
+  @include list-unstyled;
 }
 
 .blog-entry-publication-info {
@@ -66,7 +66,7 @@
 }
 
 .blog-author-list {
-  @include list-comma-separated();
+  @include list-comma-separated;
 }
 
 .blog-entry-nav {
@@ -96,7 +96,7 @@
   }
 
   ul {
-    @include list-inline();
+    @include list-inline;
   }
 
   .share-link-prefix {
