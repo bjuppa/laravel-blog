@@ -10,5 +10,5 @@
   @includeFirst($blog->bladeViews('blog.socialSharingAside', $entry))
   @includeFirst($blog->bladeViews('entry.partials.nav', $entry))
   {{-- TODO: add entry comments here - nested <article> tags --}}
-  @includeFirst($blog->bladeViews('entry.partials.aside', $entry))
+  @includeFirst($blog->bladeViews('entry.partials.relatedContent', $entry))
 </article>
