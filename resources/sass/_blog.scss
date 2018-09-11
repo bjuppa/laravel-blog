@@ -1,3 +1,4 @@
+@import "~kingdom-css/src/modules/layout";
 @import "~kingdom-css/src/modules/sizing";
 @import "~kingdom-css/src/modules/spacing";
 @import "~kingdom-css/src/modules/lists";
@@ -104,6 +105,17 @@
 }
 
 .blog-entry-nav {
+  display: flex;
+
+  > * {
+    @include display-block;
+    @include space-inside;
+
+    > * {
+      @include display-inline-block;
+    }
+  }
+
   > :first-child {
     float: right;
   }
@@ -122,7 +134,7 @@
 
   > div {
     @extend %border !optional;
-    @include space-inside();
+    @include space-inside;
     max-width: max-content;
   }
 }
