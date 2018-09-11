@@ -1,6 +1,7 @@
 @import "~kingdom-css/src/modules/sizing";
 @import "~kingdom-css/src/modules/spacing";
 @import "~kingdom-css/src/modules/lists";
+@import "~kingdom-css/src/modules/clearfix";
 
 %unimposing {
   @extend .color-gray-700 !optional;
@@ -100,6 +101,18 @@
   .share-link-prefix {
     @extend .sr-only !optional;
   }
+}
+
+.blog-entry-nav {
+  > :first-child {
+    float: right;
+  }
+
+  > :last-child {
+    float: left;
+  }
+
+  @include clearfix;
 }
 
 .blog-related-content {
