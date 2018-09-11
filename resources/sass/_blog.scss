@@ -106,6 +106,7 @@
 
 .blog-entry-nav {
   display: flex;
+  flex-direction: row-reverse;
 
   > * {
     @include display-block;
