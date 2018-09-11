@@ -3,4 +3,4 @@
     @includeFirst($blog->bladeViews('blog.latestEntriesLinks'))
   </aside>
   @includeFirst($blog->bladeViews('entry.partials.asideAds'))
-  @show
+@show
