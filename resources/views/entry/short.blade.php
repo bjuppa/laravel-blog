@@ -13,9 +13,9 @@
   </div>
   <footer class="blog-entry-footer">
     <small><time datetime="{{ $entry->getPublished()->toAtomString() }}" lang="en">{{ $entry->getPublished()->diffForHumans() }}</time></small>
+    <a href="{{ $blog->urlToEntry($entry) }}">
+      <small>{{ __($blog->transKey('titles.read_entry')) }}<span>:</span></small>
+      <small>{{ $entry->getTitle() }}</small>
+    </a>
   </footer>
-  <a href="{{ $blog->urlToEntry($entry) }}">
-    <small>{{ __($blog->transKey('titles.read_entry')) }}<span>:</span></small>
-    <small>{{ $entry->getTitle() }}</small>
-  </a>
 </article>
