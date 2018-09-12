@@ -13,7 +13,7 @@
   </div>
   <footer class="blog-entry-footer">
     <small><time datetime="{{ $entry->getPublished()->toAtomString() }}" lang="en">{{ $entry->getPublished()->diffForHumans() }}</time></small>
-    <a href="{{ $blog->urlToEntry($entry) }}">
+    <a href="{{ $blog->urlToEntry($entry) }}" class="blog-read-more-link">
       <small>{{ __($blog->transKey('titles.read_entry')) }}<span>:</span></small>
       <small>{{ $entry->getTitle() }}</small>
     </a>

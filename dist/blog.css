@@ -1565,7 +1565,7 @@ li + *,h1 + *,h2 + *,h3 + *,h4 + *,h5 + *,h6 + *,br,code,label,map,small,span,ti
   color: var(--color-gray-700, #4b4e4d);
 }
 
-.blog-social-sharing .share-link-prefix {
+.blog-entry-short .blog-read-more-link,.blog-social-sharing .share-link-prefix {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -1574,6 +1574,15 @@ li + *,h1 + *,h2 + *,h3 + *,h4 + *,h5 + *,h6 + *,br,code,label,map,small,span,ti
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+.blog-entry-short .blog-read-more-link:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
 }
 
 .grid {

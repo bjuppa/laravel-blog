@@ -40,6 +40,10 @@
     @extend %unimposing;
   }
 
+  .blog-read-more-link {
+    @extend .sr-only-focusable !optional;
+  }
+
   position: relative;
 
   // elevate the links up
