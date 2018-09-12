@@ -1747,6 +1747,21 @@ li + *,h1 + *,h2 + *,h3 + *,h4 + *,h5 + *,h6 + *,br,code,label,map,small,span,ti
   color: var(--color-visited, #7b0686);
 }
 
+.blog-entry-nav > [rel=next]:first-child {
+  float: right;
+}
+
+.blog-entry-nav > [rel=prev]:last-child {
+  float: left;
+}
+
+.blog-entry-nav > [rel=prev]:only-child {
+  float: none;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
 .blog-entry-nav::after {
   content: "";
   display: table;
@@ -1757,14 +1772,6 @@ li + *,h1 + *,h2 + *,h3 + *,h4 + *,h5 + *,h6 + *,br,code,label,map,small,span,ti
   .blog-entry-nav:after {
     display: none;
   }
-}
-
-.blog-entry-nav > :first-child {
-  float: right;
-}
-
-.blog-entry-nav > :last-child {
-  float: left;
 }
 
 .blog-social-sharing ul {

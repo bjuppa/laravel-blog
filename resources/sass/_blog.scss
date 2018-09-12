@@ -105,19 +105,24 @@
     @extend %unimposing;
   }
 
+  > [rel=next]:first-child {
+    float: right;
+  }
+
+  > [rel=prev]:last-child {
+    float: left;
+  }
+
+  > [rel=prev]:only-child {
+    float: none;
+    flex-grow: 1;
+  }
+
   @include clearfix;
   @supports(display: flex) {
     &:after {
       display: none;
     }
-  }
-
-  > :first-child {
-    float: right;
-  }
-
-  > :last-child {
-    float: left;
   }
 }
 
