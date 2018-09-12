@@ -1724,9 +1724,6 @@ li + *,h1 + *,h2 + *,h3 + *,h4 + *,h5 + *,h6 + *,br,code,label,map,small,span,ti
   padding-left: calc(0.25 * var(--spacing-base, 1.6875rem));
   padding-right: 0.421875rem;
   padding-right: calc(0.25 * var(--spacing-base, 1.6875rem));
-  -webkit-box-flex: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
 }
 
 .blog-entry-nav > * > * {
@@ -1754,6 +1751,12 @@ li + *,h1 + *,h2 + *,h3 + *,h4 + *,h5 + *,h6 + *,br,code,label,map,small,span,ti
   content: "";
   display: table;
   clear: both;
+}
+
+@supports (display: flex) {
+  .blog-entry-nav:after {
+    display: none;
+  }
 }
 
 .blog-entry-nav > :first-child {

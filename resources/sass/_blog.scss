@@ -81,7 +81,6 @@
   > * {
     @include display-block;
     @include space-inside;
-    flex-grow: 1;
 
     > * {
       @include display-block;
@@ -107,6 +106,11 @@
   }
 
   @include clearfix;
+  @supports(display: flex) {
+    &:after {
+      display: none;
+    }
+  }
 
   > :first-child {
     float: right;
