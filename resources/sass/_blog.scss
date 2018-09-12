@@ -29,22 +29,6 @@
   > * + * {
     @extend %mt-1 !optional;
   }
-
-  .blog-entry-link {
-    text-decoration: none;
-    color: inherit;
-  }
-}
-
-.blog-entry-title {
-  :link & {
-    @include apply-color(link);
-    text-decoration: underline;
-  }
-
-  :visited & {
-    @include apply-color(visited);
-  }
 }
 
 .blog-entry-short {
@@ -54,6 +38,30 @@
 
   .blog-entry-footer {
     @extend %unimposing;
+  }
+
+  position: relative;
+
+  // elevate the links up
+  a {
+    position: relative;
+    z-index: 1;
+  }
+
+  .blog-entry-title {
+    a {
+      position: static;
+      // expand the pseudo-element to cover the entry
+      &::before {
+          content: "";
+          position: absolute;
+          z-index: 0;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+      }
+    }
   }
 }
 

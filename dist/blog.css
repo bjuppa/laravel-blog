@@ -1658,20 +1658,27 @@ li + *,h1 + *,h2 + *,h3 + *,h4 + *,h5 + *,h6 + *,br,code,label,map,small,span,ti
   list-style: none;
 }
 
-.blog-entry-list .blog-entry-link {
-  text-decoration: none;
-  color: inherit;
+.blog-entry-short {
+  position: relative;
 }
 
-:link .blog-entry-title {
-  color: #1b0686;
-  color: var(--color-link, #1b0686);
-  text-decoration: underline;
+.blog-entry-short a {
+  position: relative;
+  z-index: 1;
 }
 
-:visited .blog-entry-title {
-  color: #7b0686;
-  color: var(--color-visited, #7b0686);
+.blog-entry-short .blog-entry-title a {
+  position: static;
+}
+
+.blog-entry-short .blog-entry-title a::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 .blog-latest-entries-links {
