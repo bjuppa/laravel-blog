@@ -625,7 +625,7 @@ li + *,h1 + *,h2 + *,h3 + *,h4 + *,h5 + *,h6 + *,br,code,label,map,small,span,ti
 
 /* %mt-1 */
 
-* + *,.blog-entry-list > * + * {
+* + *,.blog-entry-list > * + *,.blog-latest-entries-links > * + * {
   /* Default vertical spacing */
   margin-top: 1.6875rem;
   margin-top: calc(1 * var(--spacing-base, 1.6875rem));
@@ -1501,7 +1501,7 @@ li + *,h1 + *,h2 + *,h3 + *,h4 + *,h5 + *,h6 + *,br,code,label,map,small,span,ti
 
 /* %border */
 
-.blog-related-content section > div {
+.blog-related-content > div {
   border-top-width: 1px;
   --border-top-width: 1px;
   border-top-width: var(--border-top-width);
@@ -1560,7 +1560,7 @@ li + *,h1 + *,h2 + *,h3 + *,h4 + *,h5 + *,h6 + *,br,code,label,map,small,span,ti
   --color-gray-100-text: #0b0c0c;
 }
 
-.blog-entry-short .blog-entry-footer,.blog-entry-publication-info,.blog-entry-nav small,.blog-social-sharing h2,.blog-related-content section header {
+.blog-entry-short .blog-entry-footer,.blog-entry-publication-info,.blog-entry-nav small,.blog-social-sharing h2,.blog-related-content header small {
   color: #4b4e4d;
   color: var(--color-gray-700, #4b4e4d);
 }
@@ -1574,6 +1574,60 @@ li + *,h1 + *,h2 + *,h3 + *,h4 + *,h5 + *,h6 + *,br,code,label,map,small,span,ti
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+.grid {
+  display: grid;
+}
+
+.grid-row-span-1 {
+  grid-row-start: span 1;
+  grid-row-end: span 1;
+}
+
+.grid-row-span-2 {
+  grid-row-start: span 2;
+  grid-row-end: span 2;
+}
+
+.grid-row-span-3 {
+  grid-row-start: span 3;
+  grid-row-end: span 3;
+}
+
+.grid-row-span-4 {
+  grid-row-start: span 4;
+  grid-row-end: span 4;
+}
+
+.grid-row-span-5 {
+  grid-row-start: span 5;
+  grid-row-end: span 5;
+}
+
+.grid-row-span-6 {
+  grid-row-start: span 6;
+  grid-row-end: span 6;
+}
+
+.grid-row-span-7 {
+  grid-row-start: span 7;
+  grid-row-end: span 7;
+}
+
+.grid-row-span-8 {
+  grid-row-start: span 8;
+  grid-row-end: span 8;
+}
+
+.grid-row-span-9 {
+  grid-row-start: span 9;
+  grid-row-end: span 9;
+}
+
+.grid-row-span-10 {
+  grid-row-start: span 10;
+  grid-row-end: span 10;
 }
 
 .blog {
@@ -1650,6 +1704,34 @@ li + *,h1 + *,h2 + *,h3 + *,h4 + *,h5 + *,h6 + *,br,code,label,map,small,span,ti
   content: '';
 }
 
+.blog-entry-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.blog-entry-nav > * {
+  display: block;
+  line-height: inherit;
+  padding-left: 0.421875rem;
+  padding-left: calc(0.25 * var(--spacing-base, 1.6875rem));
+  padding-right: 0.421875rem;
+  padding-right: calc(0.25 * var(--spacing-base, 1.6875rem));
+}
+
+.blog-entry-nav > * > * {
+  display: inline-block;
+  line-height: inherit;
+  vertical-align: bottom;
+}
+
 .blog-entry-nav [rel] {
   text-decoration: none;
   color: inherit;
@@ -1666,6 +1748,20 @@ li + *,h1 + *,h2 + *,h3 + *,h4 + *,h5 + *,h6 + *,br,code,label,map,small,span,ti
   color: var(--color-visited, #7b0686);
 }
 
+.blog-entry-nav::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.blog-entry-nav > :first-child {
+  float: right;
+}
+
+.blog-entry-nav > :last-child {
+  float: left;
+}
+
 .blog-social-sharing ul {
   padding-left: 0;
   padding-right: 0;
@@ -1678,7 +1774,7 @@ li + *,h1 + *,h2 + *,h3 + *,h4 + *,h5 + *,h6 + *,br,code,label,map,small,span,ti
   vertical-align: bottom;
 }
 
-.blog-related-content section > div {
+.blog-related-content > div {
   padding-left: 0.421875rem;
   padding-left: calc(0.25 * var(--spacing-base, 1.6875rem));
   padding-right: 0.421875rem;
@@ -1686,4 +1782,38 @@ li + *,h1 + *,h2 + *,h3 + *,h4 + *,h5 + *,h6 + *,br,code,label,map,small,span,ti
   max-width: -webkit-max-content;
   max-width: -moz-max-content;
   max-width: max-content;
+}
+
+@media (min-width: 120ch) {
+@supports (display: grid) {
+    .blog-entry {
+      display: grid;
+      grid-template-columns: 75ch 1fr;
+      grid-auto-flow: dense;
+      grid-column-gap: 1.6875rem;
+      grid-column-gap: calc(1 * var(--spacing-base, 1.6875rem));
+    }
+
+    .blog-entry > * {
+      grid-column: 1 / span 1;
+    }
+
+    .blog-entry .blog-content-start {
+      -ms-flex-item-align: end;
+      align-self: end;
+    }
+
+    .blog-entry .blog-content-end {
+      -ms-flex-item-align: start;
+      align-self: start;
+    }
+
+    .blog-entry > .blog-related-content {
+      grid-column: span 1 / -1;
+    }
+
+    .blog-entry > .full-width {
+      grid-column: 1 / -1;
+    }
+}
 }

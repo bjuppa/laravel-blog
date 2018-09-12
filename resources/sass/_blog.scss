@@ -59,6 +59,10 @@
 
 .blog-latest-entries-links {
   @include list-unstyled;
+
+  > * + * {
+    @extend %mt-1;
+  }
 }
 
 .blog-entry-publication-info {
@@ -72,6 +76,7 @@
 .blog-entry-nav {
   display: flex;
   flex-direction: row-reverse;
+  justify-content: space-between;
 
   > * {
     @include display-block;
@@ -160,7 +165,6 @@
 
       > .blog-related-content {
         grid-column: span 1 / -1;
-        grid-row: span 3;
       }
 
       > .full-width {
