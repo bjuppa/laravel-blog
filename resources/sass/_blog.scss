@@ -81,9 +81,10 @@
   > * {
     @include display-block;
     @include space-inside;
+    flex-grow: 1;
 
     > * {
-      @include display-inline-block;
+      @include display-block;
     }
   }
 
