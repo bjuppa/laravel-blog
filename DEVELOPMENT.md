@@ -28,7 +28,7 @@ If you're editing and building assets within a repo in the vendor folder of a re
 running this command will publish the updated styles:
 
 ```bash
-`php artisan vendor:publish --provider="Bjuppa\LaravelBlog\BlogServiceProvider" --tag="blog-styling" --force`
+php artisan vendor:publish --provider="Bjuppa\LaravelBlog\BlogServiceProvider" --tag="blog-styling" --force
 ```
 
 ## Release new version
