@@ -2,7 +2,6 @@
 @import "~kingdom-css/src/modules/sizing";
 @import "~kingdom-css/src/modules/spacing";
 @import "~kingdom-css/src/modules/lists";
-@import "~kingdom-css/src/modules/clearfix";
 
 %unimposing {
   @extend .color-gray-700 !optional;
@@ -89,6 +88,7 @@
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
+  @extend .clearfix-unless-flex !optional;
 
   > * {
     @include display-block;
@@ -128,13 +128,6 @@
   > [rel=prev]:only-child {
     float: none;
     flex-grow: 1;
-  }
-
-  @include clearfix;
-  @supports(display: flex) {
-    &:after {
-      display: none;
-    }
   }
 }
 
