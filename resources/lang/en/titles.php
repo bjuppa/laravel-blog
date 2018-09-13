@@ -3,8 +3,8 @@
 return [
     'latest_entries' => 'Latest entries',
     'authors' => 'Authors',
-    'read_entry' => 'Read entry',
-    'next' => 'Next',
-    'previous' => 'Previous',
+    'read_entry' => 'READ ENTRY',
+    'next' => 'NEXT',
+    'previous' => 'PREVIOUS',
     'ads' => 'ADVERTISEMENTS',
 ];
