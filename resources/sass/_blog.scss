@@ -7,6 +7,15 @@
   @extend .color-gray-700 !optional;
 }
 
+%block-link {
+  @include display-block;
+  @include space-inside;
+
+  > * {
+    @include display-block;
+  }
+}
+
 .blog {
   max-width: 100%;
   width: $readable-line-length-min + $readable-line-length-max;
@@ -41,6 +50,7 @@
 
   .blog-read-more-link {
     @extend .sr-only-focusable !optional;
+    @extend %block-link;
   }
 
   position: relative;
@@ -91,12 +101,7 @@
   @extend .clearfix-unless-flex !optional;
 
   > * {
-    @include display-block;
-    @include space-inside;
-
-    > * {
-      @include display-block;
-    }
+    @extend %block-link;
   }
 
   [rel] {
