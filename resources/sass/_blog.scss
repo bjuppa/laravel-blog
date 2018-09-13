@@ -14,6 +14,22 @@
   > * {
     @include display-block;
   }
+
+  text-decoration: none;
+  color: inherit;
+
+  small {
+    @extend %unimposing;
+  }
+
+  &:link > :last-child {
+    @include apply-color(link);
+    text-decoration: underline;
+  }
+
+  &:visited > :last-child {
+    @include apply-color(visited);
+  }
 }
 
 .blog {
@@ -100,26 +116,8 @@
   justify-content: space-between;
   @extend .clearfix-unless-flex !optional;
 
-  > * {
-    @extend %block-link;
-  }
-
   [rel] {
-    text-decoration: none;
-    color: inherit;
-
-    &:link > :last-child {
-        @include apply-color(link);
-        text-decoration: underline;
-    }
-
-    &:visited > :last-child {
-      @include apply-color(visited);
-    }
-  }
-
-  small {
-    @extend %unimposing;
+    @extend %block-link;
   }
 
   > [rel=next]:first-child {

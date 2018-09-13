@@ -1560,7 +1560,7 @@ li + *,h1 + *,h2 + *,h3 + *,h4 + *,h5 + *,h6 + *,br,code,label,map,small,span,ti
   --color-gray-100-text: #0b0c0c;
 }
 
-.blog-entry-short .blog-entry-footer,.blog-entry-publication-info,.blog-entry-nav small,.blog-social-sharing h2,.blog-related-content header small {
+.blog-entry-short .blog-read-more-link small,.blog-entry-nav [rel] small,.blog-entry-short .blog-entry-footer,.blog-entry-publication-info,.blog-social-sharing h2,.blog-related-content header small {
   color: #4b4e4d;
   color: var(--color-gray-700, #4b4e4d);
 }
@@ -1657,18 +1657,31 @@ li + *,h1 + *,h2 + *,h3 + *,h4 + *,h5 + *,h6 + *,br,code,label,map,small,span,ti
   grid-row-end: span 10;
 }
 
-.blog-entry-short .blog-read-more-link,.blog-entry-nav > * {
+.blog-entry-short .blog-read-more-link,.blog-entry-nav [rel] {
   display: block;
   line-height: inherit;
   padding-left: 0.421875rem;
   padding-left: calc(0.25 * var(--spacing-base, 1.6875rem));
   padding-right: 0.421875rem;
   padding-right: calc(0.25 * var(--spacing-base, 1.6875rem));
+  text-decoration: none;
+  color: inherit;
 }
 
-.blog-entry-short .blog-read-more-link > *,.blog-entry-nav > * > * {
+.blog-entry-short .blog-read-more-link > *,.blog-entry-nav [rel] > * {
   display: block;
   line-height: inherit;
+}
+
+.blog-entry-short .blog-read-more-link:link > :last-child,.blog-entry-nav :link[rel] > :last-child {
+  color: #1b0686;
+  color: var(--color-link, #1b0686);
+  text-decoration: underline;
+}
+
+.blog-entry-short .blog-read-more-link:visited > :last-child,.blog-entry-nav :visited[rel] > :last-child {
+  color: #7b0686;
+  color: var(--color-visited, #7b0686);
 }
 
 .blog {
@@ -1763,22 +1776,6 @@ li + *,h1 + *,h2 + *,h3 + *,h4 + *,h5 + *,h6 + *,br,code,label,map,small,span,ti
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-}
-
-.blog-entry-nav [rel] {
-  text-decoration: none;
-  color: inherit;
-}
-
-.blog-entry-nav [rel]:link > :last-child {
-  color: #1b0686;
-  color: var(--color-link, #1b0686);
-  text-decoration: underline;
-}
-
-.blog-entry-nav [rel]:visited > :last-child {
-  color: #7b0686;
-  color: var(--color-visited, #7b0686);
 }
 
 .blog-entry-nav > [rel=next]:first-child {
