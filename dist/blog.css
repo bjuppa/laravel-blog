@@ -1792,6 +1792,10 @@ li + *,h1 + *,h2 + *,h3 + *,h4 + *,h5 + *,h6 + *,br,code,label,map,small,span,ti
   justify-content: space-between;
 }
 
+.blog-entry-nav > * {
+  max-width: 66%;
+}
+
 .blog-entry-nav > [rel=next]:first-child {
   float: right;
 }
@@ -1805,6 +1809,7 @@ li + *,h1 + *,h2 + *,h3 + *,h4 + *,h5 + *,h6 + *,br,code,label,map,small,span,ti
   -webkit-box-flex: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
+  max-width: none;
 }
 
 .blog-social-sharing ul {

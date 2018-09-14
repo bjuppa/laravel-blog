@@ -122,6 +122,10 @@
   justify-content: space-between;
   @extend .clearfix-unless-flex !optional;
 
+  > * {
+    max-width: 66%;
+  }
+
   [rel] {
     @extend %block-link;
   }
@@ -137,6 +141,7 @@
   > [rel=prev]:only-child {
     float: none;
     flex-grow: 1;
+    max-width: none;
   }
 }
 
