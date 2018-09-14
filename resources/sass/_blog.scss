@@ -15,6 +15,10 @@
     @include display-block;
   }
 
+  > :not(:last-child) {
+    word-break: normal;
+  }
+
   text-decoration: none;
   color: inherit;
 
@@ -42,7 +46,7 @@
 
   @include padding-relative;
 
-  @extend .word-wrap;
+  @extend .word-wrap !optional;
 
   p {
     @include width-readable;
