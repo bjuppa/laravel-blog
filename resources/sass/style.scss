@@ -8,5 +8,6 @@ $colors: (primary: #2A7F62) !default;
 @import "~kingdom-css/src/utilities/layout/screenreaders";
 @import "~kingdom-css/src/utilities/layout/floats";
 @import "~kingdom-css/src/utilities/layout/grid";
+@import "~kingdom-css/src/utilities/text/whitespace-wrapping";
 
 @import "blog";

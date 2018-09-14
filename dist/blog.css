@@ -1657,6 +1657,16 @@ li + *,h1 + *,h2 + *,h3 + *,h4 + *,h5 + *,h6 + *,br,code,label,map,small,span,ti
   grid-row-end: span 10;
 }
 
+/* Combine .word-wrap with .hyphens-auto to add hyphens when breaking */
+
+.blog h1,.blog h2,.blog h3,.blog h4,.blog h5,.blog h6 {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
+}
+
 .blog-entry-short .blog-read-more-link,.blog-entry-nav [rel] {
   display: block;
   line-height: inherit;
