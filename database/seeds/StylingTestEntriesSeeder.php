@@ -44,7 +44,7 @@ Pneumonoultramicroscopicsilicovolcanoconiosis and Taumatawhakatangihangakoauauot
 The [Wikipedia article](https://en.wikipedia.org/wiki/Longest_word_in_English) contains more information.
 EOT
             ,
-            'meta_tags' => [],
+            'meta_tags' => ['name' => 'keywords', 'content' => ['Pneumonoultramicroscopicsilicovolcanoconiosis', 'Taumatawhakatangihangakoauauotamateaturipukakapikimaungahoronukupokaiwhenuakitanatahu']],
             'author_name' => 'Web Site',
             'author_url' => 'https://en.wikipedia.org/wiki/Website',
             'publish_after' => now(),
