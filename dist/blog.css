@@ -311,6 +311,11 @@ br,code,em,label,map,small,span,sub,sup,time,var,p a,::before,::after,.blog-soci
 
 /* %h-5 */
 
+.blog-entry-short img {
+  height: 8.4375rem;
+  height: calc(5 * var(--spacing-base, 1.6875rem));
+}
+
 /* %h-6 */
 
 /* %h-7 */
@@ -2090,6 +2095,14 @@ select * {
 
 .blog-entry-short {
   position: relative;
+}
+
+.blog-entry-short img {
+  float: left;
+}
+
+.blog-entry-short .blog-entry-footer {
+  clear: both;
 }
 
 .blog-entry-short a {

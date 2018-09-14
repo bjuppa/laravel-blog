@@ -66,7 +66,13 @@
     @extend %mt-0 !optional;
   }
 
+  img {
+    @extend %h-5 !optional;
+    float: left;
+  }
+
   .blog-entry-footer {
+    clear: both;
     @extend %unimposing;
   }
 
