@@ -1970,60 +1970,6 @@ select * {
   }
 }
 
-.grid {
-  display: grid;
-}
-
-.grid-row-span-1 {
-  grid-row-start: span 1;
-  grid-row-end: span 1;
-}
-
-.grid-row-span-2 {
-  grid-row-start: span 2;
-  grid-row-end: span 2;
-}
-
-.grid-row-span-3 {
-  grid-row-start: span 3;
-  grid-row-end: span 3;
-}
-
-.grid-row-span-4 {
-  grid-row-start: span 4;
-  grid-row-end: span 4;
-}
-
-.grid-row-span-5 {
-  grid-row-start: span 5;
-  grid-row-end: span 5;
-}
-
-.grid-row-span-6 {
-  grid-row-start: span 6;
-  grid-row-end: span 6;
-}
-
-.grid-row-span-7 {
-  grid-row-start: span 7;
-  grid-row-end: span 7;
-}
-
-.grid-row-span-8 {
-  grid-row-start: span 8;
-  grid-row-end: span 8;
-}
-
-.grid-row-span-9 {
-  grid-row-start: span 9;
-  grid-row-end: span 9;
-}
-
-.grid-row-span-10 {
-  grid-row-start: span 10;
-  grid-row-end: span 10;
-}
-
 /* Combine .word-wrap with .hyphens-auto to add hyphens when breaking */
 
 .blog {
@@ -2215,6 +2161,9 @@ select * {
       display: grid;
       grid-template-columns: 75ch 1fr;
       grid-auto-flow: dense;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
       grid-column-gap: 1.6875rem;
       grid-column-gap: calc(1 * var(--spacing-base, 1.6875rem));
     }
@@ -2231,6 +2180,11 @@ select * {
     .blog-entry .blog-content-end {
       -ms-flex-item-align: start;
       align-self: start;
+    }
+
+    .blog-entry .blog-latest-entries {
+      grid-row: 1 / 4;
+      grid-column: span 1 / -1;
     }
 
     .blog-entry > .blog-related-content {

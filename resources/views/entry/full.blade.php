@@ -9,6 +9,7 @@
   @includeFirst($blog->bladeViews('entry.partials.content', $entry))
   @includeFirst($blog->bladeViews('blog.socialSharingAside', $entry))
   @includeFirst($blog->bladeViews('entry.partials.nav', $entry))
+  @includeFirst($blog->bladeViews('entry.partials.adsAside'))
   {{-- TODO: add entry comments here - nested <article> tags --}}
   @includeFirst($blog->bladeViews('entry.partials.relatedContent', $entry))
 </article>
