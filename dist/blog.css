@@ -2227,14 +2227,9 @@ select * {
       grid-column: 1 / span 1;
     }
 
-    .blog-entry .blog-content-start {
+    .blog-entry > hr {
       -ms-flex-item-align: end;
       align-self: end;
-    }
-
-    .blog-entry .blog-content-end {
-      -ms-flex-item-align: start;
-      align-self: start;
     }
 
     .blog-entry .blog-latest-entries {
