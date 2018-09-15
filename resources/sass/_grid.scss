@@ -4,12 +4,13 @@
   @supports(display: grid) {
     .blog-entry {
       display: grid;
-      grid-template-columns: [intro-start] $readable-line-length-max [intro-end] 1fr;
-      grid-template-rows: [intro-start]
+      grid-template-columns: [header-start intro-start] $readable-line-length-max [intro-end] 1fr [header-end];
+      grid-template-rows: [header-start intro-start]
                           1fr
                           auto
-                          auto
                           [intro-end]
+                          auto
+                          [header-end]
                           ;
       grid-auto-flow: dense;
       align-items: center;
