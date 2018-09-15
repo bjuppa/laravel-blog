@@ -4,7 +4,13 @@
   @supports(display: grid) {
     .blog-entry {
       display: grid;
-      grid-template-columns: $readable-line-length-max 1fr;
+      grid-template-columns: [intro-start] $readable-line-length-max [intro-end] 1fr;
+      grid-template-rows: [intro-start]
+                          1fr
+                          auto
+                          auto
+                          [intro-end]
+                          ;
       grid-auto-flow: dense;
       align-items: center;
       @include length-relative(grid-column-gap);

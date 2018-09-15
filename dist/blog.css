@@ -2213,7 +2213,8 @@ select * {
 @supports (display: grid) {
     .blog-entry {
       display: grid;
-      grid-template-columns: 75ch 1fr;
+      grid-template-columns: [intro-start] 75ch [intro-end] 1fr;
+      grid-template-rows: [intro-start] 1fr auto auto [intro-end];
       grid-auto-flow: dense;
       -webkit-box-align: center;
       -ms-flex-align: center;
