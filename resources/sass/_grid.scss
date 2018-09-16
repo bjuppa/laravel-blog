@@ -10,9 +10,7 @@
                           auto
                           [intro-end]
                           auto
-                          [header-end]
-                          ;
-      grid-auto-flow: dense;
+                          [header-end content-start];
       align-items: center;
       @include length-relative(grid-column-gap);
 
@@ -24,6 +22,22 @@
         align-self: end;
       }
 
+      .blog-entry-header {
+        grid-row-start: intro-start;
+      }
+
+      .blog-entry-footer {
+        grid-row-end: intro-end;
+      }
+
+      .blog-content-start {
+        grid-row-end: content-start;
+
+        + * {
+          order: -1;
+        }
+      }
+
       .blog-latest-entries {
         grid-row: header;
         grid-column: span 1 / -1;
@@ -31,6 +45,8 @@
 
       > .blog-related-content {
         grid-column: span 1 / -1;
+        order: -1;
+        align-self: start;
       }
 
       > .full-width {
