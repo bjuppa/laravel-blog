@@ -2262,9 +2262,5 @@ select * {
       -ms-flex-item-align: start;
       align-self: start;
     }
-
-    .blog-entry > .full-width {
-      grid-column: 1 / -1;
-    }
 }
 }
