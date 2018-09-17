@@ -1,7 +1,6 @@
 @import "~kingdom-css/src/modules/layout";
 @import "~kingdom-css/src/modules/sizing";
 @import "~kingdom-css/src/modules/spacing";
-@import "~kingdom-css/src/modules/lists";
 
 %unimposing {
   @extend .color-gray-700 !optional;
@@ -37,16 +36,18 @@
 }
 
 .blog {
-  max-width: 100%;
-  width: $readable-line-length-min + $readable-line-length-max;
-  min-width: auto;
-
-  margin-left: auto;
-  margin-right: auto;
-
-  @include padding-relative;
-
   @extend .word-wrap !optional;
+
+  > * {
+    max-width: 100%;
+    width: $readable-line-length-min + $readable-line-length-max;
+    min-width: auto;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    @include padding-relative;
+  }
 
   p {
     @include width-readable;
@@ -54,7 +55,7 @@
 }
 
 .blog-entry-list {
-  @include list-unstyled;
+  @extend .list-unstyled;
 
   > * + * {
     @extend %mt-1 !optional;
@@ -107,7 +108,7 @@
 }
 
 .blog-latest-entries-links {
-  @include list-unstyled;
+  @extend .list-unstyled;
 
   > * + * {
     @extend %mt-1;
@@ -119,7 +120,7 @@
 }
 
 .blog-author-list {
-  @include list-comma-separated;
+  @extend .list-comma-separated;
 }
 
 .blog-entry-nav {
@@ -158,7 +159,7 @@
   }
 
   ul {
-    @include list-inline;
+    @extend .list-inline;
   }
 
   .share-link-prefix {
