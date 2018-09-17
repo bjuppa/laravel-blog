@@ -36,9 +36,12 @@
 }
 
 .blog {
+  @extend .background-color-gray-100 !optional;
   @extend .word-wrap !optional;
+  min-height: 100vh;
 
   > * {
+    @extend .background-color-body !optional;
     max-width: 100%;
     width: $readable-line-length-min + $readable-line-length-max;
     min-width: auto;
@@ -55,7 +58,7 @@
 }
 
 .blog-entry-list {
-  @extend .list-unstyled;
+  @extend .list-unstyled !optional;
 
   > * + * {
     @extend %mt-1 !optional;
@@ -108,7 +111,7 @@
 }
 
 .blog-latest-entries-links {
-  @extend .list-unstyled;
+  @extend .list-unstyled !optional;
 
   > * + * {
     @extend %mt-1;
@@ -120,7 +123,7 @@
 }
 
 .blog-author-list {
-  @extend .list-comma-separated;
+  @extend .list-comma-separated !optional;
 }
 
 .blog-entry-nav {
@@ -159,7 +162,7 @@
   }
 
   ul {
-    @extend .list-inline;
+    @extend .list-inline !optional;
   }
 
   .share-link-prefix {

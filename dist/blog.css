@@ -1662,7 +1662,7 @@ select * {
   --color-gray-100-text: #0b0c0c;
 }
 
-.background-color-gray-900 :link,.background-color-gray-800 :link,.background-color-gray-700 :link,.background-color-gray-600 :link,.background-color-gray-500 :link,.background-color-gray-400 :link,.background-color-gray-300 :link,.background-color-gray-200 :link,.background-color-gray-100 :link,.background-color-gray-900 :visited,.background-color-gray-800 :visited,.background-color-gray-700 :visited,.background-color-gray-600 :visited,.background-color-gray-500 :visited,.background-color-gray-400 :visited,.background-color-gray-300 :visited,.background-color-gray-200 :visited,.background-color-gray-100 :visited,.background-color-gray-900:link,.background-color-gray-800:link,.background-color-gray-700:link,.background-color-gray-600:link,.background-color-gray-500:link,.background-color-gray-400:link,.background-color-gray-300:link,.background-color-gray-200:link,.background-color-gray-100:link,.background-color-gray-900:visited,.background-color-gray-800:visited,.background-color-gray-700:visited,.background-color-gray-600:visited,.background-color-gray-500:visited,.background-color-gray-400:visited,.background-color-gray-300:visited,.background-color-gray-200:visited,.background-color-gray-100:visited {
+.background-color-gray-900 :link,.background-color-gray-800 :link,.background-color-gray-700 :link,.background-color-gray-600 :link,.background-color-gray-500 :link,.background-color-gray-400 :link,.background-color-gray-300 :link,.background-color-gray-200 :link,.background-color-gray-100 :link,.blog :link,.background-color-gray-900 :visited,.background-color-gray-800 :visited,.background-color-gray-700 :visited,.background-color-gray-600 :visited,.background-color-gray-500 :visited,.background-color-gray-400 :visited,.background-color-gray-300 :visited,.background-color-gray-200 :visited,.background-color-gray-100 :visited,.blog :visited,.background-color-gray-900:link,.background-color-gray-800:link,.background-color-gray-700:link,.background-color-gray-600:link,.background-color-gray-500:link,.background-color-gray-400:link,.background-color-gray-300:link,.background-color-gray-200:link,.background-color-gray-100:link,.blog:link,.background-color-gray-900:visited,.background-color-gray-800:visited,.background-color-gray-700:visited,.background-color-gray-600:visited,.background-color-gray-500:visited,.background-color-gray-400:visited,.background-color-gray-300:visited,.background-color-gray-200:visited,.background-color-gray-100:visited,.blog:visited {
   color: currentColor;
 }
 
@@ -1681,7 +1681,7 @@ select * {
   border-color: var(--color-body-text, #0d0c0d);
 }
 
-.background-color-body {
+.background-color-body,.blog > * {
   background-color: #fdfdfe;
   background-color: var(--color-body, #fdfdfe);
   color: #0d0c0d;
@@ -1909,7 +1909,7 @@ select * {
   border-color: var(--color-gray-100-text, #0b0c0c);
 }
 
-.background-color-gray-100 {
+.background-color-gray-100,.blog {
   background-color: #e5e6e6;
   background-color: var(--color-gray-100, #e5e6e6);
   color: #0b0c0c;
@@ -2105,6 +2105,10 @@ select * {
 .blog-entry-short .blog-read-more-link:visited > :last-child,.blog-entry-nav :visited[rel] > :last-child {
   color: #7b0686;
   color: var(--color-visited, #7b0686);
+}
+
+.blog {
+  min-height: 100vh;
 }
 
 .blog > * {
