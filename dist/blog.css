@@ -202,8 +202,8 @@ dt {
 
 body,h4 {
   font-size: 1.125rem;
-  line-height: 1.5;
-  --line-height: 1.5;
+  line-height: 1.6875rem;
+  --line-height: calc(1 * var(--spacing-base, 1.6875rem));
   line-height: var(--line-height);
   display: block;
 }
@@ -213,9 +213,9 @@ body,h4 {
 /* %text-2-block */
 
 h3 {
-  font-size: 1.35rem;
-  line-height: 1.44;
-  --line-height: 1.44;
+  font-size: 1.25rem;
+  line-height: 1.6875rem;
+  --line-height: calc(1 * var(--spacing-base, 1.6875rem));
   line-height: var(--line-height);
   display: block;
 }
@@ -225,9 +225,9 @@ h3 {
 /* %text-3-block */
 
 h2 {
-  font-size: 1.62rem;
-  line-height: 1.38;
-  --line-height: 1.38;
+  font-size: 1.40625rem;
+  line-height: 1.6875rem;
+  --line-height: calc(1 * var(--spacing-base, 1.6875rem));
   line-height: var(--line-height);
   display: block;
 }
@@ -237,9 +237,9 @@ h2 {
 /* %text-4-block */
 
 h1 {
-  font-size: 1.944rem;
-  line-height: 1.32;
-  --line-height: 1.32;
+  font-size: 2.8125rem;
+  line-height: 3.375rem;
+  --line-height: calc(2 * var(--spacing-base, 1.6875rem));
   line-height: var(--line-height);
   display: block;
 }
@@ -302,6 +302,11 @@ br,code,em,label,map,small,span,sub,sup,time,var,p a,::before,::after,.blog-soci
 /* Placeholders for sizing */
 
 /* %h-1 */
+
+hr {
+  height: 1.6875rem;
+  height: calc(1 * var(--spacing-base, 1.6875rem));
+}
 
 /* %h-2 */
 
@@ -1588,13 +1593,34 @@ fieldset {
 
 /* %border-t */
 
+.border-t {
+  border-top-width: 1px;
+  --border-top-width: 1px;
+  border-top-width: var(--border-top-width);
+  vertical-align: bottom;
+  position: relative;
+  top: -1px;
+  top: calc(0px - var(--border-top-width));
+  margin-bottom: -1px;
+  margin-bottom: calc(0px - var(--border-top-width, 0px) - var(--border-bottom-width, 0px));
+}
+
+hr.border-t,.blog-entry-short img.border-t {
+  margin-bottom: 0;
+}
+
+hr.border-t,.blog-entry-short img.border-t {
+  position: initial;
+  top: initial;
+}
+
 /* %border-b */
 
 /* %border-tb */
 
 /* %border */
 
-.blog-related-content > div {
+.border,.blog-related-content > div {
   border-top-width: 1px;
   --border-top-width: 1px;
   border-top-width: var(--border-top-width);
@@ -1615,7 +1641,39 @@ fieldset {
   margin-bottom: calc(0px - var(--border-top-width, 0px) - var(--border-bottom-width, 0px));
 }
 
+hr.border,.blog-entry-short img.border {
+  margin-bottom: 0;
+}
+
+hr.border,.blog-entry-short img.border {
+  position: initial;
+  top: initial;
+}
+
 /* %border-0 */
+
+.border-0 {
+  border-top-width: 0px;
+  --border-top-width: 0px;
+  border-top-width: var(--border-top-width);
+  border-bottom-width: 0px;
+  --border-bottom-width: 0px;
+  border-bottom-width: var(--border-bottom-width);
+  border-left-width: 0px;
+  --border-left-width: 0px;
+  border-left-width: var(--border-left-width);
+  border-right-width: 0px;
+  --border-right-width: 0px;
+  border-right-width: var(--border-right-width);
+  position: initial;
+  top: initial;
+  margin-bottom: 0px;
+  margin-bottom: calc(0px - var(--border-top-width, 0px) - var(--border-bottom-width, 0px));
+}
+
+hr.border-0,.blog-entry-short img.border-0 {
+  margin-bottom: 0;
+}
 
 /* Kingdom CSS Level 2 - Sizing and Spacing */
 
@@ -1626,6 +1684,143 @@ textarea:not([cols]) {
 select * {
   line-height: normal;
   font-size: medium;
+}
+
+/* Kingdom CSS Level 3 - Vertical Rhythm */
+
+/* %text-1-tight for vertical rhythm */
+
+/* %text-2-tight for vertical rhythm */
+
+/* %text-3-tight for vertical rhythm */
+
+/* %text-4-tight for vertical rhythm */
+
+/* %text-5-tight for vertical rhythm */
+
+/* %text-6-tight for vertical rhythm */
+
+hr {
+  background-size: 1px 1px;
+  background-repeat: repeat-x;
+  background-position: center;
+}
+
+@supports (background-image: linear-gradient(currentColor, currentColor)) {
+  hr {
+    border: 0;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor));
+    background-image: linear-gradient(currentColor, currentColor);
+  }
+}
+
+input,button,select {
+  vertical-align: bottom;
+  white-space: nowrap;
+  line-height: 1.5625rem;
+  line-height: calc(var(--line-height, 1.6875rem) - 2px);
+  border-width: 1px;
+  padding-top: 0;
+  padding-bottom: 0;
+  height: 1.6875rem;
+  height: var(--line-height, 1.6875rem);
+  max-height: 1.6875rem;
+  max-height: var(--line-height, 1.6875rem);
+  outline-offset: -2px;
+}
+
+[type="checkbox"],[type="radio"] {
+  border: initial;
+  vertical-align: baseline;
+  height: auto;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+select[multiple],select[size] {
+  min-height: 1.6875rem;
+  min-height: calc(1 * var(--spacing-base, 1.6875rem));
+  max-height: 100%;
+  vertical-align: bottom;
+}
+
+@media screen and (min-device-width: 1200px) {
+  select[multiple],  select[size] {
+    height: auto;
+  }
+
+@supports (-webkit-appearance: none) {
+    select[multiple],    select[size] {
+      /* Hack to not apply in IE, see http://browserhacks.com/#hack-8a0d11a6b2e3d172711eed35cb7237b9 */
+      font-size: 1.03316327rem;
+    }
+
+    select[multiple] *,    select[size] * {
+      line-height: 1.225;
+    }
+}
+}
+
+select[multiple]:not([size]) {
+  max-height: 5.0625rem;
+  max-height: calc(3 * var(--spacing-base, 1.6875rem));
+}
+
+select:not([multiple]):not([size]):not(*:root) {
+  /* Hack to not apply in Edge, see http://browserhacks.com/#hack-f4ade0540d8e891e8190065f75acb186 */
+  /* Force dropdown selects out of Safari default styling, to fit on one line */
+  -webkit-appearance: menulist-button;
+}
+
+textarea {
+  border-top-width: 1px;
+  --border-top-width: 1px;
+  border-top-width: var(--border-top-width);
+  border-bottom-width: 1px;
+  --border-bottom-width: 1px;
+  border-bottom-width: var(--border-bottom-width);
+  border-left-width: 1px;
+  --border-left-width: 1px;
+  border-left-width: var(--border-left-width);
+  border-right-width: 1px;
+  --border-right-width: 1px;
+  border-right-width: var(--border-right-width);
+  vertical-align: bottom;
+  position: relative;
+  top: -1px;
+  top: calc(0px - var(--border-top-width));
+  margin-bottom: -2px;
+  margin-bottom: calc(0px - var(--border-top-width, 0px) - var(--border-bottom-width, 0px));
+  padding-top: 0;
+  padding-bottom: 0;
+  min-height: 3.375rem;
+  min-height: calc(2 * var(--spacing-base, 1.6875rem));
+}
+
+fieldset {
+  border-top-width: 1px;
+  --border-top-width: 1px;
+  border-top-width: var(--border-top-width);
+  border-bottom-width: 1px;
+  --border-bottom-width: 1px;
+  border-bottom-width: var(--border-bottom-width);
+  border-left-width: 1px;
+  --border-left-width: 1px;
+  border-left-width: var(--border-left-width);
+  border-right-width: 1px;
+  --border-right-width: 1px;
+  border-right-width: var(--border-right-width);
+  vertical-align: bottom;
+  position: relative;
+  top: -1px;
+  top: calc(0px - var(--border-top-width));
+  margin-bottom: -2px;
+  margin-bottom: calc(0px - var(--border-top-width, 0px) - var(--border-bottom-width, 0px));
+}
+
+legend {
+  padding-top: 1px;
+  padding-top: calc(var(--border-top-width, 1px));
 }
 
 :root {
@@ -2210,23 +2405,32 @@ select * {
 @media (min-width: 120ch) {
 @supports (display: grid) {
     .blog-entry {
+      width: 100%;
+      padding: 0;
       display: grid;
-      grid-template-columns: [header-start intro-start] 75ch [intro-end] 1fr [header-end];
-      grid-template-rows: [header-start intro-start] 1fr auto [intro-end] auto [header-end content-start];
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      align-items: center;
-      grid-column-gap: 1.6875rem;
-      grid-column-gap: calc(1 * var(--spacing-base, 1.6875rem));
+      grid-column-gap: 0.84375rem;
+      grid-column-gap: calc(0.5 * var(--spacing-base, 1.6875rem));
+      grid-template-columns: 1fr [content-start header-start main-start intro-start] 75ch [intro-end main-end aside-start] fit-content(45ch) [aside-end header-end content-end] 1fr;
+      grid-template-rows: [main-start header-start intro-start] 1fr auto [intro-end] auto [header-end content-start];
+      background-color: transparent;
+      color: inherit;
     }
 
     .blog-entry > * {
-      grid-column: 1 / span 1;
-    }
-
-    .blog-entry > hr {
-      -ms-flex-item-align: end;
-      align-self: end;
+      grid-column-start: main-start;
+      background-color: #fdfdfe;
+      background-color: var(--color-body, #fdfdfe);
+      color: #0d0c0d;
+      color: var(--color-body-text, #0d0c0d);
+      margin-top: 0;
+      padding-top: 0.84375rem;
+      padding-top: calc(0.5 * var(--spacing-base, 1.6875rem));
+      padding-bottom: 0.84375rem;
+      padding-bottom: calc(0.5 * var(--spacing-base, 1.6875rem));
+      padding-left: 0.84375rem;
+      padding-left: calc(0.5 * var(--spacing-base, 1.6875rem));
+      padding-right: 0.84375rem;
+      padding-right: calc(0.5 * var(--spacing-base, 1.6875rem));
     }
 
     .blog-entry .blog-entry-header {
@@ -2248,17 +2452,17 @@ select * {
     }
 
     .blog-entry .blog-latest-entries {
-      grid-row: header;
-      grid-column: span 1 / -1;
+      grid-row: intro;
+      grid-column: aside;
     }
 
     .blog-entry > .blog-related-content {
-      grid-column: span 1 / -1;
+      grid-column: aside;
       -webkit-box-ordinal-group: 0;
       -ms-flex-order: -1;
       order: -1;
-      -ms-flex-item-align: start;
-      align-self: start;
+      -ms-flex-item-align: center;
+      align-self: center;
     }
 }
 }
