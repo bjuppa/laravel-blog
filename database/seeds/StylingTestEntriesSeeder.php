@@ -54,13 +54,13 @@ EOT
             'title' => 'A post with images',
             'image' => 'https://upload.wikimedia.org/wikipedia/commons/c/c4/PM5544_with_non-PAL_signals.png',
             'content' => <<<EOT
-This paragraph contains an image
+This paragraph contains a markdown image
 ![Yawning Norwegian Forest Cat](https://upload.wikimedia.org/wikipedia/commons/1/1c/Yawning_Norwegian_Forest_Cat.JPG "By User:Mattes [Public domain], from Wikimedia Commons")
 inline in the text.
 
-![Yawning Norwegian Forest Cat](https://upload.wikimedia.org/wikipedia/commons/1/1c/Yawning_Norwegian_Forest_Cat.JPG "By User:Mattes [Public domain], from Wikimedia Commons")
+Below this paragraph is a separate image in pure HTML:
 
-Above this paragraph is a separate image.
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Yawning_Norwegian_Forest_Cat.JPG" alt="Yawning Norwegian Forest Cat" title="By User:Mattes [Public domain], from Wikimedia Commons">
 EOT
             ,
             'publish_after' => now(),
