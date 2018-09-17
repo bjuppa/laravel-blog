@@ -1,25 +1,31 @@
+@import "~kingdom-css/src/modules/layout";
 @import "~kingdom-css/src/modules/sizing";
+@import "~kingdom-css/src/modules/spacing";
+@import "~kingdom-css/src/modules/colors";
 
 @media(min-width: $readable-line-length-max + $readable-line-length-min) {
   @supports(display: grid) {
     .blog-entry {
+      width: 100%;
+      padding: 0;
       display: grid;
-      grid-template-columns: [header-start intro-start] $readable-line-length-max [intro-end] 1fr [header-end];
-      grid-template-rows: [header-start intro-start]
+      @include length-relative(grid-column-gap, 1/2);
+      grid-template-columns: 1fr [content-start header-start main-start intro-start] $readable-line-length-max [intro-end main-end aside-start] fit-content($readable-line-length-min) [aside-end header-end content-end] 1fr;
+      grid-template-rows: [main-start header-start intro-start]
                           1fr
                           auto
                           [intro-end]
                           auto
                           [header-end content-start];
-      align-items: center;
-      @include length-relative(grid-column-gap);
+
+      background-color: transparent;
+      color: inherit;
 
       > * {
-        grid-column: 1 / span 1;
-      }
-
-      > hr {
-        align-self: end;
+        grid-column-start: main-start;
+        @include apply-background-color(body);
+        margin-top: 0;
+        @include padding-relative($fraction: 1/2);
       }
 
       .blog-entry-header {
@@ -39,14 +45,14 @@
       }
 
       .blog-latest-entries {
-        grid-row: header;
-        grid-column: span 1 / -1;
+        grid-row: intro;
+        grid-column: aside;
       }
 
       > .blog-related-content {
-        grid-column: span 1 / -1;
+        grid-column: aside;
         order: -1;
-        align-self: start;
+        align-self: center;
       }
     }
   }
