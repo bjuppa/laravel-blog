@@ -4,9 +4,6 @@ mix.sass('resources/sass/style.scss', 'dist/blog.css')
   .setPublicPath('dist')
   .options({
     processCssUrls: false,
-    purifyCss: {
-      paths: ['node_modules/kingdom-css/src/_L1-reset.scss']
-    }
   });
 
 // Full API
