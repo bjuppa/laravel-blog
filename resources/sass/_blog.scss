@@ -118,6 +118,14 @@
   }
 }
 
+.blog-entry-header {
+  @extend %text-3-block;
+
+  p {
+    width: auto;
+  }
+}
+
 .blog-entry-publication-info {
   @extend %unimposing;
 }

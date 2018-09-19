@@ -229,7 +229,7 @@ h3 {
 
 /* %text-3 */
 /* %text-3-block */
-h2 {
+h2, .blog-entry-header {
   font-size: 1.40625rem;
   line-height: 1.6875rem;
   --line-height: calc(1 * var(--spacing-base, 1.6875rem));
@@ -2075,6 +2075,10 @@ hr.unborder, .blog-entry-short img.unborder {
   right: 0;
   bottom: 0;
   left: 0;
+}
+
+.blog-entry-header p {
+  width: auto;
 }
 
 .blog-entry-nav {
