@@ -4,7 +4,7 @@
 @import "~kingdom-css/src/modules/colors";
 @import "~kingdom-css/src/modules/converters";
 
-@media(min-width: length-px($readable-line-length-max + $readable-line-length-min, nth($font-sizes, 1))) {
+@media(min-width: length-px($readable-line-length-max + $readable-line-length-min)) {
   @supports(display: grid) {
     .blog-entry {
       width: 100%;
