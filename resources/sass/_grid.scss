@@ -2,8 +2,9 @@
 @import "~kingdom-css/src/modules/sizing";
 @import "~kingdom-css/src/modules/spacing";
 @import "~kingdom-css/src/modules/colors";
+@import "~kingdom-css/src/modules/converters";
 
-@media(min-width: $readable-line-length-max + $readable-line-length-min) {
+@media(min-width: length-px($readable-line-length-max + $readable-line-length-min, nth($font-sizes, 1))) {
   @supports(display: grid) {
     .blog-entry {
       width: 100%;

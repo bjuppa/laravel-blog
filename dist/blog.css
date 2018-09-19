@@ -2120,7 +2120,7 @@ hr.unborder, .blog-entry-short img.unborder {
   max-width: max-content;
 }
 
-@media (min-width: 120ch) {
+@media (min-width: 1080px) {
   @supports (display: grid) {
     .blog-entry {
       width: 100%;
