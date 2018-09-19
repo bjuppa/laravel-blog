@@ -510,7 +510,7 @@ p + * {
 /* %mx-32 */
 /* %mt-0 */
 dt + *, li + *, hgroup + *,
-h1 + *, h2 + *, h3 + *, h4 + *, h5 + *, h6 + *, abbr, acronym, b, bdo, big, br, cite, code, dfn, em, i, kbd, label, map, q, samp, small, span, strong, sub, sup, time, tt, var, a, del, ins, button, img, input, object, select, textarea, dl > *, figure *, picture *, object *, select *, table *, audio *, video *, map *, fieldset > legend + *, .blog-entry-short > * {
+h1 + *, h2 + *, h3 + *, h4 + *, h5 + *, h6 + *, abbr, acronym, b, bdo, big, br, cite, code, dfn, em, i, kbd, label, map, q, samp, small, span, strong, sub, sup, time, tt, var, a, del, ins, button, input, object, select, textarea, p img, dl > *, figure *, picture *, object *, select *, table *, audio *, video *, map *, fieldset > legend + *, .blog-entry-short > * {
   /* Reset vertical spacing */
   margin-top: 0;
 }
@@ -1982,6 +1982,7 @@ hr.unborder, .blog-entry-short img.unborder {
           hyphens: manual;
 }
 
+/* Beware that browser hyphenation is language specific and tends to also break quite short words whenever they overflow the container */
 .hyphens-auto {
   -webkit-hyphens: auto;
       -ms-hyphens: auto;
