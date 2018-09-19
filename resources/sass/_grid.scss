@@ -28,6 +28,7 @@
         @include apply-background-color(body);
         margin-top: 0;
         @include padding-relative($fraction: 1/2);
+        height: auto;
       }
 
       .blog-entry-header {
