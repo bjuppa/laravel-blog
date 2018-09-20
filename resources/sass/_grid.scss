@@ -53,7 +53,7 @@
       .blog-latest-entries {
         grid-row: header;
         grid-column: aside;
-        @include margin-relative(top bottom, 1/2);
+        @include margin-relative(bottom, 1/2);
       }
 
       > .blog-related-content {
