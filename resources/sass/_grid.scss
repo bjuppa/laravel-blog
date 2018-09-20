@@ -38,6 +38,10 @@
         height: auto;
       }
 
+      > img {
+        padding: 0;
+      }
+
       .blog-entry-header {
         grid-row-start: intro-start;
       }

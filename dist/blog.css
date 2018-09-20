@@ -2793,6 +2793,9 @@ hr.unborder, .unborder.h-1, .unborder.h-2, .unborder.h-3, .unborder.h-4, .unbord
     .blog-entry > hr {
       height: auto;
     }
+    .blog-entry > img {
+      padding: 0;
+    }
     .blog-entry .blog-entry-header {
       grid-row-start: intro-start;
     }
