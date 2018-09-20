@@ -57,14 +57,14 @@
       .blog-latest-entries {
         grid-row: header;
         grid-column: aside;
-        @include margin-relative(bottom, 1/2);
+        @include length-relative(margin-bottom, 1/2);
       }
 
       > .blog-related-content {
         grid-column: aside;
         order: 1;
         align-self: center;
-        @include margin-relative(top bottom, 1/2);
+        @include length-relative(margin-top margin-bottom, 1/2);
       }
     }
   }
