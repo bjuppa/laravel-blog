@@ -59,6 +59,7 @@
       > .blog-related-content {
         grid-column: aside;
         align-self: center;
+        @include margin-relative(top bottom);
       }
     }
   }
