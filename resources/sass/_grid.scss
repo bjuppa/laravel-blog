@@ -53,13 +53,13 @@
       .blog-latest-entries {
         grid-row: header;
         grid-column: aside;
-        @include margin-relative(bottom);
+        @include margin-relative(top bottom, 1/2);
       }
 
       > .blog-related-content {
         grid-column: aside;
         align-self: center;
-        @include margin-relative(top bottom);
+        @include margin-relative(top bottom, 1/2);
       }
     }
   }
