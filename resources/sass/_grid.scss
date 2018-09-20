@@ -10,15 +10,19 @@
       width: 100%;
       padding: 0;
       display: grid;
-      align-items: stretch;
+      grid-auto-flow: dense;
       @include length-relative(grid-column-gap, 1/2);
-      grid-template-columns: 1fr [content-start header-start main-start intro-start] $readable-line-length-max [intro-end main-end aside-start] fit-content($readable-line-length-min) [aside-end header-end content-end] 1fr;
-      grid-template-rows: [main-start header-start intro-start]
-                          1fr
-                          auto
-                          [intro-end]
-                          auto
-                          [header-end content-start];
+
+      grid-template-columns:
+        1fr [content-start header-start main-start intro-start] $readable-line-length-max [intro-end main-end aside-start] fit-content($readable-line-length-min) [aside-end header-end content-end] 1fr;
+
+      grid-template-rows:
+        [main-start header-start intro-start]
+        1fr
+        auto
+        [intro-end]
+        auto
+        [header-end content-start];
 
       background-color: transparent;
       color: inherit;
@@ -44,20 +48,16 @@
 
       .blog-content-start {
         grid-row-end: content-start;
-
-        + * {
-          order: -1;
-        }
       }
 
       .blog-latest-entries {
-        grid-row: intro;
+        grid-row: header;
         grid-column: aside;
+        @include margin-relative(bottom);
       }
 
       > .blog-related-content {
         grid-column: aside;
-        order: -1;
         align-self: center;
       }
     }
