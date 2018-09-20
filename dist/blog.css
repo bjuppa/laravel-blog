@@ -2810,6 +2810,9 @@ hr.unborder, .unborder.h-1, .unborder.h-2, .unborder.h-3, .unborder.h-4, .unbord
     }
     .blog-entry > .blog-related-content {
       grid-column: aside;
+      -webkit-box-ordinal-group: 2;
+          -ms-flex-order: 1;
+              order: 1;
       -ms-flex-item-align: center;
           align-self: center;
       margin-top: 0.84375rem;

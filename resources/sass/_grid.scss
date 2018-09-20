@@ -58,6 +58,7 @@
 
       > .blog-related-content {
         grid-column: aside;
+        order: 1;
         align-self: center;
         @include margin-relative(top bottom, 1/2);
       }
