@@ -50,6 +50,23 @@
     margin-right: auto;
 
     @include padding-relative;
+
+    > .full-bleed {
+      padding: 0;
+      width: 100%;
+      max-width: none;
+    }
+
+    @supports(width: 100vw) {
+      > .full-bleed {
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+      }
+    }
   }
 
   p {

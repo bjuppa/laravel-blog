@@ -2676,6 +2676,23 @@ hr.unborder, .unborder.h-1, .unborder.h-2, .unborder.h-3, .unborder.h-4, .unbord
   padding-right: calc(1 * var(--spacing-base, 1.6875rem));
 }
 
+.blog > * > .full-bleed {
+  padding: 0;
+  width: 100%;
+  max-width: none;
+}
+
+@supports (width: 100vw) {
+  .blog > * > .full-bleed {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+}
+
 .blog p {
   max-width: 100%;
   width: 75ch;
@@ -2795,6 +2812,13 @@ hr.unborder, .unborder.h-1, .unborder.h-2, .unborder.h-3, .unborder.h-4, .unbord
     }
     .blog-entry > img {
       padding: 0;
+    }
+    .blog-entry > .full-bleed {
+      grid-column: 1 / -1;
+      width: 100%;
+      position: static;
+      margin-left: 0;
+      margin-right: 0;
     }
     .blog-entry .blog-entry-header {
       grid-row-start: intro-start;

@@ -42,6 +42,14 @@
         padding: 0;
       }
 
+      > .full-bleed {
+        grid-column: 1 / -1;
+        width: 100%;
+        position: static;
+        margin-left: 0;
+        margin-right: 0;
+      }
+
       .blog-entry-header {
         grid-row-start: intro-start;
       }
