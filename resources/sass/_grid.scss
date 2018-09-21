@@ -29,6 +29,7 @@
 
       > * {
         grid-column-start: main-start;
+        grid-column-end: main-end;
         @include apply-background-color(body);
         margin-top: 0;
         @include padding-relative($fraction: 1/2);
@@ -46,18 +47,6 @@
         width: auto;
       }
 
-      > .full-bleed {
-        grid-column: 1 / -1;
-        width: 100%;
-        position: static;
-        margin-left: 0;
-        margin-right: 0;
-      }
-
-      > .grid-column-span-content {
-        grid-column: content;
-      }
-
       .blog-entry-header {
         grid-row-start: intro-start;
       }
@@ -71,13 +60,37 @@
       }
 
       .blog-latest-entries {
-        grid-row: header;
-        grid-column: aside;
+        grid-row-start: header-start;
+        grid-row-end: header-end;
+        grid-column-start: aside-start;
+        grid-column-end: aside-end;
         @include length-relative(margin-bottom, 1/2);
       }
 
+      > .full-bleed {
+        grid-column: 1 / -1;
+        width: 100%;
+        position: static;
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      > .start-margin-bleed {
+        grid-column-start: 1;
+      }
+
+      > .end-margin-bleed {
+        grid-column-end: -1;
+      }
+
+      > .grid-column-span-content {
+        grid-column-start: content-start;
+        grid-column-end: content-end;
+      }
+
       > .blog-related-content {
-        grid-column: aside;
+        grid-column-start: aside-start;
+        grid-column-end: aside-end;
         order: 1;
         align-self: center;
         @include length-relative(margin-top margin-bottom, 1/2);
