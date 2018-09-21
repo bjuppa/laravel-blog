@@ -2813,6 +2813,9 @@ hr.unborder, .unborder.h-1, .unborder.h-2, .unborder.h-3, .unborder.h-4, .unbord
     .blog-entry > img {
       padding: 0;
     }
+    .blog-entry > p {
+      width: auto;
+    }
     .blog-entry > .full-bleed {
       grid-column: 1 / -1;
       width: 100%;

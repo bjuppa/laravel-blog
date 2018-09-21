@@ -42,6 +42,10 @@
         padding: 0;
       }
 
+      > p {
+        width: auto;
+      }
+
       > .full-bleed {
         grid-column: 1 / -1;
         width: 100%;
