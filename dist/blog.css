@@ -2823,6 +2823,9 @@ hr.unborder, .unborder.h-1, .unborder.h-2, .unborder.h-3, .unborder.h-4, .unbord
       margin-left: 0;
       margin-right: 0;
     }
+    .blog-entry > .grid-column-span-content {
+      grid-column: content;
+    }
     .blog-entry .blog-entry-header {
       grid-row-start: intro-start;
     }

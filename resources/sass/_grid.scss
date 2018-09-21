@@ -54,6 +54,10 @@
         margin-right: 0;
       }
 
+      > .grid-column-span-content {
+        grid-column: content;
+      }
+
       .blog-entry-header {
         grid-row-start: intro-start;
       }
