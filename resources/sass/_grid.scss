@@ -67,6 +67,14 @@
         @include length-relative(margin-bottom, 1/2);
       }
 
+      > .blog-related-content {
+        grid-column-start: aside-start;
+        grid-column-end: aside-end;
+        order: 1;
+        align-self: center;
+        @include length-relative(margin-top margin-bottom, 1/2);
+      }
+
       > .full-bleed {
         grid-column: 1 / -1;
         width: 100%;
@@ -86,14 +94,6 @@
       > .grid-column-span-content {
         grid-column-start: content-start;
         grid-column-end: content-end;
-      }
-
-      > .blog-related-content {
-        grid-column-start: aside-start;
-        grid-column-end: aside-end;
-        order: 1;
-        align-self: center;
-        @include length-relative(margin-top margin-bottom, 1/2);
       }
     }
   }
