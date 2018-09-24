@@ -125,7 +125,12 @@
 
   img {
     @extend %h-5 !optional;
-    float: left;
+    @include in-ltr-context {
+      float: left;
+    }
+    @include in-rtl-context {
+      float: right;
+    }
   }
 
   .blog-entry-footer {

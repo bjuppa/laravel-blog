@@ -2733,7 +2733,18 @@ hr.unborder, .unborder.h-1, .unborder.h-2, .unborder.h-3, .unborder.h-4, .unbord
 }
 
 .blog-entry-short img {
+  /* .blog-entry-short img has specific treatment when in a left-to-right parent */
+  /* .blog-entry-short img has specific treatment when in a right-to-left parent */
+}
+
+:dir(ltr):dir(ltr):dir(ltr):dir(ltr) > .blog-entry-short img, [dir=ltr] .blog-entry-short img, [dir=rtl] [dir=ltr] .blog-entry-short img, [dir=ltr] [dir=rtl] [dir=ltr] .blog-entry-short img, * > .blog-entry-short img {
+  /* In left-to-right parent */
   float: left;
+}
+
+:dir(rtl):dir(rtl):dir(rtl):dir(rtl) > .blog-entry-short img, [dir=rtl] .blog-entry-short img, [dir=ltr] [dir=rtl] .blog-entry-short img, [dir=rtl] [dir=ltr] [dir=rtl] .blog-entry-short img {
+  /* In right-to-left parent */
+  float: right;
 }
 
 .blog-entry-short .blog-entry-footer {
