@@ -94,6 +94,7 @@
         grid-column-end: -1;
       }
 
+      //TODO: increase specificity by repeating the class in selector
       @include for-ltr {
         > .start-margin-bleed {
           @extend %bleed-reset;
