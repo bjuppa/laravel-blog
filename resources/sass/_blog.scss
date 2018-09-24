@@ -1,6 +1,7 @@
 @import "~kingdom-css/src/modules/layout";
 @import "~kingdom-css/src/modules/sizing";
 @import "~kingdom-css/src/modules/spacing";
+@import "~kingdom-css/src/modules/text-direction";
 
 %unimposing {
   @extend .color-gray-700 !optional;
@@ -41,9 +42,10 @@
   min-height: 100vh;
 
   > * {
+    $width: $readable-line-length-min + $readable-line-length-max;
     @extend .background-color-body !optional;
     max-width: 100%;
-    width: $readable-line-length-min + $readable-line-length-max;
+    width: $width;
     min-width: auto;
 
     margin-left: auto;
@@ -52,20 +54,54 @@
     @include padding-relative;
 
     > .full-bleed {
-      padding: 0;
-      width: 100%;
       max-width: none;
+      padding-left: 0;
+      padding-right: 0;
+      @supports(margin-left: calc((100% - 100vw) / 2)) {
+        width: 100vw;
+        margin-left: calc((100% - 100vw) / 2);
+        margin-right: calc((100% - 100vw) / 2);
+      }
     }
 
-    @supports(width: 100vw) {
-      > .full-bleed {
-        width: 100vw;
-        position: relative;
-        left: 50%;
-        right: 50%;
-        margin-left: -50vw;
-        margin-right: -50vw;
+    %left-bleed {
+      /* %left-bleed */
+      width: auto;
+      max-width: none;
+      padding-left: 0;
+      margin-left: calc((100% - 100vw) / 2);
+      margin-right: auto;
+    }
+
+    %right-bleed {
+      /* %right-bleed */
+      width: auto;
+      max-width: none;
+      padding-right: 0;
+      margin-right: calc((100% - 100vw) / 2);
+      margin-left: auto;
+    }
+
+    @include for-ltr {
+      > .start-margin-bleed {
+        @extend %left-bleed;
       }
+      > .end-margin-bleed {
+        @extend %right-bleed;
+      }
+    }
+
+    @include for-rtl {
+      > .start-margin-bleed {
+        @extend %right-bleed;
+      }
+      > .end-margin-bleed {
+        @extend %left-bleed;
+      }
+    }
+
+    > .span-content {
+      width: auto;
     }
   }
 

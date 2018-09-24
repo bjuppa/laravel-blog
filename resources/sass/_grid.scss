@@ -75,12 +75,15 @@
         @include length-relative(margin-top margin-bottom, 1/2);
       }
 
-      > .full-bleed {
-        grid-column: 1 / -1;
+      %bleed {
         width: 100%;
-        position: static;
         margin-left: 0;
         margin-right: 0;
+      }
+
+      > .full-bleed {
+        grid-column: 1 / -1;
+        @extend %bleed;
       }
 
       > .start-margin-bleed {
@@ -91,7 +94,25 @@
         grid-column-end: -1;
       }
 
-      > .grid-column-span-content {
+      @include for-ltr {
+        > .start-margin-bleed {
+          @extend %bleed;
+        }
+        > .end-margin-bleed {
+          @extend %bleed;
+        }
+      }
+
+      @include for-rtl {
+        > .start-margin-bleed {
+          @extend %bleed;
+        }
+        > .end-margin-bleed {
+          @extend %bleed;
+        }
+      }
+
+      > .span-content {
         grid-column-start: content-start;
         grid-column-end: content-end;
       }
