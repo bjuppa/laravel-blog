@@ -125,10 +125,15 @@
 
   img {
     @extend %h-5 !optional;
-    @include in-ltr-context {
+  }
+
+  @include for-ltr {
+    img {
       float: left;
     }
-    @include in-rtl-context {
+  }
+  @include for-rtl {
+    img {
       float: right;
     }
   }
@@ -206,12 +211,21 @@
     @extend %block-link;
   }
 
-  > [rel=next]:first-child {
-    float: right;
+  @include for-ltr {
+    > [rel=next]:first-child {
+      float: right;
+    }
+    > [rel=prev]:last-child {
+      float: left;
+    }
   }
-
-  > [rel=prev]:last-child {
-    float: left;
+  @include for-rtl {
+    > [rel=next]:first-child {
+      float: left;
+    }
+    > [rel=prev]:last-child {
+      float: right;
+    }
   }
 
   > [rel=prev]:only-child {
