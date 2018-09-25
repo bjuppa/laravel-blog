@@ -96,19 +96,13 @@
       }
 
       @include for-ltr {
-        > .start-margin-bleed {
-          @include bleed-reset;
-        }
-        > .end-margin-bleed {
+        > .start-margin-bleed, > .end-margin-bleed {
           @include bleed-reset;
         }
       }
 
       @include for-rtl {
-        > .start-margin-bleed {
-          @include bleed-reset;
-        }
-        > .end-margin-bleed {
+        > .start-margin-bleed, > .end-margin-bleed {
           @include bleed-reset;
         }
       }

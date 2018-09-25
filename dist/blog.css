@@ -3050,13 +3050,7 @@ hr.unborder, .unborder.h-1, .unborder.h-2, .unborder.h-3, .unborder.h-4, .unbord
     .blog-entry:dir(ltr):dir(ltr):dir(ltr):dir(ltr):dir(ltr) {
       /* left-to-right */
     }
-    .blog-entry:dir(ltr):dir(ltr):dir(ltr):dir(ltr):dir(ltr) > .start-margin-bleed {
-      /* bleed-reset */
-      width: 100%;
-      margin-left: 0;
-      margin-right: 0;
-    }
-    .blog-entry:dir(ltr):dir(ltr):dir(ltr):dir(ltr):dir(ltr) > .end-margin-bleed {
+    .blog-entry:dir(ltr):dir(ltr):dir(ltr):dir(ltr):dir(ltr) > .start-margin-bleed, .blog-entry:dir(ltr):dir(ltr):dir(ltr):dir(ltr):dir(ltr) > .end-margin-bleed {
       /* bleed-reset */
       width: 100%;
       margin-left: 0;
@@ -3065,13 +3059,7 @@ hr.unborder, .unborder.h-1, .unborder.h-2, .unborder.h-3, .unborder.h-4, .unbord
     [dir=ltr] .blog-entry, .blog-entry[dir=ltr][dir=ltr], [dir=rtl] [dir=ltr] .blog-entry, [dir=rtl] .blog-entry[dir=ltr][dir=ltr], [dir=ltr] [dir=rtl] [dir=ltr] .blog-entry, [dir=ltr] [dir=rtl] .blog-entry[dir=ltr][dir=ltr], .blog-entry {
       /* left-to-right */
     }
-    [dir=ltr] .blog-entry > .start-margin-bleed, .blog-entry[dir=ltr][dir=ltr] > .start-margin-bleed, [dir=rtl] [dir=ltr] .blog-entry > .start-margin-bleed, [dir=rtl] .blog-entry[dir=ltr][dir=ltr] > .start-margin-bleed, [dir=ltr] [dir=rtl] [dir=ltr] .blog-entry > .start-margin-bleed, [dir=ltr] [dir=rtl] .blog-entry[dir=ltr][dir=ltr] > .start-margin-bleed, .blog-entry > .start-margin-bleed {
-      /* bleed-reset */
-      width: 100%;
-      margin-left: 0;
-      margin-right: 0;
-    }
-    [dir=ltr] .blog-entry > .end-margin-bleed, .blog-entry[dir=ltr][dir=ltr] > .end-margin-bleed, [dir=rtl] [dir=ltr] .blog-entry > .end-margin-bleed, [dir=rtl] .blog-entry[dir=ltr][dir=ltr] > .end-margin-bleed, [dir=ltr] [dir=rtl] [dir=ltr] .blog-entry > .end-margin-bleed, [dir=ltr] [dir=rtl] .blog-entry[dir=ltr][dir=ltr] > .end-margin-bleed, .blog-entry > .end-margin-bleed {
+    [dir=ltr] .blog-entry > .start-margin-bleed, [dir=ltr] .blog-entry > .end-margin-bleed, .blog-entry[dir=ltr][dir=ltr] > .start-margin-bleed, .blog-entry[dir=ltr][dir=ltr] > .end-margin-bleed, [dir=rtl] [dir=ltr] .blog-entry > .start-margin-bleed, [dir=rtl] [dir=ltr] .blog-entry > .end-margin-bleed, [dir=rtl] .blog-entry[dir=ltr][dir=ltr] > .start-margin-bleed, [dir=rtl] .blog-entry[dir=ltr][dir=ltr] > .end-margin-bleed, [dir=ltr] [dir=rtl] [dir=ltr] .blog-entry > .start-margin-bleed, [dir=ltr] [dir=rtl] [dir=ltr] .blog-entry > .end-margin-bleed, [dir=ltr] [dir=rtl] .blog-entry[dir=ltr][dir=ltr] > .start-margin-bleed, [dir=ltr] [dir=rtl] .blog-entry[dir=ltr][dir=ltr] > .end-margin-bleed, .blog-entry > .start-margin-bleed, .blog-entry > .end-margin-bleed {
       /* bleed-reset */
       width: 100%;
       margin-left: 0;
@@ -3080,13 +3068,7 @@ hr.unborder, .unborder.h-1, .unborder.h-2, .unborder.h-3, .unborder.h-4, .unbord
     .blog-entry:dir(rtl):dir(rtl):dir(rtl):dir(rtl):dir(rtl) {
       /* right-to-left */
     }
-    .blog-entry:dir(rtl):dir(rtl):dir(rtl):dir(rtl):dir(rtl) > .start-margin-bleed {
-      /* bleed-reset */
-      width: 100%;
-      margin-left: 0;
-      margin-right: 0;
-    }
-    .blog-entry:dir(rtl):dir(rtl):dir(rtl):dir(rtl):dir(rtl) > .end-margin-bleed {
+    .blog-entry:dir(rtl):dir(rtl):dir(rtl):dir(rtl):dir(rtl) > .start-margin-bleed, .blog-entry:dir(rtl):dir(rtl):dir(rtl):dir(rtl):dir(rtl) > .end-margin-bleed {
       /* bleed-reset */
       width: 100%;
       margin-left: 0;
@@ -3095,13 +3077,7 @@ hr.unborder, .unborder.h-1, .unborder.h-2, .unborder.h-3, .unborder.h-4, .unbord
     [dir=rtl] .blog-entry, .blog-entry[dir=rtl][dir=rtl], [dir=ltr] [dir=rtl] .blog-entry, [dir=ltr] .blog-entry[dir=rtl][dir=rtl], [dir=rtl] [dir=ltr] [dir=rtl] .blog-entry, [dir=rtl] [dir=ltr] .blog-entry[dir=rtl][dir=rtl] {
       /* right-to-left */
     }
-    [dir=rtl] .blog-entry > .start-margin-bleed, .blog-entry[dir=rtl][dir=rtl] > .start-margin-bleed, [dir=ltr] [dir=rtl] .blog-entry > .start-margin-bleed, [dir=ltr] .blog-entry[dir=rtl][dir=rtl] > .start-margin-bleed, [dir=rtl] [dir=ltr] [dir=rtl] .blog-entry > .start-margin-bleed, [dir=rtl] [dir=ltr] .blog-entry[dir=rtl][dir=rtl] > .start-margin-bleed {
-      /* bleed-reset */
-      width: 100%;
-      margin-left: 0;
-      margin-right: 0;
-    }
-    [dir=rtl] .blog-entry > .end-margin-bleed, .blog-entry[dir=rtl][dir=rtl] > .end-margin-bleed, [dir=ltr] [dir=rtl] .blog-entry > .end-margin-bleed, [dir=ltr] .blog-entry[dir=rtl][dir=rtl] > .end-margin-bleed, [dir=rtl] [dir=ltr] [dir=rtl] .blog-entry > .end-margin-bleed, [dir=rtl] [dir=ltr] .blog-entry[dir=rtl][dir=rtl] > .end-margin-bleed {
+    [dir=rtl] .blog-entry > .start-margin-bleed, [dir=rtl] .blog-entry > .end-margin-bleed, .blog-entry[dir=rtl][dir=rtl] > .start-margin-bleed, .blog-entry[dir=rtl][dir=rtl] > .end-margin-bleed, [dir=ltr] [dir=rtl] .blog-entry > .start-margin-bleed, [dir=ltr] [dir=rtl] .blog-entry > .end-margin-bleed, [dir=ltr] .blog-entry[dir=rtl][dir=rtl] > .start-margin-bleed, [dir=ltr] .blog-entry[dir=rtl][dir=rtl] > .end-margin-bleed, [dir=rtl] [dir=ltr] [dir=rtl] .blog-entry > .start-margin-bleed, [dir=rtl] [dir=ltr] [dir=rtl] .blog-entry > .end-margin-bleed, [dir=rtl] [dir=ltr] .blog-entry[dir=rtl][dir=rtl] > .start-margin-bleed, [dir=rtl] [dir=ltr] .blog-entry[dir=rtl][dir=rtl] > .end-margin-bleed {
       /* bleed-reset */
       width: 100%;
       margin-left: 0;
