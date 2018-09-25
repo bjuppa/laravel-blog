@@ -65,8 +65,8 @@
       }
     }
 
-    %left-bleed {
-      /* %left-bleed */
+    @mixin left-bleed {
+      /* left-bleed */
       width: auto;
       max-width: none;
       padding-left: 0;
@@ -74,8 +74,8 @@
       margin-right: auto;
     }
 
-    %right-bleed {
-      /* %right-bleed */
+    @mixin right-bleed {
+      /* right-bleed */
       width: auto;
       max-width: none;
       padding-right: 0;
@@ -85,19 +85,19 @@
 
     @include for-ltr {
       > .start-margin-bleed {
-        @extend %left-bleed;
+        @include left-bleed;
       }
       > .end-margin-bleed {
-        @extend %right-bleed;
+        @include right-bleed;
       }
     }
 
     @include for-rtl {
       > .start-margin-bleed {
-        @extend %right-bleed;
+        @include right-bleed;
       }
       > .end-margin-bleed {
-        @extend %left-bleed;
+        @include left-bleed;
       }
     }
 

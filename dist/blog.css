@@ -2414,12 +2414,22 @@ hr.unborder, .unborder.h-1, .unborder.h-2, .unborder.h-3, .unborder.h-4, .unbord
   /* .float-start has specific treatment when in a right-to-left parent */
 }
 
-:dir(ltr):dir(ltr):dir(ltr):dir(ltr) > .float-start, [dir=ltr] .float-start, [dir=rtl] [dir=ltr] .float-start, [dir=ltr] [dir=rtl] [dir=ltr] .float-start, * > .float-start {
+:dir(ltr):dir(ltr):dir(ltr):dir(ltr) > .float-start {
   /* In left-to-right parent */
   float: left;
 }
 
-:dir(rtl):dir(rtl):dir(rtl):dir(rtl) > .float-start, [dir=rtl] .float-start, [dir=ltr] [dir=rtl] .float-start, [dir=rtl] [dir=ltr] [dir=rtl] .float-start {
+[dir=ltr] .float-start, [dir=rtl] [dir=ltr] .float-start, [dir=ltr] [dir=rtl] [dir=ltr] .float-start, * > .float-start {
+  /* In left-to-right parent */
+  float: left;
+}
+
+:dir(rtl):dir(rtl):dir(rtl):dir(rtl) > .float-start {
+  /* In right-to-left parent */
+  float: right;
+}
+
+[dir=rtl] .float-start, [dir=ltr] [dir=rtl] .float-start, [dir=rtl] [dir=ltr] [dir=rtl] .float-start {
   /* In right-to-left parent */
   float: right;
 }
@@ -2429,12 +2439,22 @@ hr.unborder, .unborder.h-1, .unborder.h-2, .unborder.h-3, .unborder.h-4, .unbord
   /* .float-end has specific treatment when in a right-to-left parent */
 }
 
-:dir(ltr):dir(ltr):dir(ltr):dir(ltr) > .float-end, [dir=ltr] .float-end, [dir=rtl] [dir=ltr] .float-end, [dir=ltr] [dir=rtl] [dir=ltr] .float-end, * > .float-end {
+:dir(ltr):dir(ltr):dir(ltr):dir(ltr) > .float-end {
   /* In left-to-right parent */
   float: right;
 }
 
-:dir(rtl):dir(rtl):dir(rtl):dir(rtl) > .float-end, [dir=rtl] .float-end, [dir=ltr] [dir=rtl] .float-end, [dir=rtl] [dir=ltr] [dir=rtl] .float-end {
+[dir=ltr] .float-end, [dir=rtl] [dir=ltr] .float-end, [dir=ltr] [dir=rtl] [dir=ltr] .float-end, * > .float-end {
+  /* In left-to-right parent */
+  float: right;
+}
+
+:dir(rtl):dir(rtl):dir(rtl):dir(rtl) > .float-end {
+  /* In right-to-left parent */
+  float: left;
+}
+
+[dir=rtl] .float-end, [dir=ltr] [dir=rtl] .float-end, [dir=rtl] [dir=ltr] [dir=rtl] .float-end {
   /* In right-to-left parent */
   float: left;
 }
@@ -2694,8 +2714,12 @@ hr.unborder, .unborder.h-1, .unborder.h-2, .unborder.h-3, .unborder.h-4, .unbord
   }
 }
 
-.blog > *:dir(ltr):dir(ltr):dir(ltr):dir(ltr):dir(ltr) > .start-margin-bleed, [dir=ltr] .blog > * > .start-margin-bleed, .blog > *[dir=ltr][dir=ltr] > .start-margin-bleed, [dir=rtl] [dir=ltr] .blog > * > .start-margin-bleed, [dir=rtl] .blog > *[dir=ltr][dir=ltr] > .start-margin-bleed, [dir=ltr] [dir=rtl] [dir=ltr] .blog > * > .start-margin-bleed, [dir=ltr] [dir=rtl] .blog > *[dir=ltr][dir=ltr] > .start-margin-bleed, .blog > * > .start-margin-bleed, .blog > *:dir(rtl):dir(rtl):dir(rtl):dir(rtl):dir(rtl) > .end-margin-bleed, [dir=rtl] .blog > * > .end-margin-bleed, .blog > *[dir=rtl][dir=rtl] > .end-margin-bleed, [dir=ltr] [dir=rtl] .blog > * > .end-margin-bleed, [dir=ltr] .blog > *[dir=rtl][dir=rtl] > .end-margin-bleed, [dir=rtl] [dir=ltr] [dir=rtl] .blog > * > .end-margin-bleed, [dir=rtl] [dir=ltr] .blog > *[dir=rtl][dir=rtl] > .end-margin-bleed {
-  /* %left-bleed */
+.blog > *:dir(ltr):dir(ltr):dir(ltr):dir(ltr):dir(ltr) {
+  /* left-to-right */
+}
+
+.blog > *:dir(ltr):dir(ltr):dir(ltr):dir(ltr):dir(ltr) > .start-margin-bleed {
+  /* left-bleed */
   width: auto;
   max-width: none;
   padding-left: 0;
@@ -2703,8 +2727,8 @@ hr.unborder, .unborder.h-1, .unborder.h-2, .unborder.h-3, .unborder.h-4, .unbord
   margin-right: auto;
 }
 
-.blog > *:dir(ltr):dir(ltr):dir(ltr):dir(ltr):dir(ltr) > .end-margin-bleed, [dir=ltr] .blog > * > .end-margin-bleed, .blog > *[dir=ltr][dir=ltr] > .end-margin-bleed, [dir=rtl] [dir=ltr] .blog > * > .end-margin-bleed, [dir=rtl] .blog > *[dir=ltr][dir=ltr] > .end-margin-bleed, [dir=ltr] [dir=rtl] [dir=ltr] .blog > * > .end-margin-bleed, [dir=ltr] [dir=rtl] .blog > *[dir=ltr][dir=ltr] > .end-margin-bleed, .blog > * > .end-margin-bleed, .blog > *:dir(rtl):dir(rtl):dir(rtl):dir(rtl):dir(rtl) > .start-margin-bleed, [dir=rtl] .blog > * > .start-margin-bleed, .blog > *[dir=rtl][dir=rtl] > .start-margin-bleed, [dir=ltr] [dir=rtl] .blog > * > .start-margin-bleed, [dir=ltr] .blog > *[dir=rtl][dir=rtl] > .start-margin-bleed, [dir=rtl] [dir=ltr] [dir=rtl] .blog > * > .start-margin-bleed, [dir=rtl] [dir=ltr] .blog > *[dir=rtl][dir=rtl] > .start-margin-bleed {
-  /* %right-bleed */
+.blog > *:dir(ltr):dir(ltr):dir(ltr):dir(ltr):dir(ltr) > .end-margin-bleed {
+  /* right-bleed */
   width: auto;
   max-width: none;
   padding-right: 0;
@@ -2712,12 +2736,70 @@ hr.unborder, .unborder.h-1, .unborder.h-2, .unborder.h-3, .unborder.h-4, .unbord
   margin-left: auto;
 }
 
-.blog > *:dir(ltr):dir(ltr):dir(ltr):dir(ltr):dir(ltr), [dir=ltr] .blog > *, .blog > *[dir=ltr][dir=ltr], [dir=rtl] [dir=ltr] .blog > *, [dir=rtl] .blog > *[dir=ltr][dir=ltr], [dir=ltr] [dir=rtl] [dir=ltr] .blog > *, [dir=ltr] [dir=rtl] .blog > *[dir=ltr][dir=ltr], .blog > * {
+[dir=ltr] .blog > *, .blog > *[dir=ltr][dir=ltr], [dir=rtl] [dir=ltr] .blog > *, [dir=rtl] .blog > *[dir=ltr][dir=ltr], [dir=ltr] [dir=rtl] [dir=ltr] .blog > *, [dir=ltr] [dir=rtl] .blog > *[dir=ltr][dir=ltr], .blog > * {
   /* left-to-right */
 }
 
-.blog > *:dir(rtl):dir(rtl):dir(rtl):dir(rtl):dir(rtl), [dir=rtl] .blog > *, .blog > *[dir=rtl][dir=rtl], [dir=ltr] [dir=rtl] .blog > *, [dir=ltr] .blog > *[dir=rtl][dir=rtl], [dir=rtl] [dir=ltr] [dir=rtl] .blog > *, [dir=rtl] [dir=ltr] .blog > *[dir=rtl][dir=rtl] {
+[dir=ltr] .blog > * > .start-margin-bleed, .blog > *[dir=ltr][dir=ltr] > .start-margin-bleed, [dir=rtl] [dir=ltr] .blog > * > .start-margin-bleed, [dir=rtl] .blog > *[dir=ltr][dir=ltr] > .start-margin-bleed, [dir=ltr] [dir=rtl] [dir=ltr] .blog > * > .start-margin-bleed, [dir=ltr] [dir=rtl] .blog > *[dir=ltr][dir=ltr] > .start-margin-bleed, .blog > * > .start-margin-bleed {
+  /* left-bleed */
+  width: auto;
+  max-width: none;
+  padding-left: 0;
+  margin-left: calc((100% - 100vw) / 2);
+  margin-right: auto;
+}
+
+[dir=ltr] .blog > * > .end-margin-bleed, .blog > *[dir=ltr][dir=ltr] > .end-margin-bleed, [dir=rtl] [dir=ltr] .blog > * > .end-margin-bleed, [dir=rtl] .blog > *[dir=ltr][dir=ltr] > .end-margin-bleed, [dir=ltr] [dir=rtl] [dir=ltr] .blog > * > .end-margin-bleed, [dir=ltr] [dir=rtl] .blog > *[dir=ltr][dir=ltr] > .end-margin-bleed, .blog > * > .end-margin-bleed {
+  /* right-bleed */
+  width: auto;
+  max-width: none;
+  padding-right: 0;
+  margin-right: calc((100% - 100vw) / 2);
+  margin-left: auto;
+}
+
+.blog > *:dir(rtl):dir(rtl):dir(rtl):dir(rtl):dir(rtl) {
   /* right-to-left */
+}
+
+.blog > *:dir(rtl):dir(rtl):dir(rtl):dir(rtl):dir(rtl) > .start-margin-bleed {
+  /* right-bleed */
+  width: auto;
+  max-width: none;
+  padding-right: 0;
+  margin-right: calc((100% - 100vw) / 2);
+  margin-left: auto;
+}
+
+.blog > *:dir(rtl):dir(rtl):dir(rtl):dir(rtl):dir(rtl) > .end-margin-bleed {
+  /* left-bleed */
+  width: auto;
+  max-width: none;
+  padding-left: 0;
+  margin-left: calc((100% - 100vw) / 2);
+  margin-right: auto;
+}
+
+[dir=rtl] .blog > *, .blog > *[dir=rtl][dir=rtl], [dir=ltr] [dir=rtl] .blog > *, [dir=ltr] .blog > *[dir=rtl][dir=rtl], [dir=rtl] [dir=ltr] [dir=rtl] .blog > *, [dir=rtl] [dir=ltr] .blog > *[dir=rtl][dir=rtl] {
+  /* right-to-left */
+}
+
+[dir=rtl] .blog > * > .start-margin-bleed, .blog > *[dir=rtl][dir=rtl] > .start-margin-bleed, [dir=ltr] [dir=rtl] .blog > * > .start-margin-bleed, [dir=ltr] .blog > *[dir=rtl][dir=rtl] > .start-margin-bleed, [dir=rtl] [dir=ltr] [dir=rtl] .blog > * > .start-margin-bleed, [dir=rtl] [dir=ltr] .blog > *[dir=rtl][dir=rtl] > .start-margin-bleed {
+  /* right-bleed */
+  width: auto;
+  max-width: none;
+  padding-right: 0;
+  margin-right: calc((100% - 100vw) / 2);
+  margin-left: auto;
+}
+
+[dir=rtl] .blog > * > .end-margin-bleed, .blog > *[dir=rtl][dir=rtl] > .end-margin-bleed, [dir=ltr] [dir=rtl] .blog > * > .end-margin-bleed, [dir=ltr] .blog > *[dir=rtl][dir=rtl] > .end-margin-bleed, [dir=rtl] [dir=ltr] [dir=rtl] .blog > * > .end-margin-bleed, [dir=rtl] [dir=ltr] .blog > *[dir=rtl][dir=rtl] > .end-margin-bleed {
+  /* left-bleed */
+  width: auto;
+  max-width: none;
+  padding-left: 0;
+  margin-left: calc((100% - 100vw) / 2);
+  margin-right: auto;
 }
 
 .blog > * > .span-content {
@@ -2736,19 +2818,35 @@ hr.unborder, .unborder.h-1, .unborder.h-2, .unborder.h-3, .unborder.h-4, .unbord
   position: relative;
 }
 
-.blog-entry-short:dir(ltr):dir(ltr):dir(ltr):dir(ltr):dir(ltr), [dir=ltr] .blog-entry-short, .blog-entry-short[dir=ltr][dir=ltr], [dir=rtl] [dir=ltr] .blog-entry-short, [dir=rtl] .blog-entry-short[dir=ltr][dir=ltr], [dir=ltr] [dir=rtl] [dir=ltr] .blog-entry-short, [dir=ltr] [dir=rtl] .blog-entry-short[dir=ltr][dir=ltr], .blog-entry-short {
+.blog-entry-short:dir(ltr):dir(ltr):dir(ltr):dir(ltr):dir(ltr) {
   /* left-to-right */
 }
 
-.blog-entry-short:dir(ltr):dir(ltr):dir(ltr):dir(ltr):dir(ltr) img, [dir=ltr] .blog-entry-short img, .blog-entry-short[dir=ltr][dir=ltr] img, [dir=rtl] [dir=ltr] .blog-entry-short img, [dir=rtl] .blog-entry-short[dir=ltr][dir=ltr] img, [dir=ltr] [dir=rtl] [dir=ltr] .blog-entry-short img, [dir=ltr] [dir=rtl] .blog-entry-short[dir=ltr][dir=ltr] img, .blog-entry-short img {
+.blog-entry-short:dir(ltr):dir(ltr):dir(ltr):dir(ltr):dir(ltr) img {
   float: left;
 }
 
-.blog-entry-short:dir(rtl):dir(rtl):dir(rtl):dir(rtl):dir(rtl), [dir=rtl] .blog-entry-short, .blog-entry-short[dir=rtl][dir=rtl], [dir=ltr] [dir=rtl] .blog-entry-short, [dir=ltr] .blog-entry-short[dir=rtl][dir=rtl], [dir=rtl] [dir=ltr] [dir=rtl] .blog-entry-short, [dir=rtl] [dir=ltr] .blog-entry-short[dir=rtl][dir=rtl] {
+[dir=ltr] .blog-entry-short, .blog-entry-short[dir=ltr][dir=ltr], [dir=rtl] [dir=ltr] .blog-entry-short, [dir=rtl] .blog-entry-short[dir=ltr][dir=ltr], [dir=ltr] [dir=rtl] [dir=ltr] .blog-entry-short, [dir=ltr] [dir=rtl] .blog-entry-short[dir=ltr][dir=ltr], .blog-entry-short {
+  /* left-to-right */
+}
+
+[dir=ltr] .blog-entry-short img, .blog-entry-short[dir=ltr][dir=ltr] img, [dir=rtl] [dir=ltr] .blog-entry-short img, [dir=rtl] .blog-entry-short[dir=ltr][dir=ltr] img, [dir=ltr] [dir=rtl] [dir=ltr] .blog-entry-short img, [dir=ltr] [dir=rtl] .blog-entry-short[dir=ltr][dir=ltr] img, .blog-entry-short img {
+  float: left;
+}
+
+.blog-entry-short:dir(rtl):dir(rtl):dir(rtl):dir(rtl):dir(rtl) {
   /* right-to-left */
 }
 
-.blog-entry-short:dir(rtl):dir(rtl):dir(rtl):dir(rtl):dir(rtl) img, [dir=rtl] .blog-entry-short img, .blog-entry-short[dir=rtl][dir=rtl] img, [dir=ltr] [dir=rtl] .blog-entry-short img, [dir=ltr] .blog-entry-short[dir=rtl][dir=rtl] img, [dir=rtl] [dir=ltr] [dir=rtl] .blog-entry-short img, [dir=rtl] [dir=ltr] .blog-entry-short[dir=rtl][dir=rtl] img {
+.blog-entry-short:dir(rtl):dir(rtl):dir(rtl):dir(rtl):dir(rtl) img {
+  float: right;
+}
+
+[dir=rtl] .blog-entry-short, .blog-entry-short[dir=rtl][dir=rtl], [dir=ltr] [dir=rtl] .blog-entry-short, [dir=ltr] .blog-entry-short[dir=rtl][dir=rtl], [dir=rtl] [dir=ltr] [dir=rtl] .blog-entry-short, [dir=rtl] [dir=ltr] .blog-entry-short[dir=rtl][dir=rtl] {
+  /* right-to-left */
+}
+
+[dir=rtl] .blog-entry-short img, .blog-entry-short[dir=rtl][dir=rtl] img, [dir=ltr] [dir=rtl] .blog-entry-short img, [dir=ltr] .blog-entry-short[dir=rtl][dir=rtl] img, [dir=rtl] [dir=ltr] [dir=rtl] .blog-entry-short img, [dir=rtl] [dir=ltr] .blog-entry-short[dir=rtl][dir=rtl] img {
   float: right;
 }
 
@@ -2798,27 +2896,51 @@ hr.unborder, .unborder.h-1, .unborder.h-2, .unborder.h-3, .unborder.h-4, .unbord
   max-width: 66%;
 }
 
-.blog-entry-nav:dir(ltr):dir(ltr):dir(ltr):dir(ltr):dir(ltr), [dir=ltr] .blog-entry-nav, .blog-entry-nav[dir=ltr][dir=ltr], [dir=rtl] [dir=ltr] .blog-entry-nav, [dir=rtl] .blog-entry-nav[dir=ltr][dir=ltr], [dir=ltr] [dir=rtl] [dir=ltr] .blog-entry-nav, [dir=ltr] [dir=rtl] .blog-entry-nav[dir=ltr][dir=ltr], .blog-entry-nav {
+.blog-entry-nav:dir(ltr):dir(ltr):dir(ltr):dir(ltr):dir(ltr) {
   /* left-to-right */
 }
 
-.blog-entry-nav:dir(ltr):dir(ltr):dir(ltr):dir(ltr):dir(ltr) > [rel=next]:first-child, [dir=ltr] .blog-entry-nav > [rel=next]:first-child, .blog-entry-nav[dir=ltr][dir=ltr] > [rel=next]:first-child, [dir=rtl] [dir=ltr] .blog-entry-nav > [rel=next]:first-child, [dir=rtl] .blog-entry-nav[dir=ltr][dir=ltr] > [rel=next]:first-child, [dir=ltr] [dir=rtl] [dir=ltr] .blog-entry-nav > [rel=next]:first-child, [dir=ltr] [dir=rtl] .blog-entry-nav[dir=ltr][dir=ltr] > [rel=next]:first-child, .blog-entry-nav > [rel=next]:first-child {
+.blog-entry-nav:dir(ltr):dir(ltr):dir(ltr):dir(ltr):dir(ltr) > [rel=next]:first-child {
   float: right;
 }
 
-.blog-entry-nav:dir(ltr):dir(ltr):dir(ltr):dir(ltr):dir(ltr) > [rel=prev]:last-child, [dir=ltr] .blog-entry-nav > [rel=prev]:last-child, .blog-entry-nav[dir=ltr][dir=ltr] > [rel=prev]:last-child, [dir=rtl] [dir=ltr] .blog-entry-nav > [rel=prev]:last-child, [dir=rtl] .blog-entry-nav[dir=ltr][dir=ltr] > [rel=prev]:last-child, [dir=ltr] [dir=rtl] [dir=ltr] .blog-entry-nav > [rel=prev]:last-child, [dir=ltr] [dir=rtl] .blog-entry-nav[dir=ltr][dir=ltr] > [rel=prev]:last-child, .blog-entry-nav > [rel=prev]:last-child {
+.blog-entry-nav:dir(ltr):dir(ltr):dir(ltr):dir(ltr):dir(ltr) > [rel=prev]:last-child {
   float: left;
 }
 
-.blog-entry-nav:dir(rtl):dir(rtl):dir(rtl):dir(rtl):dir(rtl), [dir=rtl] .blog-entry-nav, .blog-entry-nav[dir=rtl][dir=rtl], [dir=ltr] [dir=rtl] .blog-entry-nav, [dir=ltr] .blog-entry-nav[dir=rtl][dir=rtl], [dir=rtl] [dir=ltr] [dir=rtl] .blog-entry-nav, [dir=rtl] [dir=ltr] .blog-entry-nav[dir=rtl][dir=rtl] {
+[dir=ltr] .blog-entry-nav, .blog-entry-nav[dir=ltr][dir=ltr], [dir=rtl] [dir=ltr] .blog-entry-nav, [dir=rtl] .blog-entry-nav[dir=ltr][dir=ltr], [dir=ltr] [dir=rtl] [dir=ltr] .blog-entry-nav, [dir=ltr] [dir=rtl] .blog-entry-nav[dir=ltr][dir=ltr], .blog-entry-nav {
+  /* left-to-right */
+}
+
+[dir=ltr] .blog-entry-nav > [rel=next]:first-child, .blog-entry-nav[dir=ltr][dir=ltr] > [rel=next]:first-child, [dir=rtl] [dir=ltr] .blog-entry-nav > [rel=next]:first-child, [dir=rtl] .blog-entry-nav[dir=ltr][dir=ltr] > [rel=next]:first-child, [dir=ltr] [dir=rtl] [dir=ltr] .blog-entry-nav > [rel=next]:first-child, [dir=ltr] [dir=rtl] .blog-entry-nav[dir=ltr][dir=ltr] > [rel=next]:first-child, .blog-entry-nav > [rel=next]:first-child {
+  float: right;
+}
+
+[dir=ltr] .blog-entry-nav > [rel=prev]:last-child, .blog-entry-nav[dir=ltr][dir=ltr] > [rel=prev]:last-child, [dir=rtl] [dir=ltr] .blog-entry-nav > [rel=prev]:last-child, [dir=rtl] .blog-entry-nav[dir=ltr][dir=ltr] > [rel=prev]:last-child, [dir=ltr] [dir=rtl] [dir=ltr] .blog-entry-nav > [rel=prev]:last-child, [dir=ltr] [dir=rtl] .blog-entry-nav[dir=ltr][dir=ltr] > [rel=prev]:last-child, .blog-entry-nav > [rel=prev]:last-child {
+  float: left;
+}
+
+.blog-entry-nav:dir(rtl):dir(rtl):dir(rtl):dir(rtl):dir(rtl) {
   /* right-to-left */
 }
 
-.blog-entry-nav:dir(rtl):dir(rtl):dir(rtl):dir(rtl):dir(rtl) > [rel=next]:first-child, [dir=rtl] .blog-entry-nav > [rel=next]:first-child, .blog-entry-nav[dir=rtl][dir=rtl] > [rel=next]:first-child, [dir=ltr] [dir=rtl] .blog-entry-nav > [rel=next]:first-child, [dir=ltr] .blog-entry-nav[dir=rtl][dir=rtl] > [rel=next]:first-child, [dir=rtl] [dir=ltr] [dir=rtl] .blog-entry-nav > [rel=next]:first-child, [dir=rtl] [dir=ltr] .blog-entry-nav[dir=rtl][dir=rtl] > [rel=next]:first-child {
+.blog-entry-nav:dir(rtl):dir(rtl):dir(rtl):dir(rtl):dir(rtl) > [rel=next]:first-child {
   float: left;
 }
 
-.blog-entry-nav:dir(rtl):dir(rtl):dir(rtl):dir(rtl):dir(rtl) > [rel=prev]:last-child, [dir=rtl] .blog-entry-nav > [rel=prev]:last-child, .blog-entry-nav[dir=rtl][dir=rtl] > [rel=prev]:last-child, [dir=ltr] [dir=rtl] .blog-entry-nav > [rel=prev]:last-child, [dir=ltr] .blog-entry-nav[dir=rtl][dir=rtl] > [rel=prev]:last-child, [dir=rtl] [dir=ltr] [dir=rtl] .blog-entry-nav > [rel=prev]:last-child, [dir=rtl] [dir=ltr] .blog-entry-nav[dir=rtl][dir=rtl] > [rel=prev]:last-child {
+.blog-entry-nav:dir(rtl):dir(rtl):dir(rtl):dir(rtl):dir(rtl) > [rel=prev]:last-child {
+  float: right;
+}
+
+[dir=rtl] .blog-entry-nav, .blog-entry-nav[dir=rtl][dir=rtl], [dir=ltr] [dir=rtl] .blog-entry-nav, [dir=ltr] .blog-entry-nav[dir=rtl][dir=rtl], [dir=rtl] [dir=ltr] [dir=rtl] .blog-entry-nav, [dir=rtl] [dir=ltr] .blog-entry-nav[dir=rtl][dir=rtl] {
+  /* right-to-left */
+}
+
+[dir=rtl] .blog-entry-nav > [rel=next]:first-child, .blog-entry-nav[dir=rtl][dir=rtl] > [rel=next]:first-child, [dir=ltr] [dir=rtl] .blog-entry-nav > [rel=next]:first-child, [dir=ltr] .blog-entry-nav[dir=rtl][dir=rtl] > [rel=next]:first-child, [dir=rtl] [dir=ltr] [dir=rtl] .blog-entry-nav > [rel=next]:first-child, [dir=rtl] [dir=ltr] .blog-entry-nav[dir=rtl][dir=rtl] > [rel=next]:first-child {
+  float: left;
+}
+
+[dir=rtl] .blog-entry-nav > [rel=prev]:last-child, .blog-entry-nav[dir=rtl][dir=rtl] > [rel=prev]:last-child, [dir=ltr] [dir=rtl] .blog-entry-nav > [rel=prev]:last-child, [dir=ltr] .blog-entry-nav[dir=rtl][dir=rtl] > [rel=prev]:last-child, [dir=rtl] [dir=ltr] [dir=rtl] .blog-entry-nav > [rel=prev]:last-child, [dir=rtl] [dir=ltr] .blog-entry-nav[dir=rtl][dir=rtl] > [rel=prev]:last-child {
   float: right;
 }
 
@@ -2912,13 +3034,12 @@ hr.unborder, .unborder.h-1, .unborder.h-2, .unborder.h-3, .unborder.h-4, .unbord
       margin-bottom: 0.84375rem;
       margin-bottom: calc(0.5 * var(--spacing-base, 1.6875rem));
     }
-    .blog-entry > .full-bleed, .blog-entry:dir(ltr):dir(ltr):dir(ltr):dir(ltr):dir(ltr) > .start-margin-bleed, [dir=ltr] .blog-entry > .start-margin-bleed, .blog-entry[dir=ltr][dir=ltr] > .start-margin-bleed, [dir=rtl] [dir=ltr] .blog-entry > .start-margin-bleed, [dir=rtl] .blog-entry[dir=ltr][dir=ltr] > .start-margin-bleed, [dir=ltr] [dir=rtl] [dir=ltr] .blog-entry > .start-margin-bleed, [dir=ltr] [dir=rtl] .blog-entry[dir=ltr][dir=ltr] > .start-margin-bleed, .blog-entry > .start-margin-bleed, .blog-entry:dir(ltr):dir(ltr):dir(ltr):dir(ltr):dir(ltr) > .end-margin-bleed, [dir=ltr] .blog-entry > .end-margin-bleed, .blog-entry[dir=ltr][dir=ltr] > .end-margin-bleed, [dir=rtl] [dir=ltr] .blog-entry > .end-margin-bleed, [dir=rtl] .blog-entry[dir=ltr][dir=ltr] > .end-margin-bleed, [dir=ltr] [dir=rtl] [dir=ltr] .blog-entry > .end-margin-bleed, [dir=ltr] [dir=rtl] .blog-entry[dir=ltr][dir=ltr] > .end-margin-bleed, .blog-entry > .end-margin-bleed, .blog-entry:dir(rtl):dir(rtl):dir(rtl):dir(rtl):dir(rtl) > .start-margin-bleed, [dir=rtl] .blog-entry > .start-margin-bleed, .blog-entry[dir=rtl][dir=rtl] > .start-margin-bleed, [dir=ltr] [dir=rtl] .blog-entry > .start-margin-bleed, [dir=ltr] .blog-entry[dir=rtl][dir=rtl] > .start-margin-bleed, [dir=rtl] [dir=ltr] [dir=rtl] .blog-entry > .start-margin-bleed, [dir=rtl] [dir=ltr] .blog-entry[dir=rtl][dir=rtl] > .start-margin-bleed, .blog-entry:dir(rtl):dir(rtl):dir(rtl):dir(rtl):dir(rtl) > .end-margin-bleed, [dir=rtl] .blog-entry > .end-margin-bleed, .blog-entry[dir=rtl][dir=rtl] > .end-margin-bleed, [dir=ltr] [dir=rtl] .blog-entry > .end-margin-bleed, [dir=ltr] .blog-entry[dir=rtl][dir=rtl] > .end-margin-bleed, [dir=rtl] [dir=ltr] [dir=rtl] .blog-entry > .end-margin-bleed, [dir=rtl] [dir=ltr] .blog-entry[dir=rtl][dir=rtl] > .end-margin-bleed {
+    .blog-entry > .full-bleed {
+      grid-column: 1 / -1;
+      /* bleed-reset */
       width: 100%;
       margin-left: 0;
       margin-right: 0;
-    }
-    .blog-entry > .full-bleed {
-      grid-column: 1 / -1;
     }
     .blog-entry > .start-margin-bleed {
       grid-column-start: 1;
@@ -2926,11 +3047,65 @@ hr.unborder, .unborder.h-1, .unborder.h-2, .unborder.h-3, .unborder.h-4, .unbord
     .blog-entry > .end-margin-bleed {
       grid-column-end: -1;
     }
-    .blog-entry:dir(ltr):dir(ltr):dir(ltr):dir(ltr):dir(ltr), [dir=ltr] .blog-entry, .blog-entry[dir=ltr][dir=ltr], [dir=rtl] [dir=ltr] .blog-entry, [dir=rtl] .blog-entry[dir=ltr][dir=ltr], [dir=ltr] [dir=rtl] [dir=ltr] .blog-entry, [dir=ltr] [dir=rtl] .blog-entry[dir=ltr][dir=ltr], .blog-entry {
+    .blog-entry:dir(ltr):dir(ltr):dir(ltr):dir(ltr):dir(ltr) {
       /* left-to-right */
     }
-    .blog-entry:dir(rtl):dir(rtl):dir(rtl):dir(rtl):dir(rtl), [dir=rtl] .blog-entry, .blog-entry[dir=rtl][dir=rtl], [dir=ltr] [dir=rtl] .blog-entry, [dir=ltr] .blog-entry[dir=rtl][dir=rtl], [dir=rtl] [dir=ltr] [dir=rtl] .blog-entry, [dir=rtl] [dir=ltr] .blog-entry[dir=rtl][dir=rtl] {
+    .blog-entry:dir(ltr):dir(ltr):dir(ltr):dir(ltr):dir(ltr) > .start-margin-bleed {
+      /* bleed-reset */
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .blog-entry:dir(ltr):dir(ltr):dir(ltr):dir(ltr):dir(ltr) > .end-margin-bleed {
+      /* bleed-reset */
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+    }
+    [dir=ltr] .blog-entry, .blog-entry[dir=ltr][dir=ltr], [dir=rtl] [dir=ltr] .blog-entry, [dir=rtl] .blog-entry[dir=ltr][dir=ltr], [dir=ltr] [dir=rtl] [dir=ltr] .blog-entry, [dir=ltr] [dir=rtl] .blog-entry[dir=ltr][dir=ltr], .blog-entry {
+      /* left-to-right */
+    }
+    [dir=ltr] .blog-entry > .start-margin-bleed, .blog-entry[dir=ltr][dir=ltr] > .start-margin-bleed, [dir=rtl] [dir=ltr] .blog-entry > .start-margin-bleed, [dir=rtl] .blog-entry[dir=ltr][dir=ltr] > .start-margin-bleed, [dir=ltr] [dir=rtl] [dir=ltr] .blog-entry > .start-margin-bleed, [dir=ltr] [dir=rtl] .blog-entry[dir=ltr][dir=ltr] > .start-margin-bleed, .blog-entry > .start-margin-bleed {
+      /* bleed-reset */
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+    }
+    [dir=ltr] .blog-entry > .end-margin-bleed, .blog-entry[dir=ltr][dir=ltr] > .end-margin-bleed, [dir=rtl] [dir=ltr] .blog-entry > .end-margin-bleed, [dir=rtl] .blog-entry[dir=ltr][dir=ltr] > .end-margin-bleed, [dir=ltr] [dir=rtl] [dir=ltr] .blog-entry > .end-margin-bleed, [dir=ltr] [dir=rtl] .blog-entry[dir=ltr][dir=ltr] > .end-margin-bleed, .blog-entry > .end-margin-bleed {
+      /* bleed-reset */
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .blog-entry:dir(rtl):dir(rtl):dir(rtl):dir(rtl):dir(rtl) {
       /* right-to-left */
+    }
+    .blog-entry:dir(rtl):dir(rtl):dir(rtl):dir(rtl):dir(rtl) > .start-margin-bleed {
+      /* bleed-reset */
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .blog-entry:dir(rtl):dir(rtl):dir(rtl):dir(rtl):dir(rtl) > .end-margin-bleed {
+      /* bleed-reset */
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+    }
+    [dir=rtl] .blog-entry, .blog-entry[dir=rtl][dir=rtl], [dir=ltr] [dir=rtl] .blog-entry, [dir=ltr] .blog-entry[dir=rtl][dir=rtl], [dir=rtl] [dir=ltr] [dir=rtl] .blog-entry, [dir=rtl] [dir=ltr] .blog-entry[dir=rtl][dir=rtl] {
+      /* right-to-left */
+    }
+    [dir=rtl] .blog-entry > .start-margin-bleed, .blog-entry[dir=rtl][dir=rtl] > .start-margin-bleed, [dir=ltr] [dir=rtl] .blog-entry > .start-margin-bleed, [dir=ltr] .blog-entry[dir=rtl][dir=rtl] > .start-margin-bleed, [dir=rtl] [dir=ltr] [dir=rtl] .blog-entry > .start-margin-bleed, [dir=rtl] [dir=ltr] .blog-entry[dir=rtl][dir=rtl] > .start-margin-bleed {
+      /* bleed-reset */
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+    }
+    [dir=rtl] .blog-entry > .end-margin-bleed, .blog-entry[dir=rtl][dir=rtl] > .end-margin-bleed, [dir=ltr] [dir=rtl] .blog-entry > .end-margin-bleed, [dir=ltr] .blog-entry[dir=rtl][dir=rtl] > .end-margin-bleed, [dir=rtl] [dir=ltr] [dir=rtl] .blog-entry > .end-margin-bleed, [dir=rtl] [dir=ltr] .blog-entry[dir=rtl][dir=rtl] > .end-margin-bleed {
+      /* bleed-reset */
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
     }
     .blog-entry > .span-content {
       grid-column-start: content-start;

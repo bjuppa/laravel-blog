@@ -75,7 +75,8 @@
         @include length-relative(margin-top margin-bottom, 1/2);
       }
 
-      %bleed-reset {
+      @mixin bleed-reset {
+        /* bleed-reset */
         width: 100%;
         margin-left: 0;
         margin-right: 0;
@@ -83,7 +84,7 @@
 
       > .full-bleed {
         grid-column: 1 / -1;
-        @extend %bleed-reset;
+        @include bleed-reset;
       }
 
       > .start-margin-bleed {
@@ -96,19 +97,19 @@
 
       @include for-ltr {
         > .start-margin-bleed {
-          @extend %bleed-reset;
+          @include bleed-reset;
         }
         > .end-margin-bleed {
-          @extend %bleed-reset;
+          @include bleed-reset;
         }
       }
 
       @include for-rtl {
         > .start-margin-bleed {
-          @extend %bleed-reset;
+          @include bleed-reset;
         }
         > .end-margin-bleed {
-          @extend %bleed-reset;
+          @include bleed-reset;
         }
       }
 
