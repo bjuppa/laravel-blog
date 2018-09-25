@@ -38,7 +38,7 @@
 
 .blog {
   @extend .background-color-gray-100 !optional;
-  @extend .word-wrap !optional;
+  @extend .overflow-wrap !optional;
   min-height: 100vh;
 
   > * {

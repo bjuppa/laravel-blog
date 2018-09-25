@@ -2563,11 +2563,13 @@ hr.unborder, .unborder.h-1, .unborder.h-2, .unborder.h-3, .unborder.h-4, .unbord
   grid-auto-columns: minmax(45ch, 75ch);
 }
 
-/* Combine .word-wrap with .hyphens-auto to add hyphens when breaking */
-.word-wrap, .blog {
+/* Combine .overflow-wrap with .hyphens-auto to add hyphens when breaking */
+.overflow-wrap, .blog {
   overflow-wrap: break-word;
   word-wrap: break-word;
-  -ms-word-break: break-all;
+}
+
+.word-break {
   word-break: break-all;
   word-break: break-word;
 }
