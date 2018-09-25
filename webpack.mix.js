@@ -1,10 +1,9 @@
 let mix = require('laravel-mix');
 
-mix.sass('resources/sass/blog.scss', 'dist')
+mix.sass('resources/sass/style.scss', 'dist/blog.css')
   .setPublicPath('dist')
   .options({
     processCssUrls: false,
-    purifyCss: true
   });
 
 // Full API

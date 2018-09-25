@@ -1,0 +1,264 @@
+@import "~kingdom-css/src/modules/layout";
+@import "~kingdom-css/src/modules/sizing";
+@import "~kingdom-css/src/modules/spacing";
+@import "~kingdom-css/src/modules/text-direction";
+
+%unimposing {
+  @extend .color-gray-700 !optional;
+}
+
+%block-link {
+  @include display-block;
+  @include space-inside;
+
+  > * {
+    @include display-block;
+  }
+
+  > :not(:last-child) {
+    word-break: normal;
+  }
+
+  text-decoration: none;
+  color: inherit;
+
+  small {
+    @extend %unimposing;
+  }
+
+  &:link > :last-child {
+    @include apply-color(link);
+    text-decoration: underline;
+  }
+
+  &:visited > :last-child {
+    @include apply-color(visited);
+  }
+}
+
+.blog {
+  @extend .background-color-gray-100 !optional;
+  @extend .overflow-wrap !optional;
+  @extend .hyphens-auto !optional;
+  min-height: 100vh;
+
+  > * {
+    $width: $readable-line-length-min + $readable-line-length-max;
+    @extend .background-color-body !optional;
+    max-width: 100%;
+    width: $width;
+    min-width: auto;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    @include padding-relative;
+
+    > .full-bleed {
+      max-width: none;
+      padding-left: 0;
+      padding-right: 0;
+      @supports(margin-left: calc((100% - 100vw) / 2)) {
+        width: 100vw;
+        margin-left: calc((100% - 100vw) / 2);
+        margin-right: calc((100% - 100vw) / 2);
+      }
+    }
+
+    @mixin left-bleed {
+      /* left-bleed */
+      width: auto;
+      max-width: none;
+      padding-left: 0;
+      margin-left: calc((100% - 100vw) / 2);
+      margin-right: auto;
+    }
+
+    @mixin right-bleed {
+      /* right-bleed */
+      width: auto;
+      max-width: none;
+      padding-right: 0;
+      margin-right: calc((100% - 100vw) / 2);
+      margin-left: auto;
+    }
+
+    @include for-ltr {
+      > .start-margin-bleed {
+        @include left-bleed;
+      }
+      > .end-margin-bleed {
+        @include right-bleed;
+      }
+    }
+
+    @include for-rtl {
+      > .start-margin-bleed {
+        @include right-bleed;
+      }
+      > .end-margin-bleed {
+        @include left-bleed;
+      }
+    }
+
+    > .span-content {
+      width: auto;
+    }
+  }
+
+  p {
+    @include width-readable;
+  }
+}
+
+.blog-entry-list {
+  @extend .list-unstyled !optional;
+
+  > * + * {
+    @extend %mt-1 !optional;
+  }
+}
+
+.blog-entry-short {
+  > * {
+    @extend %mt-0 !optional;
+  }
+
+  img {
+    @extend %h-5 !optional;
+  }
+
+  @include for-ltr {
+    img {
+      float: left;
+    }
+  }
+  @include for-rtl {
+    img {
+      float: right;
+    }
+  }
+
+  .blog-entry-footer {
+    clear: both;
+    @extend %unimposing;
+  }
+
+  .blog-read-more-link {
+    @extend .sr-only-focusable !optional;
+    @extend %block-link;
+  }
+
+  position: relative;
+
+  // elevate the links up
+  a {
+    position: relative;
+    z-index: 1;
+  }
+
+  .blog-entry-title {
+    a {
+      position: static;
+      // expand the pseudo-element to cover the entry
+      &::before {
+          content: "";
+          position: absolute;
+          z-index: 0;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+      }
+    }
+  }
+}
+
+.blog-latest-entries-links {
+  @extend .list-unstyled !optional;
+
+  > * + * {
+    @extend %mt-1;
+  }
+}
+
+.blog-entry-header {
+  @extend %text-3-block;
+
+  p {
+    width: auto;
+  }
+}
+
+.blog-entry-publication-info {
+  @extend %unimposing;
+}
+
+.blog-author-list {
+  @extend .list-comma-separated !optional;
+}
+
+.blog-entry-nav {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  @extend .clearfix-unless-flex !optional;
+
+  > * {
+    max-width: 66%;
+  }
+
+  [rel] {
+    @extend %block-link;
+  }
+
+  @include for-ltr {
+    > [rel=next]:first-child {
+      float: right;
+    }
+    > [rel=prev]:last-child {
+      float: left;
+    }
+  }
+  @include for-rtl {
+    > [rel=next]:first-child {
+      float: left;
+    }
+    > [rel=prev]:last-child {
+      float: right;
+    }
+  }
+
+  > [rel=prev]:only-child {
+    float: none;
+    flex-grow: 1;
+    max-width: none;
+  }
+}
+
+.blog-social-sharing {
+  h2 {
+    @extend %text-small !optional;
+    @extend %unimposing;
+  }
+
+  ul {
+    @extend .list-inline !optional;
+  }
+
+  .share-link-prefix {
+    @extend .sr-only !optional;
+  }
+}
+
+.blog-related-content {
+  header small {
+    @extend %unimposing;
+  }
+
+  > div {
+    @extend %border !optional;
+    @include space-inside;
+    max-width: max-content;
+  }
+}

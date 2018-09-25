@@ -43,7 +43,7 @@ class DefaultBlogTest extends IntegrationTest
         $response->assertSee('type="application/atom+xml"');
         $response->assertSee('app.css');
         $response->assertSee('<title>Main Blog</title>');
-        $response->assertSee('title="Latest entries"');
+        $response->assertSee('aria-label="Latest entries"');
         $response->assertSee('<link rel="canonical" href="' . route('blog.main.index') . '"');
         $response->assertSee('<meta http-equiv="X-UA-Compatible"');
         $response->assertSee('<meta name="viewport"');
@@ -59,8 +59,8 @@ class DefaultBlogTest extends IntegrationTest
         $response->assertSee('type="application/atom+xml"');
         $response->assertSee('app.css');
         $response->assertSee('<title>The first post - Main Blog</title>');
-        $response->assertSee('title="Latest entries"');
-        $response->assertSee('title="Authors"');
+        $response->assertSee('aria-label="Latest entries"');
+        $response->assertSee('aria-label="Authors"');
         $response->assertSee('<link rel="canonical" href="' . route('blog.main.entry', 'the-first-post') . '"');
         $response->assertSee('<meta http-equiv="X-UA-Compatible"');
         $response->assertSee('<meta name="viewport"');

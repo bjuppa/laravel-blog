@@ -38,7 +38,7 @@ class SocialSharingTest extends IntegrationTest
         $response = $this->get('blog/the-first-post');
 
         $response->assertSee('<h2>Share this page</h2>');
-        $response->assertSee('<ul title="Links for sharing this page">');
+        $response->assertSee('<ul aria-label="Links for sharing this page">');
     }
 
     // Source of link formats: https://github.com/bradvin/social-share-urls
