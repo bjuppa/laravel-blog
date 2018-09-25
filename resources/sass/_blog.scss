@@ -39,6 +39,7 @@
 .blog {
   @extend .background-color-gray-100 !optional;
   @extend .overflow-wrap !optional;
+  @extend .hyphens-auto !optional;
   min-height: 100vh;
 
   > * {
