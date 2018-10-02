@@ -1,6 +1,6 @@
 @section('entryAsideAds')
   <aside class="blog-related-content grid-row-span-4">
-    <header>
+    <header class="siblings:border siblings:space-inside">
       <small>{{ __($blog->transKey('titles.ads')) }}</small>
     </header>
     <section>
