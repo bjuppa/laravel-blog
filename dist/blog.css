@@ -2961,9 +2961,18 @@ hr.unborder, .unborder.h-1, .unborder.h-2, .unborder.h-3, .unborder.h-4, .unbord
   text-align: center;
 }
 
-.blog-related-content header {
+.blog-related-content {
   text-align: center;
+}
+
+.blog-related-content header {
   text-transform: uppercase;
+}
+
+.blog-related-content header ~ * {
+  display: inline-block;
+  line-height: inherit;
+  vertical-align: bottom;
 }
 
 .blog-related-content > div, .blog-related-content section {

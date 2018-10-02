@@ -263,9 +263,14 @@
 }
 
 .blog-related-content {
+  text-align: center;
+
   header {
-    text-align: center;
     text-transform: uppercase;
+
+    ~ * {
+      @include display-inline-block;
+    }
   }
 
   > div, section {
