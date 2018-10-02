@@ -2845,7 +2845,7 @@ hr.unborder, .unborder.h-1, .blog-related-content header.h-1, .unborder.h-2, .bl
   padding-right: calc(0.25 * var(--spacing-base, 1.6875rem));
 }
 
-.space-inside, .children\:space-inside > *, .children\:boxed > * {
+.space-inside, .children\:space-inside > * {
   padding-left: 0.421875rem;
   padding-left: calc(0.25 * var(--spacing-base, 1.6875rem));
   padding-right: 0.421875rem;
@@ -3727,7 +3727,6 @@ hr.unborder, .unborder.h-1, .blog-related-content header.h-1, .unborder.h-2, .bl
   text-transform: uppercase;
   display: block;
   line-height: inherit;
-  max-width: none;
 }
 
 .blog-related-content p {
@@ -3739,9 +3738,6 @@ hr.unborder, .unborder.h-1, .blog-related-content header.h-1, .unborder.h-2, .bl
 }
 
 .children\:boxed > * {
-  max-width: -webkit-max-content;
-  max-width: -moz-max-content;
-  max-width: max-content;
   border-top-width: 1px;
   --border-top-width: 1px;
   border-top-width: var(--border-top-width);
@@ -3763,6 +3759,10 @@ hr.unborder, .unborder.h-1, .blog-related-content header.h-1, .unborder.h-2, .bl
   display: inline-block;
   line-height: inherit;
   vertical-align: middle;
+  padding-left: 0.421875rem;
+  padding-left: calc(0.25 * var(--spacing-base, 1.6875rem));
+  padding-right: 0.421875rem;
+  padding-right: calc(0.25 * var(--spacing-base, 1.6875rem));
 }
 
 .children\:boxed > hr, .children\:boxed > *.h-1, .children\:boxed > *.h-2, .children\:boxed > *.h-3, .children\:boxed > *.h-4, .children\:boxed > *.h-5, .blog-entry-short .children\:boxed > img, .children\:boxed > *.h-6, .children\:boxed > *.h-7, .children\:boxed > *.h-8, .children\:boxed > *.h-9, .children\:boxed > *.h-10, .children\:boxed > *.h-12, .children\:boxed > *.h-14, .children\:boxed > *.h-16, .children\:boxed > *.h-18, .children\:boxed > *.h-20, .children\:boxed > *.h-24, .children\:boxed > *.h-28, .children\:boxed > *.h-32, .children\:boxed > *.h-36, .children\:boxed > *.h-40, .children\:boxed > *.h-48, .children\:boxed > *.h-56, .children\:boxed > *.h-64 {

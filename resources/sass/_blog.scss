@@ -266,7 +266,6 @@
   header {
     text-transform: uppercase;
     @include display-block;
-    max-width: none;
     @extend .unborder;
   }
 
@@ -279,9 +278,8 @@
   text-align: center;
 
   > * {
-    max-width: max-content;
     @include border-for-auto-height;
     @include display-inline-block($vertical-align: middle);
-    @extend .space-inside;
+    @include space-inside;
   }
 }
