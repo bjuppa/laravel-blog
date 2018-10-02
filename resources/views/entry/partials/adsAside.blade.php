@@ -3,12 +3,12 @@
     <header>
       <small>{{ __($blog->transKey('titles.ads')) }}</small>
     </header>
-    <section>
+    <section style="font-family: Verdana,Geneva,sans-serif;">
       This blog is powered by<br>
       <a href="https://packagist.org/packages/bjuppa/laravel-blog" target="_blank" rel="noopener"><code>bjuppa/laravel-blog</code></a><br>
       created by Björn Nilsved
     </section>
-    <section>
+    <section style="font-family: Georgia,Times,Times New Roman,serif;">
       <p>
         Oppose fascism,<br>
         support democracy!
