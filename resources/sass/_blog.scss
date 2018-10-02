@@ -267,16 +267,14 @@
 
   header {
     text-transform: uppercase;
-
-    ~ * {
-      @include display-inline-block;
-    }
   }
 
   > div, section {
     @extend %border !optional;
     @include space-inside;
     max-width: max-content;
+    @include display-inline-block;
+    vertical-align: middle;
   }
 
   p {
