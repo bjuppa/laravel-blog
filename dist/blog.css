@@ -1346,7 +1346,7 @@ hr.border-tb, .border-tb.h-1, .border-tb.h-2, .border-tb.h-3, .border-tb.h-4, .b
 }
 
 /* %border */
-.border, .blog-related-content > div {
+.border, .blog-related-content > div, .blog-related-content section {
   border-top-width: 1px;
   --border-top-width: 1px;
   border-top-width: var(--border-top-width);
@@ -1367,11 +1367,11 @@ hr.border-tb, .border-tb.h-1, .border-tb.h-2, .border-tb.h-3, .border-tb.h-4, .b
   margin-bottom: calc(0px - var(--border-top-width, 0px) - var(--border-bottom-width, 0px));
 }
 
-hr.border, .border.h-1, .blog-related-content > div.h-1, .border.h-2, .blog-related-content > div.h-2, .border.h-3, .blog-related-content > div.h-3, .border.h-4, .blog-related-content > div.h-4, .border.h-5, .blog-entry-short img.border, .blog-related-content > div.h-5, .border.h-6, .blog-related-content > div.h-6, .border.h-7, .blog-related-content > div.h-7, .border.h-8, .blog-related-content > div.h-8, .border.h-9, .blog-related-content > div.h-9, .border.h-10, .blog-related-content > div.h-10, .border.h-12, .blog-related-content > div.h-12, .border.h-14, .blog-related-content > div.h-14, .border.h-16, .blog-related-content > div.h-16, .border.h-18, .blog-related-content > div.h-18, .border.h-20, .blog-related-content > div.h-20, .border.h-24, .blog-related-content > div.h-24, .border.h-28, .blog-related-content > div.h-28, .border.h-32, .blog-related-content > div.h-32, .border.h-36, .blog-related-content > div.h-36, .border.h-40, .blog-related-content > div.h-40, .border.h-48, .blog-related-content > div.h-48, .border.h-56, .blog-related-content > div.h-56, .border.h-64, .blog-related-content > div.h-64 {
+hr.border, .border.h-1, .blog-related-content > div.h-1, .blog-related-content section.h-1, .border.h-2, .blog-related-content > div.h-2, .blog-related-content section.h-2, .border.h-3, .blog-related-content > div.h-3, .blog-related-content section.h-3, .border.h-4, .blog-related-content > div.h-4, .blog-related-content section.h-4, .border.h-5, .blog-entry-short img.border, .blog-related-content > div.h-5, .blog-related-content section.h-5, .border.h-6, .blog-related-content > div.h-6, .blog-related-content section.h-6, .border.h-7, .blog-related-content > div.h-7, .blog-related-content section.h-7, .border.h-8, .blog-related-content > div.h-8, .blog-related-content section.h-8, .border.h-9, .blog-related-content > div.h-9, .blog-related-content section.h-9, .border.h-10, .blog-related-content > div.h-10, .blog-related-content section.h-10, .border.h-12, .blog-related-content > div.h-12, .blog-related-content section.h-12, .border.h-14, .blog-related-content > div.h-14, .blog-related-content section.h-14, .border.h-16, .blog-related-content > div.h-16, .blog-related-content section.h-16, .border.h-18, .blog-related-content > div.h-18, .blog-related-content section.h-18, .border.h-20, .blog-related-content > div.h-20, .blog-related-content section.h-20, .border.h-24, .blog-related-content > div.h-24, .blog-related-content section.h-24, .border.h-28, .blog-related-content > div.h-28, .blog-related-content section.h-28, .border.h-32, .blog-related-content > div.h-32, .blog-related-content section.h-32, .border.h-36, .blog-related-content > div.h-36, .blog-related-content section.h-36, .border.h-40, .blog-related-content > div.h-40, .blog-related-content section.h-40, .border.h-48, .blog-related-content > div.h-48, .blog-related-content section.h-48, .border.h-56, .blog-related-content > div.h-56, .blog-related-content section.h-56, .border.h-64, .blog-related-content > div.h-64, .blog-related-content section.h-64 {
   margin-bottom: 0;
 }
 
-hr.border, .border.h-1, .blog-related-content > div.h-1, .border.h-2, .blog-related-content > div.h-2, .border.h-3, .blog-related-content > div.h-3, .border.h-4, .blog-related-content > div.h-4, .border.h-5, .blog-entry-short img.border, .blog-related-content > div.h-5, .border.h-6, .blog-related-content > div.h-6, .border.h-7, .blog-related-content > div.h-7, .border.h-8, .blog-related-content > div.h-8, .border.h-9, .blog-related-content > div.h-9, .border.h-10, .blog-related-content > div.h-10, .border.h-12, .blog-related-content > div.h-12, .border.h-14, .blog-related-content > div.h-14, .border.h-16, .blog-related-content > div.h-16, .border.h-18, .blog-related-content > div.h-18, .border.h-20, .blog-related-content > div.h-20, .border.h-24, .blog-related-content > div.h-24, .border.h-28, .blog-related-content > div.h-28, .border.h-32, .blog-related-content > div.h-32, .border.h-36, .blog-related-content > div.h-36, .border.h-40, .blog-related-content > div.h-40, .border.h-48, .blog-related-content > div.h-48, .border.h-56, .blog-related-content > div.h-56, .border.h-64, .blog-related-content > div.h-64 {
+hr.border, .border.h-1, .blog-related-content > div.h-1, .blog-related-content section.h-1, .border.h-2, .blog-related-content > div.h-2, .blog-related-content section.h-2, .border.h-3, .blog-related-content > div.h-3, .blog-related-content section.h-3, .border.h-4, .blog-related-content > div.h-4, .blog-related-content section.h-4, .border.h-5, .blog-entry-short img.border, .blog-related-content > div.h-5, .blog-related-content section.h-5, .border.h-6, .blog-related-content > div.h-6, .blog-related-content section.h-6, .border.h-7, .blog-related-content > div.h-7, .blog-related-content section.h-7, .border.h-8, .blog-related-content > div.h-8, .blog-related-content section.h-8, .border.h-9, .blog-related-content > div.h-9, .blog-related-content section.h-9, .border.h-10, .blog-related-content > div.h-10, .blog-related-content section.h-10, .border.h-12, .blog-related-content > div.h-12, .blog-related-content section.h-12, .border.h-14, .blog-related-content > div.h-14, .blog-related-content section.h-14, .border.h-16, .blog-related-content > div.h-16, .blog-related-content section.h-16, .border.h-18, .blog-related-content > div.h-18, .blog-related-content section.h-18, .border.h-20, .blog-related-content > div.h-20, .blog-related-content section.h-20, .border.h-24, .blog-related-content > div.h-24, .blog-related-content section.h-24, .border.h-28, .blog-related-content > div.h-28, .blog-related-content section.h-28, .border.h-32, .blog-related-content > div.h-32, .blog-related-content section.h-32, .border.h-36, .blog-related-content > div.h-36, .blog-related-content section.h-36, .border.h-40, .blog-related-content > div.h-40, .blog-related-content section.h-40, .border.h-48, .blog-related-content > div.h-48, .blog-related-content section.h-48, .border.h-56, .blog-related-content > div.h-56, .blog-related-content section.h-56, .border.h-64, .blog-related-content > div.h-64, .blog-related-content section.h-64 {
   position: initial;
   top: initial;
 }
@@ -2961,7 +2961,16 @@ hr.unborder, .unborder.h-1, .unborder.h-2, .unborder.h-3, .unborder.h-4, .unbord
   text-align: center;
 }
 
-.blog-related-content > div {
+.blog-related-content header {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.blog-related-content p {
+  width: auto;
+}
+
+.blog-related-content > div, .blog-related-content section {
   padding-left: 0.421875rem;
   padding-left: calc(0.25 * var(--spacing-base, 1.6875rem));
   padding-right: 0.421875rem;

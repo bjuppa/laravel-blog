@@ -263,7 +263,16 @@
 }
 
 .blog-related-content {
-  > div {
+  header {
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  p {
+    width: auto;
+  }
+
+  > div, section {
     @extend %border !optional;
     @include space-inside;
     max-width: max-content;
