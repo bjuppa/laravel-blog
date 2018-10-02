@@ -250,6 +250,7 @@
 .blog-social-sharing {
   > * {
     @extend %mt-0 !optional;
+    text-align: center;
   }
 
   ul {

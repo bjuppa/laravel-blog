@@ -2957,6 +2957,10 @@ hr.unborder, .unborder.h-1, .unborder.h-2, .unborder.h-3, .unborder.h-4, .unbord
   max-width: none;
 }
 
+.blog-social-sharing > * {
+  text-align: center;
+}
+
 .blog-related-content > div {
   padding-left: 0.421875rem;
   padding-left: calc(0.25 * var(--spacing-base, 1.6875rem));
