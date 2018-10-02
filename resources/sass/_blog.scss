@@ -178,6 +178,13 @@
   }
 }
 
+.blog-latest-entries {
+  header {
+    text-align: center;
+    text-transform: uppercase;
+  }
+}
+
 .blog-latest-entries-links {
   @extend .list-unstyled !optional;
 
