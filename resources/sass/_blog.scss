@@ -109,6 +109,10 @@
   p {
     @include width-readable;
   }
+
+  header small {
+    @extend %unimposing;
+  }
 }
 
 .blog-entry-list {
@@ -252,10 +256,6 @@
 }
 
 .blog-related-content {
-  header small {
-    @extend %unimposing;
-  }
-
   > div {
     @extend %border !optional;
     @include space-inside;
