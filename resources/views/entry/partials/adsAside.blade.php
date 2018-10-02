@@ -3,7 +3,7 @@
     <header>
       <small>{{ __($blog->transKey('titles.ads')) }}</small>
     </header>
-    <section style="font-family: Verdana,Geneva,sans-serif;">
+    <section style="font-family: Arial Narrow,sans-serif;">
       This blog is powered by<br>
       <a href="https://packagist.org/packages/bjuppa/laravel-blog" target="_blank" rel="noopener"><code>bjuppa/laravel-blog</code></a><br>
       created by Björn Nilsved
