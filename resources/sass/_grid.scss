@@ -75,6 +75,10 @@
         @include length-relative(margin-top margin-bottom, 1/2);
       }
 
+      > .children\:boxed {
+        @include padding-relative(left right, 0);
+      }
+
       @mixin bleed-reset {
         /* bleed-reset */
         width: 100%;

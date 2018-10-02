@@ -267,6 +267,7 @@
     text-transform: uppercase;
     @include display-block;
     @extend .unborder;
+    width: 100%;
   }
 
   p {
@@ -277,9 +278,19 @@
 .children\:boxed {
   text-align: center;
 
+  display: flex;
+  flex-wrap: wrap;
+  flex: 0;
+  justify-content: center;
+
   > * {
     @include border-for-auto-height;
     @include display-inline-block($vertical-align: middle);
     @include space-inside;
+    @include margin-relative(left right, 1/4);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 }
