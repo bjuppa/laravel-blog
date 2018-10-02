@@ -263,18 +263,11 @@
 }
 
 .blog-related-content {
-  text-align: center;
-
   header {
     text-transform: uppercase;
-  }
-
-  > * {
-    max-width: max-content;
-  }
-
-  > div, section {
-    @include display-inline-block($vertical-align: middle);
+    @include display-block;
+    max-width: none;
+    @extend .unborder;
   }
 
   p {
@@ -282,8 +275,13 @@
   }
 }
 
-.siblings\:border ~ * {
-  @include border-for-auto-height;
-}
+.children\:boxed {
+  text-align: center;
 
-@include extend-for-siblings(space-inside);
+  > * {
+    max-width: max-content;
+    @include border-for-auto-height;
+    @include display-inline-block($vertical-align: middle);
+    @extend .space-inside;
+  }
+}
