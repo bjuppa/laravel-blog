@@ -263,9 +263,34 @@
 }
 
 .blog-related-content {
-  > div {
-    @extend %border !optional;
+  header {
+    text-transform: uppercase;
+    @include display-block;
+    @extend .unborder;
+    width: 100%;
+  }
+
+  p {
+    width: auto;
+  }
+}
+
+.children\:boxed {
+  text-align: center;
+
+  display: flex;
+  flex-wrap: wrap;
+  flex: 0;
+  justify-content: center;
+
+  > * {
+    @include border-for-auto-height;
+    @include display-inline-block($vertical-align: middle);
     @include space-inside;
-    max-width: max-content;
+    @include margin-relative(left right, 1/4);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 }
