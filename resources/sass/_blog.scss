@@ -268,13 +268,13 @@
     text-transform: uppercase;
   }
 
-  p {
-    width: auto;
-  }
-
   > div, section {
     @extend %border !optional;
     @include space-inside;
     max-width: max-content;
+  }
+
+  p {
+    width: auto;
   }
 }

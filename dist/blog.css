@@ -2966,10 +2966,6 @@ hr.unborder, .unborder.h-1, .unborder.h-2, .unborder.h-3, .unborder.h-4, .unbord
   text-transform: uppercase;
 }
 
-.blog-related-content p {
-  width: auto;
-}
-
 .blog-related-content > div, .blog-related-content section {
   padding-left: 0.421875rem;
   padding-left: calc(0.25 * var(--spacing-base, 1.6875rem));
@@ -2978,6 +2974,10 @@ hr.unborder, .unborder.h-1, .unborder.h-2, .unborder.h-3, .unborder.h-4, .unbord
   max-width: -webkit-max-content;
   max-width: -moz-max-content;
   max-width: max-content;
+}
+
+.blog-related-content p {
+  width: auto;
 }
 
 @media (min-width: 1080px) {
