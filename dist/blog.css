@@ -252,7 +252,7 @@ h1 {
 /* %text-6 */
 /* %text-6-block */
 /* %text-small */
-small, .blog-social-sharing h2 {
+small {
   font-size: 0.83333333em;
   line-height: 0;
 }
@@ -285,7 +285,7 @@ h6 {
 
 /* %text-inline */
 abbr, acronym, b, bdo, big, br, cite, code, dfn, em, i, kbd, label, map, q, samp, small, span, strong, sub, sup, time, tt, var, p a, ::before,
-::after, .blog-social-sharing h2 {
+::after {
   display: inline;
   line-height: 0;
   vertical-align: baseline;
@@ -809,7 +809,7 @@ p + * {
 /* %mx-32 */
 /* %mt-0 */
 dt + *, li + *, hgroup + *,
-h1 + *, h2 + *, h3 + *, h4 + *, h5 + *, h6 + *, abbr, acronym, b, bdo, big, br, cite, code, dfn, em, i, kbd, label, map, q, samp, small, span, strong, sub, sup, time, tt, var, a, del, ins, button, input, object, select, textarea, p img, dl > *, figure *, picture *, object *, select *, table *, audio *, video *, map *, fieldset > legend + *, .blog-entry-short > * {
+h1 + *, h2 + *, h3 + *, h4 + *, h5 + *, h6 + *, abbr, acronym, b, bdo, big, br, cite, code, dfn, em, i, kbd, label, map, q, samp, small, span, strong, sub, sup, time, tt, var, a, del, ins, button, input, object, select, textarea, p img, dl > *, figure *, picture *, object *, select *, table *, audio *, video *, map *, fieldset > legend + *, .blog-entry-short > *, .blog-social-sharing > * {
   /* Reset vertical spacing */
   margin-top: 0;
 }
@@ -1785,7 +1785,7 @@ legend {
   color: var(--color-gray-800-text, #eaebeb);
 }
 
-.color-gray-700, .links-color-gray-700 :link, .links-color-gray-700 :visited, .links-color-gray-700:link, .links-color-gray-700:visited, .blog-entry-short .blog-read-more-link small, .blog-entry-nav [rel] small, .blog header small, .blog-entry-short .blog-entry-footer, .blog-entry-publication-info, .blog-social-sharing h2 {
+.color-gray-700, .links-color-gray-700 :link, .links-color-gray-700 :visited, .links-color-gray-700:link, .links-color-gray-700:visited, .blog-entry-short .blog-read-more-link small, .blog-entry-nav [rel] small, .blog header small, .blog-entry-short .blog-entry-footer, .blog-entry-publication-info {
   color: #4b4e4d;
   color: var(--color-gray-700, #4b4e4d);
 }

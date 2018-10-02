@@ -22,7 +22,9 @@
       ];
     });
   ?>
-  <h2>{{ trans($blog->transKey('sharing.section_heading')) }}</h2>
+  <header>
+    <small>{{ trans($blog->transKey('sharing.section_heading')) }}</small>
+  </header>
   <ul aria-label="{{ trans($blog->transKey('sharing.link_list_title')) }}">
     @foreach($sharing_services as $sharing_service)
       @includeFirst($blog->bladeViews('blog.partials.socialSharingListItem'), $sharing_service)

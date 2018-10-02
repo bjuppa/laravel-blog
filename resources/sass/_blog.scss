@@ -248,9 +248,8 @@
 }
 
 .blog-social-sharing {
-  h2 {
-    @extend %text-small !optional;
-    @extend %unimposing;
+  > * {
+    @extend %mt-0 !optional;
   }
 
   ul {
