@@ -9,8 +9,14 @@
       created by Björn Nilsved
     </section>
     <section>
-      <p>Oppose fascism, support democracy!</p>
-      <p>Vote if you're allowed to where you live; and vote carefully!</p>
+      <p>
+        Oppose fascism,<br>
+        support democracy!
+      </p>
+      <p>
+        Vote if you're allowed to where you live;<br>
+        and vote carefully!
+      </p>
     </section>
   </aside>
 @show
