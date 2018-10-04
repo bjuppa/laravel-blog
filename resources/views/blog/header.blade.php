@@ -5,7 +5,7 @@
 ?>
 <header class="blog-index-header">
   @section('blogHeader')
-    <h1 class="blog-title">{{ $blog->getTitle() }}</h1>
+    <h1 class="blog-title" itemprop="name">{{ $blog->getTitle() }}</h1>
     @includeFirst($blog->bladeViews('blog.intro'))
   @show
 </header>

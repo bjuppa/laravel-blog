@@ -8,9 +8,9 @@
   @section('blogEntryFooter')
     <div lang="en" class="blog-entry-publication-info">
       Published
-      <time datetime="{{ $entry->getPublished()->toAtomString() }}">{{ $entry->getPublished()->diffForHumans() }}</time>
+      <time datetime="{{ $entry->getPublished()->toAtomString() }}" itemprop="datePublished">{{ $entry->getPublished()->diffForHumans() }}</time>
       in
-      <a href="{{ $blog->urlToIndex() }}" rel="index">{{ $blog->getTitle() }}</a>
+      <a href="{{ $blog->urlToIndex() }}" rel="index" itemprop="isPartOf" itemscope itemtype="http://schema.org/Blog">{{ $blog->getTitle() }}</a>
       by
       @includeFirst($blog->bladeViews('entry.partials.authors', $entry), ['authors' => $entry->getAuthors()->isEmpty() ? $blog->getAuthors() : $entry->getAuthors()])
     </div>

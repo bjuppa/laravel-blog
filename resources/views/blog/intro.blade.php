@@ -1,3 +1,3 @@
 @if($blog->getDescription())
-  <p class="blog-description">{{ $blog->getDescription() }}</p>
+  <p class="blog-description" itemprop="description">{{ $blog->getDescription() }}</p>
 @endif
