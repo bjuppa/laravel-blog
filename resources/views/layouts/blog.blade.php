@@ -6,7 +6,7 @@
 @extends($blog->bladeView('layouts.html'))
 
 @section('body')
-  <main class="blog">
+  <main class="blog" itemscope itemtype="http://schema.org/Blog">
     @yield('blog')
   </main>
 @endsection
