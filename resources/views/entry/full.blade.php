@@ -3,7 +3,7 @@
  * @var $entry \Bjuppa\LaravelBlog\Contracts\BlogEntry
  */
 ?>
-<article class="blog-entry" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+<article class="blog-entry" itemprop="blogPost mainEntity" itemscope itemtype="http://schema.org/BlogPosting">
   @includeFirst($blog->bladeViews('entry.partials.header', $entry))
   @includeFirst($blog->bladeViews('entry.partials.footer', $entry))
   @includeFirst($blog->bladeViews('entry.partials.content', $entry))
