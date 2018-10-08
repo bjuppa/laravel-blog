@@ -77,6 +77,20 @@ You need at least **Laravel 5.6.8** to use this package.
 
     ...then edit `config/blog.php` and add `'css/blog.css'` to the `stylesheets` config.
 
+## View templates
+
+The package keeps all its Blade views in [`resources/views`](https://github.com/bjuppa/laravel-blog/tree/master/resources/views)
+and running this command will publish all of them into `resources/views/vendor/blog` of your app so you can edit them:
+
+```bash
+php artisan vendor:publish --provider="Bjuppa\LaravelBlog\BlogServiceProvider" --tag="blog-views"
+```
+
+...however you may only need to change a few bits in just some views,
+so I'd recommend you to only commit the ones you actually change to version control,
+and remove the rest of the published view files that you have not changed.
+Blade will fall back to using the package's views for any file not found in the `vendor` view directory.
+
 ## Background
 
 When looking for ways to add a simple blog to an existing Laravel app I found
