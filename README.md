@@ -63,13 +63,13 @@ You need at least **Laravel 5.6.8** to use this package.
     php artisan migrate
     ```
 
-5. If you want to create a default blog entry in the database you can run the seeder:
+5. (optional) If you want to create a default blog entry in the database you can run the seeder:
 
     ```bash
     php artisan db:seed --class="Bjuppa\LaravelBlog\Database\Seeds\DefaultBlogEntrySeeder"
     ```
 
-6. If you want to use the included styling, first publish the CSS to your public directory:
+6. (optional) If you want to use the included styling, first publish the CSS to your public directory:
 
     ```bash
     php artisan vendor:publish --provider="Bjuppa\LaravelBlog\BlogServiceProvider" --tag="blog-styling"
