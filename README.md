@@ -101,6 +101,3 @@ and hopefully provide something useful for other developers.
 - Flexible and replaceable default views
 - Named routes for easy linking from the rest of the Laravel app
 - Optional admin panel, so you can write or use your own admin pages if you already have one
-
-PS: I don't yet have a blog where I can write about development (duh) so
-**stay tuned for the first release!**
