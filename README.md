@@ -88,7 +88,7 @@ php artisan vendor:publish --provider="Bjuppa\LaravelBlog\BlogServiceProvider" -
 
 ...however you probably only need to change a few bits in just some views.
 I'd recommend you to only commit the ones you actually change to version control,
-and remove the rest of the published view files that you have not changed.
+and remove the rest of the published view files that you have not changed from your app.
 Blade will fall back to using the package's views for any file not found in the `vendor` view directory.
 
 ## Background
