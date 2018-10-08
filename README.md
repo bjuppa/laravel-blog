@@ -86,8 +86,8 @@ and running this command will publish all of them into `resources/views/vendor/b
 php artisan vendor:publish --provider="Bjuppa\LaravelBlog\BlogServiceProvider" --tag="blog-views"
 ```
 
-...however you may only need to change a few bits in just some views,
-so I'd recommend you to only commit the ones you actually change to version control,
+...however you probably only need to change a few bits in just some views.
+I'd recommend you to only commit the ones you actually change to version control,
 and remove the rest of the published view files that you have not changed.
 Blade will fall back to using the package's views for any file not found in the `vendor` view directory.
 
