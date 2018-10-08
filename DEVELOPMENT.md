@@ -11,6 +11,9 @@ copy the file `phpunit.xml.dist` to `phpunit.xml` and modify the latter to your 
 - `composer show -D -o` can be used to check how far behind latest version the currently installed dependencies are.
 - `composer update` will install the latest versions of dependencies.
 
+[Travis CI](https://travis-ci.org/bjuppa/laravel-blog) is set up to run tests on multiple versions of PHP and Laravel
+whenever a git push or a PR is made.
+
 Running `composer clearCompiledViews` will delete the contents of
 `vendor/orchestra/testbench-core/laravel/storage/framework/views/`
 and this is automatically triggered when composer updates dependencies.
