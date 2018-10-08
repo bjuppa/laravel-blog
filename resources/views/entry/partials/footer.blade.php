@@ -6,7 +6,7 @@
 ?>
 <footer class="blog-entry-footer">
   @section('blogEntryFooter')
-    <div lang="en" class="blog-entry-publication-info">
+    <div lang="en" dir="ltr" class="blog-entry-publication-info">
       Published
       <time datetime="{{ $entry->getPublished()->toAtomString() }}" itemprop="datePublished">{{ $entry->getPublished()->diffForHumans() }}</time>
       in
