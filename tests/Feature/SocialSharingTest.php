@@ -37,7 +37,7 @@ class SocialSharingTest extends IntegrationTest
     {
         $response = $this->get('blog/the-first-post');
 
-        $response->assertSee('<h2>Share this page</h2>');
+        $response->assertSee('>Share this page<');
         $response->assertSee('<ul aria-label="Links for sharing this page">');
     }
 
