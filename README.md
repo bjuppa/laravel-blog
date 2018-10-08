@@ -4,6 +4,26 @@ This package will become a flexible blogging solution that you can add to your L
 
 **This package does not yet have a stable release** - Please don't use it in production!
 
+This package's job is to take blog entries from *storage* and publish them to
+[the Web](https://en.wikipedia.org/wiki/World_Wide_Web)
+in common formats for consumption by people and machines through URLs.
+
+Each blog gets:
+
+- An index page listing the latest entries
+- A page for each blog entry displaying its full contents
+- An [Atom feed](https://en.wikipedia.org/wiki/Atom_(standard))
+
+## Admin interface
+
+This package *does not* provide any admin interface for editing blog entries.
+There are plans for a (near) future release of a separate package
+that can optionally be installed to provide admin routes for editing blog contents.
+
+For now, you'll need to create the mechanism to edit blog entries yourself.
+Entries are represented by [Eloquent models](https://laravel.com/docs/eloquent) by default,
+so shouldn't be too hard for Laravel developers.
+
 ## Background
 
 When looking for ways to add a simple blog to an existing Laravel app I found
