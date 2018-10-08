@@ -91,6 +91,18 @@ I'd recommend you to only commit the ones you actually change to version control
 and remove the rest of the published view files that you have not changed from your app.
 Blade will fall back to using the package's views for any file not found in the `vendor` view directory.
 
+## Localization
+
+This package contains English translation strings that can be published to your app using this command:
+
+```bash
+php artisan vendor:publish --provider="Bjuppa\LaravelBlog\BlogServiceProvider" --tag="blog-translations"
+```
+
+If you're not adding translations for a new language, you probably don't need all the files and not even all the strings within a file.
+Consider overriding just the ones you want, as explained in the
+[Laravel documentation](https://laravel.com/docs/localization#overriding-package-language-files).
+
 ## Background
 
 When looking for ways to add a simple blog to an existing Laravel app I found
