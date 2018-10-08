@@ -104,6 +104,28 @@ you probably don't need all the files and not even all the strings within a file
 Consider overriding just the ones you want, as explained in the
 [Laravel documentation](https://laravel.com/docs/localization#overriding-package-language-files).
 
+## Styling the frontend
+
+The included CSS file is built using [Kingdom CSS](https://bjuppa.github.io/kingdom/),
+which is yet another CSS framework, created by... yours truly.
+
+The default styling is meant to add some consistent styling to the standard HTML elements,
+so a blog using it will not look "designed", although it has some opinionated layout and spacing
+(especially on a larger screen).
+You could say it has a ["brutalist"](https://brutalist-web.design) approach,
+it even uses browsers' default fonts.
+
+You probably want to create your own styles to apply your personal touch or branding.
+The `stylesheets` config in your `config/blog.php` is where you can include any CSS files you want into your blog.
+
+You can add a list of files so you can combine this package's CSS file with an additional
+CSS file containing your own styles.
+Or you can use [Laravel Mix](https://laravel.com/docs/mix) to combine them into a single file.
+
+If you're feeling adventurous, pull in the [Kingdom `npm` package](https://www.npmjs.com/package/kingdom-css)
+and use it in your build.
+You may draw inspiration from, or even include, [the SASS files from this package](https://github.com/bjuppa/laravel-blog/tree/master/resources/sass).
+
 ## Background
 
 When looking for ways to add a simple blog to an existing Laravel app I found
