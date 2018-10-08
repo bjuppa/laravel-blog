@@ -99,7 +99,8 @@ This package contains English translation strings that can be published to your 
 php artisan vendor:publish --provider="Bjuppa\LaravelBlog\BlogServiceProvider" --tag="blog-translations"
 ```
 
-If you're not adding translations for a new language, you probably don't need all the files and not even all the strings within a file.
+If you're not adding translations for a new language,
+you probably don't need all the files and not even all the strings within a file.
 Consider overriding just the ones you want, as explained in the
 [Laravel documentation](https://laravel.com/docs/localization#overriding-package-language-files).
 
