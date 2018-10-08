@@ -133,7 +133,18 @@ Some classes are useful on elements that are on the first level within entry con
   If your related content needs to cover more than one row in the second column,
   you can add utility classes `.grid-row-span-2`, `.grid-row-span-3`, etc (from Kingdom).
 
-The included CSS contains many of Kingdom's utility classes, unfortunately they're too many to document here.
+The included CSS contains many of Kingdom's utility classes, unfortunately they're too many to document here,
+please refer to the original SASS files:
+
+- [`_colors.scss`](https://github.com/bjuppa/kingdom/blob/master/src/utilities/_colors.scss)
+- [`_borders.scss`](https://github.com/bjuppa/kingdom/blob/master/src/utilities/_borders.scss)
+- [`_sizing.scss`](https://github.com/bjuppa/kingdom/blob/master/src/utilities/_sizing.scss)
+- [`_spacing.scss`](https://github.com/bjuppa/kingdom/blob/master/src/utilities/_spacing.scss)
+- [`layout/_lists.scss`](https://github.com/bjuppa/kingdom/blob/master/src/utilities/layout/_lists.scss)
+- [`layout/_screenreaders.scss`](https://github.com/bjuppa/kingdom/blob/master/src/utilities/layout/_screenreaders.scss)
+- [`layout/_floats.scss`](https://github.com/bjuppa/kingdom/blob/master/src/utilities/layout/_floats.scss)
+- [`layout/_grid.scss`](https://github.com/bjuppa/kingdom/blob/master/src/utilities/layout/_grid.scss)
+- [`text/_whitespace-wrapping.scss`](https://github.com/bjuppa/kingdom/blob/master/src/utilities/text/_whitespace-wrapping.scss)
 
 ### Creating your own styles
 
