@@ -213,39 +213,45 @@
   @extend .list-comma-separated !optional;
 }
 
-.blog-entry-nav {
+.blog-entry-nav ul {
+  @extend .list-unstyled !optional;
+
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
   @extend .clearfix-unless-flex !optional;
 
   > * {
-    max-width: 66%;
+    width: 50%;
+
+    @supports (display: flex) {
+      width: auto;
+      max-width: 66%;
+    }
   }
 
-  [rel] {
+  a {
     @extend %block-link;
   }
 
   @include for-ltr {
-    > [rel=next]:first-child {
+    > .blog-next-entry {
       float: right;
     }
-    > [rel=prev]:last-child {
+    > .blog-previous-entry {
       float: left;
     }
   }
   @include for-rtl {
-    > [rel=next]:first-child {
+    > .blog-next-entry {
       float: left;
     }
-    > [rel=prev]:last-child {
+    > .blog-previous-entry {
       float: right;
     }
   }
 
-  > [rel=prev]:only-child {
-    float: none;
+  > :only-child {
     flex-grow: 1;
     max-width: none;
   }
