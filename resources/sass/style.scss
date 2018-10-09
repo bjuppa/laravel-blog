@@ -2,6 +2,8 @@
 // npm install kingdom-css
 
 $colors: (primary: #2A7F62) !default;
+@import "~kingdom-css/src/modules/colors";
+@include register-color(background, scale_color(get-color(primary), $lightness: 0%, $saturation: -50%));
 
 @import "~kingdom-css/src/L3-rhythm";
 @import "~kingdom-css/src/utilities/colors";
