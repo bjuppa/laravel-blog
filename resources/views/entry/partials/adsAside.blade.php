@@ -14,7 +14,7 @@
         support democracy!
       </p>
       <p>
-        Vote if you're allowed to;<br>
+        Vote if you’re allowed to;<br>
         and please vote carefully!
       </p>
     </section>
