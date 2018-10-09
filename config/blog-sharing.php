@@ -6,7 +6,7 @@ return [
         'Facebook' => true,
         'LinkedIn' => true,
         'Twitter' => true,
-        'Google+' => true,
+        'Google+' => false,
         'Tumblr' => true,
         'Reddit' => true,
         'Digg' => true,
