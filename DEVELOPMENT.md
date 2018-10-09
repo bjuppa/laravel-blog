@@ -7,18 +7,18 @@ Logs created during test runs can be found in `vendor/orchestra/testbench-core/l
 If you want your own local configuration for phpunit,
 copy the file `phpunit.xml.dist` to `phpunit.xml` and modify the latter to your needs.
 
-## Testing on different versions
+## Dependency version testing
 
 - `composer update --prefer-lowest` can be used before running tests for testing backwards compatibility.
 - `composer show -D -o` can be used to check how far behind latest version the currently installed dependencies are.
 - `composer update` will install the latest versions of dependencies.
 
-## CI
+## Continuous integration
 
 [Travis CI](https://travis-ci.org/bjuppa/laravel-blog) is set up to run tests on multiple versions of PHP and Laravel
 whenever a git push or a PR is made.
 
-## Clear compiled views
+## Compiled views
 
 Running `composer clearCompiledViews` will delete the contents of
 `vendor/orchestra/testbench-core/laravel/storage/framework/views/`
