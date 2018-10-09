@@ -26,21 +26,21 @@ html {
 address, article, aside, blockquote, canvas, dd, details, div, dl, dt, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, hr, main, menu, nav, ol, output, p, pre, section, ul, video {
   display: block;
   border: 0 solid;
-  border-color: #3f6a5b;
-  border-color: var(--color-border, #3f6a5b);
+  border-color: #44665a;
+  border-color: var(--color-border, #44665a);
 }
 
 img, object, li {
   border: 0 solid;
-  border-color: #3f6a5b;
-  border-color: var(--color-border, #3f6a5b);
+  border-color: #44665a;
+  border-color: var(--color-border, #44665a);
 }
 
 ::before,
 ::after {
   border: 0 solid;
-  border-color: #3f6a5b;
-  border-color: var(--color-border, #3f6a5b);
+  border-color: #44665a;
+  border-color: var(--color-border, #44665a);
 }
 
 hr {
@@ -179,8 +179,8 @@ button:focus, [type='button']:focus, [type='reset']:focus, [type='submit']:focus
 
 table, caption, colgroup, col, thead, tbody, tfoot, tr, th, td {
   border: 0 solid;
-  border-color: #3f6a5b;
-  border-color: var(--color-border, #3f6a5b);
+  border-color: #44665a;
+  border-color: var(--color-border, #44665a);
   padding: 0;
   border-collapse: collapse;
 }
@@ -1885,11 +1885,11 @@ hr {
   background-position: center;
 }
 
-@supports (background-image: linear-gradient(#3f6a5b, #3f6a5b)) {
+@supports (background-image: linear-gradient(#44665a, #44665a)) {
   hr {
     border: 0;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#3f6a5b), to(#3f6a5b));
-    background-image: linear-gradient(#3f6a5b, #3f6a5b);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#44665a), to(#44665a));
+    background-image: linear-gradient(#44665a, #44665a);
   }
 }
 
@@ -2028,10 +2028,10 @@ legend {
 :root {
   --color-primary: #2A7F62;
   --color-primary-text: #eaf2ef;
-  --color-background: #3f6a5b;
-  --color-background-text: #ecf0ef;
-  --color-border: #3f6a5b;
-  --color-border-text: #ecf0ef;
+  --color-background: #44665a;
+  --color-background-text: #ecf0ee;
+  --color-border: #44665a;
+  --color-border-text: #ecf0ee;
   --color-body: #fdfdfe;
   --color-body-text: #0d0c0d;
   --color-link: #1b0686;
@@ -2089,47 +2089,47 @@ legend {
 }
 
 .color-background, .links-color-background :link, .links-color-background :visited, .links-color-background:link, .links-color-background:visited {
-  color: #3f6a5b;
-  color: var(--color-background, #3f6a5b);
+  color: #44665a;
+  color: var(--color-background, #44665a);
 }
 
 .border-color-background {
-  border-color: #3f6a5b;
-  border-color: var(--color-background, #3f6a5b);
+  border-color: #44665a;
+  border-color: var(--color-background, #44665a);
 }
 
 .border-color-background-text {
-  border-color: #ecf0ef;
-  border-color: var(--color-background-text, #ecf0ef);
+  border-color: #ecf0ee;
+  border-color: var(--color-background-text, #ecf0ee);
 }
 
 .background-color-background, .blog {
-  background-color: #3f6a5b;
-  background-color: var(--color-background, #3f6a5b);
-  color: #ecf0ef;
-  color: var(--color-background-text, #ecf0ef);
+  background-color: #44665a;
+  background-color: var(--color-background, #44665a);
+  color: #ecf0ee;
+  color: var(--color-background-text, #ecf0ee);
 }
 
 .color-border, .links-color-border :link, .links-color-border :visited, .links-color-border:link, .links-color-border:visited {
-  color: #3f6a5b;
-  color: var(--color-border, #3f6a5b);
+  color: #44665a;
+  color: var(--color-border, #44665a);
 }
 
 .border-color-border {
-  border-color: #3f6a5b;
-  border-color: var(--color-border, #3f6a5b);
+  border-color: #44665a;
+  border-color: var(--color-border, #44665a);
 }
 
 .border-color-border-text {
-  border-color: #ecf0ef;
-  border-color: var(--color-border-text, #ecf0ef);
+  border-color: #ecf0ee;
+  border-color: var(--color-border-text, #ecf0ee);
 }
 
 .background-color-border {
-  background-color: #3f6a5b;
-  background-color: var(--color-border, #3f6a5b);
-  color: #ecf0ef;
-  color: var(--color-border-text, #ecf0ef);
+  background-color: #44665a;
+  background-color: var(--color-border, #44665a);
+  color: #ecf0ee;
+  color: var(--color-border-text, #ecf0ee);
 }
 
 .color-body, .links-color-body :link, .links-color-body :visited, .links-color-body:link, .links-color-body:visited {
