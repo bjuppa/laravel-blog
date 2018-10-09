@@ -196,6 +196,10 @@
 .blog-entry-header {
   @extend %text-3-block;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
   p {
     width: auto;
   }
