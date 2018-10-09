@@ -15,7 +15,7 @@
       </p>
       <p>
         Vote if you're allowed to;<br>
-        and vote carefully!
+        and please vote carefully!
       </p>
     </section>
   </aside>
