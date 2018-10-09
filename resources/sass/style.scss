@@ -7,6 +7,9 @@
 @include register-color(border, get-color(background));
 
 @import "~kingdom-css/src/L3-rhythm";
+@import "blog";
+@import "grid";
+
 @import "~kingdom-css/src/utilities/colors";
 @import "~kingdom-css/src/utilities/borders";
 @import "~kingdom-css/src/utilities/sizing";
@@ -16,6 +19,3 @@
 @import "~kingdom-css/src/utilities/layout/floats";
 @import "~kingdom-css/src/utilities/layout/grid";
 @import "~kingdom-css/src/utilities/text/whitespace-wrapping";
-
-@import "blog";
-@import "grid";
