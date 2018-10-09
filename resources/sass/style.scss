@@ -1,9 +1,10 @@
 // CSS is built using https://bjuppa.github.io/kingdom/
 // npm install kingdom-css
 
-$colors: (primary: #2A7F62) !default;
 @import "~kingdom-css/src/modules/colors";
+@include register-color(primary, #2A7F62);
 @include register-color(background, scale_color(get-color(primary), $lightness: 0%, $saturation: -50%));
+@include register-color(border, get-color(background));
 
 @import "~kingdom-css/src/L3-rhythm";
 @import "~kingdom-css/src/utilities/colors";

@@ -26,21 +26,21 @@ html {
 address, article, aside, blockquote, canvas, dd, details, div, dl, dt, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, hr, main, menu, nav, ol, output, p, pre, section, ul, video {
   display: block;
   border: 0 solid;
-  border-color: currentColor;
-  border-color: var(--color-border, currentColor);
+  border-color: #3f6a5b;
+  border-color: var(--color-border, #3f6a5b);
 }
 
 img, object, li {
   border: 0 solid;
-  border-color: currentColor;
-  border-color: var(--color-border, currentColor);
+  border-color: #3f6a5b;
+  border-color: var(--color-border, #3f6a5b);
 }
 
 ::before,
 ::after {
   border: 0 solid;
-  border-color: currentColor;
-  border-color: var(--color-border, currentColor);
+  border-color: #3f6a5b;
+  border-color: var(--color-border, #3f6a5b);
 }
 
 hr {
@@ -179,8 +179,8 @@ button:focus, [type='button']:focus, [type='reset']:focus, [type='submit']:focus
 
 table, caption, colgroup, col, thead, tbody, tfoot, tr, th, td {
   border: 0 solid;
-  border-color: currentColor;
-  border-color: var(--color-border, currentColor);
+  border-color: #3f6a5b;
+  border-color: var(--color-border, #3f6a5b);
   padding: 0;
   border-collapse: collapse;
 }
@@ -1885,11 +1885,11 @@ hr {
   background-position: center;
 }
 
-@supports (background-image: linear-gradient(currentColor, currentColor)) {
+@supports (background-image: linear-gradient(#3f6a5b, #3f6a5b)) {
   hr {
     border: 0;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor));
-    background-image: linear-gradient(currentColor, currentColor);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#3f6a5b), to(#3f6a5b));
+    background-image: linear-gradient(#3f6a5b, #3f6a5b);
   }
 }
 
@@ -2030,11 +2030,12 @@ legend {
   --color-primary-text: #eaf2ef;
   --color-background: #3f6a5b;
   --color-background-text: #ecf0ef;
+  --color-border: #3f6a5b;
+  --color-border-text: #ecf0ef;
   --color-body: #fdfdfe;
   --color-body-text: #0d0c0d;
   --color-link: #1b0686;
   --color-visited: #7b0686;
-  --color-border: currentColor;
   --color-caution: #a33c29;
   --color-caution-text: #f4edeb;
   --color-disabled: rgba(230, 229, 230, 0.75);
@@ -2061,7 +2062,7 @@ legend {
   --color-gray-100-text: #0b0c0c;
 }
 
-.links-color-currentColor :link, .background-color-primary :link, .background-color-background :link, .blog :link, .background-color-caution :link, .background-color-disabled :link, .background-color-shadow :link, .background-color-gray-900 :link, .background-color-gray-800 :link, .background-color-gray-700 :link, .background-color-gray-600 :link, .background-color-gray-500 :link, .background-color-gray-400 :link, .background-color-gray-300 :link, .background-color-gray-200 :link, .background-color-gray-100 :link, .links-color-currentColor :visited, .background-color-primary :visited, .background-color-background :visited, .blog :visited, .background-color-caution :visited, .background-color-disabled :visited, .background-color-shadow :visited, .background-color-gray-900 :visited, .background-color-gray-800 :visited, .background-color-gray-700 :visited, .background-color-gray-600 :visited, .background-color-gray-500 :visited, .background-color-gray-400 :visited, .background-color-gray-300 :visited, .background-color-gray-200 :visited, .background-color-gray-100 :visited, .links-color-currentColor:link, .background-color-primary:link, .background-color-background:link, .blog:link, .background-color-caution:link, .background-color-disabled:link, .background-color-shadow:link, .background-color-gray-900:link, .background-color-gray-800:link, .background-color-gray-700:link, .background-color-gray-600:link, .background-color-gray-500:link, .background-color-gray-400:link, .background-color-gray-300:link, .background-color-gray-200:link, .background-color-gray-100:link, .links-color-currentColor:visited, .background-color-primary:visited, .background-color-background:visited, .blog:visited, .background-color-caution:visited, .background-color-disabled:visited, .background-color-shadow:visited, .background-color-gray-900:visited, .background-color-gray-800:visited, .background-color-gray-700:visited, .background-color-gray-600:visited, .background-color-gray-500:visited, .background-color-gray-400:visited, .background-color-gray-300:visited, .background-color-gray-200:visited, .background-color-gray-100:visited {
+.links-color-currentColor :link, .background-color-primary :link, .background-color-background :link, .blog :link, .background-color-border :link, .background-color-caution :link, .background-color-disabled :link, .background-color-shadow :link, .background-color-gray-900 :link, .background-color-gray-800 :link, .background-color-gray-700 :link, .background-color-gray-600 :link, .background-color-gray-500 :link, .background-color-gray-400 :link, .background-color-gray-300 :link, .background-color-gray-200 :link, .background-color-gray-100 :link, .links-color-currentColor :visited, .background-color-primary :visited, .background-color-background :visited, .blog :visited, .background-color-border :visited, .background-color-caution :visited, .background-color-disabled :visited, .background-color-shadow :visited, .background-color-gray-900 :visited, .background-color-gray-800 :visited, .background-color-gray-700 :visited, .background-color-gray-600 :visited, .background-color-gray-500 :visited, .background-color-gray-400 :visited, .background-color-gray-300 :visited, .background-color-gray-200 :visited, .background-color-gray-100 :visited, .links-color-currentColor:link, .background-color-primary:link, .background-color-background:link, .blog:link, .background-color-border:link, .background-color-caution:link, .background-color-disabled:link, .background-color-shadow:link, .background-color-gray-900:link, .background-color-gray-800:link, .background-color-gray-700:link, .background-color-gray-600:link, .background-color-gray-500:link, .background-color-gray-400:link, .background-color-gray-300:link, .background-color-gray-200:link, .background-color-gray-100:link, .links-color-currentColor:visited, .background-color-primary:visited, .background-color-background:visited, .blog:visited, .background-color-border:visited, .background-color-caution:visited, .background-color-disabled:visited, .background-color-shadow:visited, .background-color-gray-900:visited, .background-color-gray-800:visited, .background-color-gray-700:visited, .background-color-gray-600:visited, .background-color-gray-500:visited, .background-color-gray-400:visited, .background-color-gray-300:visited, .background-color-gray-200:visited, .background-color-gray-100:visited {
   color: currentColor;
 }
 
@@ -2109,6 +2110,28 @@ legend {
   color: var(--color-background-text, #ecf0ef);
 }
 
+.color-border, .links-color-border :link, .links-color-border :visited, .links-color-border:link, .links-color-border:visited {
+  color: #3f6a5b;
+  color: var(--color-border, #3f6a5b);
+}
+
+.border-color-border {
+  border-color: #3f6a5b;
+  border-color: var(--color-border, #3f6a5b);
+}
+
+.border-color-border-text {
+  border-color: #ecf0ef;
+  border-color: var(--color-border-text, #ecf0ef);
+}
+
+.background-color-border {
+  background-color: #3f6a5b;
+  background-color: var(--color-border, #3f6a5b);
+  color: #ecf0ef;
+  color: var(--color-border-text, #ecf0ef);
+}
+
 .color-body, .links-color-body :link, .links-color-body :visited, .links-color-body:link, .links-color-body:visited {
   color: #fdfdfe;
   color: var(--color-body, #fdfdfe);
@@ -2149,16 +2172,6 @@ legend {
 .border-color-visited {
   border-color: #7b0686;
   border-color: var(--color-visited, #7b0686);
-}
-
-.color-border, .links-color-border :link, .links-color-border :visited, .links-color-border:link, .links-color-border:visited {
-  color: currentColor;
-  color: var(--color-border, currentColor);
-}
-
-.border-color-border {
-  border-color: currentColor;
-  border-color: var(--color-border, currentColor);
 }
 
 .color-caution, .links-color-caution :link, .links-color-caution :visited, .links-color-caution:link, .links-color-caution:visited {
