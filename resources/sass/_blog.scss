@@ -58,8 +58,6 @@
       width: 100%;
       width: 100vw;
       max-width: none;
-      padding-left: 0;
-      padding-right: 0;
       margin-left: calc((100% - 100vw) / 2);
       margin-right: calc((100% - 100vw) / 2);
     }
@@ -68,7 +66,6 @@
       /* left-bleed */
       width: auto;
       max-width: none;
-      padding-left: 0;
       margin-left: calc((100% - 100vw) / 2);
       margin-right: auto;
     }
@@ -77,7 +74,6 @@
       /* right-bleed */
       width: auto;
       max-width: none;
-      padding-right: 0;
       margin-right: calc((100% - 100vw) / 2);
       margin-left: auto;
     }
