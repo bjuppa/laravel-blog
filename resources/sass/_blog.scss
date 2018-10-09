@@ -55,14 +55,13 @@
     @include padding-relative;
 
     > .full-bleed {
+      width: 100%;
+      width: 100vw;
       max-width: none;
       padding-left: 0;
       padding-right: 0;
-      @supports(margin-left: calc((100% - 100vw) / 2)) {
-        width: 100vw;
-        margin-left: calc((100% - 100vw) / 2);
-        margin-right: calc((100% - 100vw) / 2);
-      }
+      margin-left: calc((100% - 100vw) / 2);
+      margin-right: calc((100% - 100vw) / 2);
     }
 
     @mixin left-bleed {
