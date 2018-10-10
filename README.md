@@ -191,7 +191,7 @@ some half a year before I ran into the same need.
 This package is my attempt at getting myself a couple of blogs without resorting to WordPress
 and hopefully provide something useful for other developers.
 
-### My needs are
+### My needs were
 
 - One ore more blogs must be configurable within the same Laravel app
 - Simple configuration after package install (ideally just running migrations if only one standard blog)
