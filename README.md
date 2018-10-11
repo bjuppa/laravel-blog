@@ -2,11 +2,9 @@
 
 [![Build Status](https://travis-ci.org/bjuppa/laravel-blog.svg?branch=master)](https://travis-ci.org/bjuppa/laravel-blog)
 
-This package will become a flexible blogging solution that you can add to your Laravel app.
+This package is a flexible blogging solution that you can add to your Laravel app.
 
-**This package does not yet have a stable release** - Please don't use it in production!
-
-This package's job is to take blog entries from *storage* and publish them to
+Is takes blog entries from *storage* and publishes them to
 [the Web](https://en.wikipedia.org/wiki/World_Wide_Web)
 in common formats for consumption by people and machines through URLs.
 
@@ -16,14 +14,19 @@ Each blog gets:
 - A page for each blog entry displaying its full contents
 - An [Atom feed](https://en.wikipedia.org/wiki/Atom_(standard))
 
+The default storage is Eloquent, but you can write your own `BlogEntryProvider` should you wish.
+Have a look at the files in [`src/Contracts`](https://github.com/bjuppa/laravel-blog/tree/master/src/Contracts)
+for a quick overview of the entites this package handles.
+
 ## Admin interface
 
-This package *does not* provide any admin interface for editing blog entries.
+This package **does not** provide any admin interface for editing blog entries.
 There are plans for a (near) future release of a separate package
 that can optionally be installed to provide admin routes for editing blog contents.
 
 For now, you'll need to create the mechanism to edit blog entries yourself.
-Entries are represented by [Eloquent models](https://laravel.com/docs/eloquent) by default,
+[Entries](https://github.com/bjuppa/laravel-blog/blob/master/src/Eloquent/BlogEntry.php)
+are represented by [Eloquent models](https://laravel.com/docs/eloquent) by default,
 so shouldn't be too hard for Laravel developers.
 
 ## Requirements
@@ -78,6 +81,19 @@ You need at least **Laravel 5.6.8** to use this package.
     ```
 
     ...then edit `config/blog.php` and add `'css/blog.css'` to the `stylesheets` config.
+
+Now visit your fresh blog in a browser!
+The default url path is `/blog` unless you've changed the config.
+
+## Edit blog posts
+
+Add and edit blog entries in the database any way you like.
+You can create your own admin interface, write straight to the database, or perhaps use
+[`php artisan tinker`](https://laravel.com/docs/artisan#introduction)...
+The model used by default is
+[`Bjuppa\LaravelBlog\Eloquent\BlogEntry`](https://github.com/bjuppa/laravel-blog/blob/master/src/Eloquent/BlogEntry.php).
+
+There are plans for a [separate package providing an admin interface](#admin-interface).
 
 ## Blade templates
 
@@ -175,7 +191,7 @@ some half a year before I ran into the same need.
 This package is my attempt at getting myself a couple of blogs without resorting to WordPress
 and hopefully provide something useful for other developers.
 
-### My needs are
+### My needs were
 
 - One ore more blogs must be configurable within the same Laravel app
 - Simple configuration after package install (ideally just running migrations if only one standard blog)
