@@ -271,7 +271,7 @@
   header {
     text-transform: uppercase;
     @include display-block;
-    @extend .unborder;
+    @extend .unborder !optional;
     width: 100%;
   }
 
