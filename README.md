@@ -21,7 +21,8 @@ for a quick overview of the entites this package handles.
 ## Admin interface
 
 This package **does not** provide any admin interface for editing blog entries.
-There are plans for a (near) future release of a separate package
+There are plans for a (near) future release of a
+[separate package](https://packagist.org/packages/bjuppa/laravel-blog-admin)
 that can optionally be installed to provide admin routes for editing blog contents.
 
 For now, you'll need to create the mechanism to edit blog entries yourself.
