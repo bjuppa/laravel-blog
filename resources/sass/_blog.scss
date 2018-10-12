@@ -1,6 +1,7 @@
 @import "~kingdom-css/src/modules/layout";
 @import "~kingdom-css/src/modules/sizing";
 @import "~kingdom-css/src/modules/spacing";
+@import "~kingdom-css/src/modules/colors";
 @import "~kingdom-css/src/modules/text-direction";
 
 %unimposing {
@@ -37,14 +38,14 @@
 }
 
 .blog {
-  @extend .background-color-background !optional;
+  @include apply-background-color(background);
   @extend .overflow-wrap !optional;
   @extend .hyphens-auto !optional;
   min-height: 100vh;
 
   > * {
     $width: $readable-line-length-min + $readable-line-length-max;
-    @extend .background-color-body !optional;
+    @include apply-background-color(body);
     max-width: 100%;
     width: $width;
     min-width: auto;
@@ -271,7 +272,7 @@
   header {
     text-transform: uppercase;
     @include display-block;
-    @extend .unborder;
+    @extend .unborder !optional;
     width: 100%;
   }
 
