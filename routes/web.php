@@ -14,7 +14,7 @@ Route::group(['middleware' => ['web'], 'namespace' => 'Bjuppa\LaravelBlog\Http\C
         Route::group($group_attributes, function () use ($blog) {
             Route::get('/', 'ListEntriesController@showIndex')->name($blog->prefixRouteName('index'));
             Route::get('feed', 'FeedController')->name($blog->prefixRouteName('feed'));
-            Route::get('{slug}', 'ShowEntryController')->name($blog->prefixRouteName('entry'));
+            Route::get('{slug}', 'ShowEntryController')->name($blog->prefixRouteName('entry'))->fallback();
         });
     });
 });
