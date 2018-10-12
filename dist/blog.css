@@ -2057,10 +2057,18 @@ legend {
 }
 
 .blog {
+  background-color: #44665a;
+  background-color: var(--color-background, #44665a);
+  color: #ecf0ee;
+  color: var(--color-background-text, #ecf0ee);
   min-height: 100vh;
 }
 
 .blog > * {
+  background-color: #fdfdfe;
+  background-color: var(--color-body, #fdfdfe);
+  color: #0d0c0d;
+  color: var(--color-body-text, #0d0c0d);
   max-width: 100%;
   width: 120ch;
   min-width: auto;
@@ -2590,7 +2598,7 @@ legend {
   --color-gray-100-text: #0b0c0c;
 }
 
-.links-color-currentColor :link, .background-color-primary :link, .background-color-background :link, .blog :link, .background-color-border :link, .background-color-caution :link, .background-color-disabled :link, .background-color-shadow :link, .background-color-gray-900 :link, .background-color-gray-800 :link, .background-color-gray-700 :link, .background-color-gray-600 :link, .background-color-gray-500 :link, .background-color-gray-400 :link, .background-color-gray-300 :link, .background-color-gray-200 :link, .background-color-gray-100 :link, .links-color-currentColor :visited, .background-color-primary :visited, .background-color-background :visited, .blog :visited, .background-color-border :visited, .background-color-caution :visited, .background-color-disabled :visited, .background-color-shadow :visited, .background-color-gray-900 :visited, .background-color-gray-800 :visited, .background-color-gray-700 :visited, .background-color-gray-600 :visited, .background-color-gray-500 :visited, .background-color-gray-400 :visited, .background-color-gray-300 :visited, .background-color-gray-200 :visited, .background-color-gray-100 :visited, .links-color-currentColor:link, .background-color-primary:link, .background-color-background:link, .blog:link, .background-color-border:link, .background-color-caution:link, .background-color-disabled:link, .background-color-shadow:link, .background-color-gray-900:link, .background-color-gray-800:link, .background-color-gray-700:link, .background-color-gray-600:link, .background-color-gray-500:link, .background-color-gray-400:link, .background-color-gray-300:link, .background-color-gray-200:link, .background-color-gray-100:link, .links-color-currentColor:visited, .background-color-primary:visited, .background-color-background:visited, .blog:visited, .background-color-border:visited, .background-color-caution:visited, .background-color-disabled:visited, .background-color-shadow:visited, .background-color-gray-900:visited, .background-color-gray-800:visited, .background-color-gray-700:visited, .background-color-gray-600:visited, .background-color-gray-500:visited, .background-color-gray-400:visited, .background-color-gray-300:visited, .background-color-gray-200:visited, .background-color-gray-100:visited {
+.links-color-currentColor :link, .background-color-primary :link, .background-color-background :link, .background-color-border :link, .background-color-caution :link, .background-color-disabled :link, .background-color-shadow :link, .background-color-gray-900 :link, .background-color-gray-800 :link, .background-color-gray-700 :link, .background-color-gray-600 :link, .background-color-gray-500 :link, .background-color-gray-400 :link, .background-color-gray-300 :link, .background-color-gray-200 :link, .background-color-gray-100 :link, .links-color-currentColor :visited, .background-color-primary :visited, .background-color-background :visited, .background-color-border :visited, .background-color-caution :visited, .background-color-disabled :visited, .background-color-shadow :visited, .background-color-gray-900 :visited, .background-color-gray-800 :visited, .background-color-gray-700 :visited, .background-color-gray-600 :visited, .background-color-gray-500 :visited, .background-color-gray-400 :visited, .background-color-gray-300 :visited, .background-color-gray-200 :visited, .background-color-gray-100 :visited, .links-color-currentColor:link, .background-color-primary:link, .background-color-background:link, .background-color-border:link, .background-color-caution:link, .background-color-disabled:link, .background-color-shadow:link, .background-color-gray-900:link, .background-color-gray-800:link, .background-color-gray-700:link, .background-color-gray-600:link, .background-color-gray-500:link, .background-color-gray-400:link, .background-color-gray-300:link, .background-color-gray-200:link, .background-color-gray-100:link, .links-color-currentColor:visited, .background-color-primary:visited, .background-color-background:visited, .background-color-border:visited, .background-color-caution:visited, .background-color-disabled:visited, .background-color-shadow:visited, .background-color-gray-900:visited, .background-color-gray-800:visited, .background-color-gray-700:visited, .background-color-gray-600:visited, .background-color-gray-500:visited, .background-color-gray-400:visited, .background-color-gray-300:visited, .background-color-gray-200:visited, .background-color-gray-100:visited {
   color: currentColor;
 }
 
@@ -2631,7 +2639,7 @@ legend {
   border-color: var(--color-background-text, #ecf0ee);
 }
 
-.background-color-background, .blog {
+.background-color-background {
   background-color: #44665a;
   background-color: var(--color-background, #44665a);
   color: #ecf0ee;
@@ -2675,7 +2683,7 @@ legend {
   border-color: var(--color-body-text, #0d0c0d);
 }
 
-.background-color-body, .blog > * {
+.background-color-body {
   background-color: #fdfdfe;
   background-color: var(--color-body, #fdfdfe);
   color: #0d0c0d;
