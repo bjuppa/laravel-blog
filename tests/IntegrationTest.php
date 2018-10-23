@@ -23,8 +23,6 @@ abstract class IntegrationTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-
-        $this->withFactories(__DIR__ . '/../database/factories');
     }
 
     /**
@@ -73,6 +71,17 @@ abstract class IntegrationTest extends TestCase
         if ($this->fakeEntryProvider) {
             $app->bind(BlogEntryProviderContract::class, FakeBlogEntryProvider::class);
         }
+    }
+
+    /**
+     * Set up database for testing.
+     */
+    protected function prepareDatabase()
+    {
+        // Run any migrations registered in service providers
+        $this->loadRegisteredMigrations();
+
+        $this->withFactories(__DIR__ . '/../database/factories');
     }
 
     /**
