@@ -13,7 +13,7 @@ class PublishedScope implements Scope
      *
      * @var array
      */
-    protected $extensions = ['WithUnpublished', 'OnlyScheduledForPublishing', 'OnlyDrafts', 'OnlyUnpublished'];
+    protected $extensions = ['WithUnpublished', 'OnlyScheduled', 'OnlyDrafts', 'OnlyUnpublished'];
 
     /**
      * Apply the scope to a given Eloquent query builder.
@@ -60,9 +60,9 @@ class PublishedScope implements Scope
      * @param  \Illuminate\Database\Eloquent\Builder  $builder
      * @return void
      */
-    protected function addOnlyScheduledForPublishing(Builder $builder)
+    protected function addOnlyScheduled(Builder $builder)
     {
-        $builder->macro('onlyScheduledForPublishing', function (Builder $builder) {
+        $builder->macro('onlyScheduled', function (Builder $builder) {
             $model = $builder->getModel();
 
             return $builder->withoutGlobalScope($this)

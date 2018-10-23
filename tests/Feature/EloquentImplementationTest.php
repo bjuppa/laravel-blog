@@ -39,7 +39,7 @@ class EloquentImplementationTest extends IntegrationTest
         $draftEntry = factory(BlogEntry::class)->create();
         $this->assertFalse($draftEntry->isPublic());
 
-        $this->assertCount(1, BlogEntry::onlyScheduledForPublishing()->get());
+        $this->assertCount(1, BlogEntry::onlyScheduled()->get());
         $this->assertCount(1, BlogEntry::onlyDrafts()->get());
         $this->assertCount(2, BlogEntry::onlyUnpublished()->get());
     }
