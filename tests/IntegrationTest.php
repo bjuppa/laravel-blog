@@ -23,6 +23,8 @@ abstract class IntegrationTest extends TestCase
     public function setUp()
     {
         parent::setUp();
+
+        $this->withFactories(__DIR__ . '/../database/factories');
     }
 
     /**
