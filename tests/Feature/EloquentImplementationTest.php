@@ -22,4 +22,12 @@ class EloquentImplementationTest extends IntegrationTest
         $this->assertCount(1, BlogEntry::all());
         $this->assertCount(0, BlogEntry::all()->reject->isPublic());
     }
+
+    public function test_with_unpublished_scope()
+    {
+        $entry = factory(BlogEntry::class)->create();
+
+        $this->assertFalse($entry->isPublic());
+        $this->assertCount(2, BlogEntry::withUnpublished()->get());
+    }
 }

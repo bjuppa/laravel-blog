@@ -8,6 +8,12 @@ use Illuminate\Database\Eloquent\Scope;
 
 class PublishedScope implements Scope
 {
+    /**
+     * All of the extensions to be added to the builder.
+     *
+     * @var array
+     */
+    protected $extensions = ['WithUnpublished'];
 
     /**
      * Apply the scope to a given Eloquent query builder.
@@ -23,7 +29,33 @@ class PublishedScope implements Scope
         $builder->latestPublication();
     }
 
+    /**
+     * Extend the query builder with the needed functions.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $builder
+     * @return void
+     */
+    public function extend(Builder $builder)
+    {
+        foreach ($this->extensions as $extension) {
+            $this->{"add{$extension}"}($builder);
+        }
+    }
+
     //TODO: add withUnpublished() removing this global scope to list all like in \Illuminate\Database\Eloquent\SoftDeletingScope
+    /**
+     * Add the with-unpublished extension to the builder.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $builder
+     * @return void
+     */
+    protected function addWithUnpublished(Builder $builder)
+    {
+        $builder->macro('withUnpublished', function (Builder $builder) {
+            return $builder->withoutGlobalScope($this);
+        });
+    }
+
     //TODO: add onlyUnpublished() listing all apart from those that are published like in \Illuminate\Database\Eloquent\SoftDeletingScope
     //TODO: add onlyScheduledForPublishing() listing only those that have a publish time set
     //TODO: add onlyDrafts() listing only those that have no publish time set at all
