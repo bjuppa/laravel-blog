@@ -64,7 +64,7 @@ class BlogEntryProvider implements BlogEntryProviderContract
      * Get a prepared query builder for the blog
      * @return Builder
      */
-    protected function getBuilder(): Builder
+    public function getBuilder(): Builder
     {
         return $this->getBlogEntryModel()->blog($this->blog_id);
     }
