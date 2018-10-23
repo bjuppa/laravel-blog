@@ -13,7 +13,7 @@ class PublishedScope implements Scope
      *
      * @var array
      */
-    protected $extensions = ['WithUnpublished'];
+    protected $extensions = ['WithUnpublished', 'OnlyScheduledForPublishing', 'OnlyDrafts', 'OnlyUnpublished'];
 
     /**
      * Apply the scope to a given Eloquent query builder.
@@ -24,9 +24,8 @@ class PublishedScope implements Scope
      */
     public function apply(Builder $builder, Model $model)
     {
-        $builder->whereNotNull($model::PUBLISH_AFTER); // Comparing the fresh timestamp to null always returns null in MySQL, so this not null rule is here just to be overly obvious
-        $builder->where($model::PUBLISH_AFTER, '<=', $model->freshTimestamp());
-        $builder->latestPublication();
+        $builder->where($model::PUBLISH_AFTER, '<=', $model->freshTimestamp())
+            ->latestPublication();
     }
 
     /**
@@ -42,7 +41,6 @@ class PublishedScope implements Scope
         }
     }
 
-    //TODO: add withUnpublished() removing this global scope to list all like in \Illuminate\Database\Eloquent\SoftDeletingScope
     /**
      * Add the with-unpublished extension to the builder.
      *
@@ -56,7 +54,56 @@ class PublishedScope implements Scope
         });
     }
 
-    //TODO: add onlyUnpublished() listing all apart from those that are published like in \Illuminate\Database\Eloquent\SoftDeletingScope
-    //TODO: add onlyScheduledForPublishing() listing only those that have a publish time set
-    //TODO: add onlyDrafts() listing only those that have no publish time set at all
+    /**
+     * Add the only-scheduled-for-publishing extension to the builder.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $builder
+     * @return void
+     */
+    protected function addOnlyScheduledForPublishing(Builder $builder)
+    {
+        $builder->macro('onlyScheduledForPublishing', function (Builder $builder) {
+            $model = $builder->getModel();
+
+            return $builder->withoutGlobalScope($this)
+                ->where($model::PUBLISH_AFTER, '>', $model->freshTimestamp());
+        });
+    }
+
+    /**
+     * Add the only-drafts extension to the builder.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $builder
+     * @return void
+     */
+    protected function addOnlyDrafts(Builder $builder)
+    {
+        $builder->macro('onlyDrafts', function (Builder $builder) {
+            $model = $builder->getModel();
+
+            return $builder->withoutGlobalScope($this)
+                ->whereNull($model::PUBLISH_AFTER);
+        });
+    }
+
+    /**
+     * Add the only-unpublished extension to the builder.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $builder
+     * @return void
+     */
+    protected function addOnlyUnpublished(Builder $builder)
+    {
+        $builder->macro('onlyUnpublished', function (Builder $builder) {
+            return $builder->withoutGlobalScope($this)
+                ->where(function ($builder) {
+                    $model = $builder->getModel();
+                    $builder->where($model::PUBLISH_AFTER, '>', $model->freshTimestamp())
+                        ->orWhere(function ($builder) {
+                            $model = $builder->getModel();
+                            $builder->whereNull($model::PUBLISH_AFTER);
+                        });
+                });
+        });
+    }
 }
