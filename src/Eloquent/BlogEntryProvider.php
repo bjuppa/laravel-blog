@@ -57,7 +57,7 @@ class BlogEntryProvider implements BlogEntryProviderContract
      */
     public function getBlogEntryModel(): EloquentBlogEntry
     {
-        return $this->model;
+        return $this->model::make();
     }
 
     /**
