@@ -74,6 +74,17 @@ abstract class IntegrationTest extends TestCase
     }
 
     /**
+     * Set up database for testing.
+     */
+    protected function prepareDatabase()
+    {
+        // Run any migrations registered in service providers
+        $this->loadRegisteredMigrations();
+
+        $this->withFactories(__DIR__ . '/../database/factories');
+    }
+
+    /**
      * Override this method to set configuration values in your test class
      *
      * @return array of config keys (in dot-notation) and values
