@@ -15,6 +15,22 @@ interface BlogRegistry
     public function add(Blog $blog): BlogRegistry;
 
     /**
+     * Get a blog from this repository
+     *
+     * @param string $blog_id
+     * @return Blog|null
+     */
+    public function get(string $blog_id): ?Blog;
+
+    /**
+     * Check if a blog exists in this repository
+     *
+     * @param string $blog_id
+     * @return bool
+     */
+    public function has(string $blog_id): bool;
+
+    /**
      * Get the registered blogs
      *
      * @return Collection
