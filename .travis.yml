@@ -28,4 +28,5 @@ before_script:
   - composer config discard-changes true
 
 script:
+  - vendor/bin/phpcs
   - vendor/bin/phpunit
