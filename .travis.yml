@@ -24,7 +24,8 @@ install:
   - travis_retry composer install --prefer-dist --no-interaction --no-suggest
 
 before_script:
-    - composer config discard-changes true
+  - if [[ $COVERAGE == "" ]]; then phpenv config-rm xdebug.ini; fi
+  - composer config discard-changes true
 
 script:
   - vendor/bin/phpunit
