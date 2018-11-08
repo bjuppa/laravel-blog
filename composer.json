@@ -30,7 +30,8 @@
     "erusev/parsedown": "^1.7",
     "graham-campbell/markdown": "^10.0",
     "mockery/mockery": "^1.0",
-    "andrefigueira/blog-article-faker": "^1.0"
+    "andrefigueira/blog-article-faker": "^1.0",
+    "squizlabs/php_codesniffer": "^3.3"
   },
   "suggest": {
     "graham-campbell/markdown": "If you want another markdown parser than erusev/parsedown that is included with Laravel",
@@ -49,6 +50,7 @@
   },
   "scripts": {
     "test": "vendor/bin/phpunit",
+    "phpcs": "vendor/bin/phpcs",
     "post-update-cmd": "@clearCompiledViews",
     "clearCompiledViews": "rm -f vendor/orchestra/testbench-core/laravel/storage/framework/views/*"
   },

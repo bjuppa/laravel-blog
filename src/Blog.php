@@ -136,8 +136,11 @@ class Blog implements BlogContract
                     $this->$method_name($config_value);
                 }
             } catch (\Exception $e) {
-                trigger_error("Configuration problem for Blog '" . $this->getId() . "', config key '${config_name}': " . $e->getMessage(),
-                    E_USER_WARNING);
+                trigger_error(
+                    "Configuration problem for Blog '" . $this->getId()
+                    . "', config key '${config_name}': " . $e->getMessage(),
+                    E_USER_WARNING
+                );
             }
         }
 

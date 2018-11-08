@@ -22,26 +22,34 @@ class BlogServiceProvider extends ServiceProvider
         /**
          * Resolve one global instance of the blog registry from the blog registry contract.
          */
-        $this->app->singleton(BlogRegistryContract::class,
-            config('blog.implementations.registry', BlogRegistry::class));
+        $this->app->singleton(
+            BlogRegistryContract::class,
+            config('blog.implementations.registry', BlogRegistry::class)
+        );
 
         /**
          * Resolve fresh default blog instances from the blog contract...
          */
-        $this->app->bind(BlogContract::class,
-            config('blog.implementations.blog', Blog::class));
+        $this->app->bind(
+            BlogContract::class,
+            config('blog.implementations.blog', Blog::class)
+        );
 
         /**
          * Resolve fresh default entry providers from the provider contract.
          */
-        $this->app->bind(BlogEntryProviderContract::class,
-            config('blog.implementations.entry_provider', EloquentBlogEntryProvider::class));
+        $this->app->bind(
+            BlogEntryProviderContract::class,
+            config('blog.implementations.entry_provider', EloquentBlogEntryProvider::class)
+        );
 
         /**
          * Resolve default eloquent entry instances from the abstract model.
          */
-        $this->app->bind(AbstractEloquentBlogEntry::class,
-            config('blog-eloquent.implementations.entry', EloquentBlogEntry::class));
+        $this->app->bind(
+            AbstractEloquentBlogEntry::class,
+            config('blog-eloquent.implementations.entry', EloquentBlogEntry::class)
+        );
     }
 
     /**
@@ -151,11 +159,13 @@ class BlogServiceProvider extends ServiceProvider
     protected function configureBlogs(BlogRegistryContract $blog_registry): void
     {
         foreach ((array) config('blog.blogs') as $blog_id => $blog_config) {
-            $blog_registry->add($this->app->make(BlogContract::class,
+            $blog_registry->add($this->app->make(
+                BlogContract::class,
                 [
                     'blog_id' => $blog_id,
                     'configuration' => array_merge(config('blog.blog_defaults', []), $blog_config),
-                ]));
+                ]
+            ));
         }
     }
 }

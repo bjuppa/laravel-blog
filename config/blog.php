@@ -29,7 +29,7 @@ return [
             //'page-title' => "Your title for the blog's index page",
             //'entry-page-title-suffix' => ' - Main Blog',
             'index_meta_tags' => [
-                //['name' => 'description', 'content' => "A meta-description for the blog's index page (~160 characters)"],
+                //['name' => 'description', 'content' => "Meta-description for blog index page (~160 characters)"],
                 //['property' => 'og:title', 'content' => 'Custom opengraph title'],
             ],
             'default_meta_tags' => [

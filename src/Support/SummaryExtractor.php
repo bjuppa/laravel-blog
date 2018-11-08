@@ -2,7 +2,6 @@
 
 namespace Bjuppa\LaravelBlog\Support;
 
-
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Support\Collection;
 

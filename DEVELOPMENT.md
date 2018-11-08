@@ -7,6 +7,13 @@ Logs created during test runs can be found in `vendor/orchestra/testbench-core/l
 If you want your own local configuration for phpunit,
 copy the file `phpunit.xml.dist` to `phpunit.xml` and modify the latter to your needs.
 
+## Following PSR2
+
+This project can be checked against configured coding standards using `composer phpcs` from the project directory.
+
+Automatic attempt to fix some reported coding standard violations can be run with
+`./vendor/bin/phpcbf` from the project directory.
+
 ## Dependency version testing
 
 - `composer update --prefer-lowest` can be used before running tests for testing backwards compatibility.
