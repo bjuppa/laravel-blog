@@ -63,7 +63,9 @@ abstract class AbstractBlogEntry extends Eloquent implements BlogEntryContract
      */
     public function getPublished(): Carbon
     {
-        return Carbon::parse($this->getAttributeFromArray(static::PUBLISH_AFTER) ?: $this->getAttributeFromArray(static::CREATED_AT));
+        return Carbon::parse(
+            $this->getAttributeFromArray(static::PUBLISH_AFTER) ?: $this->getAttributeFromArray(static::CREATED_AT)
+        );
     }
 
     /**
@@ -81,7 +83,8 @@ abstract class AbstractBlogEntry extends Eloquent implements BlogEntryContract
      */
     public function isPublic(): bool
     {
-        return $this->getAttributeFromArray(static::PUBLISH_AFTER) and Carbon::parse($this->getAttributeFromArray(static::PUBLISH_AFTER))->isPast();
+        return $this->getAttributeFromArray(static::PUBLISH_AFTER) and
+        Carbon::parse($this->getAttributeFromArray(static::PUBLISH_AFTER))->isPast();
     }
 
     /**
