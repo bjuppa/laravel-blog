@@ -28,7 +28,7 @@ trait ProvidesBladeViewNames
     {
         $views = [$this->bladeView($name)];
         array_unshift($views, $views[0] . '-' . $this->getId());
-        if($entry) {
+        if ($entry) {
             array_unshift($views, $views[1] . '-' . $entry->getId());
         }
         return $views;
