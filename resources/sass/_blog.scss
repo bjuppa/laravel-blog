@@ -106,6 +106,10 @@
     @include width-readable;
   }
 
+  h1 {
+    @include apply-color(primary);
+  }
+
   header small {
     @extend %unimposing;
   }
