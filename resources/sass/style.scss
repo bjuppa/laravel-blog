@@ -3,7 +3,7 @@
 
 @import "~kingdom-css/src/modules/colors";
 @include register-color(primary, #2A7F62);
-@include register-color(background, scale_color(get-color(primary), $lightness: 90%, $saturation: -70%));
+@include register-color(background, scale_color(adjust-hue(get-color(primary), -120deg), $lightness: 95%, $saturation: -70%));
 @include register-color(border, transparentize(get-color(primary), .75));
 
 @import "~kingdom-css/src/L3-rhythm";
