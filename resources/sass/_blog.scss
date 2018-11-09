@@ -106,13 +106,18 @@
     @include width-readable;
   }
 
+  h1 {
+    @include apply-color(primary);
+  }
+
   header small {
     @extend %unimposing;
   }
 }
 
 .blog-entry-list {
-  @extend .list-unstyled !optional;
+  @extend %px-0;
+  list-style: none;
 
   > * + * {
     @extend %mt-1 !optional;
