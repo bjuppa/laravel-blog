@@ -37,7 +37,21 @@ class BlogEntry extends AbstractBlogEntry
      *
      * @var array
      */
-    protected $fillable = ['title', 'content', 'summary', 'description'];
+    protected $fillable = [
+        'publish_after',
+        'slug',
+        'title',
+        'author_name',
+        'author_email',
+        'author_url',
+        'image',
+        'content',
+        'summary',
+        'page_title',
+        'description',
+        'meta_tags',
+        'display_full_content_in_feed',
+    ];
 
     /**
      * The attributes that should be mutated to dates.
