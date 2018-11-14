@@ -50,6 +50,7 @@ class BlogEntry extends AbstractBlogEntry
         'page_title',
         'description',
         'meta_tags',
+        'json_meta_tags',
         'display_full_content_in_feed',
     ];
 
@@ -232,6 +233,16 @@ class BlogEntry extends AbstractBlogEntry
     public function getPageTitle(string $suffix = ''): string
     {
         return str_finish($this->page_title ?? $this->getTitle(), $suffix);
+    }
+
+    public function getJsonMetaTagsAttribute()
+    {
+        return json_encode($this->meta_tags, JSON_PRETTY_PRINT);
+    }
+
+    public function setJsonMetaTagsAttribute(string $value)
+    {
+        $this->meta_tags = json_decode($value, true);
     }
 
     /**
