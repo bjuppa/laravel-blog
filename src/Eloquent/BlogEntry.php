@@ -33,6 +33,15 @@ class BlogEntry extends AbstractBlogEntry
     use HasSlug;
 
     /**
+     * The model's (default) attributes.
+     *
+     * @var array
+     */
+    protected $attributes = [
+        'title' => '',
+    ];
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
