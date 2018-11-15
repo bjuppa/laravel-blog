@@ -98,6 +98,11 @@ abstract class AbstractBlogEntry extends Eloquent implements BlogEntryContract
         return $query->where(static::BLOG, $blog_id);
     }
 
+    public function getBlogId()
+    {
+        return $this->getAttribute(static::BLOG);
+    }
+
     /**
      * Scope a query to entries matching slug
      * @param $query
