@@ -47,6 +47,7 @@ class BlogEntry extends AbstractBlogEntry
      * @var array
      */
     protected $fillable = [
+        'blog',
         'publish_after',
         'slug',
         'title',
