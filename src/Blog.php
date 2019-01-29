@@ -530,7 +530,7 @@ class Blog implements BlogContract
      */
     public function getCreateAbility(): ?string
     {
-        return $this->create_ability;
+        return $this->create_ability ?? $this->getMainAbility();
     }
 
     /**
@@ -551,7 +551,7 @@ class Blog implements BlogContract
      */
     public function getEditAbility(): ?string
     {
-        return $this->edit_ability;
+        return $this->edit_ability ?? $this->getCreateAbility();
     }
 
     /**
@@ -572,6 +572,6 @@ class Blog implements BlogContract
      */
     public function getPreviewAbility(): ?string
     {
-        return $this->preview_ability;
+        return $this->preview_ability ?? $this->getEditAbility();
     }
 }
