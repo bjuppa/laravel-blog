@@ -57,7 +57,16 @@ class BlogEntryProvider implements BlogEntryProviderContract
      */
     public function getBlogEntryModel(): EloquentBlogEntry
     {
-        return $this->model::make();
+        return $this->model::make(['blog' => $this->blog_id]);
+    }
+
+    /**
+     * Get the classname of the Eloquent model used
+     * @return string
+     */
+    public function getBlogEntryClass(): string
+    {
+        return get_class($this->model);
     }
 
     /**
