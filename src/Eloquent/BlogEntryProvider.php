@@ -85,7 +85,7 @@ class BlogEntryProvider implements BlogEntryProviderContract
      */
     public function findBySlug($slug): ?BlogEntry
     {
-        return $this->getBuilder()->slug($slug)->first();
+        return $this->getBuilder()->withUnpublished()->slug($slug)->first();
     }
 
     /**

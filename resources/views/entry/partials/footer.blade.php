@@ -7,7 +7,16 @@
 <footer class="blog-entry-footer">
   @section('blogEntryFooter')
     <div lang="en" dir="ltr" class="blog-entry-publication-info">
-      Published
+      @if($entry->isPublic())
+        Published
+      @else
+        Preview
+        @if($entry->getPublished()->isFuture())
+          scheduled for publishing
+        @else
+          created
+        @endif
+      @endif
       <time datetime="{{ $entry->getPublished()->toAtomString() }}" itemprop="datePublished">{{ $entry->getPublished()->diffForHumans() }}</time>
       in
       <a href="{{ $blog->urlToIndex() }}" rel="index" itemprop="isPartOf" itemscope itemtype="http://schema.org/Blog">{{ $blog->getTitle() }}</a>

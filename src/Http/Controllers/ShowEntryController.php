@@ -4,6 +4,7 @@ namespace Bjuppa\LaravelBlog\Http\Controllers;
 
 use Bjuppa\LaravelBlog\Contracts\BlogEntry;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class ShowEntryController extends BaseBlogController
@@ -19,7 +20,7 @@ class ShowEntryController extends BaseBlogController
     public function __invoke($slug)
     {
         throw_unless($entry = $this->blog->findEntry($slug), NotFoundHttpException::class);
-        throw_unless($entry->isPublic(), NotFoundHttpException::class);
+        throw_unless($entry->isPublic() or Gate::allows($this->blog->getPreviewAbility(), $entry), NotFoundHttpException::class);
         /**
          * @var $entry BlogEntry
          */
