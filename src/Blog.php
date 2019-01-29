@@ -105,6 +105,24 @@ class Blog implements BlogContract
     protected $full_entries_in_feed = false;
 
     /**
+     * Main ability to authorize admin access to this blog
+     * @var string
+     */
+    protected $main_ability = null;
+
+    /**
+     * Ability to authorize edit access to this blog
+     * @var string
+     */
+    protected $edit_ability = null;
+
+    /**
+     * Ability to authorize preview access to this blog
+     * @var string
+     */
+    protected $preview_ability = null;
+
+    /**
      * Blog constructor.
      *
      * @param string $blog_id
@@ -465,5 +483,68 @@ class Blog implements BlogContract
     public function displayFullEntryInFeed(BlogEntry $entry): bool
     {
         return $entry->displayFullContentInFeed($this->full_entries_in_feed);
+    }
+
+    /**
+     * Set the main ability to authorize admin access to this blog
+     * @param string $ability
+     * @return $this
+     */
+    public function withMainAbility(?string $ability): BlogContract
+    {
+        $this->main_ability = $ability;
+
+        return $this;
+    }
+
+    /**
+     * Get the main ability to authorize admin access to this blog
+     * @return string|null
+     */
+    public function getMainAbility(): ?string
+    {
+        return $this->main_ability;
+    }
+
+    /**
+     * Set the ability to authorize edit access to this blog
+     * @param string $ability
+     * @return $this
+     */
+    public function withEditAbility(?string $ability): BlogContract
+    {
+        $this->edit_ability = $ability;
+
+        return $this;
+    }
+
+    /**
+     * Get the ability to authorize edit access to this blog
+     * @return string|null
+     */
+    public function getEditAbility(): ?string
+    {
+        return $this->edit_ability;
+    }
+
+    /**
+     * Set the ability to authorize preview access to this blog
+     * @param string $ability
+     * @return $this
+     */
+    public function withPreviewAbility(?string $ability): BlogContract
+    {
+        $this->preview_ability = $ability;
+
+        return $this;
+    }
+
+    /**
+     * Get the ability to authorize preview access to this blog
+     * @return string|null
+     */
+    public function getPreviewAbility(): ?string
+    {
+        return $this->preview_ability;
     }
 }
