@@ -182,7 +182,13 @@ interface Blog extends ProvidesBladeViewNames, ProvidesTranslationKeys, MetaTagP
     public function getMainAbility(): ?string;
 
     /**
-     * Get the ability to authorize edit access to this blog
+     * Get the ability to authorize create entry in this blog
+     * @return string|null
+     */
+    public function getCreateAbility(): ?string;
+
+    /**
+     * Get the ability to authorize edit entry in this blog
      * @return string|null
      */
     public function getEditAbility(): ?string;

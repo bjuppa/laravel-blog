@@ -111,6 +111,12 @@ class Blog implements BlogContract
     protected $main_ability = null;
 
     /**
+     * Ability to authorize create access to this blog
+     * @var string
+     */
+    protected $create_ability = null;
+
+    /**
      * Ability to authorize edit access to this blog
      * @var string
      */
@@ -507,6 +513,27 @@ class Blog implements BlogContract
     }
 
     /**
+     * Set the ability to authorize create access to this blog
+     * @param string $ability
+     * @return $this
+     */
+    public function withCreateAbility(?string $ability): BlogContract
+    {
+        $this->create_ability = $ability;
+
+        return $this;
+    }
+
+    /**
+     * Get the ability to authorize create entry in this blog
+     * @return string|null
+     */
+    public function getCreateAbility(): ?string
+    {
+        return $this->create_ability;
+    }
+
+    /**
      * Set the ability to authorize edit access to this blog
      * @param string $ability
      * @return $this
@@ -519,7 +546,7 @@ class Blog implements BlogContract
     }
 
     /**
-     * Get the ability to authorize edit access to this blog
+     * Get the ability to authorize edit entry in this blog
      * @return string|null
      */
     public function getEditAbility(): ?string
