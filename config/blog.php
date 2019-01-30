@@ -61,6 +61,10 @@ return [
         //'full_entries_in_feed' => false,
         //latest-entries-limit => 5,
         //'middleware' => [],
+        //'main_ability' => 'manage blogs', // Example using a Laravel Gate https://laravel.com/docs/authorization#gates
+        //'create_ability' => 'create blog entry',
+        //'edit_ability' => 'edit', // Example using a Laravel Policy for model Bjuppa\LaravelBlog\Eloquent\BlogEntry https://laravel.com/docs/5.7/authorization#creating-policies
+        //'preview_ability' => 'preview',
     ],
 
     /*
