@@ -568,10 +568,10 @@ class Blog implements BlogContract
 
     /**
      * Get the ability to authorize preview access to this blog
-     * @return string|null
+     * @return string
      */
-    public function getPreviewAbility(): ?string
+    public function getPreviewAbility(): string
     {
-        return $this->preview_ability ?? $this->getEditAbility();
+        return $this->preview_ability ?? $this->getEditAbility() ?? 'preview';
     }
 }

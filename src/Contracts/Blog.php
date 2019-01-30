@@ -195,7 +195,7 @@ interface Blog extends ProvidesBladeViewNames, ProvidesTranslationKeys, MetaTagP
 
     /**
      * Get the ability to authorize preview access to this blog
-     * @return string|null
+     * @return string
      */
-    public function getPreviewAbility(): ?string;
+    public function getPreviewAbility(): string;
 }
