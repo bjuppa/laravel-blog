@@ -59,7 +59,7 @@ return [
          */
         'stylesheets' => ['css/app.css'],
         //'full_entries_in_feed' => false,
-        //latest-entries-limit => 5,
+        //'latest_entries_limit' => 5,
         //'middleware' => [],
         //'main_ability' => 'manage blogs', // Example using a Laravel Gate https://laravel.com/docs/authorization#gates
         //'create_ability' => 'create blog entry',
