@@ -61,15 +61,6 @@ class BlogEntryProvider implements BlogEntryProviderContract
     }
 
     /**
-     * Get the classname of the Eloquent model used
-     * @return string
-     */
-    public function getBlogEntryClass(): string
-    {
-        return get_class($this->model);
-    }
-
-    /**
      * Get a prepared query builder for the blog
      * @return Builder
      */
