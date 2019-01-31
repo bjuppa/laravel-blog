@@ -14,7 +14,7 @@ return [
     | In each blog's config array you may put any key corresponding to the
     | with-methods of the Blog class you're using.
     |
-    */
+     */
 
     'blogs' => [
         // This configures one blog
@@ -51,7 +51,7 @@ return [
     | If a blog has a specific key set in the 'blogs' configuration,
     | that will take precedence.
     |
-    */
+     */
 
     'blog_defaults' => [
         /*
@@ -61,9 +61,17 @@ return [
         //'full_entries_in_feed' => false,
         //'latest_entries_limit' => 5,
         //'middleware' => [],
-        //'main_ability' => 'manage blogs', // Example using a Laravel Gate https://laravel.com/docs/authorization#gates
+
+        /*
+         * Example using a Laravel Gate https://laravel.com/docs/authorization#gates
+         */
+        //'main_ability' => 'manage blogs',
         //'create_ability' => 'create blog entry',
-        //'edit_ability' => 'edit', // Example using a Laravel Policy for model Bjuppa\LaravelBlog\Eloquent\BlogEntry https://laravel.com/docs/5.7/authorization#creating-policies
+        /*
+         *   Example using a Laravel Policy for model Bjuppa\LaravelBlog\Eloquent\BlogEntry
+         *   https://laravel.com/docs/5.7/authorization#creating-policies
+         */
+        //'edit_ability' => 'edit',
         //'preview_ability' => 'preview',
     ],
 
@@ -75,7 +83,7 @@ return [
     | If you want some meta tags to appear by default on every public blog page
     | they can be added here.
     |
-    */
+     */
 
     'default_meta_tags' => [
         ['http-equiv' => 'X-UA-Compatible', 'content' => 'IE=edge'],
@@ -91,7 +99,7 @@ return [
     | Every blog is given named routes and the prefix for those names can be
     | changed by this config.
     |
-    */
+     */
 
     'route_name_prefix' => 'blog',
 ];
