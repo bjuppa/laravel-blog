@@ -57,7 +57,7 @@ class BlogEntryProvider implements BlogEntryProviderContract
      */
     public function getBlogEntryModel(): EloquentBlogEntry
     {
-        return $this->model::make();
+        return $this->model::make(['blog' => $this->blog_id]);
     }
 
     /**
@@ -76,7 +76,7 @@ class BlogEntryProvider implements BlogEntryProviderContract
      */
     public function findBySlug($slug): ?BlogEntry
     {
-        return $this->getBuilder()->slug($slug)->first();
+        return $this->getBuilder()->withUnpublished()->slug($slug)->first();
     }
 
     /**

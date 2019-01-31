@@ -174,4 +174,28 @@ interface Blog extends ProvidesBladeViewNames, ProvidesTranslationKeys, MetaTagP
      * @return bool
      */
     public function displayFullEntryInFeed(BlogEntry $entry): bool;
+
+    /**
+     * Get the main ability to authorize admin access to this blog
+     * @return string|null
+     */
+    public function getMainAbility(): ?string;
+
+    /**
+     * Get the ability to authorize create entry in this blog
+     * @return string|null
+     */
+    public function getCreateAbility(): ?string;
+
+    /**
+     * Get the ability to authorize edit entry in this blog
+     * @return string|null
+     */
+    public function getEditAbility(): ?string;
+
+    /**
+     * Get the ability to authorize preview access to this blog
+     * @return string
+     */
+    public function getPreviewAbility(): string;
 }
