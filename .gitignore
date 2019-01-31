@@ -3,6 +3,7 @@
 composer.phar
 composer.lock
 package-lock.json
+yarn.lock
 .DS_Store
 Thumbs.db
 /phpunit.xml
