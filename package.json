@@ -1,9 +1,11 @@
 {
   "devDependencies": {
-    "kingdom-css": "^0.7.1",
-    "laravel-mix": "^2.1.14",
+    "kingdom-css": "^0.8.1",
+    "laravel-mix": "^4.0.0",
     "purify-css": "^1.2.5",
-    "purifycss-webpack": "^0.7.0"
+    "purifycss-webpack": "^0.7.0",
+    "sass": "^1.16.1",
+    "sass-loader": "7.*"
   },
   "scripts": {
     "dev": "NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
