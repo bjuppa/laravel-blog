@@ -483,12 +483,12 @@ class Blog implements BlogContract
 
     /**
      * Check if complete entry contents should be made available in feed
-     * @param BlogEntry $entry
+     * @param BlogEntry|null $entry
      * @return bool
      */
-    public function displayFullEntryInFeed(BlogEntry $entry): bool
+    public function displayFullEntryInFeed(BlogEntry $entry = null): bool
     {
-        return $entry->displayFullContentInFeed($this->full_entries_in_feed);
+        return $entry ? $entry->displayFullContentInFeed($this->full_entries_in_feed) : $this->full_entries_in_feed;
     }
 
     /**

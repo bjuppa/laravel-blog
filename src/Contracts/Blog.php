@@ -170,10 +170,10 @@ interface Blog extends ProvidesBladeViewNames, ProvidesTranslationKeys, MetaTagP
 
     /**
      * Check if complete entry contents should be made available in feed
-     * @param BlogEntry $entry
+     * @param BlogEntry|null $entry
      * @return bool
      */
-    public function displayFullEntryInFeed(BlogEntry $entry): bool;
+    public function displayFullEntryInFeed(BlogEntry $entry = null): bool;
 
     /**
      * Get the main ability to authorize admin access to this blog
