@@ -12,7 +12,7 @@
   <link rel="alternate" type="text/html" href="{{ $blog->urlToIndex() }}" />
   @each($blog->bladeView('feed.author'), $blog->getAuthors(), 'author')
   <link rel="self" href="{{ $blog->urlToFeed() }}" />
-  <updated>{{ $blog->getUpdated()->toAtomString() }}</updated>
+  <updated>{{ $blog->convertToBlogTimezone($blog->getUpdated())->toAtomString() }}</updated>
   <id>{{ url($blog->getId()) }}</id>
   @each($blog->bladeView('feed.entry'), $entries, 'entry')
 </feed>

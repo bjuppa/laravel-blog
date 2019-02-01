@@ -18,6 +18,6 @@
     <![CDATA[{{ $entry->getContent() }}]]>
   </content>
   @endif
-  <published>{{ $entry->getPublished()->toAtomString() }}</published>
-  <updated>{{ $entry->getUpdated()->toAtomString() }}</updated>
+  <published>{{ $blog->convertToBlogTimezone($entry->getPublished())->toAtomString() }}</published>
+  <updated>{{ $blog->convertToBlogTimezone($entry->getUpdated())->toAtomString() }}</updated>
 </entry>
