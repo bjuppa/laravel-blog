@@ -17,7 +17,7 @@
           created
         @endif
       @endif
-      <time datetime="{{ $entry->getPublished()->toAtomString() }}" itemprop="datePublished">{{ $entry->getPublished()->diffForHumans() }}</time>
+      <time datetime="{{ $blog->convertToBlogTimezone($entry->getPublished())->toAtomString() }}" itemprop="datePublished">{{ $entry->getPublished()->diffForHumans() }}</time>
       in
       <a href="{{ $blog->urlToIndex() }}" rel="index" itemprop="isPartOf" itemscope itemtype="http://schema.org/Blog">{{ $blog->getTitle() }}</a>
       by

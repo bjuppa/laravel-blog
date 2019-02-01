@@ -12,7 +12,7 @@
     {{ $entry->getSummary() }}
   </div>
   <footer class="blog-entry-footer">
-    <small><time datetime="{{ $entry->getPublished()->toAtomString() }}" lang="en" dir="ltr" itemprop="datePublished">{{ $entry->getPublished()->diffForHumans() }}</time></small>
+    <small><time datetime="{{ $blog->convertToBlogTimezone($entry->getPublished())->toAtomString() }}" lang="en" dir="ltr" itemprop="datePublished">{{ $entry->getPublished()->diffForHumans() }}</time></small>
     <a href="{{ $blog->urlToEntry($entry) }}" class="blog-read-more-link">
       <small>{{ __($blog->transKey('titles.read_entry')) }}<span>:</span></small>
       <small>{{ $entry->getTitle() }}</small>

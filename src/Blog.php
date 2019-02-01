@@ -11,6 +11,7 @@ use Bjuppa\LaravelBlog\Support\ProvidesBladeViewNames;
 use Bjuppa\LaravelBlog\Support\ProvidesTranslationKeys;
 use Bjuppa\LaravelBlog\Support\QueriesEntryProvider;
 use Bjuppa\MetaTagBag\MetaTagBag;
+use Carbon\Carbon;
 use Illuminate\Support\Collection;
 
 class Blog implements BlogContract
@@ -85,6 +86,12 @@ class Blog implements BlogContract
      * @var string|null
      */
     protected $entry_page_title_suffix;
+
+    /**
+     * The timezone for this blog
+     * @var \DateTimeZone
+     */
+    protected $timezone;
 
     /**
      * Array of array of attribute-value pairs for meta tags
@@ -337,6 +344,40 @@ class Blog implements BlogContract
     public function withAuthor($author_data): BlogContract
     {
         $this->author_data = $author_data;
+
+        return $this;
+    }
+
+    /**
+     * The blog's timezone
+     * @return \DateTimeZone
+     */
+    public function getTimezone(): \DateTimeZone
+    {
+        if (!$this->timezone instanceof \DateTimeZone) {
+            $this->timezone = new \DateTimeZone(date_default_timezone_get());
+        }
+
+        return $this->timezone;
+    }
+
+    /**
+     * Move a Carbon time object into this blogs timezone
+     * @return Carbon
+     */
+    public function convertToBlogTimezone(Carbon $time): Carbon
+    {
+        return $time->copy()->tz($this->getTimezone());
+    }
+
+    /**
+     * Set timezone for this blog
+     * @param string|\DateTimeZone $timezone
+     * @return BlogContract
+     */
+    public function withTimezone($timezone): BlogContract
+    {
+        $this->timezone = new \DateTimeZone($timezone);
 
         return $this;
     }
