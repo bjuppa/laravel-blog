@@ -11,6 +11,7 @@ use Bjuppa\LaravelBlog\Support\ProvidesBladeViewNames;
 use Bjuppa\LaravelBlog\Support\ProvidesTranslationKeys;
 use Bjuppa\LaravelBlog\Support\QueriesEntryProvider;
 use Bjuppa\MetaTagBag\MetaTagBag;
+use Carbon\Carbon;
 use Illuminate\Support\Collection;
 
 class Blog implements BlogContract
@@ -358,6 +359,15 @@ class Blog implements BlogContract
         }
 
         return $this->timezone;
+    }
+
+    /**
+     * Move a Carbon time object into this blogs timezone
+     * @return Carbon
+     */
+    public function convertToBlogTimezone(Carbon $time): Carbon
+    {
+        return $time->copy()->tz($this->getTimezone());
     }
 
     /**
