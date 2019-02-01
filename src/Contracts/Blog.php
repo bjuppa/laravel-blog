@@ -151,6 +151,12 @@ interface Blog extends ProvidesBladeViewNames, ProvidesTranslationKeys, MetaTagP
     public function getAuthors(): Collection;
 
     /**
+     * The blog's timezone
+     * @return \DateTimeZone
+     */
+    public function getTimezone(): \DateTimeZone;
+
+    /**
      * Get the stylesheets used for this blog
      * @return Collection
      */

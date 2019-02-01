@@ -87,6 +87,12 @@ class Blog implements BlogContract
     protected $entry_page_title_suffix;
 
     /**
+     * The timezone for this blog
+     * @var \DateTimeZone
+     */
+    protected $timezone;
+
+    /**
      * Array of array of attribute-value pairs for meta tags
      * @var array
      */
@@ -337,6 +343,31 @@ class Blog implements BlogContract
     public function withAuthor($author_data): BlogContract
     {
         $this->author_data = $author_data;
+
+        return $this;
+    }
+
+    /**
+     * The blog's timezone
+     * @return \DateTimeZone
+     */
+    public function getTimezone(): \DateTimeZone
+    {
+        if (!$this->timezone instanceof \DateTimeZone) {
+            $this->timezone = new \DateTimeZone(date_default_timezone_get());
+        }
+
+        return $this->timezone;
+    }
+
+    /**
+     * Set timezone for this blog
+     * @param string|\DateTimeZone $timezone
+     * @return BlogContract
+     */
+    public function withTimezone($timezone): BlogContract
+    {
+        $this->timezone = new \DateTimeZone($timezone);
 
         return $this;
     }
