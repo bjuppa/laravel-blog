@@ -58,7 +58,7 @@ return [
          * Stylesheets may be run through mix() here in the config
          */
         'stylesheets' => ['css/app.css'],
-        //'timezone' => 'UTC' // For best results, use a named timezone like 'Europe/Stockholm'
+        //'timezone' => 'UTC', // For best results, use a named timezone like 'Europe/Stockholm'
         //'full_entries_in_feed' => false,
         //'latest_entries_limit' => 5,
         //'middleware' => [],
