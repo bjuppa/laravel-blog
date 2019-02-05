@@ -121,7 +121,8 @@ abstract class AbstractBlogEntry extends Eloquent implements BlogEntryContract
      */
     public function scopeOldestPublication($query)
     {
-        return $query->oldest(static::PUBLISH_AFTER)->orderBy($this->getKeyName());
+        return $query->oldest(static::PUBLISH_AFTER)
+            ->orderBy($this->getKeyName());
     }
 
     /**
@@ -131,7 +132,9 @@ abstract class AbstractBlogEntry extends Eloquent implements BlogEntryContract
      */
     public function scopeLatestPublication($query)
     {
-        return $query->latest(static::PUBLISH_AFTER)->orderByDesc($this->getKeyName());
+        return $query->orderByRaw(static::PUBLISH_AFTER . ' IS NOT NULL')
+            ->latest(static::PUBLISH_AFTER)
+            ->orderByDesc($this->getKeyName());
     }
 
     /**
