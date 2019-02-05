@@ -157,10 +157,11 @@ interface Blog extends ProvidesBladeViewNames, ProvidesTranslationKeys, MetaTagP
     public function getTimezone(): \DateTimeZone;
 
     /**
-     * Move a Carbon time object into this blogs timezone
-     * @return Carbon
+     * Move a Carbon time object into this blog's timezone
+     * @param Carbon|null
+     * @return Carbon|null
      */
-    public function convertToBlogTimezone(Carbon $time): Carbon;
+    public function convertToBlogTimezone(?Carbon $time): ?Carbon;
 
     /**
      * Get the stylesheets used for this blog

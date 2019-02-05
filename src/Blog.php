@@ -362,12 +362,13 @@ class Blog implements BlogContract
     }
 
     /**
-     * Move a Carbon time object into this blogs timezone
-     * @return Carbon
+     * Move a Carbon time object into this blog's timezone
+     * @param Carbon|null
+     * @return Carbon|null
      */
-    public function convertToBlogTimezone(Carbon $time): Carbon
+    public function convertToBlogTimezone(?Carbon $time): ?Carbon
     {
-        return $time->copy()->tz($this->getTimezone());
+        return $time ? $time->copy()->tz($this->getTimezone()) : null;
     }
 
     /**
