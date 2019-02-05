@@ -250,7 +250,7 @@ class BlogEntry extends AbstractBlogEntry
         return json_encode($this->meta_tags, JSON_PRETTY_PRINT);
     }
 
-    public function setJsonMetaTagsAttribute(string $value)
+    public function setJsonMetaTagsAttribute(?string $value)
     {
         $this->meta_tags = json_decode($value, true);
     }
