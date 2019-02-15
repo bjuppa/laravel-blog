@@ -1,10 +1,10 @@
 {
   "devDependencies": {
-    "kingdom-css": "^0.8.1",
+    "kingdom-css": "^0.9.0",
     "laravel-mix": "^4.0.0",
     "purify-css": "^1.2.5",
     "purifycss-webpack": "^0.7.0",
-    "sass": "^1.16.1",
+    "sass": "^1.17.0",
     "sass-loader": "7.*"
   },
   "scripts": {
