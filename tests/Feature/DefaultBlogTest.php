@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 
 class DefaultBlogTest extends IntegrationTest
 {
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
         $this->loadRegisteredMigrations();

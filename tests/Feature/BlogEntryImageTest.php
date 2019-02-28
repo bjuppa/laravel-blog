@@ -9,7 +9,7 @@ class BlogEntryImageTest extends IntegrationTest
 {
     protected $example_image_url = 'https://upload.wikimedia.org/wikipedia/commons/c/c4/PM5544_with_non-PAL_signals.png';
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
         $this->loadRegisteredMigrations();
