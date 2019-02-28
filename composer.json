@@ -26,7 +26,7 @@
   "require-dev": {
     "orchestra/testbench": "~3.6",
     "laravel/framework": ">=5.6.25",
-    "phpunit/phpunit": ">6.5",
+    "phpunit/phpunit": ">=7.5",
     "erusev/parsedown": "^1.7",
     "graham-campbell/markdown": "^10.0",
     "mockery/mockery": "^1.0",
