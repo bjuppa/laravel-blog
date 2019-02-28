@@ -8,7 +8,7 @@ use Bjuppa\MetaTagBag\MetaTagBag;
 
 class BlogEntryMetaTagsTest extends IntegrationTest
 {
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
         $this->loadRegisteredMigrations();

@@ -7,7 +7,7 @@ use Bjuppa\LaravelBlog\Tests\IntegrationTest;
 
 class BlogFeedConfigurationTest extends IntegrationTest
 {
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
         $this->loadRegisteredMigrations();

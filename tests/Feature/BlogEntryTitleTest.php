@@ -7,7 +7,7 @@ use Bjuppa\LaravelBlog\Tests\IntegrationTest;
 
 class BlogEntryTitleTest extends IntegrationTest
 {
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
         $this->loadRegisteredMigrations();

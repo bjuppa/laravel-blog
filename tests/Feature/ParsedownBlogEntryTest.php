@@ -18,8 +18,8 @@ class ParsedownBlogEntryTest extends IntegrationTest
 
         $html_string = $entry->getContent()->toHtml();
 
-        $this->assertContains('<h1>The Headline</h1>', $html_string);
-        $this->assertContains('<p>A <em>paragraph</em></p>', $html_string);
+        $this->assertStringContainsString('<h1>The Headline</h1>', $html_string);
+        $this->assertStringContainsString('<p>A <em>paragraph</em></p>', $html_string);
     }
 
     public function test_image_markdown_is_parsed()
@@ -29,7 +29,7 @@ class ParsedownBlogEntryTest extends IntegrationTest
 
         $html_string = $entry->getImage()->toHtml();
 
-        $this->assertContains('alt="Alt text"', $html_string);
-        $this->assertContains('title="Optional title"', $html_string);
+        $this->assertStringContainsString('alt="Alt text"', $html_string);
+        $this->assertStringContainsString('title="Optional title"', $html_string);
     }
 }
