@@ -2,6 +2,8 @@
 
 Run `composer test` from the project directory to start the default test suite.
 
+Run `composer report` to run tests with coverage reports.
+
 Logs created during test runs can be found in `vendor/orchestra/testbench-core/laravel/storage/logs/`
 
 If you want your own local configuration for phpunit,
