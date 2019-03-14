@@ -50,6 +50,7 @@
   },
   "scripts": {
     "test": "vendor/bin/phpunit",
+    "report": "@test --coverage-html build/coverage --coverage-text=build/coverage.txt",
     "phpcs": "vendor/bin/phpcs",
     "post-update-cmd": "@clearCompiledViews",
     "clearCompiledViews": "rm -f vendor/orchestra/testbench-core/laravel/storage/framework/views/*"
