@@ -14,7 +14,7 @@
       @include length-relative(grid-column-gap, 1/2);
 
       grid-template-columns:
-        1fr [content-start header-start main-start intro-start] $readable-line-length-max [intro-end main-end aside-start] fit-content($readable-line-length-min) [aside-end header-end content-end] 1fr;
+        minmax(0, 1fr) [content-start header-start main-start intro-start] $readable-line-length-max [intro-end main-end aside-start] fit-content($readable-line-length-min) [aside-end header-end content-end] minmax(0, 1fr);
 
       grid-template-rows:
         [main-start header-start intro-start]
