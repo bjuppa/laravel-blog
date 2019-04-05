@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "kingdom-css": "^0.12.0",
+    "kingdom-css": "^0.12.1",
     "laravel-mix": "^4.0.15",
     "postcss-custom-properties": "^8.0.10",
     "purify-css": "^1.2.5",
