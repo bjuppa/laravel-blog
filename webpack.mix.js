@@ -1,9 +1,11 @@
-let mix = require('laravel-mix');
+let mix = require("laravel-mix");
 
-mix.sass('resources/sass/style.scss', 'dist/blog.css')
-  .setPublicPath('dist')
+mix
+  .sass("resources/sass/style.scss", "dist/blog.css")
+  .setPublicPath("dist")
   .options({
     processCssUrls: false,
+    postCss: [require("postcss-custom-properties")]
   });
 
 // Full API
