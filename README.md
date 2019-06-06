@@ -176,7 +176,18 @@ Or you can use [Laravel Mix](https://laravel.com/docs/mix) to combine them into 
 
 If you're feeling adventurous, pull in the [Kingdom `npm` package](https://www.npmjs.com/package/kingdom-css)
 and use it in your build.
-You may draw inspiration from, or even include, [the SASS files from this package](https://github.com/bjuppa/laravel-blog/tree/master/resources/sass).
+You may draw inspiration from, or even include,
+[the SASS files from this package](https://github.com/bjuppa/laravel-blog/tree/master/resources/sass).
+
+## Custom entry providers and models
+
+It is possible to pull out any configured `Blog` from the `BlogRegistry` within the `boot()` method of any
+Laravel service provider, and manipulate it beyond what is possible using the configuration files alone.
+
+To use a custom `BlogEntryProvider` one can set it on an individual `Blog` using `withEntryProvider()`.
+
+To just use a custom entry model with a `Blog` one can use `getEntryProvider()->withEntryModel()`,
+as long as the entry provider is a `Bjuppa\LaravelBlog\Eloquent\BlogEntryProvider`.
 
 ## Background
 
