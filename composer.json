@@ -34,6 +34,7 @@
     "squizlabs/php_codesniffer": "^3.3"
   },
   "suggest": {
+    "bjuppa/laravel-blog-admin": "An optional admin interface for the Eloquent blogs configured in bjuppa/laravel-blog",
     "graham-campbell/markdown": "If you want another markdown parser than erusev/parsedown that is included with Laravel",
     "erusev/parsedown": "Enables use of markdown in blog posts (graham-campbell/markdown is the other alternative)"
   },
