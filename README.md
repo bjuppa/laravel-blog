@@ -2,9 +2,9 @@
 
 [![Build Status](https://travis-ci.org/bjuppa/laravel-blog.svg?branch=master)](https://travis-ci.org/bjuppa/laravel-blog)
 
-This package is a flexible blogging solution that you can add to your Laravel app.
+This package is a flexible blogging solution that you can add to your [Laravel](https://laravel.com) app.
 
-Is takes blog entries from *storage* and publishes them to
+Is takes blog entries from _storage_ and publishes them to
 [the Web](https://en.wikipedia.org/wiki/World_Wide_Web)
 in common formats for consumption by people and machines through URLs.
 
@@ -12,9 +12,10 @@ Each blog gets:
 
 - An index page listing the latest entries
 - A page for each blog entry displaying its full contents
-- An [Atom feed](https://en.wikipedia.org/wiki/Atom_(standard))
+- An [Atom feed](<https://en.wikipedia.org/wiki/Atom_(standard)>)
 
-The default storage is Eloquent, but you can write your own `BlogEntryProvider` should you wish.
+The default storage is [Eloquent](https://laravel.com/docs/eloquent),
+but you can write your own `BlogEntryProvider` should you wish.
 Have a look at the files in [`src/Contracts`](https://github.com/bjuppa/laravel-blog/tree/master/src/Contracts)
 for a quick overview of the entites this package handles.
 
@@ -41,50 +42,50 @@ requires a database connection supporting json-type columns.
 
 1. Require the package:
 
-    ```bash
-    composer require bjuppa/laravel-blog
-    ```
+   ```bash
+   composer require bjuppa/laravel-blog
+   ```
 
-    The package will automatically register itself.
+   The package will automatically register itself.
 
 2. Publish the configuration file:
 
-    ```bash
-    php artisan vendor:publish --provider="Bjuppa\LaravelBlog\BlogServiceProvider" --tag="blog-config"
-    ```
+   ```bash
+   php artisan vendor:publish --provider="Bjuppa\LaravelBlog\BlogServiceProvider" --tag="blog-config"
+   ```
 
 3. Edit the published configuration file `config/blog.php` to setup your desired blogs and their options.
 
-    Configurations may be changed later and more blogs can be added etc.
-    Just remember that permalinks and generated entry IDs should ideally be kept constant
-    after a blog has been published to avoid broken feeds and links for your audience.
+   Configurations may be changed later and more blogs can be added etc.
+   Just remember that permalinks and generated entry IDs should ideally be kept constant
+   after a blog has been published to avoid broken feeds and links for your audience.
 
-    The service provider handles registration of routes to all configured blogs.
-    You can check which routes and paths are generated using:
+   The service provider handles registration of routes to all configured blogs.
+   You can check which routes and paths are generated using:
 
-    ```bash
-    php artisan route:list
-    ```
+   ```bash
+   php artisan route:list
+   ```
 
 4. Run migrations to automatically set up any tables needed to use the configured blog entry providers:
 
-    ```bash
-    php artisan migrate
-    ```
+   ```bash
+   php artisan migrate
+   ```
 
 5. (optional) If you want to create a default blog entry in the database you can run the seeder:
 
-    ```bash
-    php artisan db:seed --class="Bjuppa\LaravelBlog\Database\Seeds\DefaultBlogEntrySeeder"
-    ```
+   ```bash
+   php artisan db:seed --class="Bjuppa\LaravelBlog\Database\Seeds\DefaultBlogEntrySeeder"
+   ```
 
 6. (optional) If you want to use the included styling, first publish the CSS to your public directory:
 
-    ```bash
-    php artisan vendor:publish --provider="Bjuppa\LaravelBlog\BlogServiceProvider" --tag="blog-styling"
-    ```
+   ```bash
+   php artisan vendor:publish --provider="Bjuppa\LaravelBlog\BlogServiceProvider" --tag="blog-styling"
+   ```
 
-    ...then edit `config/blog.php` and add `'css/blog.css'` to the `stylesheets` config.
+   ...then edit `config/blog.php` and add `'css/blog.css'` to the `stylesheets` config.
 
 Now visit your fresh blog in a browser!
 The default url path is `/blog` unless you've changed the config.
@@ -210,7 +211,7 @@ and hopefully provide something useful for other developers.
 
 - One ore more blogs must be configurable within the same Laravel app
 - Simple configuration after package install (ideally just running migrations if only one standard blog)
-- Publish [Atom feeds](https://en.wikipedia.org/wiki/Atom_(standard))
+- Publish [Atom feeds](<https://en.wikipedia.org/wiki/Atom_(standard)>)
 - Provide a default Eloquent model for posts, but make it user replaceable per blog
 - Configurable urls to avoid clashes with existing app routes
 - Flexible and replaceable default views
