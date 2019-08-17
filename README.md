@@ -99,33 +99,6 @@ The model used by default is
 
 There is [a separate package providing an admin interface](#admin-interface).
 
-## Blade templates
-
-The package keeps all its Blade views in [`resources/views`](https://github.com/bjuppa/laravel-blog/tree/master/resources/views)
-and running this command will publish all of them into `resources/views/vendor/blog` of your app so you can edit them:
-
-```bash
-php artisan vendor:publish --provider="Bjuppa\LaravelBlog\BlogServiceProvider" --tag="blog-views"
-```
-
-...however you probably only need to change a few bits in just some files.
-I'd recommend you to only commit the files you actually change to version control,
-and remove the rest of the published files that you have not changed from your app.
-Blade will fall back to using the package's views for any file not found in the `vendor` view directory.
-
-## Localization
-
-This package contains English translation strings that can be published to your app using this command:
-
-```bash
-php artisan vendor:publish --provider="Bjuppa\LaravelBlog\BlogServiceProvider" --tag="blog-translations"
-```
-
-If you're not adding translations for a new language,
-you probably don't need all the files and not even all the strings within a file.
-Consider overriding just the ones you want, as explained in the
-[Laravel documentation](https://laravel.com/docs/localization#overriding-package-language-files).
-
 ## Styling the frontend
 
 The included CSS file is built using [Kingdom CSS](https://bjuppa.github.io/kingdom/),
@@ -181,6 +154,33 @@ If you're feeling adventurous, pull in the [Kingdom `npm` package](https://www.n
 and use it in your build.
 You may draw inspiration from, or even include,
 [the SASS files from this package](https://github.com/bjuppa/laravel-blog/tree/master/resources/sass).
+
+## Blade templates
+
+The package keeps all its Blade views in [`resources/views`](https://github.com/bjuppa/laravel-blog/tree/master/resources/views)
+and running this command will publish all of them into `resources/views/vendor/blog` of your app so you can edit them:
+
+```bash
+php artisan vendor:publish --provider="Bjuppa\LaravelBlog\BlogServiceProvider" --tag="blog-views"
+```
+
+...however you probably only need to change a few bits in just some files.
+I'd recommend you to only commit the files you actually change to version control,
+and remove the rest of the published files that you have not changed from your app.
+Blade will fall back to using the package's views for any file not found in the `vendor` view directory.
+
+## Localization
+
+This package contains English translation strings that can be published to your app using this command:
+
+```bash
+php artisan vendor:publish --provider="Bjuppa\LaravelBlog\BlogServiceProvider" --tag="blog-translations"
+```
+
+If you're not adding translations for a new language,
+you probably don't need all the files and not even all the strings within a file.
+Consider overriding just the ones you want, as explained in the
+[Laravel documentation](https://laravel.com/docs/localization#overriding-package-language-files).
 
 ## Custom entry providers and models
 
