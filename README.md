@@ -22,11 +22,10 @@ for a quick overview of the entites this package handles.
 ## Admin interface
 
 This package **does not** provide any admin interface for editing blog entries.
-There are plans for a (near) future release of a
-[separate package](https://packagist.org/packages/bjuppa/laravel-blog-admin)
-that can optionally be installed to provide admin routes for editing blog contents.
+There's a [separate package](https://packagist.org/packages/bjuppa/laravel-blog-admin)
+that can _optionally_ be installed to provide admin routes for editing blog contents.
 
-For now, you'll need to create the mechanism to edit blog entries yourself.
+Another option is to create the mechanism to edit blog entries yourself, in your Laravel app.
 [Entries](https://github.com/bjuppa/laravel-blog/blob/master/src/Eloquent/BlogEntry.php)
 are represented by [Eloquent models](https://laravel.com/docs/eloquent) by default,
 so shouldn't be too hard for Laravel developers.
@@ -98,7 +97,7 @@ You can create your own admin interface, write straight to the database, or perh
 The model used by default is
 [`Bjuppa\LaravelBlog\Eloquent\BlogEntry`](https://github.com/bjuppa/laravel-blog/blob/master/src/Eloquent/BlogEntry.php).
 
-There are plans for a [separate package providing an admin interface](#admin-interface).
+There is [a separate package providing an admin interface](#admin-interface).
 
 ## Blade templates
 
