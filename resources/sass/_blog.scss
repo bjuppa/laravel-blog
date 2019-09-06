@@ -17,23 +17,12 @@
   }
 
   > :not(:last-child) {
+    @extend %unimposing;
     word-break: normal;
   }
 
-  text-decoration: none;
-  color: inherit;
-
-  small {
-    @extend %unimposing;
-  }
-
-  &:link > :last-child {
-    @include apply-color(link);
-    text-decoration: underline;
-  }
-
-  &:visited > :last-child {
-    @include apply-color(visited);
+  &:link {
+    text-decoration: none;
   }
 }
 
@@ -167,13 +156,13 @@
       position: static;
       // expand the pseudo-element to cover the entry
       &::before {
-          content: "";
-          position: absolute;
-          z-index: 0;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          left: 0;
+        content: "";
+        position: absolute;
+        z-index: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
       }
     }
   }

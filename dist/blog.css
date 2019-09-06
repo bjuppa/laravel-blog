@@ -1161,8 +1161,6 @@ legend {
   padding-left: calc(0.3333333333 * var(--spacing-base, 1.6875rem));
   padding-right: calc(0.3333333333 * 1.6875rem);
   padding-right: calc(0.3333333333 * var(--spacing-base, 1.6875rem));
-  text-decoration: none;
-  color: inherit;
 }
 .blog-entry-nav ul a > *, .blog-entry-short .blog-read-more-link > * {
   display: block;
@@ -1172,14 +1170,8 @@ legend {
 .blog-entry-nav ul a > :not(:last-child), .blog-entry-short .blog-read-more-link > :not(:last-child) {
   word-break: normal;
 }
-.blog-entry-nav ul a:link > :last-child, .blog-entry-short .blog-read-more-link:link > :last-child {
-  color: #160281;
-  color: var(--color-link, #160281);
-  text-decoration: underline;
-}
-.blog-entry-nav ul a:visited > :last-child, .blog-entry-short .blog-read-more-link:visited > :last-child {
-  color: #750281;
-  color: var(--color-visited, #750281);
+.blog-entry-nav ul a:link, .blog-entry-short .blog-read-more-link:link {
+  text-decoration: none;
 }
 
 .blog {
@@ -1870,7 +1862,7 @@ legend {
   color: var(--color-gray-800-text, #fdfdfd);
 }
 
-.color-gray-700, .links-color-gray-700 :link, .links-color-gray-700 :visited, .links-color-gray-700:link, .links-color-gray-700:visited, .blog header small, .blog-entry-short .blog-entry-footer, .blog-entry-short .blog-read-more-link small, .blog-entry-publication-info, .blog-entry-nav ul a small {
+.color-gray-700, .links-color-gray-700 :link, .links-color-gray-700 :visited, .links-color-gray-700:link, .links-color-gray-700:visited, .blog header small, .blog-entry-short .blog-entry-footer, .blog-entry-short .blog-read-more-link > :not(:last-child), .blog-entry-publication-info, .blog-entry-nav ul a > :not(:last-child) {
   color: #4b4e4d;
   color: var(--color-gray-700, #4b4e4d);
 }
