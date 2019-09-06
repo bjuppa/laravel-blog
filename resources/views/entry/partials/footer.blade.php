@@ -19,7 +19,7 @@
       @endif
       <time datetime="{{ $blog->convertToBlogTimezone($entry->getPublished())->toAtomString() }}" itemprop="datePublished">{{ $entry->getPublished()->diffForHumans() }}</time>
       in
-      <a href="{{ $blog->urlToIndex() }}" rel="index" itemprop="isPartOf" itemscope itemtype="http://schema.org/Blog">{{ $blog->getTitle() }}</a>
+      <a href="{{ $blog->urlToIndex() }}" rel="index" class="blog-title" itemprop="isPartOf" itemscope itemtype="http://schema.org/Blog">{{ $blog->getTitle() }}</a>
       by
       @includeFirst($blog->bladeViews('entry.partials.authors', $entry), ['authors' => $entry->getAuthors()->isEmpty() ? $blog->getAuthors() : $entry->getAuthors()])
     </div>
