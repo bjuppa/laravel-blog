@@ -7,7 +7,7 @@
 <ol class="blog-latest-entries-links" aria-label="{{ __($blog->transKey('titles.latest_entries')) }}">
   @foreach($blog->latestEntries() as $entry)
     <li>
-      <a href="{{ $blog->urlToEntry($entry) }}" class="blog-entry-link">{{ $entry->getTitle() }}</a>
+      <a href="{{ $blog->urlToEntry($entry) }}" class="blog-entry-link blog-entry-title">{{ $entry->getTitle() }}</a>
     </li>
   @endforeach
 </ol>
