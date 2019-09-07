@@ -24,6 +24,10 @@
   &:link {
     text-decoration: none;
   }
+
+  &:hover > :last-child {
+    text-decoration: underline;
+  }
 }
 
 .blog {
@@ -105,7 +109,13 @@
 }
 
 .blog-entry-link {
-  text-decoration: none;
+  &:link {
+    text-decoration: none;
+  }
+
+  &:link:hover {
+    text-decoration: underline;
+  }
 }
 
 .blog-entry-list {
@@ -261,8 +271,12 @@
     @extend .list-inline !optional;
   }
 
-  a {
+  :link {
     text-decoration: none;
+  }
+
+  :link:hover {
+    text-decoration: underline;
   }
 }
 
