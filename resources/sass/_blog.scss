@@ -104,6 +104,10 @@
   }
 }
 
+.blog-entry-link {
+  text-decoration: none;
+}
+
 .blog-entry-list {
   @extend %px-0;
   list-style: none;

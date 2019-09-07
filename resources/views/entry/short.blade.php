@@ -6,7 +6,7 @@
 ?>
 <article class="blog-entry-short" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting" @includeWhen($entry->getImageUrl(), $blog->bladeView('entry.partials.imageStyle'))>
   <header class="blog-entry-header">
-    <h2 class="blog-entry-title" itemprop="headline"><a href="{{ $blog->urlToEntry($entry) }}" itemprop="url">{{ $entry->getTitle() }}</a></h2>
+    <h2 class="blog-entry-title" itemprop="headline"><a href="{{ $blog->urlToEntry($entry) }}" class="blog-entry-link" itemprop="url">{{ $entry->getTitle() }}</a></h2>
   </header>
   <div class="blog-entry-summary">
     {{ $entry->getSummary() }}
