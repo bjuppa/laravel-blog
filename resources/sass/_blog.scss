@@ -261,9 +261,17 @@
     @extend .list-inline !optional;
   }
 
-  .share-link-prefix {
-    @extend .sr-only !optional;
+  a {
+    text-decoration: none;
   }
+}
+
+.share-link-prefix {
+  @extend .sr-only !optional;
+}
+
+.share-link-service {
+  @include apply-color(primary);
 }
 
 .blog-related-content {
