@@ -21,7 +21,8 @@
     word-break: normal;
   }
 
-  &:link {
+  // Increase specificity with the double link
+  &:link:link {
     text-decoration: none;
   }
 
@@ -108,7 +109,9 @@
   }
 }
 
-.blog-entry-link {
+.blog-entry-link,
+.blog-title,
+[rel="author"] {
   &:link {
     text-decoration: none;
   }

@@ -1170,7 +1170,7 @@ legend {
 .blog-entry-nav ul a > :not(:last-child), .blog-entry-short .blog-read-more-link > :not(:last-child) {
   word-break: normal;
 }
-.blog-entry-nav ul a:link, .blog-entry-short .blog-read-more-link:link {
+.blog-entry-nav ul a:link:link, .blog-entry-short .blog-read-more-link:link:link {
   text-decoration: none;
 }
 .blog-entry-nav ul a:hover > :last-child, .blog-entry-short .blog-read-more-link:hover > :last-child {
@@ -1292,10 +1292,14 @@ legend {
   color: #2A7F62;
   color: var(--color-primary, #2A7F62);
 }
-.blog-entry-link:link {
+.blog-entry-link:link,
+.blog-title:link,
+[rel=author]:link {
   text-decoration: none;
 }
-.blog-entry-link:link:hover {
+.blog-entry-link:link:hover,
+.blog-title:link:hover,
+[rel=author]:link:hover {
   text-decoration: underline;
 }
 
