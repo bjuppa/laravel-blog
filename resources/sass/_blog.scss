@@ -40,7 +40,8 @@
   > * {
     $width: $readable-line-length-min + $readable-line-length-max;
     @include apply-background-color(body);
-    max-width: 100%;
+    max-width: 99%;
+    max-width: calc(100% - #{spacing-base-var()});
     width: $width;
     min-width: auto;
 
@@ -49,46 +50,14 @@
 
     @include padding-relative;
 
-    > .full-bleed {
+    > .full-bleed,
+    > .start-margin-bleed,
+    > .end-margin-bleed {
       width: 100%;
       width: 100vw;
       max-width: none;
       margin-left: calc((100% - 100vw) / 2);
       margin-right: calc((100% - 100vw) / 2);
-    }
-
-    @mixin left-bleed {
-      /* left-bleed */
-      width: auto;
-      max-width: none;
-      margin-left: calc((100% - 100vw) / 2);
-      margin-right: auto;
-    }
-
-    @mixin right-bleed {
-      /* right-bleed */
-      width: auto;
-      max-width: none;
-      margin-right: calc((100% - 100vw) / 2);
-      margin-left: auto;
-    }
-
-    @include for-ltr {
-      > .start-margin-bleed {
-        @include left-bleed;
-      }
-      > .end-margin-bleed {
-        @include right-bleed;
-      }
-    }
-
-    @include for-rtl {
-      > .start-margin-bleed {
-        @include right-bleed;
-      }
-      > .end-margin-bleed {
-        @include left-bleed;
-      }
     }
 
     > .span-content {

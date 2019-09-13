@@ -8,6 +8,7 @@
   @supports(display: grid) {
     .blog-entry {
       width: 100%;
+      max-width: 100%;
       padding: 0;
       display: grid;
       grid-auto-flow: dense;
@@ -93,22 +94,12 @@
 
       > .start-margin-bleed {
         grid-column-start: 1;
+        @include bleed-reset;
       }
 
       > .end-margin-bleed {
         grid-column-end: -1;
-      }
-
-      @include for-ltr {
-        > .start-margin-bleed, > .end-margin-bleed {
-          @include bleed-reset;
-        }
-      }
-
-      @include for-rtl {
-        > .start-margin-bleed, > .end-margin-bleed {
-          @include bleed-reset;
-        }
+        @include bleed-reset;
       }
 
       > .span-content {
