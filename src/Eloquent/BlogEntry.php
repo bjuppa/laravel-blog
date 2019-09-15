@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Support\Collection;
 use Illuminate\Support\HtmlString;
+use Illuminate\Support\Str;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
@@ -183,7 +184,7 @@ class BlogEntry extends AbstractBlogEntry
             return null;
         }
 
-        if (starts_with($this->image, ['http://', 'https://', '//'])) {
+        if (Str::startsWith($this->image, ['http://', 'https://', '//'])) {
             return new HtmlString('<p><img src="' . e($this->image) . '" alt=""></p>');
         }
 
@@ -196,7 +197,7 @@ class BlogEntry extends AbstractBlogEntry
      */
     public function getImageUrl(): ?string
     {
-        if (starts_with($this->image, ['http://', 'https://', '//'])) {
+        if (Str::startsWith($this->image, ['http://', 'https://', '//'])) {
             return $this->image;
         }
 
@@ -242,7 +243,7 @@ class BlogEntry extends AbstractBlogEntry
      */
     public function getPageTitle(string $suffix = ''): string
     {
-        return str_finish($this->page_title ?? $this->getTitle(), $suffix);
+        return Str::finish($this->page_title ?? $this->getTitle(), $suffix);
     }
 
     public function getJsonMetaTagsAttribute()

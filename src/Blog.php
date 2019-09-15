@@ -13,6 +13,7 @@ use Bjuppa\LaravelBlog\Support\QueriesEntryProvider;
 use Bjuppa\MetaTagBag\MetaTagBag;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
 
 class Blog implements BlogContract
 {
@@ -160,7 +161,7 @@ class Blog implements BlogContract
     public function configure(iterable $configuration): BlogContract
     {
         foreach ($configuration as $config_name => $config_value) {
-            $method_name = 'with' . studly_case($config_name);
+            $method_name = 'with' . Str::studly($config_name);
             try {
                 $reflection = new \ReflectionMethod($this, $method_name);
                 if ($reflection->isPublic()) {
@@ -169,7 +170,7 @@ class Blog implements BlogContract
             } catch (\Exception $e) {
                 trigger_error(
                     "Configuration problem for Blog '" . $this->getId()
-                    . "', config key '${config_name}': " . $e->getMessage(),
+                        . "', config key '${config_name}': " . $e->getMessage(),
                     E_USER_WARNING
                 );
             }
@@ -507,8 +508,8 @@ class Blog implements BlogContract
     public function getEntryPageTitleSuffix(): string
     {
         return is_null($this->entry_page_title_suffix)
-        ? ' - ' . $this->getPageTitle()
-        : $this->entry_page_title_suffix;
+            ? ' - ' . $this->getPageTitle()
+            : $this->entry_page_title_suffix;
     }
 
     /**
