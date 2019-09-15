@@ -4,6 +4,7 @@ namespace Bjuppa\LaravelBlog\Support;
 
 use Bjuppa\LaravelBlog\Contracts\Author as AuthorContract;
 use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Support\Str;
 
 class Author implements AuthorContract
 {
@@ -31,7 +32,7 @@ class Author implements AuthorContract
 
         if (is_iterable($author_data)) {
             foreach ($author_data as $key => $value) {
-                if (in_array($key, ['url', 'uri', 'link'], true) or starts_with($value, ['http://', 'https://'])) {
+                if (in_array($key, ['url', 'uri', 'link'], true) or Str::startsWith($value, ['http://', 'https://'])) {
                     $this->url = $value;
                 } elseif (in_array($key, ['email', 'mail'], true) or strpos($value, '@')) {
                     $this->email = $value;
@@ -47,7 +48,7 @@ class Author implements AuthorContract
             return;
         }
 
-        $this->name = (string)$author_data;
+        $this->name = (string) $author_data;
     }
 
 
