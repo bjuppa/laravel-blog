@@ -95,7 +95,7 @@
   list-style: none;
 
   > * + * {
-    @extend %mt-1 !optional;
+    @extend %mt-2 !optional;
   }
 }
 
