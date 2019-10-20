@@ -88,16 +88,20 @@
   }
 
   > :first-child {
-    flex: 1 1 75%;
-    min-width: 50%;
+    flex: 1 1 auto;
+    min-width: $readable-line-length-min;
   }
 
   > :last-child {
-    flex: 1 2 25%;
-    margin-left: auto;
-    min-width: 10em;
+    flex: 1 1 0;
+    min-width: 10ch;
     max-width: 25%;
     max-width: max-content;
+    margin-left: auto;
+
+    align-self: flex-end;
+
+    @include space-inside;
   }
 }
 
@@ -116,8 +120,7 @@
 
 [type="application/atom+xml"]:link {
   &:after {
-    content: "(Atom)";
-    margin: 0 0.5ch;
+    content: " (Atom)";
   }
 }
 
