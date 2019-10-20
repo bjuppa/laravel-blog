@@ -4,4 +4,4 @@
  */
 ?>
 <a href="{{ $blog->urlToFeed() }}" type="application/atom+xml"
-  rel="alternate">{{ __($blog->transKey('feed.subscribe'), ['blog' => $blog->getTitle()]) }}</a>
+  rel="alternate">{{ __($blog->transKey('feed.atom_subscribe'), ['blog' => $blog->getTitle()]) }}</a>
