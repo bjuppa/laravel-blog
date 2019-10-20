@@ -78,6 +78,30 @@
   }
 }
 
+.blog-intro {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  p {
+    width: auto;
+  }
+
+  > :first-child {
+    flex: 1 1 75%;
+    min-width: 50%;
+  }
+
+  > :last-child {
+    flex: 1 1 25%;
+    margin-left: auto;
+    min-width: 10em;
+    max-width: 25%;
+    max-width: max-content;
+    //align-self: flex-end;
+  }
+}
+
 .blog-entry-link,
 .blog-title,
 [rel="author"] {
