@@ -98,19 +98,26 @@
     min-width: 10em;
     max-width: 25%;
     max-width: max-content;
-    //align-self: flex-end;
   }
 }
 
 .blog-entry-link,
 .blog-title,
-[rel="author"] {
+[rel="author"],
+[type="application/atom+xml"] {
   &:link {
     text-decoration: none;
   }
 
   &:link:hover {
     text-decoration: underline;
+  }
+}
+
+[type="application/atom+xml"]:link {
+  &:after {
+    content: "(Atom)";
+    margin: 0 0.5ch;
   }
 }
 
@@ -255,11 +262,6 @@
     flex-grow: 1;
     max-width: none;
   }
-}
-
-a[type="application/atom+xml"]:after {
-  content: "(Atom)";
-  margin: 0 .5ch;
 }
 
 .blog-social-sharing {
