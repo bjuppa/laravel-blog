@@ -93,7 +93,7 @@
   }
 
   > :last-child {
-    flex: 1 1 25%;
+    flex: 1 2 25%;
     margin-left: auto;
     min-width: 10em;
     max-width: 25%;
@@ -255,6 +255,11 @@
     flex-grow: 1;
     max-width: none;
   }
+}
+
+a[type="application/atom+xml"]:after {
+  content: "(Atom)";
+  margin: 0 .5ch;
 }
 
 .blog-social-sharing {

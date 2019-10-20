@@ -3,5 +3,6 @@
  * @var $blog \Bjuppa\LaravelBlog\Contracts\Blog
  */
 ?>
-<a href="{{ $blog->urlToFeed() }}" type="application/atom+xml"
-  rel="alternate">{{ __($blog->transKey('feed.atom_subscribe'), ['blog' => $blog->getTitle()]) }}</a>
+<a aria-label="{{ __($blog->transKey('feed.atom_subscribe'), ['blog' => $blog->getTitle()]) }}"
+  href="{{ $blog->urlToFeed() }}" type="application/atom+xml"
+  rel="alternate">{{__($blog->transKey('feed.subscribe'))}}</a>
