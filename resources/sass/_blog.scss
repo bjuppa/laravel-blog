@@ -132,6 +132,7 @@
 
   &::after {
     content: "(Atom)";
+    text-decoration: inherit;
   }
 
   &::before,
