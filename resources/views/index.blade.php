@@ -14,7 +14,7 @@
 @endpush
 
 @section('blog')
-  @includeFirst($blog->bladeViews('blog.header'))
+  @includeFirst($blog->bladeViews('blog.intro'))
   @if($entries->count())
     <ul class="blog-entry-list" aria-label="{{ __($blog->transKey('titles.latest_entries')) }}">
       @each($blog->bladeView('entry.listItem'), $entries, 'entry')

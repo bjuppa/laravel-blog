@@ -4,5 +4,8 @@
       <small>{{ __($blog->transKey('titles.latest_entries')) }}</small>
     </header>
     @includeFirst($blog->bladeViews('blog.latestEntriesLinks'))
+    <div class="blog-feed-subscriptions">
+      @includeFirst($blog->bladeViews('feed.subscriptionLink'))
+    </div>
   </aside>
 @show
