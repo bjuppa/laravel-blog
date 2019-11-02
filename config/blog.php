@@ -70,7 +70,7 @@ return [
         //'create_ability' => 'create blog entry',
         /*
          *   Example using a Laravel Policy for model Bjuppa\LaravelBlog\Eloquent\BlogEntry
-         *   https://laravel.com/docs/5.7/authorization#creating-policies
+         *   https://laravel.com/docs/authorization#creating-policies
          */
         //'edit_ability' => 'edit',
         //'preview_ability' => 'preview',
