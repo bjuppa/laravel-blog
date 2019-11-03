@@ -99,6 +99,24 @@ The model used by default is
 
 There is [a separate package providing an admin interface](#admin-interface).
 
+### User permissions
+
+All published entries are public to *view* by anyone at their url.
+
+To enable users to *preview* unpublished entries, first create a Laravel
+[gate](https://laravel.com/docs/authorization#gates) or
+[policy](https://laravel.com/docs/authorization#creating-policies) (for your entry model)
+and then configure the `preview_ability` in your `config/blog.php` to match.
+
+A gate defined in your `App\Providers\AuthServiceProvider` could look like this:
+
+```php
+Gate::define('preview blog entries', function ($user) {
+  // Check for your own admin user model, or some other criteria!
+  return $user instanceof \App\AdminUser;
+});
+```
+
 ## Styling the frontend
 
 The included CSS file is built using [Kingdom CSS](https://bjuppa.github.io/kingdom/),
@@ -211,7 +229,7 @@ and hopefully provide something useful for other developers.
 - One ore more blogs must be configurable within the same Laravel app
 - Simple configuration after package install (ideally just running migrations if only one standard blog)
 - Publish [Atom feeds](<https://en.wikipedia.org/wiki/Atom_(standard)>)
-- Provide a default Eloquent model for posts, but make it user replaceable per blog
+- Provide a default Eloquent model for posts/entries, but make it user replaceable per blog
 - Configurable urls to avoid clashes with existing app routes
 - Flexible and replaceable default views
 - Named routes for easy linking from the rest of the Laravel app
