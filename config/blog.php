@@ -54,6 +54,10 @@ return [
      */
 
     'blog_defaults' => [
+        /*
+         * If cast to string, stylesheets may be run through mix() here in the
+         * config: (string) mix('css/app.css')
+         */
         'stylesheets' => ['css/app.css'],
         //'timezone' => 'UTC', // For best results, use a named timezone like 'Europe/Stockholm'
         //'full_entries_in_feed' => false,
