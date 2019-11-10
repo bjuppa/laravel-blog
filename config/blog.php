@@ -17,7 +17,7 @@ return [
      */
 
     'blogs' => [
-        // This configures one blog
+        // This configures one blog with id `main`
         'main' => [
             'public_path' => 'blog',
             'title' => 'Main Blog',
@@ -55,7 +55,8 @@ return [
 
     'blog_defaults' => [
         /*
-         * Stylesheets may be run through mix() here in the config
+         * If cast to string, stylesheets may be run through mix() here in the
+         * config: (string) mix('css/app.css')
          */
         'stylesheets' => ['css/app.css'],
         //'timezone' => 'UTC', // For best results, use a named timezone like 'Europe/Stockholm'
@@ -64,13 +65,14 @@ return [
         //'middleware' => [],
 
         /*
-         * Example using a Laravel Gate https://laravel.com/docs/authorization#gates
+         * Example using a Laravel Gate
+         * https://laravel.com/docs/authorization#gates
          */
         //'main_ability' => 'manage blogs',
         //'create_ability' => 'create blog entry',
         /*
-         *   Example using a Laravel Policy for model Bjuppa\LaravelBlog\Eloquent\BlogEntry
-         *   https://laravel.com/docs/authorization#creating-policies
+         * Example using a Laravel Policy for model Bjuppa\LaravelBlog\Eloquent\BlogEntry
+         * https://laravel.com/docs/authorization#creating-policies
          */
         //'edit_ability' => 'edit',
         //'preview_ability' => 'preview',
@@ -87,8 +89,14 @@ return [
      */
 
     'default_meta_tags' => [
-        ['http-equiv' => 'X-UA-Compatible', 'content' => 'IE=edge'],
-        ['name' => 'viewport', 'content' => 'width=device-width, initial-scale=1'],
+        [
+            'http-equiv' => 'X-UA-Compatible',
+            'content' => 'IE=edge'
+        ],
+        [
+            'name' => 'viewport',
+            'content' => 'width=device-width, initial-scale=1'
+        ],
         //['property' => 'fb:app_id', 'content' => env('FACEBOOK_APP_ID')],
     ],
 
