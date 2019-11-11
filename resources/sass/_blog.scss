@@ -76,6 +76,10 @@
   header small {
     @extend %unimposing;
   }
+
+  hr {
+    clear: both;
+  }
 }
 
 .blog-intro {
