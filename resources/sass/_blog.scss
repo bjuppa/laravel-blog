@@ -58,12 +58,12 @@
     }
 
     > .float-right {
-      @extend %ml-1\/2 !optional;
+      @extend %ml-1\/3 !optional;
       @extend %float;
     }
 
     > .float-left {
-      @extend %mr-1\/2 !optional;
+      @extend %mr-1\/3 !optional;
       @extend %float;
     }
 
