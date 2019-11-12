@@ -50,6 +50,23 @@
 
     @include padding-relative;
 
+    @mixin float {
+      max-width: $readable-line-length-min / $width * 100%;
+      max-width: calc(
+        #{$width / 2} - (#{$width} - 100%) / #{$width / $readable-line-length-max}
+      );
+    }
+
+    > .float-right {
+      @include float;
+      @extend %ml-1\/2 !optional;
+    }
+
+    > .float-left {
+      @include float;
+      @extend %mr-1\/2 !optional;
+    }
+
     > .full-bleed,
     > .start-margin-bleed,
     > .end-margin-bleed {

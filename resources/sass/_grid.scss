@@ -4,8 +4,8 @@
 @import "~kingdom-css/src/modules/colors";
 @import "~kingdom-css/src/modules/converters";
 
-@media(min-width: length-px($readable-line-length-max + $readable-line-length-min)) {
-  @supports(display: grid) {
+@media (min-width: length-px($readable-line-length-max + $readable-line-length-min)) {
+  @supports (display: grid) {
     .blog-entry {
       width: 100%;
       max-width: 100%;
@@ -15,7 +15,11 @@
       @include length-relative(grid-column-gap, 1/2);
 
       grid-template-columns:
-        minmax(0, 1fr) [content-start header-start main-start intro-start] $readable-line-length-max [intro-end main-end aside-start] fit-content($readable-line-length-min) [aside-end header-end content-end] minmax(0, 1fr);
+        minmax(0, 1fr)
+        [content-start header-start main-start intro-start] $readable-line-length-max [intro-end main-end aside-start] fit-content(
+          $readable-line-length-min
+        )
+        [aside-end header-end content-end] minmax(0, 1fr);
 
       grid-template-rows:
         [main-start header-start intro-start]
@@ -76,8 +80,11 @@
         @include length-relative(margin-top margin-bottom, 1/2);
       }
 
-      > .children\:boxed {
-        @include padding-relative(left right, 0);
+      > .float-right,
+      > .float-left {
+        max-width: none;
+        margin-left: auto;
+        margin-right: auto;
       }
 
       @mixin bleed-reset {
@@ -105,6 +112,10 @@
       > .span-content {
         grid-column-start: content-start;
         grid-column-end: content-end;
+      }
+
+      > .children\:boxed {
+        @include padding-relative(left right, 0);
       }
     }
   }
