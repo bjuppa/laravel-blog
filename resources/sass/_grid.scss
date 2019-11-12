@@ -87,8 +87,7 @@
         margin-right: auto;
       }
 
-      @mixin bleed-reset {
-        /* bleed-reset */
+      %bleed-reset {
         width: 100%;
         margin-left: 0;
         margin-right: 0;
@@ -96,17 +95,17 @@
 
       > .full-bleed {
         grid-column: 1 / -1;
-        @include bleed-reset;
+        @extend %bleed-reset;
       }
 
       > .start-margin-bleed {
         grid-column-start: 1;
-        @include bleed-reset;
+        @extend %bleed-reset;
       }
 
       > .end-margin-bleed {
         grid-column-end: -1;
-        @include bleed-reset;
+        @extend %bleed-reset;
       }
 
       > .span-content {
