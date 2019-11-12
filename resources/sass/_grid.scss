@@ -84,6 +84,11 @@
         max-width: none;
         margin-left: auto;
         margin-right: auto;
+
+        // For specificity...
+        &:not(figure) {
+          max-width: none;
+        }
       }
 
       > .float-right,

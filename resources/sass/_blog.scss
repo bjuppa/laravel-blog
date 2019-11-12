@@ -51,10 +51,13 @@
     @include padding-relative;
 
     %float {
-      max-width: $readable-line-length-min / $width * 100%;
-      max-width: calc(
-        #{$width / 2} - (#{$width} - 100%) / #{$width / $readable-line-length-max}
-      );
+      max-width: 50%;
+      &:not(figure) {
+        max-width: $readable-line-length-min / $width * 100%;
+        max-width: calc(
+          #{$width / 2} - (#{$width} - 100%) / #{$width / $readable-line-length-max}
+        );
+      }
     }
 
     > .float-right {
