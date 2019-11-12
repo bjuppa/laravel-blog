@@ -80,11 +80,15 @@
         @include length-relative(margin-top margin-bottom, 1/2);
       }
 
-      > .float-right,
-      > .float-left {
+      %float-reset {
         max-width: none;
         margin-left: auto;
         margin-right: auto;
+      }
+
+      > .float-right,
+      > .float-left {
+        @extend %float-reset;
       }
 
       %bleed-reset {
