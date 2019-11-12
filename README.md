@@ -134,7 +134,8 @@ Blog authors may want to add some special styles to elements within their entrie
 Some classes are useful on elements that are on the first level within entry contents:
 
 - `.full-bleed` will expand the element to cover the entire width of the viewport - great for images.
-- `.start-margin-bleed` and `.end-margin-bleed` will make the element cover the left or right margin.
+- `.start-margin-bleed` and `.end-margin-bleed` will make the element extend into the left or right margin.
+- `.float-right` and `.float-left` will float the element in single-column view.
 - `.span-content` will make the element cover both columns when the screen is big enough for a two-column view -
   good for elements that require more space, but not the full width.
 - `.blog-related-content` will move the the element into the first available row of the second column -
@@ -146,7 +147,7 @@ Some classes are useful on elements that are on the first level within entry con
   If your related content needs to cover more than one row in the second column,
   you can add utility classes `.grid-row-span-2`, `.grid-row-span-3`, etc (from Kingdom).
 
-The included CSS contains many of Kingdom's utility classes, unfortunately they're too many to document here,
+The included CSS contains many of Kingdom's utility classes, they're too many to document here,
 please refer to the original SASS files:
 
 - [`_colors.scss`](https://github.com/bjuppa/kingdom/blob/master/src/utilities/_colors.scss)
