@@ -1,6 +1,7 @@
 @import "~kingdom-css/src/modules/layout";
 @import "~kingdom-css/src/modules/sizing";
 @import "~kingdom-css/src/modules/spacing";
+@import "~kingdom-css/src/modules/clearfix";
 @import "~kingdom-css/src/modules/colors";
 @import "~kingdom-css/src/modules/text-direction";
 
@@ -184,21 +185,6 @@
     @extend %mt-0 !optional;
   }
 
-  img {
-    @extend %h-5 !optional;
-  }
-
-  @include for-ltr {
-    img {
-      float: left;
-    }
-  }
-  @include for-rtl {
-    img {
-      float: right;
-    }
-  }
-
   .blog-entry-footer {
     clear: both;
     @extend %unimposing;
@@ -231,6 +217,40 @@
         left: 0;
       }
     }
+  }
+}
+
+.blog-entry-summary {
+  @include clearfix;
+
+  img {
+    @extend %h-5 !optional;
+    display: none;
+  }
+
+  > img:first-of-type {
+    display: block;
+  }
+
+  @include for-ltr {
+    img {
+      float: left;
+      clear: left;
+    }
+  }
+  @include for-rtl {
+    img {
+      float: right;
+      clear: right;
+    }
+  }
+
+  figure,
+  picture,
+  table,
+  object,
+  canvas {
+    display: none;
   }
 }
 
