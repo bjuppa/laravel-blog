@@ -60,11 +60,13 @@
     > .float-right {
       @extend %ml-1\/3 !optional;
       @extend %float;
+      clear: right;
     }
 
     > .float-left {
       @extend %mr-1\/3 !optional;
       @extend %float;
+      clear: left;
     }
 
     > .full-bleed,
