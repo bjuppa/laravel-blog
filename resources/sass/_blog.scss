@@ -50,6 +50,28 @@
 
     @include padding-relative;
 
+    %float {
+      max-width: 50%;
+      &:not(figure) {
+        max-width: $readable-line-length-min / $width * 100%;
+        max-width: calc(
+          #{$width / 2} - (#{$width} - 100%) / #{$width / $readable-line-length-max}
+        );
+      }
+    }
+
+    > .float-right {
+      @extend %ml-1\/3 !optional;
+      @extend %float;
+      clear: right;
+    }
+
+    > .float-left {
+      @extend %mr-1\/3 !optional;
+      @extend %float;
+      clear: left;
+    }
+
     > .full-bleed,
     > .start-margin-bleed,
     > .end-margin-bleed {
@@ -67,6 +89,7 @@
 
   p {
     @include width-readable;
+    @extend .hyphens-manual !optional;
   }
 
   h1 {
@@ -75,6 +98,10 @@
 
   header small {
     @extend %unimposing;
+  }
+
+  hr {
+    clear: both;
   }
 }
 
