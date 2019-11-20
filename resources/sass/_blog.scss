@@ -345,6 +345,11 @@
 
   ul {
     @extend .list-inline !optional;
+    @include size-text(1em, 2 * $spacing-base);
+
+    > * {
+      @extend %mx-1\/4;
+    }
   }
 
   :link {
