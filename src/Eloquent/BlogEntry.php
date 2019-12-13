@@ -220,7 +220,7 @@ class BlogEntry extends AbstractBlogEntry
             return new MarkdownString($this->summary);
         }
 
-        $paragraphs = SummaryExtractor::splitParagraphs($this->getContent())->split(3)->first();
+        $paragraphs = SummaryExtractor::extractParagraphs($this->getContent())->split(3)->first();
         $paragraphs = SummaryExtractor::takeWithCharacterThreshold($paragraphs);
         $paragraphs->push(SummaryExtractor::truncateParagraph($paragraphs->pop()));
 

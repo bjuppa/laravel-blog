@@ -12,13 +12,14 @@ class SummaryExtractor
      * @param string|Htmlable $html
      * @return Collection
      */
-    public static function splitParagraphs($html): Collection
+    public static function extractParagraphs($html): Collection
     {
         if ($html instanceof Htmlable) {
             $html = $html->toHtml();
         }
 
-        return collect(preg_split('/(?<=<\/p>)\s*(?=<p(?:>|\s))/', $html));
+        preg_match_all('/<p(\s[^>]+)?\s*>.*?<\/p>/s', $html, $matches);
+        return collect($matches[0]);
     }
 
     /**
