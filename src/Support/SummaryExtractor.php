@@ -8,6 +8,16 @@ use Illuminate\Support\Collection;
 class SummaryExtractor
 {
     /**
+     * Get a regular expression matching a specific html element
+     * @param string $tag Name of tag
+     * @return string
+     */
+    protected static function htmlTagPattern($tag)
+    {
+        return "/<$tag(\s+(\w+)\s*=\s*(\".*?\"|'.*?'|[^>\"'\s]+))*\s*>.*?<\/$tag>/s";
+    }
+
+    /**
      * Split html string into chunks of one paragraph tag each.
      * @param string|Htmlable $html
      * @return Collection
@@ -17,8 +27,7 @@ class SummaryExtractor
         if ($html instanceof Htmlable) {
             $html = $html->toHtml();
         }
-
-        preg_match_all('/<p(\s[^>]+)?\s*>.*?<\/p>/s', $html, $matches);
+        preg_match_all(self::htmlTagPattern('p'), $html, $matches);
         return collect($matches[0]);
     }
 

@@ -19,7 +19,17 @@ class SummaryExtractorTest extends UnitTest
         $this->assertEquals("<p>4</p>", $ps->get(3));
     }
 
-    public function test_children_paragraphs_are_extracted()
+    public function test_paragraph_extraction_is_unaffected_by_lg_in_attribute()
+    {
+        $html_string = "<p a='>'>1</p><p>2</p>";
+        $ps = SummaryExtractor::extractParagraphs($html_string);
+
+        $this->assertCount(2, $ps);
+        $this->assertEquals("<p a='>'>1</p>", $ps->get(0));
+        $this->assertEquals("<p>2</p>", $ps->get(1));
+    }
+
+    public function test_child_paragraphs_are_extracted()
     {
         $html_string = "<p>1</p><div><p>A</p><p>B</p></div><p>2</p>";
         $ps = SummaryExtractor::extractParagraphs($html_string);
