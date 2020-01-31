@@ -5,6 +5,8 @@
 ?>
 @extends($blog->bladeView('layouts.html'))
 
+@includeFirst($blog->bladeViews('custom.all-pages'))
+
 @section('body')
   <main class="blog" itemscope itemtype="http://schema.org/Blog">
     @yield('blog')

@@ -6,6 +6,8 @@
 ?>
 @extends($blog->bladeView('layouts.blog'), ['metaTags' => $blog])
 
+@includeFirst($blog->bladeViews('custom.index-page'))
+
 @section('title', $blog->getPageTitle())
 
 @push('head')
