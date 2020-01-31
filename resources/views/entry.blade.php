@@ -6,6 +6,8 @@
 ?>
 @extends($blog->bladeView('layouts.blog'), ['metaTags' => $blog->getDefaultMetaTags()->merge($entry)])
 
+@includeFirst($blog->bladeViews('custom.entry-page'))
+
 @section('title', $entry->getPageTitle($blog->getEntryPageTitleSuffix()))
 
 @push('head')
