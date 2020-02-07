@@ -21,22 +21,19 @@
     "illuminate/routing": "5.6.* || 5.7.* || 5.8.* || ^6.0",
     "illuminate/http": "5.6.* || 5.7.* || 5.8.* || ^6.0",
     "spatie/laravel-sluggable": "^2.1",
-    "bjuppa/metatagbag": "^1.0"
+    "bjuppa/metatagbag": "^1.0",
+    "league/commonmark": "^1.1"
   },
   "require-dev": {
     "orchestra/testbench": "~3.6 || ^4.0",
     "laravel/framework": ">=5.6.25",
     "phpunit/phpunit": ">=7.5",
-    "erusev/parsedown": "^1.7",
-    "graham-campbell/markdown": "^11.0",
     "mockery/mockery": "^1.0",
     "andrefigueira/blog-article-faker": "^1.0",
     "squizlabs/php_codesniffer": "^3.3"
   },
   "suggest": {
-    "bjuppa/laravel-blog-admin": "An optional admin interface for the Eloquent blogs configured in bjuppa/laravel-blog",
-    "graham-campbell/markdown": "If you want another markdown parser than erusev/parsedown that is included with Laravel",
-    "erusev/parsedown": "Enables use of markdown in blog posts (graham-campbell/markdown is the other alternative)"
+    "bjuppa/laravel-blog-admin": "An optional admin interface for the Eloquent blogs configured in bjuppa/laravel-blog"
   },
   "autoload": {
     "psr-4": {
