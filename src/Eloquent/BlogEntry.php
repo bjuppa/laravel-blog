@@ -3,7 +3,7 @@
 namespace Bjuppa\LaravelBlog\Eloquent;
 
 use Bjuppa\LaravelBlog\Support\Author;
-use Bjuppa\LaravelBlog\Support\MarkdownString;
+use Facades\Bjuppa\LaravelBlog\Contracts\MarkdownString;
 use Bjuppa\LaravelBlog\Support\SummaryExtractor;
 use Bjuppa\MetaTagBag\MetaTagBag;
 use Carbon\Carbon;
@@ -153,7 +153,7 @@ class BlogEntry extends AbstractBlogEntry
      */
     public function getContent(): Htmlable
     {
-        return new MarkdownString($this->content);
+        return MarkdownString::create($this->content);
     }
 
     /**
@@ -188,7 +188,7 @@ class BlogEntry extends AbstractBlogEntry
             return new HtmlString('<p><img src="' . e($this->image) . '" alt=""></p>');
         }
 
-        return new MarkdownString($this->image);
+        return MarkdownString::create($this->image);
     }
 
     /**
@@ -217,7 +217,7 @@ class BlogEntry extends AbstractBlogEntry
     public function getSummary(): Htmlable
     {
         if (!empty(trim($this->summary))) {
-            return new MarkdownString($this->summary);
+            return MarkdownString::create($this->summary);
         }
 
         $paragraphs = SummaryExtractor::extractParagraphs($this->getContent())->split(3)->first();

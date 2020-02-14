@@ -5,9 +5,11 @@ namespace Bjuppa\LaravelBlog;
 use Bjuppa\LaravelBlog\Contracts\Blog as BlogContract;
 use Bjuppa\LaravelBlog\Contracts\BlogEntryProvider as BlogEntryProviderContract;
 use Bjuppa\LaravelBlog\Contracts\BlogRegistry as BlogRegistryContract;
+use Bjuppa\LaravelBlog\Contracts\MarkdownString as MarkdownStringContract;
 use Bjuppa\LaravelBlog\Eloquent\AbstractBlogEntry as AbstractEloquentBlogEntry;
 use Bjuppa\LaravelBlog\Eloquent\BlogEntry as EloquentBlogEntry;
 use Bjuppa\LaravelBlog\Eloquent\BlogEntryProvider as EloquentBlogEntryProvider;
+use Bjuppa\LaravelBlog\Support\CommonMarkString;
 use Illuminate\Support\ServiceProvider;
 
 class BlogServiceProvider extends ServiceProvider
@@ -49,6 +51,11 @@ class BlogServiceProvider extends ServiceProvider
         $this->app->bind(
             AbstractEloquentBlogEntry::class,
             config('blog-eloquent.implementations.entry', EloquentBlogEntry::class)
+        );
+
+        $this->app->bindIf(
+            MarkdownStringContract::class,
+            CommonMarkString::class
         );
     }
 

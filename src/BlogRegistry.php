@@ -18,7 +18,6 @@ class BlogRegistry implements BlogRegistryContract
 
     /**
      * BlogRegistry constructor.
-     * @param Container $app
      */
     public function __construct()
     {
