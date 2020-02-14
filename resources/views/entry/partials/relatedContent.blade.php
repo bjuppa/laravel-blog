@@ -1,5 +1,5 @@
 @section('blogRelatedContent')
-  <aside class="blog-latest-entries">
+  <aside class="blog-latest-entries safari-reader-mode-hide-links">
     <header aria-hidden="true">
       <small>{{ __($blog->transKey('titles.latest_entries')) }}</small>
     </header>
