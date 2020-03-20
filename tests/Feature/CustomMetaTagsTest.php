@@ -24,7 +24,7 @@ class CustomMetaTagsTest extends IntegrationTest
     {
         $response = $this->get('blog');
 
-        $response->assertSee('<meta property="og:title" content="Custom opengraph title">');
-        $response->assertDontSee('<meta property="og:title" content="Main Blog">');
+        $response->assertSee('<meta property="og:title" content="Custom opengraph title">', false);
+        $response->assertDontSee('<meta property="og:title" content="Main Blog">', false);
     }
 }

@@ -27,6 +27,6 @@ class BlogEntryTitleTest extends IntegrationTest
 
         $response = $this->get('blog/the-first-post');
 
-        $response->assertSee('<title>Page title - The Blog</title>');
+        $response->assertSee('<title>Page title - The Blog</title>', false);
     }
 }

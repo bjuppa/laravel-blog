@@ -17,7 +17,6 @@ class BlogDescriptionConfigurationTest extends IntegrationTest
     {
         $response = $this->get('blog');
 
-        $response->assertSee('<meta name="description" content="This is a test blog.">');
+        $response->assertSee('<meta name="description" content="This is a test blog.">', false);
     }
-
 }

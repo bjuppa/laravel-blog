@@ -37,16 +37,16 @@ class DefaultBlogTest extends IntegrationTest
         $response = $this->get('blog');
 
         $response->assertStatus(200);
-        $response->assertSee('>Main Blog</h1>');
+        $response->assertSee('>Main Blog</h1>', false);
         $response->assertSee('The first post');
         $response->assertSee('the main content...');
-        $response->assertSee('type="application/atom+xml"');
+        $response->assertSee('type="application/atom+xml"', false);
         $response->assertSee('app.css');
-        $response->assertSee('<title>Main Blog</title>');
-        $response->assertSee('aria-label="Latest entries"');
-        $response->assertSee('<link rel="canonical" href="' . route('blog.main.index') . '"');
-        $response->assertSee('<meta http-equiv="X-UA-Compatible"');
-        $response->assertSee('<meta name="viewport"');
+        $response->assertSee('<title>Main Blog</title>', false);
+        $response->assertSee('aria-label="Latest entries"', false);
+        $response->assertSee('<link rel="canonical" href="' . route('blog.main.index') . '"', false);
+        $response->assertSee('<meta http-equiv="X-UA-Compatible"', false);
+        $response->assertSee('<meta name="viewport"', false);
     }
 
     public function test_entry_page()
@@ -54,18 +54,18 @@ class DefaultBlogTest extends IntegrationTest
         $response = $this->get('blog/the-first-post');
 
         $response->assertStatus(200);
-        $response->assertSee('>The first post</h1>');
+        $response->assertSee('>The first post</h1>', false);
         $response->assertSee('of the first post');
-        $response->assertSee('type="application/atom+xml"');
+        $response->assertSee('type="application/atom+xml"', false);
         $response->assertSee('app.css');
-        $response->assertSee('<title>The first post - Main Blog</title>');
-        $response->assertSee('aria-label="Latest entries"');
-        $response->assertSee('aria-label="Authors"');
-        $response->assertSee('<link rel="canonical" href="' . route('blog.main.entry', 'the-first-post') . '"');
-        $response->assertSee('<meta http-equiv="X-UA-Compatible"');
-        $response->assertSee('<meta name="viewport"');
-        $response->assertDontSee('rel="next"');
-        $response->assertDontSee('rel="prev"');
+        $response->assertSee('<title>The first post - Main Blog</title>', false);
+        $response->assertSee('aria-label="Latest entries"', false);
+        $response->assertSee('aria-label="Authors"', false);
+        $response->assertSee('<link rel="canonical" href="' . route('blog.main.entry', 'the-first-post') . '"', false);
+        $response->assertSee('<meta http-equiv="X-UA-Compatible"', false);
+        $response->assertSee('<meta name="viewport"', false);
+        $response->assertDontSee('rel="next"', false);
+        $response->assertDontSee('rel="prev"', false);
     }
 
     public function test_entry_not_found()
@@ -83,7 +83,7 @@ class DefaultBlogTest extends IntegrationTest
         $response->assertSee('Main Blog');
         $response->assertSee('The first post');
         $response->assertSee('the main content...');
-        $response->assertSee('</author>');
-        $response->assertSee('>Read more...');
+        $response->assertSee('</author>', false);
+        $response->assertSee('>Read more...', false);
     }
 }

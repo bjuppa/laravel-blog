@@ -18,7 +18,7 @@ class EntryFeedTest extends IntegrationTest
     {
         $response = $this->get('blog/feed');
 
-        $response->assertDontSee('<content');
+        $response->assertDontSee('<content', false);
     }
 
     public function test_entry_can_hide_full_content()
@@ -29,6 +29,6 @@ class EntryFeedTest extends IntegrationTest
 
         $response = $this->get('blog/feed');
 
-        $response->assertSee('<content');
+        $response->assertSee('<content', false);
     }
 }

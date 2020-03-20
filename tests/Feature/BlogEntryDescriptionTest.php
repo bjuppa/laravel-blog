@@ -22,6 +22,6 @@ class BlogEntryDescriptionTest extends IntegrationTest
 
         $response = $this->get('blog/the-first-post');
 
-        $response->assertSee('<meta name="description" content="This is a description.">');
+        $response->assertSee('<meta name="description" content="This is a description.">', false);
     }
 }

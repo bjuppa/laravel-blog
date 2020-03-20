@@ -38,7 +38,7 @@ class BlogEntryImageTest extends IntegrationTest
 
         $response = $this->get('blog/the-first-post');
 
-        $response->assertSee('src="' . $this->example_image_url . '" alt=""');
+        $response->assertSee('src="' . $this->example_image_url . '" alt=""', false);
     }
 
     public function test_image_markdown()
@@ -47,34 +47,35 @@ class BlogEntryImageTest extends IntegrationTest
 
         $response = $this->get('blog/the-first-post');
 
-        $response->assertSee('alt="Alt text"');
-        $response->assertSee('title="Optional title"');
+        $response->assertSee('alt="Alt text"', false);
+        $response->assertSee('title="Optional title"', false);
     }
 
-    public function test_css_image_url() {
+    public function test_css_image_url()
+    {
         $this->setEntryImage($this->example_image_url);
 
         $response = $this->get('blog');
 
-        $response->assertSee('style="--blog-entry-image: url(' . $this->example_image_url . ')"');
+        $response->assertSee('style="--blog-entry-image: url(' . $this->example_image_url . ')"', false);
     }
 
     public function test_css_image_markdown()
     {
-        $this->setEntryImage('![Alt text]('. $this->example_image_url . ' "Optional title")');
+        $this->setEntryImage('![Alt text](' . $this->example_image_url . ' "Optional title")');
 
         $response = $this->get('blog');
 
-        $response->assertSee('style="--blog-entry-image: url(' . $this->example_image_url . ')"');
+        $response->assertSee('style="--blog-entry-image: url(' . $this->example_image_url . ')"', false);
     }
 
     public function test_css_image_html()
     {
-        $this->setEntryImage('<img alt="Alt text" src="'. $this->example_image_url . '">');
+        $this->setEntryImage('<img alt="Alt text" src="' . $this->example_image_url . '">');
 
         $response = $this->get('blog');
 
-        $response->assertSee('style="--blog-entry-image: url(' . $this->example_image_url . ')"');
+        $response->assertSee('style="--blog-entry-image: url(' . $this->example_image_url . ')"', false);
     }
 
     public function test_image_meta_data()
@@ -83,8 +84,8 @@ class BlogEntryImageTest extends IntegrationTest
 
         $response = $this->get('blog/the-first-post');
 
-        $response->assertDontSee('<meta name="twitter:card" content="summary">');
-        $response->assertSee('<meta name="twitter:card" content="summary_large_image">');
-        $response->assertSee('<meta name="twitter:image" content="'. $this->example_image_url . '">');
+        $response->assertDontSee('<meta name="twitter:card" content="summary">', false);
+        $response->assertSee('<meta name="twitter:card" content="summary_large_image">', false);
+        $response->assertSee('<meta name="twitter:image" content="' . $this->example_image_url . '">', false);
     }
 }
