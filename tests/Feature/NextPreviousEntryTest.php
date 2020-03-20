@@ -29,17 +29,17 @@ class NextPreviousEntry extends IntegrationTest
 
         $response1 = $this->get('blog/the-first-post');
         $response1->assertOk();
-        $response1->assertDontSee('rel="prev"');
-        $response1->assertSee($entry2->slug . '" rel="next"');
+        $response1->assertDontSee('rel="prev"', false);
+        $response1->assertSee($entry2->slug . '" rel="next"', false);
 
         $response2 = $this->get('blog/the-second-post');
         $response2->assertOk();
-        $response2->assertSee($entry1->slug . '" rel="prev"');
-        $response2->assertSee($entry3->slug . '" rel="next"');
+        $response2->assertSee($entry1->slug . '" rel="prev"', false);
+        $response2->assertSee($entry3->slug . '" rel="next"', false);
 
         $response3 = $this->get('blog/the-third-post');
         $response3->assertOk();
-        $response3->assertSee($entry2->slug . '" rel="prev"');
-        $response3->assertDontSee('rel="next"');
+        $response3->assertSee($entry2->slug . '" rel="prev"', false);
+        $response3->assertDontSee('rel="next"', false);
     }
 }

@@ -38,7 +38,7 @@ class BlogEntryMetaTagsTest extends IntegrationTest
 
         $response = $this->get('blog/the-first-post');
 
-        $response->assertSee('<meta a="b">');
+        $response->assertSee('<meta a="b">', false);
     }
 
     public function test_invalidjson_meta_tags()
@@ -47,7 +47,7 @@ class BlogEntryMetaTagsTest extends IntegrationTest
 
         $response = $this->get('blog/the-first-post');
 
-        $response->assertDontSee('<meta a="b">');
+        $response->assertDontSee('<meta a="b">', false);
     }
 
     public function test_array_meta_tags()
@@ -56,7 +56,7 @@ class BlogEntryMetaTagsTest extends IntegrationTest
 
         $response = $this->get('blog/the-first-post');
 
-        $response->assertSee('<meta a="b">');
+        $response->assertSee('<meta a="b">', false);
     }
 
     public function test_bag_meta_tags()
@@ -65,6 +65,6 @@ class BlogEntryMetaTagsTest extends IntegrationTest
 
         $response = $this->get('blog/the-first-post');
 
-        $response->assertSee('<meta a="b">');
+        $response->assertSee('<meta a="b">', false);
     }
 }

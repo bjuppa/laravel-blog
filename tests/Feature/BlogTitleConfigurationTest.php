@@ -17,8 +17,7 @@ class BlogTitleConfigurationTest extends IntegrationTest
     {
         $response = $this->get('blog');
 
-        $response->assertSee('<title>A test title</title>');
-        $response->assertSee('>Main Blog</h1>');
+        $response->assertSee('<title>A test title</title>', false);
+        $response->assertSee('>Main Blog</h1>', false);
     }
-
 }
