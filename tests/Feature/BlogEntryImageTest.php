@@ -46,6 +46,22 @@ class BlogEntryImageTest extends IntegrationTest
         $this->assertEquals($this->example_image_url, $entry->getImageUrl());
     }
 
+    public function test_quoted_image_url_can_contain_spaces()
+    {
+        $url = 'http://test.com/this and that';
+        $entry = $this->setEntryImage('<img src="' . $url . '">');
+
+        $this->assertEquals($url, $entry->getImageUrl());
+    }
+
+    public function test_quoted_image_url_can_contain_parenthesis()
+    {
+        $url = 'http://test.com/this(and)that';
+        $entry = $this->setEntryImage('<img src="' . $url . '">');
+
+        $this->assertEquals($url, $entry->getImageUrl());
+    }
+
     public function test_image_url()
     {
         $this->setEntryImage($this->example_image_url);
