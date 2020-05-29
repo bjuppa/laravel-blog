@@ -21,6 +21,45 @@ class BlogEntryImageTest extends IntegrationTest
         $entry = BlogEntry::first();
         $entry->image = $content;
         $entry->save();
+
+        return $entry;
+    }
+
+    public function test_image_url_can_be_extracted_from_string()
+    {
+        $entry = $this->setEntryImage($this->example_image_url);
+
+        $this->assertEquals($this->example_image_url, $entry->getImageUrl());
+    }
+
+    public function test_image_url_can_be_extracted_from_markdown()
+    {
+        $entry = $this->setEntryImage('![Alt text](' . $this->example_image_url . ')');
+
+        $this->assertEquals($this->example_image_url, $entry->getImageUrl());
+    }
+
+    public function test_image_url_can_be_extracted_from_img_tag()
+    {
+        $entry = $this->setEntryImage('<img src="' . $this->example_image_url . '" alt="Example image">');
+
+        $this->assertEquals($this->example_image_url, $entry->getImageUrl());
+    }
+
+    public function test_quoted_image_url_can_contain_spaces()
+    {
+        $url = 'http://test.com/this and that';
+        $entry = $this->setEntryImage('<img src="' . $url . '">');
+
+        $this->assertEquals($url, $entry->getImageUrl());
+    }
+
+    public function test_quoted_image_url_can_contain_parenthesis()
+    {
+        $url = 'http://test.com/this(and)that';
+        $entry = $this->setEntryImage('<img src="' . $url . '">');
+
+        $this->assertEquals($url, $entry->getImageUrl());
     }
 
     public function test_image_url()

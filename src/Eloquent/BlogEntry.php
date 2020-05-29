@@ -202,8 +202,8 @@ class BlogEntry extends AbstractBlogEntry
         }
 
         // Match quotes or opening parenthesis with matching end
-        // Within that, capture http:// or https:// or just // and all following non-space characters into subpattern 3
-        if (preg_match('/((\'|")|\()((https?:)?\/\/\S+).*(?(2)\2|\))/s', $this->image, $matches)) {
+        // Within that, capture http:// or https:// or just // and all following non-ending characters into subpattern 3
+        if (preg_match('/((\'|")|\()((https?:)?\/\/.+?)(?(2)\2|(\)|\s))/', $this->image, $matches)) {
             return $matches[3];
         }
 
