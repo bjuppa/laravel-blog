@@ -102,6 +102,10 @@
         margin-right: 0;
       }
 
+      > .full-column-bleed {
+        @extend %bleed-reset;
+      }
+
       > .full-bleed {
         grid-column: 1 / -1;
         @extend %bleed-reset;

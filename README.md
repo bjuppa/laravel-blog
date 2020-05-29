@@ -159,6 +159,8 @@ entry contents:
 - `.span-content` will make the element cover both columns when the screen is
   big enough for a two-column view - good for elements that require more
   space, but not the full width.
+- `.full-column-bleed` is similar to `.full-bleed` but will not
+  cover multiple columns.
 - `.blog-related-content` will move the the element into the first available
   row of the second column - great for `<aside>` elements and other
   content that is related to the entry, but doesn't need to
