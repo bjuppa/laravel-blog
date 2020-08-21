@@ -42,13 +42,12 @@
     $width: $readable-line-length-min + $readable-line-length-max;
     @include apply-background-color(body);
     max-width: 99%;
+    max-width: calc(100% - #{spacing-base-var()});
     max-width: calc(
       100% -
-        (
-          max(
-            #{spacing-base-var()},
-            2 * max(env(safe-area-inset-left), env(safe-area-inset-right))
-          )
+        max(
+          #{spacing-base-var()},
+          2 * max(env(safe-area-inset-left), env(safe-area-inset-right))
         )
     );
     width: $width;
