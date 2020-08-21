@@ -1,12 +1,12 @@
 {
   "devDependencies": {
     "kingdom-css": "^0.13.0",
-    "laravel-mix": "^4.1.4",
-    "postcss-custom-properties": "^9.0.2",
+    "laravel-mix": "^5.0.1",
+    "postcss-custom-properties": "^9.1.1",
     "purify-css": "^1.2.5",
     "purifycss-webpack": "^0.7.0",
-    "sass": "^1.23.3",
-    "sass-loader": "^7.3.1"
+    "sass": "^1.26.10",
+    "sass-loader": "^8.0.2"
   },
   "scripts": {
     "dev": "NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
