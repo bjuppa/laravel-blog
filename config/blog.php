@@ -95,7 +95,7 @@ return [
         ],
         [
             'name' => 'viewport',
-            'content' => 'width=device-width, initial-scale=1'
+            'content' => 'width=device-width, initial-scale=1, viewport-fit=cover'
         ],
         //['property' => 'fb:app_id', 'content' => env('FACEBOOK_APP_ID')],
     ],
