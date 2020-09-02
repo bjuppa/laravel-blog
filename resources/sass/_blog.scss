@@ -209,7 +209,6 @@
   // elevate the links up
   a {
     position: relative;
-    z-index: 1;
   }
 
   .blog-entry-title {
@@ -219,7 +218,6 @@
       &::before {
         content: "";
         position: absolute;
-        z-index: 0;
         top: 0;
         right: 0;
         bottom: 0;
