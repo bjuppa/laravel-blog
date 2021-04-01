@@ -16,7 +16,7 @@ matrix:
       env: LARAVEL='6.*'
     - php: 7.4
       env: LARAVEL='7.*'
-    - php: 7.4
+    - php: 8
       env: LARAVEL='8.*'
   fast_finish: true
 
