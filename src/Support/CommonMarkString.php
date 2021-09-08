@@ -38,13 +38,11 @@ class CommonMarkString implements MarkdownString
      */
     protected static function parse($markdown): string
     {
-        $environment = Environment::createCommonMarkEnvironment();
-
         $converter = new CommonMarkConverter([
             'allow_unsafe_links' => false,
-        ], $environment);
+        ]);
 
-        return $converter->convertToHtml($markdown);
+        return (string) $converter->convertToHtml($markdown);
     }
 
     /**
