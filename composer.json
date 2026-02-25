@@ -53,6 +53,11 @@
     "post-update-cmd": "@clearCompiledViews",
     "clearCompiledViews": "rm -f vendor/orchestra/testbench-core/laravel/storage/framework/views/*"
   },
+  "config": {
+    "audit": {
+      "block-insecure": false
+    }
+  },
   "extra": {
     "laravel": {
       "providers": [
