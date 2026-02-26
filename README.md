@@ -1,7 +1,5 @@
 # laravel-blog
 
-[![Build Status](https://travis-ci.com/bjuppa/laravel-blog.svg?branch=master)](https://travis-ci.com/bjuppa/laravel-blog)
-
 This package is a flexible blogging solution that you can add to your
 [Laravel](https://laravel.com) app.
 
