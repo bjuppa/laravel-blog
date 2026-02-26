@@ -35,7 +35,7 @@ by default, so shouldn't be too hard for Laravel developers.
 
 ## Requirements
 
-You need at least **Laravel 5.6.8** to use this package.
+You need at least **Laravel 7** to use this package.
 The included
 [entry model](https://github.com/bjuppa/laravel-blog/blob/master/src/Eloquent/BlogEntry.php)
 and
