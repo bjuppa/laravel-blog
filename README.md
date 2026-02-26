@@ -14,7 +14,7 @@ Each blog gets:
 - An [Atom feed](<https://en.wikipedia.org/wiki/Atom_(standard)>)
 
 The default storage is [Eloquent](https://laravel.com/docs/eloquent),
-but you can write your own `BlogEntryProvider` should you wish.
+but you may create your own `BlogEntryProvider` should you wish.
 Have a look at the files in
 [`src/Contracts`](https://github.com/bjuppa/laravel-blog/tree/master/src/Contracts)
 for a quick overview of the entites this package handles.
