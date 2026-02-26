@@ -1,7 +1,5 @@
 # laravel-blog
 
-[![Build Status](https://travis-ci.com/bjuppa/laravel-blog.svg?branch=master)](https://travis-ci.com/bjuppa/laravel-blog)
-
 This package is a flexible blogging solution that you can add to your
 [Laravel](https://laravel.com) app.
 
@@ -16,7 +14,7 @@ Each blog gets:
 - An [Atom feed](<https://en.wikipedia.org/wiki/Atom_(standard)>)
 
 The default storage is [Eloquent](https://laravel.com/docs/eloquent),
-but you can write your own `BlogEntryProvider` should you wish.
+but you may create your own `BlogEntryProvider` should you wish.
 Have a look at the files in
 [`src/Contracts`](https://github.com/bjuppa/laravel-blog/tree/master/src/Contracts)
 for a quick overview of the entites this package handles.
@@ -37,7 +35,7 @@ by default, so shouldn't be too hard for Laravel developers.
 
 ## Requirements
 
-You need at least **Laravel 5.6.8** to use this package.
+You need at least **Laravel 7** to use this package.
 The included
 [entry model](https://github.com/bjuppa/laravel-blog/blob/master/src/Eloquent/BlogEntry.php)
 and
@@ -197,12 +195,6 @@ You can add a list of files so you can combine this package's CSS file with an
 additional CSS file containing your own styles.
 Or you can use [Laravel Mix](https://laravel.com/docs/mix)
 to combine them into a single file.
-
-If you're feeling adventurous, pull in the
-[Kingdom `npm` package](https://www.npmjs.com/package/kingdom-css)
-and use it in your build.
-You may draw inspiration from, or even include,
-[the SASS files from this package](https://github.com/bjuppa/laravel-blog/tree/master/resources/sass).
 
 ## Blade templates
 
