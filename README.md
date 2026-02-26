@@ -196,12 +196,6 @@ additional CSS file containing your own styles.
 Or you can use [Laravel Mix](https://laravel.com/docs/mix)
 to combine them into a single file.
 
-If you're feeling adventurous, pull in the
-[Kingdom `npm` package](https://www.npmjs.com/package/kingdom-css)
-and use it in your build.
-You may draw inspiration from, or even include,
-[the SASS files from this package](https://github.com/bjuppa/laravel-blog/tree/master/resources/sass).
-
 ## Blade templates
 
 The package keeps all its Blade views in
