@@ -10,7 +10,11 @@ jobs:
       matrix:
         include:
           - php: '8.2'
-            laravel: '9.*'
+            laravel: '10.*'
+          - php: '8.3'
+            laravel: '11.*'
+          - php: '8.4'
+            laravel: '12.*'
       fail-fast: true
 
     name: PHP ${{ matrix.php }} / Laravel ${{ matrix.laravel }}
