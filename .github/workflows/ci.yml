@@ -9,10 +9,6 @@ jobs:
     strategy:
       matrix:
         include:
-          - php: '8.0'
-            laravel: '9.*'
-          - php: '8.1'
-            laravel: '9.*'
           - php: '8.2'
             laravel: '9.*'
       fail-fast: true
