@@ -5,7 +5,7 @@ namespace Bjuppa\LaravelBlog\Tests\Feature;
 use Bjuppa\LaravelBlog\Eloquent\BlogEntry;
 use Bjuppa\LaravelBlog\Tests\IntegrationTest;
 
-class NextPreviousEntry extends IntegrationTest
+class NextPreviousEntryTest extends IntegrationTest
 {
     public function setUp(): void
     {

@@ -37,7 +37,7 @@ class Author implements AuthorContract
                 } elseif (in_array($key, ['email', 'mail'], true) or strpos($value, '@')) {
                     $this->email = $value;
                 } else {
-                    $name_parts = explode(' ', $this->name);
+                    $name_parts = explode(' ', $this->name ?? '');
                     $name_parts[] = trim($value);
                     $this->name = implode(' ', array_filter($name_parts));
                 }
