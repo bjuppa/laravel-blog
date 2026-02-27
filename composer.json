@@ -26,7 +26,7 @@
   },
   "require-dev": {
     "orchestra/testbench": "^8.0 || ^9.0 || ^10.0",
-    "laravel/framework": "^10.0",
+    "laravel/framework": "^10.0 || ^11.0 || ^12.0",
     "phpunit/phpunit": ">=10.5.63",
     "mockery/mockery": "^1.6.12",
     "squizlabs/php_codesniffer": "^4.0.1",
