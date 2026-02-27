@@ -21,7 +21,7 @@
     "illuminate/routing": "^9",
     "illuminate/http": "^9",
     "spatie/laravel-sluggable": "^3.0",
-    "bjuppa/metatagbag": "^1.0",
+    "bjuppa/metatagbag": "^1.0 || ^2.0",
     "league/commonmark": "^1.3 || ^2.0"
   },
   "require-dev": {
