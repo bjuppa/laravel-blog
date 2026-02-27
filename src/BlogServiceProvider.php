@@ -151,7 +151,7 @@ class BlogServiceProvider extends ServiceProvider
         ], 'blog-views');
 
         $this->publishes([
-            __DIR__ . '/../resources/lang' => resource_path('lang/vendor/' . config('blog.trans_namespace')),
+            __DIR__ . '/../resources/lang' => lang_path('vendor/' . config('blog.trans_namespace')),
         ], 'blog-translations');
 
         $this->publishes([
