@@ -66,18 +66,12 @@ class BlogEntry extends AbstractBlogEntry
     ];
 
     /**
-     * The attributes that should be mutated to dates.
-     *
-     * @var array
-     */
-    protected $dates = ['publish_after'];
-
-    /**
      * The attributes that should be cast to native types.
      *
      * @var array
      */
     protected $casts = [
+        'publish_after' => 'datetime',
         'meta_tags' => 'array',
     ];
 
